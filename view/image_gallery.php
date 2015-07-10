@@ -41,8 +41,7 @@
 <div class="content">
     <span><a href="<?php echo $this->baseUrl . 'dashboard.php'; ?>">Go Back</a></span>
 
-    <div id="img-gallery"
-    ">
+    <div id="img-gallery">
     <?php
     $j = 1;
     $i = 0;

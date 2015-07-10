@@ -62,7 +62,7 @@
                 var resp = jQuery.parseJSON(data);
                 $('#msg').html(resp.msg);
                 if(resp.loginStatus){
-                    window.location.href = 'dashboard.php?r=index';
+                    window.location.href = 'dashboard'+phpSuffix+'?r=index';
                 }                
             }
         });
