@@ -10,7 +10,7 @@ class WhatsAppAPIController {
     public $username = "8801977974819";
     public $nickname = "userpasta";
     public $password = "gU4gJ6TgGZZNgxlJtElf4UM5Lcw";
-    public $debug    = FALSE;
+    public $debug    = TRUE;
     public $w        = NULL;
     public $target   = NULL; // The number of the person you are sending the message
     public $message  = NULL;
@@ -45,13 +45,14 @@ class WhatsAppAPIController {
 
     function saveImage($imgUrl, $path = "upload/img") {
         if (!file_exists($path)) {
-            mkdir($path, 0755, TRUE);
+            mkdir($path, 0777, TRUE);
         }
 
         $imageType = str_replace('image/', '', getimagesize($imgUrl)["mime"]);
         $imageType = ($imageType == 'jpeg') ? 'jpg' : $imageType;
-        if (file_put_contents($path . '/' . md5(time()) . '.' . $imageType, file_get_contents($imgUrl))) {
-            return TRUE;
+        $imageName = md5(time()) . '.' . $imageType;
+        if (file_put_contents($path . '/' . $imageName, file_get_contents($imgUrl))) {
+            return $imageName;
         }
         return FALSE;
     }
