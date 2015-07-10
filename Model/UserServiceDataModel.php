@@ -1,4 +1,5 @@
 <?php
+require_once 'EzzipixModel.php';
 
 class UserServiceData extends EzzipixModel {
     function __construct() {
