@@ -41,7 +41,6 @@ class EzzipixModel {
         $str1 .= ") ";
         $str2 .= ")";
         $query = $str1 . $str2;
-        echo $query;
         mysql_query($query);
         return mysql_insert_id($this->con);
     }
