@@ -63,6 +63,10 @@ include_once 'head.php';
                 </td>
             </tr>
         <?php } ?>
+        <tr>
+            <td></td>
+            <td><a href="<?php echo $this->baseUrl.'media.php?r=all'; ?>">Image Gallery</a></td>
+        </tr>
     </table>
 </div>
 </body>
