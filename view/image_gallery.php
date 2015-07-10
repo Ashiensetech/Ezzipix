@@ -24,30 +24,32 @@
     .error {
         color: #FF0000;
     }
+
+    #img-gallery {
+        width: 100%;
+    }
+    #img-gallery img{
+        width: 31%;
+        float: left;
+        border: 1px solid #fff;
+        padding: 4px;
+        margin: 0 5px 10px 5px;
+        box-shadow: 0px 0px 3px #000;
+    }
 </style>
 <body>
 <div class="content">
     <span><a href="<?php echo $this->baseUrl . 'dashboard.php'; ?>">Go Back</a></span>
-    <table>
-        <tr>
-            <?php
-                $j=1;
-                $i=0;
-                foreach ($imgGallery as $img){
-            ?>
-                <?php echo ($i==0)?"<tr>":""; ?>
-                <?php echo ($j>=3)?"<tr>":""; ?>
-                    <td>
-                        <img style="max-width:350px; max-height: 400px; min-width=100px; min-height=100px;" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" />
-                    </td>
-                <?php echo ($j++>=3)?"</tr>":""; ?>
-                <?php $j=($j>3)?0:$j+1; ?>
-                <?php echo ($i++==0)?"</tr>":""; ?>
-            <?php } ?>
 
-        </tr>
-
-    </table>
+    <div id="img-gallery"
+    ">
+    <?php
+    $j = 1;
+    $i = 0;
+    foreach ($imgGallery as $img) { ?>
+        <img style="" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>"/>
+    <?php } ?>
+</div>
 
 </div>
 </body>

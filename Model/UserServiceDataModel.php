@@ -19,7 +19,8 @@ class UserServiceData extends EzzipixModel {
                   . " FROM `$this->tableName`"
                   . " INNER join user_service on user_service.id = $this->tableName.user_service_id "
                   . " WHERE "
-                  . " user_service.u_id = " . $u_id;
+                  . " user_service.u_id = " . $u_id
+                  . " ORDER BY id DESC ";
         $result = mysql_query($query);
 
         return $this->getArrayData($result);
