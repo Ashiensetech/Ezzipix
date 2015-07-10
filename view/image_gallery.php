@@ -1,30 +1,35 @@
 <?php require_once 'head.php' ?>
 <style>
-    body{
+    body {
         margin: 10px auto 0;
         width: 980px;
     }
-    .content{
+
+    .content {
         text-align: center;
     }
-    .content table , td{
+
+    .content table, td {
         border: 1px solid #000000;
     }
-    .content td{
+
+    .content td {
         padding: 2px 5px;
     }
-    .form{
+
+    .form {
         width: 100%;
     }
-    .error{
+
+    .error {
         color: #FF0000;
     }
 </style>
-    <body>
-    <div class="content">
-        <span><a href="<?php echo $this->baseUrl.'dashboard.php';?>">Go Back</a></span>
-        <table>
-            <?php for($i=0;$i<10;$i++){ ?>
+<body>
+<div class="content">
+    <span><a href="<?php echo $this->baseUrl . 'dashboard.php'; ?>">Go Back</a></span>
+    <table>
+        <?php /*for($i=0;$i<10;$i++){ ?>
                 <tr>
                     <?php for($j=0;$i<10 && $j<3;$j++){ ?>
                         <td>
@@ -33,8 +38,14 @@
                     <?php } ?>
 
                 </tr>
-            <?php } ?>
-        </table>
-    </div>
-    </body>
+            <?php }*/ ?>
+    </table>
+    <?php
+    echo "<pre/>";
+    foreach ($imgGallery as $img) {
+        ?><div id="img-gallery" class="img-gallery"><img src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>"/></div><?php
+    }
+    ?>
+</div>
+</body>
 </html>

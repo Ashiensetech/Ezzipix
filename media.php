@@ -12,10 +12,11 @@ class MediaController extends EzzipixController {
         require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
         require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
 
-        $API = new WhatsAppAPIController();
-        $data  = $API->getMessages();
+        $API  = new WhatsAppAPIController();
+        $API->pullMessage();
+        $data = $API->getMessages();
 
-        //echo '<meta http-equiv="refresh" content="3">';
+        echo '<meta http-equiv="refresh" content="3">';
 
         foreach ($data as $message) {
             $messageFrom = $message->getAttributes();
@@ -55,11 +56,19 @@ class MediaController extends EzzipixController {
         }
     }
 
+    function showAllImage() {
+        require_once 'Model/UserServiceDataModel.php';
+        $userServiceData = new UserServiceData();
+
+        $this->pageData['imgGallery'] = $userServiceData->getAllMediaFileByUid($this->userInfo['uId']);
+        $this->loadView('image_gallery', $this->pageData);
+    }
+
     function process() {
         $method = (isset($_GET['r'])) ? $_GET['r'] : "";
         switch ($method) {
-            case 'logout';
-                $this->logout();
+            case 'all';
+                $this->showAllImage();
                 break;
             default;
                 $this->index();
