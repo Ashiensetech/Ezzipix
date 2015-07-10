@@ -26,14 +26,12 @@
     }
 </style>
 <body>
-<div class = "content">
-
-
-    <table align = "center">
+<div class="content">
+    <table align="center">
         <th><p>Welcome to Ezzipix</p></th>
         <tr>
-            <td><a href = 'login.php'>Login</a></td>
-            <td><a href = 'signup.php'>Sign up</a></td>
+            <td><a href='login.php'>Login</a></td>
+            <td><a href='signup.php'>Sign up</a></td>
         </tr>
     </table>
 </div>
