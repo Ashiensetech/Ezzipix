@@ -17,6 +17,9 @@ class EzzipixModel {
     public function getArrayData($result) {
 
         $respData = new ArrayObject();
+        if($result==false){
+            return $respData;
+        }
         while ($temp = mysql_fetch_assoc($result)) {
             $respData->append($temp);
         }

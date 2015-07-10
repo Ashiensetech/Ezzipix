@@ -120,7 +120,7 @@
                 $('#msg').html(resp.msg);
                 $('#msg').delay(3000).fadeOut(500,function(){
                     if(resp.regStatus){
-                        window.location.href = BaseUrl+'login.php';
+                        window.location.href = BaseUrl+'login'+phpSuffix;
                     } 
                 });
                                

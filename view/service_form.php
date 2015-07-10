@@ -130,7 +130,7 @@ include_once 'head.php';
             success: function (data) {
                 var data = JSON.parse(data);
                 if (data.status) {
-                    window.location.href = 'dashboard.php?r=index';
+                    window.location.href = 'dashboard'+phpSuffix+'?r=index';
                 }
 
                 $("#msg").html(data.message);

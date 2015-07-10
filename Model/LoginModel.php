@@ -19,9 +19,11 @@ class Login extends  EzzipixModel{
         $email = mysql_real_escape_string(trim($email));
 
         $query = "SELECT * FROM `$this->tableName` WHERE EMAIL = '$email' limit 1";
+
         $result = mysql_query($query);
-        if(mysql_num_rows($result)>=1)
+        foreach($this->getArrayData($result) as $row){
             return true;
+        }
         return false;
     }
 }
