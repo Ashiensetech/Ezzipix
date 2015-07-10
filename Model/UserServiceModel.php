@@ -24,12 +24,12 @@ class UserService extends EzzipixModel {
                  . " AND service_provider_id = $service_provider_id  limit 1";
 
         $result = mysql_query($query);
+
         if (mysql_num_rows($result) >= 1) {
             return TRUE;
         }
 
         return FALSE;
-
     }
 
     function getIdByService_user_id($service_provider_id, $service_user_id) {
@@ -41,8 +41,23 @@ class UserService extends EzzipixModel {
                   . " service_user_id = '$service_user_id'"
                   . " and service_provider_id = $service_provider_id  limit 1";
         $result = mysql_query($query);
+
         foreach ($this->getArrayData($result) as $rowData) {
             return $rowData['id'];
+        }
+
+        return 0;
+    }
+
+    function getUserIdByProviderAndService($service_provider_id, $service_user_id) {
+        $service_provider_id = mysql_real_escape_string(trim($service_provider_id));
+        $service_user_id     = mysql_real_escape_string(trim($service_user_id));
+
+        $query = "SELECT u_id FROM $this->tableName WHERE service_user_id = '$service_user_id'"
+                 . " and service_provider_id = $service_provider_id  limit 1";
+
+        foreach ($this->getArrayData(mysql_query($query)) as $rowData) {
+            return $rowData['u_id'];
         }
 
         return 0;
