@@ -20,8 +20,6 @@
         color: #FF0000;
     }
 </style>
-<body>
-
     <body>
     <div class="content">
         <span><a href="<?php echo $this->baseUrl.'dashboard.php';?>">Go Back</a></span>
