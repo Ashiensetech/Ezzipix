@@ -29,23 +29,26 @@
 <div class="content">
     <span><a href="<?php echo $this->baseUrl . 'dashboard.php'; ?>">Go Back</a></span>
     <table>
-        <?php /*for($i=0;$i<10;$i++){ ?>
-                <tr>
-                    <?php for($j=0;$i<10 && $j<3;$j++){ ?>
-                        <td>
-                            <img style="max-width:350px; max-height: 400px; min-width=100px; min-height=100px;" src="<?php echo $this->baseUrl.'upload\img\1.png';?>" />
-                        </td>
-                    <?php } ?>
+        <tr>
+            <?php
+                $j=1;
+                $i=0;
+                foreach ($imgGallery as $img){
+            ?>
+                <?php echo ($i==0)?"<tr>":""; ?>
+                <?php echo ($j>=3)?"<tr>":""; ?>
+                    <td>
+                        <img style="max-width:350px; max-height: 400px; min-width=100px; min-height=100px;" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" />
+                    </td>
+                <?php echo ($j++>=3)?"</tr>":""; ?>
+                <?php $j=($j>3)?0:$j+1; ?>
+                <?php echo ($i++==0)?"</tr>":""; ?>
+            <?php } ?>
 
-                </tr>
-            <?php }*/ ?>
+        </tr>
+
     </table>
-    <?php
-    echo "<pre/>";
-    foreach ($imgGallery as $img) {
-        ?><div id="img-gallery" class="img-gallery"><img src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>"/></div><?php
-    }
-    ?>
+
 </div>
 </body>
 </html>
