@@ -1,0 +1,336 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+body{
+    background: #F8F8F8;
+    margin: auto;
+    padding: auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+.iconCls{
+    height: 34px;
+    width: 34px;
+    vertical-align:middle;
+
+}
+.iconHolder{
+    float: left;
+    padding-left: 12px;
+}
+.shareCls{
+    float:right;
+}
+.mainBodyDiv{
+    width: 1000px;
+    min-height: 500px;
+    background: #FFFFFF;
+    margin: auto;
+    padding: auto;
+    overflow: hidden;
+}
+.searchDiv{
+    width: 999px;
+    height: 45px;
+    background: #909090;
+
+}
+.searchDivIn{
+    width: 400px;
+    height: 30px;
+    float: right;
+    margin-top: 6px;
+    margin-right: 15px;
+}
+.searchField{
+    width: 219px;
+    border-radius: 7px;
+    float: right;
+}
+.mainBodyDivContent1{
+    width: 710px;
+    min-height: 500px;
+    float: left;
+    background: #C8C8C8 ;
+}
+.mainBodyDivContent2{
+    width: 280px;
+    min-height: 300px;
+    float: right;
+    background: #F0F0F0 ;
+}
+.hearerOption{
+    width: 663px;
+    height: 50px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.hearerOptionInfo{
+    width: 500px;
+    height: 30px;
+    float: left;
+    color: #FFFFFF;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+.postMainDiv{
+    width: 690px;
+    min-height: 300px;
+    background: #C8C8C8;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.userInfoDiv{
+    width: 670px;
+    height: auto;
+    background: #888888;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.userPic{
+    width: 80px;
+    height: 80px;
+    background: #707070;
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+}
+.userNameinfo{
+    width: 560px;
+    height: 80px;
+    margin-right: 10px;
+    margin-top: 10px;
+    float: right;
+}
+.userNameinfoNameTime{
+    color: #FFFFFF;
+    margin-left: 20px;
+    width: 350px;
+    margin-top: 10px;
+}
+.picturePostName{
+    color: #FFFFFF;
+    margin-left: 20px;
+    font-size: 30px;
+    width: 350px;
+    margin-top: -10px;
+}
+
+.picturePostInfoDiv{
+    width: 670px;
+    min-height: 380px;
+    background: #202020;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.shareInfoDiv{
+    width: 97%;
+    height: 95px;
+    background: #989898;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.shareInfoDivDetails{
+    margin-left: 25px;
+    width: 95%;
+    float: left;
+    color: #FFFFFF;
+    font-size: 15px;
+    padding: 3px 3px 2px 2px;
+}
+.commentsMainDiv{
+    width: 670px;
+    background: #909090;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.commentsParent{
+    width: 97%;
+    min-height: 100px;
+    background: #989898;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    border: 1px solid #D0D0D0;
+}
+.row{
+    width: 97%;
+    min-height: 100px;
+    background: #787878;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    border: 1px solid #D0D0D0;
+}
+.commentsRow{
+    width: 94%;
+    min-height: 100px;
+    background: #787878;
+    margin-left: 10px;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.commentsMainDivUserPic{
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+}
+.commentsMainDivUserNameinfo{
+    width: 78%;
+    margin-right: 10px;
+    margin-top: 10px;
+    float: left;
+}
+.commentsDetails{
+    color: #FFFFFF;
+    padding-bottom: 20px;
+}
+.commentsMainDivUserNameinfoNameTime{
+    color: black;
+    width: 350px;
+    margin-top: 6px;
+    padding-bottom: 10px;
+}
+.commentReply{
+    width: 570px;
+    min-height: 100px;
+    background: #202020;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: right;
+    border: 1px solid #686868;
+}
+.commentReplyUserPic{
+    width: 70px;
+    height: 78px;
+    background: #707070;
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+}
+.commentReplyUserNameinfo{
+    width: 470px;
+    margin-right: 10px;
+    margin-top: 10px;
+    float: right;
+}
+.commentReplyDetails{
+    color: #FFFFFF;
+    margin-left: 20px;
+    width: 475px;
+}
+.commentReplyUserNameinfoNameTime{
+    color: #FFFFFF;
+    margin-left: 20px;
+    width: 350px;
+    margin-top: 10px;
+}
+.userName{
+    width: 100px;
+    height: 40px;
+    margin-left: 70px;
+    margin-top: 30px;
+}
+.divRowFirst{
+    float: left;
+    padding: 28px 12px 1px 36px;
+    width: 100%;
+}
+.divRow{
+    float: left;
+    padding: 26px 12px 1px 3px;
+    width: 100%;
+}
+ul{
+    list-style-type: none;
+}
+.userName a{
+    text-decoration: none;
+    color: #404040;
+}
+.userinfo{
+    width: 100px;
+    height: 30px;
+    margin-left: 70px;
+}
+.userinfo a{
+    text-decoration: none;
+    color: #404040;
+}
+
+
+
+
+
+
+
+
+
+
+
+.noti{
+
+    width: 550px;height: 75px;top: 50%;left: 50%; z-index:9999999999999;color: #000;
+    position: fixed;
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 20px #000;
+
+    background: rgb(224,243,250); /* Old browsers */
+
+    background: rgb(255,255,255); /* Old browsers */
+
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZTBlMGUwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMzUlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNTklIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Q4ZDhkOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(224,224,224,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 59%, rgba(216,216,216,1) 100%); /* FF3.6+ */
+
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(0%,rgba(224,224,224,1)), color-stop(35%,rgba(255,255,255,1)), color-stop(59%,rgba(255,255,255,1)), color-stop(100%,rgba(216,216,216,1))); /* Chrome,Safari4+ */
+
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 0%,rgba(255,255,255,1) 35%,rgba(255,255,255,1) 59%,rgba(216,216,216,1) 100%); /* Chrome10+,Safari5.1+ */
+
+    background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 0%,rgba(255,255,255,1) 35%,rgba(255,255,255,1) 59%,rgba(216,216,216,1) 100%); /* Opera 11.10+ */
+
+    background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 0%,rgba(255,255,255,1) 35%,rgba(255,255,255,1) 59%,rgba(216,216,216,1) 100%); /* IE10+ */
+
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 0%,rgba(255,255,255,1) 35%,rgba(255,255,255,1) 59%,rgba(216,216,216,1) 100%); /* W3C */
+
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d8d8d8',GradientType=0 ); /* IE6-8 */
+
+
+
+
+
+}            
+
+.load_c0ntent{
+
+    color: #477FBB;
+
+    font-size: 16px;
+
+    font-style: italic;
+
+    font-weight: bold;
+
+    float: left;
+
+    margin: 25px 0 0 20px;
+
+    width: 440px;
+
+}

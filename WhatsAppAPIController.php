@@ -1,0 +1,109 @@
+<?php
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+
+require 'lib/whatsprot.class.php';
+require 'lib/events/MyEvents.php';
+
+class WhatsAppAPIController {
+
+    public $username = "8801977974819";
+    public $nickname = "userpasta";
+    public $password = "gU4gJ6TgGZZNgxlJtElf4UM5Lcw";
+    public $debug    = FALSE;
+    public $w        = NULL;
+    public $target   = NULL; // The number of the person you are sending the message
+    public $message  = NULL;
+
+    function __construct() {
+        $this->w = new WhatsProt($this->username, $this->nickname, $this->debug);
+        $this->w->connect();
+        $this->w->loginWithPassword($this->password);
+    }
+
+    public function getMessages() {
+        return $this->w->getMessages();
+    }
+
+    public function pullMessage() {
+        return $this->w->pollMessage();
+    }
+
+    public function sendMessage($target, $message) {
+        return $this->w->sendMessage($target, $message);
+    }
+
+    function getConfirmCode($length) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $code = '';
+        for ($i = 0; $i < $length; $i++) {
+            $code .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $code;
+    }
+
+    function saveImage($imgUrl, $path = "upload/img") {
+        if (!file_exists($path)) {
+            mkdir($path, 0755, TRUE);
+        }
+
+        $imageType = str_replace('image/', '', getimagesize($imgUrl)["mime"]);
+        $imageType = ($imageType == 'jpeg') ? 'jpg' : $imageType;
+        if (file_put_contents($path . '/' . md5(time()) . '.' . $imageType, file_get_contents($imgUrl))) {
+            return TRUE;
+        }
+        return FALSE;
+    }
+}
+
+/*
+foreach ($messages as $message) {
+    foreach ($message->getChildren() as $child) {
+        if (($child->getTag() == "media") && ($child->getAttribute('type') == "image")) {
+            $url = $child->getAttribute('url');
+            echo "<img src='$url' />";
+        }
+
+        if ($message->getTag() == "body") {
+            echo $child->getAttribute('');
+        }
+    }
+}
+
+foreach ($messages as $message) {
+    $messageFrom = $message->getAttributes();
+
+    $messageBody = $message->getChildren();
+
+    foreach ($messageBody as $message) {
+        $text = $message->getData();
+        list($form) = explode('@', $messageFrom['from']);
+
+        echo "Form : " . $form . '</br>';
+        echo "Message : " . $text . '</br>';
+
+        if (($message->getTag() == "media") && ($message->getAttribute('type') == "image")) {
+            $imageUrl = $message->getAttribute('url');
+            $path = "upload/img/";// . $form;
+            if (saveImage($imageUrl, $path)) {
+                $w->sendMessage($form, "Image successful uploaded to your account !");
+            } else {
+                $w->sendMessage($form, "Image upload failed !");
+            }
+        }
+
+        if (strtoupper($text) === 'START') {
+            $code = getConfirmCode(6);
+            echo "Response : Thank you for choosing Ezeepix your verification code is - " . $code . '</br>';
+            $w->sendMessage($form, "Thank you for choosing Ezeepix your verification code is : " . $code);
+        }
+
+        if (strtoupper($text) === "CANCEL") {
+            $w->sendMessage($form, "Your account has been deactivated.");
+        }
+    }
+}
+//$w->sendMessage($target, $message);
+
+*/
