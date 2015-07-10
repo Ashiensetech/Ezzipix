@@ -46,10 +46,7 @@ include_once 'head.php';
             <td>Gender :</td>
             <td><?php echo @$user['gender'] ?></td>
         </tr>
-        <tr>
-            <td>Birth Date :</td>
-            <td><?php echo @$user['dob'] ?></td>
-        </tr>
+
         <tr>
             <td>Add Service :</td>
             <td><a href = "service.php?r=new">Add New Service</a></td>

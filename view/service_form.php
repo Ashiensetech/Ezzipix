@@ -39,7 +39,7 @@ include_once 'head.php';
             <tr>
                 <td>Select Service :</td>
                 <td>
-                    <select name = "service_provider_id" id = "service_provider_id">
+                    <select name = "service_provider_id" id = "service_provider_id" onchange="whatsAppPhoneNumberConvention()">
                         <option value = "">Select a Service</option>
                         <?php
                         if (@$services) {
@@ -54,7 +54,7 @@ include_once 'head.php';
             </tr>
             <tr>
                 <td>Service ID :</td>
-                <td><input type = "service_user_id" id = "service_user_id"/></td>
+                <td><input type = "service_user_id" id = "service_user_id" /></td>
             </tr>
             <tr id = "verification_code_tr" style = "display: none">
                 <td>Verification Code :</td>
@@ -76,6 +76,12 @@ include_once 'head.php';
 </body>
 
 <script type = "text/javascript">
+    function whatsAppPhoneNumberConvention(){
+        if($("#service_provider_id option:selected").text() == "Whats App"){
+            $("#service_user_id").attr("placeholder","Phone number without '+' ");
+        }
+
+    }
     function sendCode() {
 
         $("#verification_code_tr").css({'display': 'none'});
