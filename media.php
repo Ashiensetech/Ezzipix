@@ -1,6 +1,7 @@
 <?php
 
 require_once 'EzzipixController.php';
+require_once 'AuthController.php';
 
 class MediaController extends EzzipixController {
     public function __construct() {
@@ -12,7 +13,7 @@ class MediaController extends EzzipixController {
         require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
         require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
 
-        $API  = new WhatsAppAPIController();
+        $API = new WhatsAppAPIController();
         $API->pullMessage();
         $data = $API->getMessages();
 
@@ -57,6 +58,7 @@ class MediaController extends EzzipixController {
     }
 
     function showAllImage() {
+        $this->auth();
         require_once 'Model/UserServiceDataModel.php';
         $userServiceData = new UserServiceData();
 
@@ -64,11 +66,50 @@ class MediaController extends EzzipixController {
         $this->loadView('image_gallery', $this->pageData);
     }
 
+    function uploadMedia() {
+        $this->auth();
+        $this->loadView('imageForm', $this->pageData);
+    }
+
+    function saveUpload() {
+
+        var_dump($_SESSION);
+
+        $text  = $_POST['text'];
+        $image = $_FILES['image'];
+
+        $this->saveImage($image);
+    }
+
+    function auth() {
+        $auth = new AuthController();
+        $auth->auth();
+    }
+
+    function saveImage($file) {
+        $text      = md5(time());
+        $imageType = str_replace('image/', '', $file['type']);
+        $imageType = ($imageType == 'jpeg') ? 'jpg' : $imageType;
+        $fileName  = $text . '.' . $imageType;
+
+        if (move_uploaded_file($file['tmp_name'], 'upload/img/' . $fileName)) {
+            return $fileName;
+        }
+
+        return FALSE;
+    }
+
     function process() {
         $method = (isset($_GET['r'])) ? $_GET['r'] : "";
         switch ($method) {
             case 'all';
                 $this->showAllImage();
+                break;
+            case 'upload';
+                $this->uploadMedia();
+                break;
+            case 'saveUpload';
+                $this->saveUpload();
                 break;
             default;
                 $this->index();
