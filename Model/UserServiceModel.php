@@ -62,4 +62,18 @@ class UserService extends EzzipixModel {
 
         return 0;
     }
+
+    function findUserService($serviceProviderId, $serviceUserId) {
+        $serviceProviderId = mysql_real_escape_string(trim($serviceProviderId));
+        $serviceUserId     = mysql_real_escape_string(trim($serviceUserId));
+
+        $query = "SELECT COUNT(*) AS total FROM $this->tableName WHERE service_user_id = '$serviceUserId'"
+                 . " and service_provider_id = $serviceProviderId  limit 1";
+
+        foreach ($this->getArrayData(mysql_query($query)) as $rowData) {
+            return $rowData['total'];
+        }
+
+        return 0;
+    }
 }
