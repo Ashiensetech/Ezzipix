@@ -79,29 +79,29 @@ foreach ($messages as $message) {
 
     foreach ($messageBody as $message) {
         $text = $message->getData();
-        list($form) = explode('@', $messageFrom['from']);
+        list($from) = explode('@', $messageFrom['from']);
 
-        echo "Form : " . $form . '</br>';
+        echo "Form : " . $from . '</br>';
         echo "Message : " . $text . '</br>';
 
         if (($message->getTag() == "media") && ($message->getAttribute('type') == "image")) {
             $imageUrl = $message->getAttribute('url');
-            $path = "upload/img/";// . $form;
+            $path = "upload/img/";// . $from;
             if (saveImage($imageUrl, $path)) {
-                $w->sendMessage($form, "Image successful uploaded to your account !");
+                $w->sendMessage($from, "Image successful uploaded to your account !");
             } else {
-                $w->sendMessage($form, "Image upload failed !");
+                $w->sendMessage($from, "Image upload failed !");
             }
         }
 
         if (strtoupper($text) === 'START') {
             $code = getConfirmCode(6);
             echo "Response : Thank you for choosing Ezeepix your verification code is - " . $code . '</br>';
-            $w->sendMessage($form, "Thank you for choosing Ezeepix your verification code is : " . $code);
+            $w->sendMessage($from, "Thank you for choosing Ezeepix your verification code is : " . $code);
         }
 
         if (strtoupper($text) === "CANCEL") {
-            $w->sendMessage($form, "Your account has been deactivated.");
+            $w->sendMessage($from, "Your account has been deactivated.");
         }
     }
 }

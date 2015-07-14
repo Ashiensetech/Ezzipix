@@ -76,4 +76,13 @@ class UserService extends EzzipixModel {
 
         return 0;
     }
+
+    function deactivateService($serviceProviderId, $serviceUserId) {
+        $serviceProviderId = mysql_real_escape_string(trim($serviceProviderId));
+        $serviceUserId     = mysql_real_escape_string(trim($serviceUserId));
+
+        $sql = "DELETE FROM $this->tableName WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId LIMIT 1";
+        mysql_query($sql);
+        return mysql_affected_rows();
+    }
 }

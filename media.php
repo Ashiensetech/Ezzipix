@@ -17,6 +17,12 @@ class MediaController extends EzzipixController {
         $API->pullMessage();
         $data = $API->getMessages();
 
+        $serviceData = new UserServiceData();
+        $userService = new UserService();
+
+        $result  = [];
+        $counter = 0;
+
         echo '<meta http-equiv="refresh" content="3">';
 
         foreach ($data as $message) {
@@ -25,35 +31,95 @@ class MediaController extends EzzipixController {
 
             foreach ($messageBody as $message) {
                 $text = $message->getData();
-                list($form) = explode('@', $messageFrom['from']);
+                list($from) = explode('@', $messageFrom['from']);
 
-                echo "Form : " . $form . '</br>';
+                echo "Form : " . $from . '</br>';
                 echo "Message : " . $text . '</br>';
 
                 if (($message->getTag() == "media") && ($message->getAttribute('type') == "image")) {
                     $service       = new UserService();
-                    $userId        = $service->getUserIdByProviderAndService(2, $form);
-                    $userServiceId = $service->getIdByService_user_id(2, $form);
+                    $userId        = $service->getUserIdByProviderAndService(2, $from);
+                    $userServiceId = $service->getIdByService_user_id(2, $from);
                     $imageUrl      = $message->getAttribute('url');
                     $path          = "upload/img/" . $userId;
 
                     if ($userId > 0) {
                         if ($imgName = $API->saveImage($imageUrl, $path)) {
-                            $data        = [
+                            $data = [
                                 'user_service_id' => $userServiceId,
                                 'media_file_path' => $userId . '/' . $imgName,
                             ];
-                            $serviceData = new UserServiceData();
                             $serviceData->insert($data);
-                            $API->sendMessage($form, "Image successful uploaded to your account !");
+                            //$API->sendMessage($from, "Image successful uploaded to your account !");
+                            $result[$counter] = [
+                                'from'    => $from,
+                                'message' => '',//"Image successful uploaded to your account !",
+                                'type'    => 'media',
+                            ];
                         } else {
-                            $API->sendMessage($form, "Image upload failed !");
+                            //$API->sendMessage($from, "Image upload failed !");
+                            $result[$counter] = [
+                                'from'    => $from,
+                                'message' => "Image upload failed !",
+                                'type'    => 'mediaError',
+                            ];
                         }
                     } else {
-                        $API->sendMessage($form, "Your account not found in System !");
+                        //$API->sendMessage($from, "Your account not found in System !");
+                        $result[$counter] = [
+                            'from'    => $from,
+                            'message' => "Your account not found in System !",
+                            'type'    => 'userError',
+                        ];
                     }
                 }
+
+                if (strtoupper($text) === "CANCEL") {
+                    $status = $userService->deactivateService(2, $from);
+
+                    if ($status > 0) {
+                        //$API->sendMessage($from, "Your account has been deactivated.");
+                        $result[$counter] = [
+                            'from'    => $from,
+                            'message' => "Your account has been deactivated !",
+                            'type'    => 'account',
+                        ];
+                    } else {
+                        //$API->sendMessage($from, "System unable to deactivated your service try again later.");
+                        $result[$counter] = [
+                            'from'    => $from,
+                            'message' => "System unable to deactivated your service try again later !",
+                            'type'    => 'account',
+                        ];
+                    }
+                }
+
+                $counter++;
             }
+
+            $len = count($result);
+
+            for ($i = 0; $i < $len; $i++) {
+                $sendTo = $result[$i]['from'];
+
+                if ($result[$i]['type'] == 'userError') {
+                    $API->sendMessage($sendTo, "Your account not found in System !");
+                } elseif ($result[$i]['type'] == 'mediaError') {
+                    $API->sendMessage($sendTo, "Image upload failed !");
+                } elseif ($result[$i]['type'] == 'account') {
+                    $API->sendMessage($sendTo, $result[$i]['message']);
+                } else {
+                    $totalImage = $this->searchFromArray($result, $sendTo);
+                    $s          = '';
+
+                    if ($totalImage > 1) {
+                        $s = "s";
+                    }
+
+                    $API->sendMessage($sendTo, "$totalImage Image$s successful uploaded to your account !");
+                }
+            }
+
         }
     }
 
@@ -84,6 +150,17 @@ class MediaController extends EzzipixController {
     function auth() {
         $auth = new AuthController();
         $auth->auth();
+    }
+
+    function searchFromArray($data = [], $from) {
+        $count = 0;
+        foreach ($data as $dt) {
+            if ($from == $dt['from'] && $dt['type'] == 'media') {
+                $count++;
+            }
+        }
+
+        return $count;
     }
 
     function saveImage($file) {
