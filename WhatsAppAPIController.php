@@ -33,19 +33,9 @@ class WhatsAppAPIController {
         return $this->w->sendMessage($target, $message);
     }
 
-    function getConfirmCode($length) {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $code = '';
-        for ($i = 0; $i < $length; $i++) {
-            $code .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $code;
-    }
-
     function saveImage($imgUrl, $path = "upload/img") {
         if (!file_exists($path)) {
-            mkdir($path, 0777, TRUE);
+            mkdir($path, 0755, TRUE);
         }
 
         $imageType = str_replace('image/', '', getimagesize($imgUrl)["mime"]);

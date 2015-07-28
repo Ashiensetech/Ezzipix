@@ -123,6 +123,20 @@ class MediaController extends EzzipixController {
         }
     }
 
+    public function telegram(){
+        include_once 'TelegramAPIController.php';
+
+        $API = new TelegramAPIController();
+
+        $contacts = $API->getContactList();
+
+        foreach($contacts as $contact){
+            print_r($contact->print_name);
+            print_r("<br/>");
+        }
+
+    }
+
     function showAllImage() {
         $this->auth();
         require_once 'Model/UserServiceDataModel.php';
@@ -187,6 +201,9 @@ class MediaController extends EzzipixController {
                 break;
             case 'saveUpload';
                 $this->saveUpload();
+                break;
+            case 'telegram';
+                $this->telegram();
                 break;
             default;
                 $this->index();
