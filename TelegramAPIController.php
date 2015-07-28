@@ -5,12 +5,17 @@
 require('tg/vendor/autoload.php');
 
 class TelegramAPIController {
-    public $tel     = NULL;
-    public $target  = '';
-    public $message = '';
+
+    public $tel;
+    public $target;
+    public $message;
+    public $imagePath;
 
     function __construct() {
-        $this->tel = new \Zyberspace\Telegram\Cli\Client('unix:///tmp/tg.sck');
+        $this->tel       = new \Zyberspace\Telegram\Cli\Client('unix:///tmp/tg.sck');
+        $this->target    = '';
+        $this->message   = '';
+        $this->imagePath = 'upload/img/';
     }
 
     /**
@@ -42,17 +47,17 @@ class TelegramAPIController {
     }
 
     /**
-     * @param int    $messageId
-     * @param string $savePath
+     * @param int $messageId
+     * @param int $userId
      *
      * @return array
      */
-    function loadImage($messageId, $savePath = NULL) {
+    function loadImage($messageId, $userId = 0) {
         $image = $this->tel->loadImage($messageId);
 
         $data = [
-            'imageUrl' => $image->result,
-            'savePath' => $savePath,
+            'url'      => $image->result,
+            'savePath' => ($userId > 0) ? $this->imagePath . $userId : $this->imagePath,
         ];
 
         return $data;
@@ -60,22 +65,32 @@ class TelegramAPIController {
 
     /**
      * @param string $imgUrl
+     * @param int    $messageId
      * @param string $path
      *
      * @return bool|string
      */
-    function saveImage($imgUrl, $path = "upload/img") {
+    function saveImage($imgUrl, $messageId, $path = "upload/img") {
         if (!file_exists($path)) {
-            mkdir($path, 0755, TRUE);
+            mkdir($path, 0777, TRUE);
         }
 
         $imageType = str_replace('image/', '', getimagesize($imgUrl)["mime"]);
         $imageType = ($imageType == 'jpeg') ? 'jpg' : $imageType;
-        $imageName = md5(time()) . '.' . $imageType;
+        $imageName = md5(time() + $messageId) . '.' . $imageType;
         if (file_put_contents($path . '/' . $imageName, file_get_contents($imgUrl))) {
             return $imageName;
         }
 
         return FALSE;
+    }
+
+    /**
+     * @param string $printName
+     *
+     * @return array|bool
+     */
+    function getHistory($printName) {
+        return $this->tel->getHistory($printName);
     }
 }

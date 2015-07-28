@@ -2,6 +2,8 @@
 
 require_once 'EzzipixController.php';
 require_once 'AuthController.php';
+require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
+require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
 
 class MediaController extends EzzipixController {
     public function __construct() {
@@ -10,8 +12,6 @@ class MediaController extends EzzipixController {
 
     public function index() {
         require_once 'WhatsAppAPIController.php';
-        require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
-        require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
 
         $API = new WhatsAppAPIController();
         $API->pullMessage();
@@ -123,18 +123,65 @@ class MediaController extends EzzipixController {
         }
     }
 
-    public function telegram(){
+    public function telegram() {
         include_once 'TelegramAPIController.php';
 
         $API = new TelegramAPIController();
 
         $contacts = $API->getContactList();
+        $dataList = new ArrayObject();
+        print_r("<pre/>");
 
-        foreach($contacts as $contact){
-            print_r($contact->print_name);
-            print_r("<br/>");
+        foreach ($contacts as $contact) {
+            $data      = [];
+            $histories = $API->getHistory($contact->print_name);
+
+            if (sizeof($histories) == 0) {
+                continue;
+            }
+
+            if (!isset($data['phone'])) {
+                $data['phone'] = $contact->print_name;
+            }
+
+            $messages = new ArrayObject();
+
+            foreach (@$histories as $history) {
+                if (@$history->media->type == 'photo') {
+                    $tempMessage['id']      = $history->id;
+                    $tempMessage['date']    = $history->date;
+                    $tempMessage['caption'] = $history->media->caption;
+
+                    $messages->append($tempMessage);
+                } else if (isset($history->text)) {
+                    if (strtoupper(trim($history->text)) == "CANCEL") {
+                        // do operation for cancel
+                        //break;
+                    }
+                } else {
+                    $API->tel->deleteMsg($history->id);
+                }
+                //print_r($history);
+            }
+
+            $data['messages'] = $messages;
+            $dataList->append($data);
         }
 
+        $service = new UserService();
+
+        foreach ($dataList as $user) {
+            $from   = str_replace('+', '', $user['phone']);
+            $userId = $service->getUserIdByProviderAndService(1, $from);
+
+            foreach ($user['messages'] as $message) {
+                $messageImage = $API->loadImage($message['id'], $userId);
+                $imageSave    = $API->saveImage($messageImage['url'], $message['id'], $messageImage['savePath']);
+                //$API->tel->deleteMsg($message['id']);
+                print_r($imageSave);
+                print_r("<br/>");
+            }
+        }
     }
 
     function showAllImage() {
