@@ -1,14 +1,8 @@
 <?php
-/**
- * Copyright 2015 Eric Enold <zyberspace@zyberware.org>
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
-echo '<pre> ';
+error_reporting(E_ALL);
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(-1);
+echo '<pre> ';
+
 
 
 require('vendor/autoload.php');
@@ -18,17 +12,57 @@ $contactList = $telegram->getContactList();
 //var_dump($contactList);
 
 //var_dump($telegram->msg($contactList[1]->print_name, '"Te\'st"' . "\n" . time()));
-$history = $telegram->getHistory('+8801977974812', 1);
-/*foreach ($history as $row) {
-    if (isset($row->media)) {
-        var_dump($row->media);
+$telegramDataList=new ArrayObject();
+foreach($contactList as $contact){
+    $telegramData=array();
+    $history = $telegram->getHistory($contact->print_name);
+    if(sizeof($history)==0){
+        continue;
     }
-}*/
+    if(!isset($telegramData['phone']))
+        $telegramData['phone']=$contact->print_name;
+
+    $msgObjList = new ArrayObject();
+    foreach ($history as $row) {
+        if (isset($row->media) && $row->media->type=='photo') {
+            $tempMsgObj['msgId'] =  $row->id;
+            $tempMsgObj['date'] =  $row->date;
+            $tempMsgObj['caption'] =  $row->media->caption;
+
+            $msgObjList->append($tempMsgObj);
+        }else if (isset($row->text)){
+           if(strtoupper(trim($row->text)) == "CANCEL"){
+               // do operation for cancel
+               //break;
+           }
+
+        }else{
+            $telegram->deleteMsg($row->id);
+        }
+
+    }
+    $telegramData['msgObjList'] = $msgObjList;
+    $telegramDataList->append($telegramData);
+//    print_r($history);
+}
+
+
+//Storing Data in server
+foreach($telegramDataList as $rowdata){
+    echo $rowdata['phone']."<br>";
+    foreach($rowdata['msgObjList'] as $msgObj){
+        echo "ID ".$msgObj['msgId']."<br>";
+
+    }
+}
+//print_r($telegramDataList);
 //var_dump($telegram->getUserInfo('+8801977974809'));
-print_r($history);
+
 //print_r($telegram->loadImage(99));
 //var_dump($telegram->addContact("+8801977974809", "+8801977974809", ""));
 
+
+die;
 if (@$telegram->loadImage($history[0]->id)) {
     $img = $telegram->loadImage($history[0]->id);
     //print_r($img);

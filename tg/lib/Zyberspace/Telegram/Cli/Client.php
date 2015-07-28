@@ -248,7 +248,10 @@ class Client extends RawClient
     {
         return $this->exec('del_contact ' . $this->escapePeer($contact));
     }
+    public function deleteMsg($msg_id){
+        return $this->exec('delete_msg '.$msg_id);
 
+    }
 
     /**
      * Blocks a user .
