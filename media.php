@@ -161,25 +161,40 @@ class MediaController extends EzzipixController {
                 } else {
                     $API->tel->deleteMsg($history->id);
                 }
-                //print_r($history);
             }
 
             $data['messages'] = $messages;
             $dataList->append($data);
         }
 
-        $service = new UserService();
+        $service     = new UserService();
+        $serviceData = new UserServiceData();
 
         foreach ($dataList as $user) {
-            $from   = str_replace('+', '', $user['phone']);
-            $userId = $service->getUserIdByProviderAndService(1, $from);
+            $from          = str_replace('+', '', $user['phone']);
+            $userId        = $service->getUserIdByProviderAndService(1, $from);
+            $userServiceId = $service->getIdByService_user_id(1, $from);
 
-            foreach ($user['messages'] as $message) {
-                $messageImage = $API->loadImage($message['id'], $userId);
-                $imageSave    = $API->saveImage($messageImage['url'], $message['id'], $messageImage['savePath']);
-                //$API->tel->deleteMsg($message['id']);
-                print_r($imageSave);
-                print_r("<br/>");
+            if ($userId > 0) {
+                foreach ($user['messages'] as $message) {
+                    $messageImage = $API->loadImage($message['id'], $userId);
+                    $imageSave    = $API->saveImage($messageImage['url'], $message['id'], $messageImage['savePath']);
+                    //print_r($messageImage);
+                    //print_r($imageSave);
+                    //print_r("<br/>");
+
+                    if ($imageSave) {
+                        $data = [
+                            'user_service_id' => $userServiceId,
+                            'media_file_path' => $userId . '/' . $imageSave,
+                        ];
+
+                        if ($serviceData->insert($data)) {
+                            $API->tel->deleteMsg($message['id']);
+                            exec('rm ' . $messageImage['url']);
+                        }
+                    }
+                }
             }
         }
     }

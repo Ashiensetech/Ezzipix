@@ -63,12 +63,13 @@ class UserService extends EzzipixModel {
         return 0;
     }
 
-    function findUserService($serviceProviderId, $serviceUserId) {
+    function findUserService($serviceProviderId, $serviceUserId, $data = NULL) {
         $serviceProviderId = mysql_real_escape_string(trim($serviceProviderId));
         $serviceUserId     = mysql_real_escape_string(trim($serviceUserId));
 
-        $query = "SELECT COUNT(*) AS total FROM $this->tableName WHERE service_user_id = '$serviceUserId'"
-                 . " and service_provider_id = $serviceProviderId  limit 1";
+        $deactivate = ($data == 'deactivate') ? ' AND active = 0' : '';
+        $query      = "SELECT COUNT(*) AS total FROM $this->tableName WHERE service_user_id = '$serviceUserId' " .
+                      "AND service_provider_id = $serviceProviderId $deactivate LIMIT 1";
 
         foreach ($this->getArrayData(mysql_query($query)) as $rowData) {
             return $rowData['total'];
@@ -81,8 +82,10 @@ class UserService extends EzzipixModel {
         $serviceProviderId = mysql_real_escape_string(trim($serviceProviderId));
         $serviceUserId     = mysql_real_escape_string(trim($serviceUserId));
 
-        $sql = "DELETE FROM $this->tableName WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId LIMIT 1";
+        //$sql = "DELETE FROM $this->tableName WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId LIMIT 1";
+        $sql = "UPDATE  $this->tableName SET active = 0 WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId LIMIT 1";
         mysql_query($sql);
+
         return mysql_affected_rows();
     }
 }

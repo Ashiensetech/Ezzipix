@@ -42,6 +42,18 @@ class ServiceController extends AuthController {
         $unique      = $serviceUser->findUserService($serviceProviderId, $serviceUserId);
 
         if ($unique > 0) {
+            $deactivate  = $serviceUser->findUserService($serviceProviderId, $serviceUserId, 'deactivate');
+            $serviceUser = $serviceUser->getUserIdByProviderAndService($serviceProviderId, $serviceUserId);
+
+            if ($deactivate > 0 && $_SESSION['uId'] == $serviceUser) {
+                $data = [
+                    'status'  => FALSE,
+                    'message' => 'You already register this Service, you may active this by sending "Active" from your cell',
+                ];
+                echo json_encode($data);
+                die;
+            }
+
             $data = [
                 'status'  => FALSE,
                 'message' => 'This Service ID already register with this Service Name',
@@ -87,7 +99,7 @@ class ServiceController extends AuthController {
 
         $contacts = $API->addContact($serviceUserId);
 
-        if(empty($contacts)){
+        if (empty($contacts)) {
             $data = [
                 'status'  => FALSE,
                 'message' => 'Phone number not Found in Telegram !',

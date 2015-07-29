@@ -72,7 +72,7 @@ class TelegramAPIController {
      */
     function saveImage($imgUrl, $messageId, $path = "upload/img") {
         if (!file_exists($path)) {
-            mkdir($path, 0777, TRUE);
+            mkdir($path, 0755, TRUE);
         }
 
         $imageType = str_replace('image/', '', getimagesize($imgUrl)["mime"]);
