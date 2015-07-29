@@ -78,14 +78,38 @@ class UserService extends EzzipixModel {
         return 0;
     }
 
-    function deactivateService($serviceProviderId, $serviceUserId) {
+    function deactivateService($serviceProviderId, $serviceUserId, $status = NULL) {
         $serviceProviderId = mysql_real_escape_string(trim($serviceProviderId));
         $serviceUserId     = mysql_real_escape_string(trim($serviceUserId));
 
+        if (!$status == 1) {
+            $status = 0;
+        }
+
         //$sql = "DELETE FROM $this->tableName WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId LIMIT 1";
-        $sql = "UPDATE  $this->tableName SET active = 0 WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId LIMIT 1";
+        $sql = "UPDATE  $this->tableName SET active = $status WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId LIMIT 1";
         mysql_query($sql);
 
         return mysql_affected_rows();
+    }
+
+    /**
+     * Get service current status active or not
+     * @param string $form
+     * @param int    $serviceType
+     *
+     * @return bool
+     */
+    function getServiceStatus($form, $serviceType) {
+        $form = mysql_real_escape_string(trim($form));
+        $sql  = "SELECT active FROM $this->tableName WHERE service_user_id = '$form' " .
+                "AND service_provider_id = $serviceType LIMIT 1";
+        $data = $this->getArrayData(mysql_query($sql));
+
+        if (!empty($data)) {
+            return $data[0]['active'];
+        }
+
+        return FALSE;
     }
 }

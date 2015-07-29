@@ -94,6 +94,33 @@ class MediaController extends EzzipixController {
                     }
                 }
 
+                if (strtoupper($text) === "ACTIVE") {
+                    $foundStatus  = $userService->deactivateService(2, $from, 1);
+                    $activeStatus = $userService->getServiceStatus($from, 2);
+
+                    if ($foundStatus > 0) {
+                        //$API->sendMessage($from, "Your account has been deactivated.");
+                        $result[$counter] = [
+                            'from'    => $from,
+                            'message' => "Your account has been activated !",
+                            'type'    => 'account',
+                        ];
+                    } elseif ($activeStatus) {
+                        $result[$counter] = [
+                            'from'    => $from,
+                            'message' => "Your account already activated !",
+                            'type'    => 'account',
+                        ];
+                    } else {
+                        //$API->sendMessage($from, "System unable to deactivated your service try again later.");
+                        $result[$counter] = [
+                            'from'    => $from,
+                            'message' => "System unable to activated your service try again later !",
+                            'type'    => 'account',
+                        ];
+                    }
+                }
+
                 $counter++;
             }
 
