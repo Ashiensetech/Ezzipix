@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+
 require_once 'helper/DateHelper.php';
 class EzzipixController {
 

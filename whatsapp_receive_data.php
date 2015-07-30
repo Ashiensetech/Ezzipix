@@ -5,18 +5,41 @@ require_once 'EzzipixController.php';
 require_once 'AuthController.php';
 require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
 require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
+require_once 'WhatsAppAPIController.php';
 
-class MediaController extends EzzipixController {
+class WhatsAppReceiveDataController  {
+    private $API;
+    private $i;
+    private $nc;
     public function __construct() {
-        parent::__construct();
+        $this->API = new WhatsAppAPIController();
+
+        $this->i=0;
+        $this->nc=0;
     }
 
-    public function index() {
-        require_once 'WhatsAppAPIController.php';
+    public function start() {
 
-        $API = new WhatsAppAPIController();
-        $API->pullMessage();
-        $data = $API->getMessages();
+        if($this->API==null || $this->API==false){
+            $this->nc++;
+            $this->API = new WhatsAppAPIController();
+            echo "New connection (API NULL OR FALSE ) Created on $this->i and count is $this->nc \n";
+        }
+        if($this->API->isConnected()==false){
+            sleep(10);
+            $this->nc++;
+            $this->API = new WhatsAppAPIController();
+            echo "New connection (isConnected is false ) Created on $this->i and count is $this->nc \n";
+            $this->start();
+        }
+        $data;
+        if($this->API->pullMessage()){
+            $data = $this->API->getMessages();
+        }else{
+            sleep(5);
+            $this->start();
+        }
+
 
         $serviceData = new UserServiceData();
         $userService = new UserService();
@@ -24,9 +47,8 @@ class MediaController extends EzzipixController {
         $result  = [];
         $counter = 0;
 
-        //echo '<meta http-equiv="refresh" content="3">';
-        echo "<pre>";
-        var_dump($data);
+
+
         foreach ($data as $message) {
             $messageFrom = $message->getAttributes();
             $messageBody = $message->getChildren();
@@ -35,8 +57,7 @@ class MediaController extends EzzipixController {
                 $text = $message->getData();
                 list($from) = explode('@', $messageFrom['from']);
 
-                echo "Form : " . $from . '</br>';
-                echo "Message : " . $text . '</br>';
+                echo "Form : " . $from . '\n';
 
                 if (($message->getTag() == "media") && ($message->getAttribute('type') == "image")) {
                     $service       = new UserService();
@@ -46,7 +67,7 @@ class MediaController extends EzzipixController {
                     $path          = "upload/img/" . $userId;
 
                     if ($userId > 0) {
-                        if ($imgName = $API->saveImage($imageUrl, $path)) {
+                        if ($imgName = $this->API->saveImage($imageUrl, $path)) {
                             $data = [
                                 'user_service_id' => $userServiceId,
                                 'media_file_path' => $userId . '/' . $imgName,
@@ -132,11 +153,11 @@ class MediaController extends EzzipixController {
                 $sendTo = $result[$i]['from'];
 
                 if ($result[$i]['type'] == 'userError') {
-                    $API->sendMessage($sendTo, "Your account not found in System !");
+                    $this->API->sendMessage($sendTo, "Your account not found in System !");
                 } elseif ($result[$i]['type'] == 'mediaError') {
-                    $API->sendMessage($sendTo, "Image upload failed !");
+                    $this->API->sendMessage($sendTo, "Image upload failed !");
                 } elseif ($result[$i]['type'] == 'account') {
-                    $API->sendMessage($sendTo, $result[$i]['message']);
+                    $this->API->sendMessage($sendTo, $result[$i]['message']);
                 } else {
                     $totalImage = $this->searchFromArray($result, $sendTo);
                     $s          = '';
@@ -145,118 +166,17 @@ class MediaController extends EzzipixController {
                         $s = "s";
                     }
 
-                    $API->sendMessage($sendTo, "$totalImage Image$s successful uploaded to your account !");
+                    $this->API->sendMessage($sendTo, "$totalImage Image$s successful uploaded to your account !");
                 }
             }
 
         }
+        sleep(5);
+
+        $this->i++;
+        echo "reached $this->i \n";
+        $this->start();
     }
-
-    public function telegram() {
-        include_once 'TelegramAPIController.php';
-
-        $API = new TelegramAPIController();
-
-        $contacts = $API->getContactList();
-        $dataList = new ArrayObject();
-        print_r("<pre/>");
-
-        foreach ($contacts as $contact) {
-            $data      = [];
-            $histories = $API->getHistory($contact->print_name);
-
-            if (sizeof($histories) == 0) {
-                continue;
-            }
-
-            if (!isset($data['phone'])) {
-                $data['phone'] = $contact->print_name;
-            }
-
-            $messages = new ArrayObject();
-
-            foreach (@$histories as $history) {
-                if (@$history->media->type == 'photo') {
-                    $tempMessage['id']      = $history->id;
-                    $tempMessage['date']    = $history->date;
-                    $tempMessage['caption'] = $history->media->caption;
-
-                    $messages->append($tempMessage);
-                } else if (isset($history->text)) {
-                    if (strtoupper(trim($history->text)) == "CANCEL") {
-                        // do operation for cancel
-                        //break;
-                    }
-                } else {
-                    $API->tel->deleteMsg($history->id);
-                }
-            }
-
-            $data['messages'] = $messages;
-            $dataList->append($data);
-        }
-
-        $service     = new UserService();
-        $serviceData = new UserServiceData();
-
-        foreach ($dataList as $user) {
-            $from          = str_replace('+', '', $user['phone']);
-            $userId        = $service->getUserIdByProviderAndService(1, $from);
-            $userServiceId = $service->getIdByService_user_id(1, $from);
-            echo $from.' '.$userId;
-            if ($userId > 0) {
-                foreach ($user['messages'] as $message) {
-                    $messageImage = $API->loadImage($message['id'], $userId);
-                    $imageSave    = $API->saveImage($messageImage['url'], $message['id'], $messageImage['savePath']);
-                    //print_r($messageImage);
-                    //print_r($imageSave);
-                    //print_r("<br/>");
-
-                    if ($imageSave) {
-                        $data = [
-                            'user_service_id' => $userServiceId,
-                            'media_file_path' => $userId . '/' . $imageSave,
-                        ];
-
-                        if ($serviceData->insert($data)) {
-                            $API->tel->deleteMsg($message['id']);
-                            exec('rm ' . $messageImage['url']);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    function showAllImage() {
-        $this->auth();
-        require_once 'Model/UserServiceDataModel.php';
-        $userServiceData = new UserServiceData();
-
-        $this->pageData['imgGallery'] = $userServiceData->getAllMediaFileByUid($this->userInfo['uId']);
-        $this->loadView('image_gallery', $this->pageData);
-    }
-
-    function uploadMedia() {
-        $this->auth();
-        $this->loadView('imageForm', $this->pageData);
-    }
-
-    function saveUpload() {
-
-        var_dump($_SESSION);
-
-        $text  = $_POST['text'];
-        $image = $_FILES['image'];
-
-        $this->saveImage($image);
-    }
-
-    function auth() {
-        $auth = new AuthController();
-        $auth->auth();
-    }
-
     function searchFromArray($data = [], $from) {
         $count = 0;
         foreach ($data as $dt) {
@@ -268,40 +188,8 @@ class MediaController extends EzzipixController {
         return $count;
     }
 
-    function saveImage($file) {
-        $text      = md5(time());
-        $imageType = str_replace('image/', '', $file['type']);
-        $imageType = ($imageType == 'jpeg') ? 'jpg' : $imageType;
-        $fileName  = $text . '.' . $imageType;
 
-        if (move_uploaded_file($file['tmp_name'], 'upload/img/' . $fileName)) {
-            return $fileName;
-        }
-
-        return FALSE;
-    }
-
-    function process() {
-        $method = (isset($_GET['r'])) ? $_GET['r'] : "";
-        switch ($method) {
-            case 'all';
-                $this->showAllImage();
-                break;
-            case 'upload';
-                $this->uploadMedia();
-                break;
-            case 'saveUpload';
-                $this->saveUpload();
-                break;
-            case 'telegram';
-                $this->telegram();
-                break;
-            default;
-                $this->index();
-                break;
-        }
-    }
 }
 
-$media = new MediaController();
-$media->process();
+$wp = new WhatsAppReceiveDataController();
+$wp->start();

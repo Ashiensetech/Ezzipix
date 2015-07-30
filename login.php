@@ -53,6 +53,7 @@ class LoginController  extends EzzipixController{
             $_SESSION['uId']=$row['u_id'];
             $_SESSION['email']=$row['email'];
         }
+        session_write_close();
     }
 
     private function checkLogin(){
