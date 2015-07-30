@@ -23,7 +23,6 @@ class ServiceController extends AuthController {
 
     public function sendCode() {
         require_once dirname(__FILE__) . '/Model/ActivationTokenModel.php';
-
         $serviceProviderId = $_POST['service_provider_id'];
         $serviceUserId     = $_POST['service_user_id'];
 
@@ -65,6 +64,7 @@ class ServiceController extends AuthController {
         if ($serviceProviderId == 1) {
             $this->telegram($serviceProviderId, $serviceUserId);
         } elseif ($serviceProviderId == 2) {
+
             $this->whatsApp($serviceProviderId, $serviceUserId);
         }
 
@@ -129,6 +129,7 @@ class ServiceController extends AuthController {
     }
 
     function whatsApp($serviceProviderId, $serviceUserId) {
+
         $API   = new WhatsAppAPIController();
         $token = new ActivationToken();
 
@@ -246,6 +247,7 @@ class ServiceController extends AuthController {
                 header('Location: dashboard.php?r=index');
                 break;
         }
+        session_write_close();
     }
 }
 

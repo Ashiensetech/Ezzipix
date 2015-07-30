@@ -535,7 +535,7 @@ class WhatsProt {
      */
     public function pollMessage($autoReceipt = TRUE, $type = "read") {
         if (!$this->isConnected()) {
-            throw new ConnectionException('Connection Closed!');
+          //  throw new ConnectionException('Connection Closed!');
         }
 
         $r = array($this->socket);

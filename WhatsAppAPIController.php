@@ -17,6 +17,7 @@ class WhatsAppAPIController {
     public $imagePath = 'upload/img/';
 
     function __construct() {
+
         $this->w = new WhatsProt($this->username, $this->nickname, $this->debug);
         $this->w->connect();
         $this->w->loginWithPassword($this->password);
@@ -47,6 +48,9 @@ class WhatsAppAPIController {
         }
 
         return FALSE;
+    }
+    function isConnected(){
+        return $this->w->isConnected();
     }
 }
 
