@@ -1,5 +1,6 @@
 <?php
-
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 require_once 'AuthController.php';
 require_once 'WhatsAppAPIController.php';
 require_once 'TelegramAPIController.php';
@@ -22,6 +23,7 @@ class ServiceController extends AuthController {
     }
 
     public function sendCode() {
+
         require_once dirname(__FILE__) . '/Model/ActivationTokenModel.php';
         $serviceProviderId = $_POST['service_provider_id'];
         $serviceUserId     = $_POST['service_user_id'];

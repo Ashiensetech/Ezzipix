@@ -1,5 +1,6 @@
 <?php
-
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 require_once 'EzzipixController.php';
 require_once 'AuthController.php';
 require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
@@ -202,7 +203,7 @@ class MediaController extends EzzipixController {
             $from          = str_replace('+', '', $user['phone']);
             $userId        = $service->getUserIdByProviderAndService(1, $from);
             $userServiceId = $service->getIdByService_user_id(1, $from);
-
+            echo $from.' '.$userId;
             if ($userId > 0) {
                 foreach ($user['messages'] as $message) {
                     $messageImage = $API->loadImage($message['id'], $userId);
