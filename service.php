@@ -229,7 +229,32 @@ class ServiceController extends AuthController {
 
         return $code;
     }
+    function deactiveUserService(){
+        $serviceProviderId= $_POST['service_provider_id'];
+        $service_user_id= $_POST['service_user_id'];
 
+        require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
+
+        $userService = new UserService();
+
+        if(!$userService->haveServiceIdByu_id($serviceProviderId,$service_user_id,$this->userInfo['uId'])){
+            $this->respData['status']=false;
+            $this->respData['msg']="You don't have to previlage to do the operation !";
+            echo json_encode($this->respData);
+            return;
+        }
+
+        $status = $userService->deactivateService($serviceProviderId,$service_user_id,0);
+
+        if ($status > 0) {
+            $this->respData['status']=true;
+            $this->respData['msg']="Your account has been deactivated !";
+        } else {
+            $this->respData['status']=false;
+            $this->respData['msg']="System unable to deactivated your service try again later !";
+        }
+        echo json_encode($this->respData);
+    }
     public function process() {
         $method = (isset($_GET['r'])) ? $_GET['r'] : "";
         switch ($method) {
@@ -244,6 +269,9 @@ class ServiceController extends AuthController {
                 break;
             case 'test';
                 $this->telegram();
+                break;
+            case 'deactiveUserService';
+                $this->deactiveUserService();
                 break;
             default;
                 header('Location: dashboard.php?r=index');

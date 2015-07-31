@@ -58,15 +58,19 @@ include_once 'head.php';
             </tr>
             <tr id = "verification_code_tr" style = "display: none">
                 <td>Verification Code :</td>
-                <td><input type = "verification_code" id = "verification_code"/></td>
+                <td>
+                    <input type = "verification_code" id = "verification_code"/>&nbsp;
+                    <input type = "button" onclick = "sendCode();" value = "Resend Code"/>
+                </td>
+
             </tr>
             <tr id = "verification_code_send">
                 <td>&nbsp;</td>
-                <td><input type = "submit" onclick = "sendCode();" value = "Get Verification Code"/></td>
+                <td><input type = "button" onclick = "sendCode();" value = "Get Verification Code"/></td>
             </tr>
             <tr id = "verification_code_submit" style = "display: none">
                 <td>&nbsp;</td>
-                <td><input type = "submit" onclick = "addService();" value = "Submit You Code"/></td>
+                <td><input type = "button" onclick = "addService();" value = "Submit You Code"/></td>
             </tr>
 
         </table>

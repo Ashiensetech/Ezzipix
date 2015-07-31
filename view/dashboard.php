@@ -57,7 +57,15 @@ include_once 'head.php';
                 <td>
                     <?php
                     foreach ($services as $service) {
-                        echo $service['name'] . '(' . $service['service_user_id'] . ')<br/>';
+                        ?>
+                        <div stye="float:left;">
+                           <?php
+
+                                echo $service['name'] . '(' . $service['service_user_id'] . ')<br/>';
+                            ?>
+                            <input style="display:none;float: right;" type="button" value="Cancel" onclick="cancelService('<?php echo $service['spId'];?>','<?php echo $service['service_user_id'];?>',this)" />
+                        </div>
+                    <?php
                     }
                     ?>
                 </td>
@@ -67,7 +75,38 @@ include_once 'head.php';
             <td></td>
             <td><a href="<?php echo $this->baseUrl.'media.php?r=all'; ?>">Image Gallery</a></td>
         </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><div id="msg"></div></td>
+        </tr>
     </table>
 </div>
+<script>
+    function cancelService(serviceProviderId,userServiceId,elem){
+
+        $("#verification_code_msg").css({'display': 'none'});
+
+        var url = BaseUrl+"service"+phpSuffix;
+
+        $.ajax({
+            url: url + "?r=deactiveUserService",
+            method: "POST",
+            data: {
+                "service_provider_id": serviceProviderId,
+                "service_user_id": userServiceId
+            },
+            success: function (data) {
+                var data = JSON.parse(data);
+                if (data.status) {
+                    $(elem).parents("tr").first().hide();
+
+                }
+
+                $("#msg").html(data.msg);
+               // $("#verification_code_msg").css({'display': ''});
+            }
+        });
+    }
+</script>
 </body>
 </html>

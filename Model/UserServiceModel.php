@@ -9,7 +9,7 @@ class UserService extends EzzipixModel {
     }
 
     public function getAllService($uId) {
-        $sql = "SELECT p.name, u.service_user_id FROM user_service u, service_provider p WHERE u_id = $uId AND p.id = u.service_provider_id ORDER BY p.id";
+        $sql = "SELECT p.id as spId,p.name, u.service_user_id FROM user_service u, service_provider p WHERE u_id = $uId AND p.id = u.service_provider_id ORDER BY p.id";
 
         return $this->getArrayData(mysql_query($sql));
     }
@@ -48,7 +48,22 @@ class UserService extends EzzipixModel {
 
         return 0;
     }
+    function haveServiceIdByu_id($service_provider_id, $service_user_id,$u_id) {
 
+        $service_provider_id = mysql_real_escape_string(trim($service_provider_id));
+        $service_user_id     = mysql_real_escape_string(trim($service_user_id));
+
+        $query  = "SELECT id FROM $this->tableName WHERE "
+            . " service_user_id = '$service_user_id'"
+            . " and service_provider_id = $service_provider_id  and u_id = $u_id limit 1";
+        $result = mysql_query($query);
+       // echo $query;
+        foreach ($this->getArrayData($result) as $rowData) {
+            return true;
+        }
+
+        return false;
+    }
     function getUserIdByProviderAndService($service_provider_id, $service_user_id) {
         $service_provider_id = mysql_real_escape_string(trim($service_provider_id));
         $service_user_id     = mysql_real_escape_string(trim($service_user_id));
@@ -87,7 +102,8 @@ class UserService extends EzzipixModel {
         }
 
         //$sql = "DELETE FROM $this->tableName WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId LIMIT 1";
-        $sql = "UPDATE  $this->tableName SET active = $status WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId LIMIT 1";
+        $sql = "UPDATE  $this->tableName SET active = $status WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId";
+        echo $sql;
         mysql_query($sql);
 
         return mysql_affected_rows();
