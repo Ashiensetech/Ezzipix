@@ -171,11 +171,11 @@ class WhatsAppReceiveDataController  {
             }
 
         }
-        sleep(5);
+        //sleep(5);
 
         $this->i++;
         echo "reached $this->i \n";
-        $this->start();
+        //$this->start();
     }
     function searchFromArray($data = [], $from) {
         $count = 0;

@@ -164,13 +164,12 @@ class MediaController extends EzzipixController {
         foreach ($contacts as $contact) {
             $data      = [];
             $histories = $API->getHistory($contact->print_name);
-
             if (sizeof($histories) == 0) {
                 continue;
             }
 
-            if (!isset($data['phone'])) {
-                $data['phone'] = $contact->print_name;
+            if (!isset($data['print_name'])) {
+                $data['print_name'] = $contact->print_name;
             }
 
             $messages = new ArrayObject();
@@ -186,26 +185,31 @@ class MediaController extends EzzipixController {
                     if (strtoupper(trim($history->text)) == "CANCEL") {
                         // do operation for cancel
                         //break;
+                        $API->tel->deleteMsg($history->id);
+                    }else {
+                        $API->tel->deleteMsg($history->id);
                     }
-                } else {
-                    $API->tel->deleteMsg($history->id);
                 }
             }
+            if(sizeof($messages)>0){
+                $data['messages'] = $messages;
+                $dataList->append($data);
+            }
 
-            $data['messages'] = $messages;
-            $dataList->append($data);
         }
 
         $service     = new UserService();
         $serviceData = new UserServiceData();
 
         foreach ($dataList as $user) {
-            $from          = str_replace('+', '', $user['phone']);
+            $from          = $user['print_name'];
             $userId        = $service->getUserIdByProviderAndService(1, $from);
             $userServiceId = $service->getIdByService_user_id(1, $from);
             echo $from.' '.$userId;
             if ($userId > 0) {
                 foreach ($user['messages'] as $message) {
+
+
                     $messageImage = $API->loadImage($message['id'], $userId);
                     $imageSave    = $API->saveImage($messageImage['url'], $message['id'], $messageImage['savePath']);
                     //print_r($messageImage);
@@ -219,12 +223,20 @@ class MediaController extends EzzipixController {
                         ];
 
                         if ($serviceData->insert($data)) {
-                            $API->tel->deleteMsg($message['id']);
+                            echo " INSERTED <br>";
                             exec('rm ' . $messageImage['url']);
+                            $API->tel->deleteMsg($message['id']);
                         }
                     }
                 }
+                $msgCount = sizeof($user['messages']);
+                if($msgCount>0){
+                    $msg =$msgCount." image received ";
+                    $API->sendMessage($user['print_name'],$msg);
+                }
             }
+
+
         }
     }
 

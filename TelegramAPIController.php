@@ -31,9 +31,7 @@ class TelegramAPIController {
      * @return Array of objects
      */
     function addContact($phone) {
-        $phone = str_replace('+', '', $phone);
-
-        return $this->tel->addContact($phone, '+' . $phone, '');
+        return $this->tel->addContact($phone,$phone, '');
     }
 
     /**

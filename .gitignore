@@ -1,5 +1,6 @@
 .idea
 /upload/
 lib/wadata
-*~$
 nohup.out
+*~$
+
