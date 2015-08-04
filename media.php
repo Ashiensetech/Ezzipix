@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 require_once 'EzzipixController.php';
 require_once 'AuthController.php';
 require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
