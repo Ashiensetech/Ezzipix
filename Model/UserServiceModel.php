@@ -9,7 +9,7 @@ class UserService extends EzzipixModel {
     }
 
     public function getAllService($uId) {
-        $sql = "SELECT p.id as spId,p.name, u.service_user_id FROM user_service u, service_provider p WHERE u_id = $uId AND p.id = u.service_provider_id ORDER BY p.id";
+        $sql = "SELECT p.id as spId,p.name, u.service_user_id, u.active AS active FROM user_service u, service_provider p WHERE u_id = $uId AND p.id = u.service_provider_id ORDER BY p.id";
 
         return $this->getArrayData(mysql_query($sql));
     }
@@ -39,37 +39,39 @@ class UserService extends EzzipixModel {
 
         $query  = "SELECT id FROM $this->tableName WHERE "
                   . " service_user_id = '$service_user_id'"
-                  . " and service_provider_id = $service_provider_id  limit 1";
+                  . " and service_provider_id = $service_provider_id AND active = 1  limit 1";
         $result = mysql_query($query);
 
         foreach ($this->getArrayData($result) as $rowData) {
             return $rowData['id'];
         }
 
-        return 0;
+        return FALSE;
     }
-    function haveServiceIdByu_id($service_provider_id, $service_user_id,$u_id) {
+
+    function haveServiceIdByu_id($service_provider_id, $service_user_id, $u_id) {
 
         $service_provider_id = mysql_real_escape_string(trim($service_provider_id));
         $service_user_id     = mysql_real_escape_string(trim($service_user_id));
 
-        $query  = "SELECT id FROM $this->tableName WHERE "
-            . " service_user_id = '$service_user_id'"
-            . " and service_provider_id = $service_provider_id  and u_id = $u_id limit 1";
-        $result = mysql_query($query);
-       // echo $query;
-        foreach ($this->getArrayData($result) as $rowData) {
-            return true;
+        $query  = "SELECT id, active FROM $this->tableName WHERE "
+                  . " service_user_id = '$service_user_id'"
+                  . " and service_provider_id = $service_provider_id  and u_id = $u_id limit 1";
+        $result = $this->getArrayData(mysql_query($query));
+
+        if(!empty($result)){
+            return $result[0];
         }
 
-        return false;
+        return FALSE;
     }
+
     function getUserIdByProviderAndService($service_provider_id, $service_user_id) {
         $service_provider_id = mysql_real_escape_string(trim($service_provider_id));
         $service_user_id     = mysql_real_escape_string(trim($service_user_id));
 
         $query = "SELECT u_id FROM $this->tableName WHERE service_user_id = '$service_user_id'"
-                 . " and service_provider_id = $service_provider_id  limit 1";
+                 . " and service_provider_id = $service_provider_id limit 1";
 
         foreach ($this->getArrayData(mysql_query($query)) as $rowData) {
             return $rowData['u_id'];
@@ -101,9 +103,7 @@ class UserService extends EzzipixModel {
             $status = 0;
         }
 
-        //$sql = "DELETE FROM $this->tableName WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId LIMIT 1";
         $sql = "UPDATE  $this->tableName SET active = $status WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId";
-        echo $sql;
         mysql_query($sql);
 
         return mysql_affected_rows();
@@ -111,6 +111,7 @@ class UserService extends EzzipixModel {
 
     /**
      * Get service current status active or not
+     *
      * @param string $form
      * @param int    $serviceType
      *
@@ -123,7 +124,7 @@ class UserService extends EzzipixModel {
         $data = $this->getArrayData(mysql_query($sql));
 
         if (!empty($data)) {
-            return $data[0]['active'];
+            return TRUE;
         }
 
         return FALSE;

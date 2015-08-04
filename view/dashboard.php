@@ -28,11 +28,11 @@ include_once 'head.php';
     }
 </style>
 <body>
-<div class = "content">
-    <table align = "center">
+<div class="content">
+    <table align="center">
         <tr>
             <td>Action :</td>
-            <td><a href = "dashboard.php?r=logout">Logout</a></td>
+            <td><a href="dashboard.php?r=logout">Logout</a></td>
         </tr>
         <tr>
             <td>Full name :</td>
@@ -49,44 +49,44 @@ include_once 'head.php';
 
         <tr>
             <td>Add Service :</td>
-            <td><a href = "service.php?r=new">Add New Service</a></td>
+            <td><a href="service.php?r=new">Add New Service</a></td>
         </tr>
         <?php if (@$services && @$services != NULL) { ?>
             <tr>
                 <td>Added Service :</td>
                 <td>
-                    <?php
-                    foreach ($services as $service) {
-                        ?>
-                        <div stye="float:left;">
-                           <?php
+                    <?php foreach ($services as $service) { ?>
+                        <?php if ($service['active'] == 1) { ?>
+                            <div style="width: 100%; border-bottom: 1px solid #222; overflow: hidden; padding: 3px 5px; margin: 0 -5px;">
+                                <p style="padding: 0; margin: 0; float: left; "><?php echo $service['name'] . '(' . $service['service_user_id'] . ')'; ?></p>
 
-                                echo $service['name'] . '(' . $service['service_user_id'] . ')<br/>';
-                            ?>
-                            <input style="display:none;float: right;" type="button" value="Cancel" onclick="cancelService('<?php echo $service['spId'];?>','<?php echo $service['service_user_id'];?>',this)" />
-                        </div>
-                    <?php
-                    }
-                    ?>
+                                <div style="width: 70px; float: right; ">
+                                    <input style="display:block;float: right;" type="button" value="Cancel" onclick="cancelService('<?php echo $service['spId']; ?>','<?php echo $service['service_user_id']; ?>',this)"/>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    <?php } ?>
                 </td>
             </tr>
         <?php } ?>
         <tr>
             <td></td>
-            <td><a href="<?php echo $this->baseUrl.'media.php?r=all'; ?>">Image Gallery</a></td>
+            <td><a href="<?php echo $this->baseUrl . 'media.php?r=all'; ?>">Image Gallery</a></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td><div id="msg"></div></td>
+            <td>
+                <div id="msg"></div>
+            </td>
         </tr>
     </table>
 </div>
 <script>
-    function cancelService(serviceProviderId,userServiceId,elem){
+    function cancelService(serviceProviderId, userServiceId, elem) {
 
         $("#verification_code_msg").css({'display': 'none'});
 
-        var url = BaseUrl+"service"+phpSuffix;
+        var url = BaseUrl + "service" + phpSuffix;
 
         $.ajax({
             url: url + "?r=deactiveUserService",
@@ -103,7 +103,7 @@ include_once 'head.php';
                 }
 
                 $("#msg").html(data.msg);
-               // $("#verification_code_msg").css({'display': ''});
+                $("#verification_code_msg").css({'display': ''});
             }
         });
     }

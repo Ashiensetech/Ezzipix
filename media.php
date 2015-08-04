@@ -1,6 +1,6 @@
 <?php
-//error_reporting(E_ALL);
-//ini_set('display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 require_once 'EzzipixController.php';
 require_once 'AuthController.php';
 require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
@@ -24,7 +24,7 @@ class MediaController extends EzzipixController {
         $result  = [];
         $counter = 0;
 
-        //echo '<meta http-equiv="refresh" content="3">';
+        echo '<meta http-equiv="refresh" content="3">';
         echo "<pre>";
         var_dump($data);
         foreach ($data as $message) {
@@ -45,7 +45,7 @@ class MediaController extends EzzipixController {
                     $imageUrl      = $message->getAttribute('url');
                     $path          = "upload/img/" . $userId;
 
-                    if ($userId > 0) {
+                    if ($userId > 0 && $userServiceId) {
                         if ($imgName = $API->saveImage($imageUrl, $path)) {
                             $data = [
                                 'user_service_id' => $userServiceId,
@@ -155,10 +155,13 @@ class MediaController extends EzzipixController {
     public function telegram() {
         include_once 'TelegramAPIController.php';
 
-        $API = new TelegramAPIController();
+        $API         = new TelegramAPIController();
+        $service     = new UserService();
+        $serviceData = new UserServiceData();
 
         $contacts = $API->getContactList();
         $dataList = new ArrayObject();
+        echo '<meta http-equiv="refresh" content="3">';
         print_r("<pre/>");
 
         foreach ($contacts as $contact) {
@@ -182,39 +185,57 @@ class MediaController extends EzzipixController {
 
                     $messages->append($tempMessage);
                 } else if (isset($history->text)) {
-                    if (strtoupper(trim($history->text)) == "CANCEL") {
-                        // do operation for cancel
-                        //break;
-                        $API->tel->deleteMsg($history->id);
-                    }else {
-                        $API->tel->deleteMsg($history->id);
+                    $text = strtoupper(trim($history->text));
+                    $from = $contact->print_name;
+
+                    if ($text === "CANCEL") {
+                        $status       = $service->deactivateService(1, $from);
+                        $activeStatus = $service->getServiceStatus($from, 0);
+
+                        if ($status > 0) {
+                            $API->sendMessage($from, "Your account has been deactivated.");
+                        } elseif ($activeStatus) {
+                            $API->sendMessage($from, "Your account already deactivated !");
+                        } else {
+                            $API->sendMessage($from, "System unable to deactivated your service try again later.");
+                        }
+
+                        //$API->tel->deleteMsg($history->id);
+                    } elseif ($text === "ACTIVE") {
+                        $foundStatus  = $service->deactivateService(1, $from, 1);
+                        $activeStatus = $service->getServiceStatus($from, 1);
+
+                        if ($foundStatus > 0) {
+                            $API->sendMessage($from, "Your account has been Activated.");
+                        } elseif ($activeStatus) {
+                            $API->sendMessage($from, "Your account already activated !");
+                        } else {
+                            $API->sendMessage($from, "System unable to Activated your service try again later.");
+                        }
+
+                        //$API->tel->deleteMsg($history->id);
                     }
+
+                    $API->tel->deleteMsg($history->id);
                 }
             }
-            if(sizeof($messages)>0){
+
+            if (sizeof($messages) > 0) {
                 $data['messages'] = $messages;
                 $dataList->append($data);
             }
 
         }
 
-        $service     = new UserService();
-        $serviceData = new UserServiceData();
-
         foreach ($dataList as $user) {
             $from          = $user['print_name'];
             $userId        = $service->getUserIdByProviderAndService(1, $from);
             $userServiceId = $service->getIdByService_user_id(1, $from);
-            echo $from.' '.$userId;
-            if ($userId > 0) {
+            echo $from . ' ' . $userId;
+            if ($userId > 0 && $userServiceId) {
                 foreach ($user['messages'] as $message) {
-
-
                     $messageImage = $API->loadImage($message['id'], $userId);
                     $imageSave    = $API->saveImage($messageImage['url'], $message['id'], $messageImage['savePath']);
-                    //print_r($messageImage);
-                    //print_r($imageSave);
-                    //print_r("<br/>");
 
                     if ($imageSave) {
                         $data = [
@@ -229,10 +250,12 @@ class MediaController extends EzzipixController {
                         }
                     }
                 }
+
                 $msgCount = sizeof($user['messages']);
-                if($msgCount>0){
-                    $msg =$msgCount." image received ";
-                    $API->sendMessage($user['print_name'],$msg);
+
+                if ($msgCount > 0) {
+                    $msg = $msgCount . " image received ";
+                    $API->sendMessage($user['print_name'], $msg);
                 }
             }
 
