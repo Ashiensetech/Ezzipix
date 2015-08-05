@@ -29,7 +29,7 @@ include_once 'head.php';
 </style>
 <body>
 <div class = "content">
-    <form action = "" onsubmit = "return false;">
+    <form id="addServiceForm" action = "" onsubmit = "return false;">
         <table align = "center">
             <tr id = "verification_code_msg" style = "display: none">
                 <td colspan = "2">
@@ -60,17 +60,17 @@ include_once 'head.php';
                 <td>Verification Code :</td>
                 <td>
                     <input type = "verification_code" id = "verification_code"/>&nbsp;
-                    <input type = "button" onclick = "sendCode();" value = "Resend Code"/>
+                    <input  id="resendTokenBtn" type = "button" onclick = "sendCode();" value = "Resend Code"/>
                 </td>
 
             </tr>
             <tr id = "verification_code_send">
                 <td>&nbsp;</td>
-                <td><input type = "button" onclick = "sendCode();" value = "Get Verification Code"/></td>
+                <td><input id="getVerifucationBtn" type = "button" onclick = "sendCode();" value = "Get Verification Code"/></td>
             </tr>
             <tr id = "verification_code_submit" style = "display: none">
                 <td>&nbsp;</td>
-                <td><input type = "button" onclick = "addService();" value = "Submit You Code"/></td>
+                <td><input id="addServiceBtn" type = "button" onclick = "addService();" value = "Submit You Code"/></td>
             </tr>
 
         </table>
@@ -86,15 +86,21 @@ include_once 'head.php';
         }
 
     }
+    function disableAllInForm(){
+        $('#addServiceForm').find("input,select").attr("disabled","disabled");
+    }
+    function enableAllInform(){
+        $('#addServiceForm').find("input,select").removeAttr("disabled","disabled");
+    }
     function sendCode() {
-
+        $('#getVerifucationBtn').attr("disabled","disabled");
         $("#verification_code_tr").css({'display': 'none'});
         $("#verification_code_msg").css({'display': 'none'});
 
         var url = $("#page_url").val();
         var service_provider_id = $("#service_provider_id").val();
         var service_user_id = $("#service_user_id").val();
-
+        disableAllInForm();
         $.ajax({
             url: url + "?r=sendCode",
             method: "POST",
@@ -108,7 +114,11 @@ include_once 'head.php';
                     $("#verification_code_tr").css({'display': ''});
                     $("#verification_code_send").css({'display': 'none'});
                     $("#verification_code_submit").css({'display': ''});
+                    $("#verification_code").removeAttr("disabled","disabled");
+                    $("#resendTokenBtn").removeAttr("disabled","disabled");
+                    $("#addServiceBtn").removeAttr("disabled","disabled");
                 }
+
                 $("#msg").html(data.message);
                 $("#verification_code_msg").css({'display': ''});
             }

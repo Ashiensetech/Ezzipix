@@ -73,7 +73,7 @@
                 if($(this).prop("tagName") == "SELECT"){
                      errorMsg = "Select "+$(this).attr("id"); 
                 }else{
-                     errorMsg = $(this).attr("id")+" field requred"; 
+                     errorMsg = $(this).attr("id")+" field required";
                 }
                
                 $(this).focus();
