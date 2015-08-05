@@ -199,6 +199,7 @@ class ServiceController extends AuthController {
             echo json_encode($data);
             die;
         }
+
         require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
 
         $userService = new UserService();
@@ -206,7 +207,7 @@ class ServiceController extends AuthController {
             'service_user_id'     => $serviceUserId,
             'service_provider_id' => $serviceProviderId,
             'u_id'                => $uId,
-            'active'              => 0,
+            'active'              => 1,
         ];
 
         $insertId = $userService->insert($data);
