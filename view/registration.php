@@ -91,7 +91,7 @@
         if($('#password').val()!="" && $('#password').val().length<6){
             $('#password').focus();
              valid = false;
-             errorMsg ='At leat 6 digit required';            
+             errorMsg ='At least 6 digit required';
         } 
         if(!valid){
             $('#msg').html(errorMsg);
