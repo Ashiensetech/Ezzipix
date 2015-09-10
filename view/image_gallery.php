@@ -1,55 +1,242 @@
-<?php require_once 'head.php' ?>
-<style>
-    body {
-        margin: 10px auto 0;
-        width: 980px;
-    }
+<!DOCTYPE html>
+<!-- 
+TEMPLATE NAME : Adminre - frontend
+VERSION : 1.3.0
+AUTHOR : JohnPozy
+AUTHOR URL : http://themeforest.net/user/JohnPozy
+EMAIL : pampersdry@gmail.com
+LAST UPDATE: 2015/01/05
 
-    .content {
-        text-align: center;
-    }
+** A license must be purchased in order to legally use this template for your project **
+** PLEASE SUPPORT ME. YOUR SUPPORT ENSURE THE CONTINUITY OF THIS PROJECT **
+-->
 
-    .content table, td {
-        border: 1px solid #000000;
-    }
 
-    .content td {
-        padding: 2px 5px;
-    }
+<html class="frontend">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/plugins/magnific/css/magnific.css';?>">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/plugins/owl/css/owl-carousel.css';?>">
+    <?php include_once 'partial/head.php' ?>
+    <script src="<?php echo $this->baseUrl."js/printio/pio.latest.v2.js"; ?>" ></script>
+    <!--/ END Head -->
 
-    .form {
-        width: 100%;
-    }
+    <!-- START Body -->
+    <body>
+    <!-- START Template Header -->
+    <?php include_once 'partial/menu.php'; ?>
+        <!-- START Template Header -->
 
-    .error {
-        color: #FF0000;
-    }
+        <section id="main" role="main">
+            <!-- START page header -->
+            <section class="page-header page-header-block nm">
+                <!-- pattern -->
+                <div class="pattern pattern9"></div>
+                <!--/ pattern -->
+                <div class="container pt15 pb15">
+                    <div class="page-header-section">
+                    </div>
+                    <div class="page-header-section">
+                        <!-- Toolbar -->
+                        <div class="toolbar">
+                            <ol class="breadcrumb breadcrumb-transparent nm">
+                                <li><a href="javascript:void(0);" onclick="openPIO()"  >Print</a></li>
+                                <li class="active"><a href="javascript:void(0);"  onclick="openPIO()"  ><span class="icon"><i class="ico-print"></i></span></a></li>
+                            </ol>
+                        </div>
+                        <!--/ Toolbar -->
+                    </div>
+                </div>
+            </section>
+            <div class="clearfix"></div>
+            <!--/ END page header -->
 
-    #img-gallery {
-        width: 100%;
-    }
-    #img-gallery img{
-        width: 31%;
-        float: left;
-        border: 1px solid #fff;
-        padding: 4px;
-        margin: 0 5px 10px 5px;
-        box-shadow: 0px 0px 3px #000;
-    }
-</style>
-<body>
-<div class="content">
-    <span><a href="<?php echo $this->baseUrl . 'dashboard.php'; ?>">Go Back</a></span>
+            <!-- START Portfolio Content -->
+            <section class="section bgcolor-white">
+                <div class="container">
+                    <!-- START Section Header -->
+                    <div class="row">
+                        <div class="col-md-12">
 
-    <div id="img-gallery">
-    <?php
-    $j = 1;
-    $i = 0;
-    foreach ($imgGallery as $img) { ?>
-        <img style="" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>"/>
-    <?php } ?>
-</div>
+                        </div>
+                    </div>
+                    <!--/ END Section Header -->
 
-</div>
-</body>
+                    <!-- START row -->
+                    <div class="row" id="shuffle-grid">
+                        <?php
+                            $j = 1;
+                            $i = 0;
+                            foreach ($imgGallery as $img) {
+
+                                ?>
+                                <img style="" src=""/>
+                                <div class="col-sm-3 shuffle" data-groups='["creative", "people"]'>
+
+                                    <div class="panel no-border overflow-hidden">
+                                        <!-- thumbnail -->
+                                        <div class="thumbnail nm">
+                                            <!-- media -->
+                                            <div class="media">
+                                                <!-- indicator -->
+                                                <div class="indicator"><span class="spinner"></span></div>
+                                                <!--/ indicator -->
+                                                <!-- toolbar overlay -->
+                                                <div class="overlay">
+                                                    <div class="toolbar">
+                                                        <a href="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" class="btn btn-default magnific" title=""><i class="ico-search"></i></a>
+
+                                                    </div>
+                                                </div>
+                                                <!--/ toolbar overlay -->
+                                                <img data-toggle="unveil" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" data-src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" alt="Photo" width="100%" />
+                                            </div>
+                                            <!--/ media -->
+                                        </div>
+                                        <!--/ thumbnail -->
+                                        <!-- Meta -->
+                                        <div class="panel-footer" style="padding:25px;border:0;">
+                                            <h4 class="text-center mt0 ellipsis"></h4>
+                                            <div class="text-center">
+<!--                                                <i class="ico-tags text-muted mr5"></i>-->
+
+                                            </div>
+                                        </div>
+                                        <!--/ Meta -->
+                                    </div>
+                                </div>
+                        <?php } ?>
+
+
+                    </div>
+                    <!--/ END row -->
+                </div>
+            </section>
+            <!--/ END Portfolio Content -->
+
+            <!-- START Featured Portfolio -->
+
+            <!--/ END Featured Portfolio -->
+
+            <!-- START To Top Scroller -->
+            <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>
+            <!--/ END To Top Scroller -->
+        </section>
+        <!--/ END Template Main -->
+
+        <!-- START Template Footer -->
+    <!-- START Template Footer -->
+    <?php include_once 'partial/footer.php' ?>
+    <!-- End Template Footer -->
+    <?php include_once 'partial/core_script.php' ?>
+        <!--/ END Template Footer -->
+
+
+        <!-- Plugins and page level script : optional -->
+        <script type="text/javascript" src="<?php echo $this->baseUrl.'html_template/dist/plugins/smoothscroll/js/smoothscroll.js';?>"></script>
+        <script type="text/javascript" src="<?php echo $this->baseUrl.'html_template/dist/plugins/magnific/js/jquery.magnific-popup.js';?>"></script>
+        <script type="text/javascript" src="<?php echo $this->baseUrl.'html_template/dist/plugins/owl/js/owl.carousel.js';?>"></script>
+        <script type="text/javascript" src="<?php echo $this->baseUrl.'html_template/dist/plugins/shuffle/js/jquery.shuffle.js';?>"></script>
+        <script type="text/javascript" src="<?php echo $this->baseUrl.'html_template/dist/javascript/frontend/pages/portfolio.js';?>"></script>
+        <!--/ Plugins and page level script : optional -->
+        <!--/ END JAVASCRIPT SECTION -->
+    <input id="allImg" type="hidden" value='<?php echo $allImg;?>' />
+    <script>
+
+        var imgJobjArray = JSON.parse($("#allImg").val())
+        var images=[];
+        for(var key in imgJobjArray){
+            images.push(BaseUrl+"upload/img/"+imgJobjArray[key].media_file_path);
+        }
+        console.log(images);
+        $(document).ready(function(){
+            PIO.config({
+                recipeId:"d672c387-aa6a-480f-8908-782843978773"
+            });
+        });
+        function openPIO(){
+            PIO.open({
+                photosources: {
+
+                    local: {
+                        enabled: false,
+                        sortOrder: 1,
+                        isInitiallyOpen:false
+                    },
+                    facebook: {
+                        enabled: false,
+                        sortOrder: 2,
+                        isInitiallyOpen:false
+                    },
+                    instagram: {
+                        enabled: false,
+                        sortOrder: 2,
+                        isInitiallyOpen:false
+                    },
+                    photobucket: {
+                        enabled: false,
+                        sortOrder: 3,
+                        isInitiallyOpen:false
+                    },
+                    flickr: {
+                        enabled: false,
+                        sortOrder: 5,
+                        isInitiallyOpen:false
+                    },
+                    google: {
+                        enabled: false,
+                        sortOrder: 6,
+                        isInitiallyOpen:false
+                    },
+                    dropbox: {
+                        enabled: false,
+                        sortOrder: 7,
+                        isInitiallyOpen:false
+                    }, custom: {
+                        sortOrder: 8,
+                        enabled: true,
+                        isInitiallyOpen:true,
+                        // an icon for the tab, should be 48x48 px
+                        iconUrl: BaseUrl + 'img/icon.jpg'
+                    },
+                },fns: {
+
+                    // function that handles custom photo source data
+                    // request is an object like { page: 1, folder: "" }
+                    // replyFn is a callback that takes an object like
+                    /// { id:"", page: 1, totalPages: 1, items: [] }
+                    /// where items contains objects like
+                    /// { picture: "http://hi.com/hi.jpg" } for images
+                    /// { id: "", isFolder: true, name: ""} for folders
+                    onPhotoSourceReq: function (request, replyFn) {
+                        // if the request is for the root
+                        var picture = {};
+                        var pictureArray = [];
+                        //pictureArray.push({id: "f1", isFolder: true, name: "fave pics"}); // Create new folder
+                        for(var i=0;i<images.length;i++){
+                            picture = {picture:images[i]}
+                            pictureArray.push(picture);
+                        }
+                        replyFn({
+                            id: "",
+                            page: 1,
+                            totalPages: 1,
+                            items:pictureArray
+//                            items: [
+//                                // pass in that there is a folder
+//                                {id: "f1", isFolder: true, name: "fave pics"},
+//
+//                                // pass in three images
+//                                {picture: "http://img.ffffound.com/static-data/assets/6/8fc3b482de5086f5f6bb64b75805b3413936c49a_m.png"},
+//                                {picture: "http://img.ffffound.com/static-data/assets/6/c9c55336befdeae882e2d1794fc13888053e7f66_m.png"},
+//                                {picture: "http://img.ffffound.com/static-data/assets/6/6dc8a64f665183d97a37e44cac72410531ec0978_m.png"}
+//                            ]
+                        });
+                    }
+                }
+            });
+        }
+
+
+    </script>
+    </body>
+    <!--/ END Body -->
 </html>

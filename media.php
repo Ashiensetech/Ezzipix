@@ -269,6 +269,7 @@ class MediaController extends EzzipixController {
         $userServiceData = new UserServiceData();
 
         $this->pageData['imgGallery'] = $userServiceData->getAllMediaFileByUid($this->userInfo['uId']);
+        $this->pageData['allImg'] = json_encode($userServiceData->getAllMediaFileByUid($this->userInfo['uId']));
         $this->loadView('image_gallery', $this->pageData);
     }
 

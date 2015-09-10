@@ -8,8 +8,8 @@ require 'lib/events/MyEvents.php';
 class WhatsAppAPIController {
 
     public $username  = "8801977974819";
-    public $nickname  = "userpasta";
-    public $password  = "gU4gJ6TgGZZNgxlJtElf4UM5Lcw";
+    public $nickname  = "Ezzipix";
+    public $password  = "GGfvxQIBC4x5FHBLQ1U7C4bv+Dc=";
     public $debug     = TRUE;
     public $w         = NULL;
     public $target    = NULL; // The number of the person you are sending the message
@@ -17,10 +17,14 @@ class WhatsAppAPIController {
     public $imagePath = 'upload/img/';
 
     function __construct() {
-
+        echo $this->username.' '. $this->nickname.' '.$this->password;
         $this->w = new WhatsProt($this->username, $this->nickname, $this->debug);
-        $this->w->connect();
-        $this->w->loginWithPassword($this->password);
+        if($this->w->connect()){
+            $this->w->loginWithPassword($this->password);
+        }else{
+            echo "Unable to connect";
+        }
+
     }
 
     public function getMessages() {
