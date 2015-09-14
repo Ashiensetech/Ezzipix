@@ -11,7 +11,7 @@ require_once 'EzzipixController.php';
 
 class Instagram extends EzzipixController {
     private $accessToken      = NULL;
-    private $redirectUrl      = "http://192.168.1.35/ezzipix/instagram.php";
+    private $redirectUrl      = "http://localhost/ezzipix/instagram.php";
     private $serviceUrl       = "https://api.instagram.com/";
     private $apiVersion       = "v1/";
     private $authRoute        = "oauth/access_token/";

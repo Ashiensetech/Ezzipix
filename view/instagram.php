@@ -40,13 +40,17 @@
                         <img style="" src=""/>
                         <div class="col-sm-3 shuffle" data-groups='["creative", "people"]'>
 
-                            <div class="panel no-border overflow-hidden">
+                            <div class="panel no-border overflow-hidden photoParent">
+
                                 <div class="thumbnail nm">
+                                    <a href="javascript:void(0)" class="btn btn-success checkIcon" style="display:none;"><i class="ico-check"></i></a>
                                     <div class="media">
+
                                         <div class="indicator"><span class="spinner"></span></div>
                                         <div class="overlay">
                                             <div class="toolbar">
                                                 <a href="<?php echo $img->images->standard_resolution->url; ?>" class="btn btn-default magnific" title=""><i class="ico-search"></i></a>
+                                                <a href="javascript:void(0)" url="<?php echo $img->images->standard_resolution->url; ?>" onclick="addPictureToSave('',this)" class="btn btn-success"><i class="ico-plus"></i></a>
                                             </div>
                                         </div>
                                         <img data-toggle="unveil" src="<?php echo $img->images->standard_resolution->url; ?>" data-src="<?php echo $img->images->standard_resolution->url; ?>" alt="Photo" width="100%"/>
@@ -77,14 +81,40 @@
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js'; ?>"></script>
 <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
 <script>
+    var socialPhoto = {"instagram":[],"facebook":[]}
+    function addPictureToSave(SocialMediaId,elem){
+        var url = $(elem).attr("url");
+        var parent = $(elem).parents(".photoParent").first();
+        var check = $(parent).find(".checkIcon").first();
+        var styleStr = $(check).attr('style');
+        var disPlayAction ="";
+        if(styleStr!=""){
+            var displyStr = styleStr.split(":")
+            disPlayAction = displyStr[1].trim();
+        }
 
+        console.log(disPlayAction);
+        if(disPlayAction=="none;"){
+            socialPhoto["instagram"].push(url);
+            $(check).show();
+        }else{
+            var index = socialPhoto["instagram"].indexOf(url);
+            if(index>-1){
+                socialPhoto["instagram"].splice(index, 1);
+            }
+            $(check).hide();
+        }
+        console.log(socialPhoto);
+        $(elem).parents(".photoParent").first().find("checkIcon").show();
+
+    }
     var imgJobjArray = JSON.parse($("#allImg").val())
     var images = [];
     for (var key in imgJobjArray) {
         images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
     }
-    console.log(images);
     $(document).ready(function () {
+
         PIO.config({
             recipeId: "d672c387-aa6a-480f-8908-782843978773"
         });
