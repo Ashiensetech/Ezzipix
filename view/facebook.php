@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/css/owl-carousel.css'; ?>">
 <?php include_once 'partial/head.php' ?>
 <script src="<?php echo $this->baseUrl . "js/printio/pio.latest.v2.js"; ?>"></script>
+<script src="js/jquery-1.11.0.min.js"></script>
 <body>
 <?php include_once 'partial/menu.php'; ?>
 <section id="main" role="main">
@@ -26,45 +27,16 @@
     </section>
     <div class="clearfix"></div>
     <section class="section bgcolor-white">
-        <div class="container"><?php /*  ?>
+        <div class="container">
+            <!--<input type="button" onclick="fbLogin()" value="Initiate"/>-->
             <div class="row" id="shuffle-grid">
-                <?php
-                $j = 1;
-                $i = 0;
-                if (!@$dataSubmitted) { ?>
-                    <div class="row shuffle clearfix">
-                        <div class="col-lg-12"><a href="<?= @$link ?>">Login with Instagram</a></div>
-                    </div>
-                <?php } else {
-                    foreach ($images as $img) { ?>
-                        <img style="" src=""/>
-                        <div class="col-sm-3 shuffle" data-groups='["creative", "people"]'>
 
-                            <div class="panel no-border overflow-hidden">
-                                <div class="thumbnail nm">
-                                    <div class="media">
-                                        <div class="indicator"><span class="spinner"></span></div>
-                                        <div class="overlay">
-                                            <div class="toolbar">
-                                                <a href="<?php echo $img->images->standard_resolution->url; ?>" class="btn btn-default magnific" title=""><i class="ico-search"></i></a>
-                                            </div>
-                                        </div>
-                                        <img data-toggle="unveil" src="<?php echo $img->images->standard_resolution->url; ?>" data-src="<?php echo $img->images->standard_resolution->url; ?>" alt="Photo" width="100%"/>
-                                    </div>
-                                </div>
-                                <div class="panel-footer" style="padding:25px;border:0;">
-                                    <h4 class="text-center mt0 ellipsis"></h4>
+                <div class="row shuffle clearfix">
+                    <div class="col-lg-12"><a href="javascript:void(0);" id="linker" onclick="fbLogin()">Login with Facebook</a></div>
+                </div>
 
-                                    <div class="text-center">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
-                <?php } ?>
-            </div><?php */ ?>
-            <input type="button" onclick="fbLogin()" value="Initiate"/>
-            <div id="imgHolder"></div>
+                <div id="imgHolder" class="row shuffle clearfix"></div>
+            </div>
         </div>
     </section>
     <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>
@@ -72,100 +44,47 @@
 <?php include_once 'partial/footer.php' ?>
 <?php include_once 'partial/core_script.php' ?>
 
-<script src="../js/jquery-1.11.0.min.js"></script>
-<script>
-    window.fbAsyncInit = function () {
-        FB.init({
-            appId: '463781567135228',
-            xfbml: true,
-            version: 'v2.4'
-        });
-    };
-
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {
-            return;
-        }
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    function fbLogin() {
-        //  FB.login(function(){}, {scope: 'publish_actions'});
-        FB.getLoginStatus(function (response) {
-            if (response.status === 'connected') {
-                console.log('Logged in.');
-                if (response.authResponse) {
-                    console.log(response.authResponse.accessToken);
-                    getData(response.authResponse.accessToken);
-
-                }
-
-            } else {
-                FB.login(function (response) {
-                    if (response.authResponse) {
-
-                    }
-                }, {scope: 'email,user_likes,user_posts,user_photos'});
-            }
-        });
-    }
-
-    function getData(access_token) {
-        FB.api('/me', function (response) {
-            console.log("Welcome " + response.name + ": Your UID is " + response.id);
-            getPhoto(response.id, access_token);
-        });
-    }
-
-    function getPhoto(user_id, access_token) {
-        console.log(": Your UID is " + user_id);
-        FB.api(
-            "/" + user_id + "/photos/uploaded?access_token=" + access_token,
-            function (response) {
-                if (response && !response.error) {
-                    for (var i = 0; i < response.data.length; i++) {
-                        console.log(response.data[i].id);
-                        var picId = response.data[i].id;
-                        getSinglePicture(picId);
-                    }
-
-
-                }
-            }
-        );
-    }
-    function getSinglePicture(picId) {
-        FB.api(
-            "/" + picId + "/picture",
-            function (response) {
-                if (response && !response.error) {
-                    console.log("Image Url :" + response.data.url);
-                    $("#imgHolder").append("<img src='" + response.data.url + "' />");
-                    console.log(response);
-                }
-            }
-        );
-    }
-</script>
-
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/smoothscroll/js/smoothscroll.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/js/jquery.magnific-popup.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/js/owl.carousel.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/shuffle/js/jquery.shuffle.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js'; ?>"></script>
-<input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
+<!--<script type="text/javascript" src="--><?php //echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js'; ?><!--"></script>-->
+<input id="allImg" type="hidden" value='<?php //echo $allImg; ?>'/>
 <script>
+    var socialPhoto = {"instagram": [], "facebook": []}
+    function addPictureToSave(SocialMediaId, elem) {
+        var url = $(elem).attr("url");
+        var parent = $(elem).parents(".photoParent").first();
+        var check = $(parent).find(".checkIcon").first();
+        var styleStr = $(check).attr('style');
+        var disPlayAction = "";
+        if (styleStr != "") {
+            var displyStr = styleStr.split(":")
+            disPlayAction = displyStr[1].trim();
+        }
 
-    var imgJobjArray = JSON.parse($("#allImg").val())
+        console.log(disPlayAction);
+        if (disPlayAction == "none;") {
+            socialPhoto["instagram"].push(url);
+            $(check).show();
+        } else {
+            var index = socialPhoto["instagram"].indexOf(url);
+            if (index > -1) {
+                socialPhoto["instagram"].splice(index, 1);
+            }
+            $(check).hide();
+        }
+        console.log(socialPhoto);
+        $(elem).parents(".photoParent").first().find("checkIcon").show();
+
+    }
+    var imgJobjArray = [];//JSON.parse($("#allImg").val())
     var images = [];
     for (var key in imgJobjArray) {
         images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
     }
-    console.log(images);
     $(document).ready(function () {
+
         PIO.config({
             recipeId: "d672c387-aa6a-480f-8908-782843978773"
         });
@@ -255,6 +174,116 @@
 
 
 </script>
+<style>
+    .checkIconDiv {
+        display: inline-block;
+        position: absolute;
+        top: 0px;
+        right: 171px;
+        z-index: 45;
+    }
+</style>
+
+<script>
+    var images = [];
+
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '463781567135228',
+            xfbml: true,
+            version: 'v2.4'
+        });
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    function fbLogin() {
+        //  FB.login(function(){}, {scope: 'publish_actions'});
+        FB.getLoginStatus(function (response) {
+            if (response.status === 'connected') {
+                //console.log('Logged in.');
+                if (response.authResponse) {
+                    //console.log(response.authResponse.accessToken);
+                    getData(response.authResponse.accessToken);
+                }
+
+            } else {
+                FB.login(function (response) {
+                    if (response.authResponse) {
+
+                    }
+                }, {scope: 'email,user_likes,user_posts,user_photos'});
+            }
+        });
+    }
+
+    function getData(access_token) {
+        FB.api('/me', function (response) {
+            $("#linker").html("Get Data From Facebook");
+            //console.log("Welcome " + response.name + ": Your UID is " + response.id);
+            getPhoto(response.id, access_token);
+        });
+    }
+
+    function getPhoto(user_id, access_token) {
+        //console.log(": Your UID is " + user_id);
+        FB.api(
+            "/" + user_id + "/photos/uploaded?access_token=" + access_token,
+            function (response) {
+                if (response && !response.error) {
+                    for (var i = 0; i < response.data.length; i++) {
+                        //console.log(response.data[i].id);
+                        var picId = response.data[i].id;
+                    }
+
+                    images = [];
+                    getSinglePicture(response.data, 0, response.data.length);
+                }
+            }
+        );
+    }
+
+    function getSinglePicture(data, i, l) {
+        console.log(data);
+        var picId = data[i].id;
+        FB.api(
+            "/" + picId + "/picture",
+            function (response) {
+                if (response && !response.error) {
+                    ++i;
+                    images.push(response.data.url);
+                    if (i < l) {
+                        getSinglePicture(data, i, l);
+                        console.log(i + " " + l);
+                    } else {
+                        getHtmlData(images);
+                    }
+                }
+            }
+        );
+    }
+
+    function getHtmlData(images) {
+        $.ajax({
+            url: "facebook.php?r=htmlData",
+            method: "POST",
+            data: {
+                "images": images
+            },
+            success: function (data) {
+                $("#shuffle-grid").html(data);
+            }
+        });
+    }
+</script>
 </body>
-<!--/ END Body -->
 </html>
