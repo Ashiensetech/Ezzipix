@@ -2,10 +2,10 @@
 <html class="frontend">
 <link rel="stylesheet" href="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/css/magnific.css'; ?>">
 <link rel="stylesheet" href="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/css/owl-carousel.css'; ?>">
-<?php include_once 'partial/head.php' ?>
+<?php include_once dirname(__FILE__).'/../partial/head.php' ?>
 <script src="<?php echo $this->baseUrl . "js/printio/pio.latest.v2.js"; ?>"></script>
 <body>
-<?php include_once 'partial/menu.php'; ?>
+<?php include_once dirname(__FILE__).'/../partial/menu.php'; ?>
 <section id="main" role="main">
     <section class="page-header page-header-block nm">
         <div class="pattern pattern9"></div>
@@ -27,7 +27,12 @@
     <div class="clearfix"></div>
     <section class="section bgcolor-white">
         <div class="container">
+            <div class="submitBtnDiv"  onclick="" id="saveBtnDiv" style="visibility:hidden;">
+                <input class="btn btn-success btn-block" type="button" value="Save Image Here" onclick="" />
+            </div>
+            <div class="clearfix"></div>
             <div class="row" id="shuffle-grid">
+
                 <?php
                 $j = 1;
                 $i = 0;
@@ -54,7 +59,7 @@
                                         <div class="overlay">
                                             <div class="toolbar">
                                                 <a href="<?php echo $img->images->standard_resolution->url; ?>" class="btn btn-default magnific" title=""><i class="ico-search"></i></a>
-                                                <a href="javascript:void(0)" url="<?php echo $img->images->standard_resolution->url; ?>" onclick="addPictureToSave('',this)" class="btn btn-success"><i class="ico-plus"></i></a>
+                                                <a href="javascript:void(0)" url="<?php echo $img->images->standard_resolution->url; ?>" onclick="addPictureToSave('instagram',this)" class="btn btn-success"><i class="ico-plus"></i></a>
                                             </div>
                                         </div>
                                         <img data-toggle="unveil" src="<?php echo $img->images->standard_resolution->url; ?>" data-src="<?php echo $img->images->standard_resolution->url; ?>" alt="Photo" width="100%"/>
@@ -75,8 +80,8 @@
     </section>
     <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>
 </section>
-<?php include_once 'partial/footer.php' ?>
-<?php include_once 'partial/core_script.php' ?>
+<?php include_once dirname(__FILE__).'/../partial/footer.php' ?>
+<?php include_once dirname(__FILE__).'/../partial/core_script.php' ?>
 
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/smoothscroll/js/smoothscroll.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/js/jquery.magnific-popup.js'; ?>"></script>
@@ -99,17 +104,24 @@
 
         console.log(disPlayAction);
         if(disPlayAction=="none;"){
-            socialPhoto["instagram"].push(url);
+            socialPhoto[SocialMediaId].push(url);
             $(check).show();
         }else{
-            var index = socialPhoto["instagram"].indexOf(url);
+            var index = socialPhoto[SocialMediaId].indexOf(url);
             if(index>-1){
-                socialPhoto["instagram"].splice(index, 1);
+                socialPhoto[SocialMediaId].splice(index, 1);
             }
             $(check).hide();
         }
         console.log(socialPhoto);
         $(elem).parents(".photoParent").first().find("checkIcon").show();
+
+        if(socialPhoto[SocialMediaId].length > 0){
+            $('#saveBtnDiv').css("visibility","visible");
+        }else{
+            $('#saveBtnDiv').css("visibility","hidden");
+        }
+
 
     }
     var imgJobjArray = JSON.parse($("#allImg").val())
@@ -215,6 +227,11 @@
         top: 0px;
         right: 171px;
         z-index: 45;
+    }
+    .submitBtnDiv{
+        visibility: hidden;
+        float: left;
+        padding: 0px 0px 13px 0px;
     }
 </style>
 </body>
