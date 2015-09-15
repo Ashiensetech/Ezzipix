@@ -9,7 +9,7 @@
 
 require_once 'EzzipixController.php';
 
-class Instagram extends EzzipixController {
+class SocialMedia extends EzzipixController {
     private $accessToken      = NULL;
     private $redirectUrl      = "http://localhost/ezzipix/instagram.php";
     private $serviceUrl       = "https://api.instagram.com/";
@@ -42,7 +42,7 @@ class Instagram extends EzzipixController {
             }
         }
 
-        $this->loadView("instagram", $this->pageData);
+        $this->loadView("social_media/instagram", $this->pageData);
     }
 
     function getImage() {
@@ -85,5 +85,5 @@ class Instagram extends EzzipixController {
     }
 }
 
-$instagram = new Instagram();
-$instagram->process();
+$socialMedia = new SocialMedia();
+$socialMedia->process();
