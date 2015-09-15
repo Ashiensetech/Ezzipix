@@ -30,7 +30,7 @@ class Instagram extends EzzipixController {
 
     public function index() {
         if ($this->accessToken) {
-            $this->pageData["images"] = $this->getImage();
+            $this->pageData["images"]        = $this->getImage();
             $this->pageData["dataSubmitted"] = TRUE;
         } else {
             if (@$_GET["code"]) {
@@ -78,7 +78,7 @@ class Instagram extends EzzipixController {
     function process() {
         $method = (isset($_GET['r'])) ? $_GET['r'] : "";
         switch ($method) {
-            default;
+            default:
                 $this->index();
                 break;
         }
