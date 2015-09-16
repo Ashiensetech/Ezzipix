@@ -73,7 +73,7 @@
                             <li><a href="<?php echo $this->baseUrl;?>login.php">Default</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
                                     <span class="meta">
                                         <span class="text">Profile</span>
@@ -95,6 +95,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-alt">
                             <li><a href="<?php echo $this->baseUrl;?>media.php?r=all">Images</a></li>
+                            <li><a href="<?php echo $this->baseUrl;?>social_media.php">Upload Images</a></li>
                         </ul>
                     </li>
                     <li class="dropdown ">

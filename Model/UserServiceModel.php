@@ -129,4 +129,29 @@ class UserService extends EzzipixModel {
 
         return FALSE;
     }
+    function getServiceIDByProviderId($u_id, $serviceProviderId) {
+        $u_id = mysql_real_escape_string(trim($u_id));
+        $serviceProviderId = mysql_real_escape_string(trim($serviceProviderId));
+
+        $sql  = "SELECT id FROM $this->tableName WHERE service_provider_id = $serviceProviderId AND u_id = $u_id  LIMIT 1";
+        $data = $this->getArrayData(mysql_query($sql));
+
+        foreach ($data as $rowData) {
+            return $rowData['id'];
+        }
+
+        return 0;
+    }
+    function initiateServiceIdForSocialMedia($u_id,$serviceProviderId){
+        $serviceID = $this->getServiceIDByProviderId($u_id,$serviceProviderId);
+        if($serviceID==0){
+            $data=array(
+                "service_provider_id"=>$serviceProviderId,
+                "u_id"=>$u_id,
+                "active"=>1
+            );
+            $serviceID = $this->insert($data);
+        }
+        return $serviceID;
+    }
 }
