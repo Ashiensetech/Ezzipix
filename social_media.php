@@ -7,9 +7,9 @@
  * Date     : 9/12/15 - 12:17 PM
  */
 
-require_once 'EzzipixController.php';
+require_once 'AuthController.php';
 
-class SocialMedia extends EzzipixController {
+class SocialMedia extends AuthController {
     private $accessToken      = NULL;
     private $redirectUrl      = "http://localhost/ezzipix/social_media.php";
     private $serviceUrl       = "https://api.instagram.com/";
@@ -22,6 +22,8 @@ class SocialMedia extends EzzipixController {
 
     public function __construct() {
         parent::__construct();
+
+
 
         if (@$_SESSION["access_token"]) {
             $this->accessToken = $_SESSION["access_token"];
@@ -92,42 +94,17 @@ class SocialMedia extends EzzipixController {
         $this->loadView("social_media/instagram", $this->pageData);
 
     }
-    function getImage() {
-        $img = exec("curl " . $this->serviceUrl . $this->apiVersion . $this->recentImageRoute . "?access_token=" . $this->accessToken);
-        $img = json_decode($img);
 
-        return $img->data;
-    }
-
-    function getAuthentic() {
-        if (@$_GET["code"]) {
-            $code = $_GET["code"];
-
-            $data = exec("curl -F 'client_id=$this->clientId' -F 'client_secret=$this->clientSecret' -F 'grant_type=$this->grantType' -F 'redirect_uri=$this->redirectUrl' -F 'code=$code' $this->serviceUrl$this->authRoute");
-
-            $data        = json_decode($data);
-            $accessToken = $data->access_token;
-
-            $_SESSION["access_token"] = $accessToken;
-
-            if ($accessToken) {
-                $img = exec("curl " . $this->serviceUrl . $this->apiVersion . $this->recentImageRoute . "?access_token=$accessToken");
-                $img = json_decode($img);
-
-                return $img->data;
-            }
-
-        }
-
-        return NULL;
-    }
     function submitData(){
         include_once 'Model/UserServiceModel.php';
+        include_once 'Model/UserServiceDataModel.php';
+        include_once 'helper/FileManagement.php';
+
+
 
         $userServiceModel = new UserService();
         $serviceProvider = @$_POST["service_provider"];
         $images = @$_POST["images"];
-        var_dump($images);
         if($images==null || $images==""){
             $this->respData['status'] = false;
             $this->respData['msg'] = "No image provided";
@@ -152,6 +129,8 @@ class SocialMedia extends EzzipixController {
                 $this->respData['msg'] = "Service Provider does not in list";
                 break;
         }
+        $serviceProvider = trim($serviceProvider);
+
         if(!$this->respData['status']){
             echo json_encode($this->respData);
             return;
@@ -160,6 +139,8 @@ class SocialMedia extends EzzipixController {
         $images = json_decode($images);
 
         $serviceID = $userServiceModel->initiateServiceIdForSocialMedia($this->userInfo['uId'],$serviceProviderID);
+
+
         if($serviceID==0){
             $this->respData['status'] = false;
             $this->respData['msg'] = "Internal server error";
@@ -167,7 +148,33 @@ class SocialMedia extends EzzipixController {
             return;
 
         }
-        var_dump($serviceID);
+        $path  = "upload/img/".$this->userInfo['uId']."/".$serviceProvider;
+        $fileManagement  = new FileManagement();
+
+        $userServiceData = new UserServiceData();
+        for($i=0;$i<sizeof($images);$i++){
+            if ($fileName = $fileManagement->saveImage($images[$i],$path)) {
+                $data = [
+                    'user_service_id' => $serviceID,
+                    'media_file_path' => $this->userInfo['uId'] ."/".$serviceProvider ."/". $fileName
+                ];
+                if($userServiceData->insert($data)<=0){
+                    $this->respData['status'] = false;
+                    $this->respData['msg'] = "Internal server error";
+                    echo json_encode($this->respData);
+                    return;
+                }
+            }else{
+                $this->respData['status'] = false;
+                $this->respData['msg'] = "Unable to save file";
+                echo json_encode($this->respData);
+                return;
+            }
+        }
+
+        $this->respData['msg'] = "Success";
+        echo json_encode($this->respData);
+        return;
 
     }
     function process() {

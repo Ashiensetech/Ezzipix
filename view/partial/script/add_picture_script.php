@@ -126,7 +126,8 @@ function openPIO() {
     });
 }
     function uploadPictures(socialMediaId){
-
+        $("#loadingImg").show();
+        $('#erroMsg').html("Processing....");
         if(socialPhoto[socialMediaId].length==0){
             return;
         }
@@ -139,8 +140,14 @@ function openPIO() {
                 "images": JSON.stringify(socialPhoto[socialMediaId])
             },
             success: function (data) {
-               console.log(data)
+                $("#loadingImg").hide();
+               var response = JSON.parse(data);
+                if(response.status){
 
+                }else{
+                    $('#erroMsg').html(response.msg);
+                }
+                $('#erroMsg').html(response.msg);
             }
         });
     }
