@@ -33,7 +33,7 @@ class Facebook extends EzzipixController {
                                     <a href="javascript:void(0)" url="<?php echo $img; ?>" onclick="addPictureToSave('',this)" class="btn btn-success"><i class="ico-plus"></i></a>
                                 </div>
                             </div>
-                            <img data-toggle="unveil" src="<?php echo $img; ?>" data-src="<?php echo $img; ?>" alt="Photo" width="100%"/>
+                            <img onerror="loadCount()" onload="opacityFreeMe(this);loadCount();" data-toggle="unveil" src="<?php echo $img; ?>" data-src="<?php echo $img; ?>" alt="Photo" width="100%"/>
                         </div>
                     </div>
                     <div class="panel-footer" style="padding:25px;border:0;">

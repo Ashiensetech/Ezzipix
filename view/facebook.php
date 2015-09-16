@@ -186,7 +186,8 @@
 
 <script>
     var images = [];
-
+    var picturelistSize=0;
+    var picLoadCount = 0;
     window.fbAsyncInit = function () {
         FB.init({
             appId: '463781567135228',
@@ -206,6 +207,9 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
+    function opacityFreeMe(elem){
+        $(elem).css("opacity","1");
+    }
     function fbLogin() {
         //  FB.login(function(){}, {scope: 'publish_actions'});
         FB.getLoginStatus(function (response) {
@@ -281,8 +285,104 @@
             },
             success: function (data) {
                 $("#shuffle-grid").html(data);
+                picturelistSize = images.length;
+
             }
         });
+    }
+    function loadCount(){
+        picLoadCount++;
+
+        console.log(picLoadCount+" "+picturelistSize);
+        if(picLoadCount>=picturelistSize){
+            triggerImageEffect();
+        }
+    }
+    function triggerImageEffect(){
+        $('#shuffle-grid').magnificPopup({
+            delegate: '.magnific',
+            type: 'image',
+            gallery: {
+                enabled: true
+            }
+        });
+
+        // Carousel
+        // ================================
+        $('#lovely-client').owlCarousel({
+            autoPlay: true,
+            autoHeight : true,
+            pagination : true
+        });
+
+        // Owl carousel
+        // ================================
+        $('#gallery-post').owlCarousel({
+            lazyLoad: true,
+            slideSpeed: 300,
+            paginationSpeed: 400,
+            singleItem: true,
+            autoPlay: true,
+            stopOnHover: true,
+            navigation: true,
+            pagination: false
+        });
+
+        // Shuffle
+        // ================================
+        var $grid   = $('#shuffle-grid'),
+            $filter = $('#shuffle-filter'),
+            $sort   = $('#shuffle-sort'),
+            $sizer  = $grid.find('shuffle-sizer');
+
+        // instatiate shuffle
+        $grid.shuffle({
+            itemSelector: '.shuffle',
+            sizer: $sizer
+        });
+
+        // Filter options
+        $filter.on('click', '.btn', function () {
+            var $this = $(this),
+                isActive = $this.hasClass('active'),
+                group = isActive ? 'all' : $this.data('group');
+
+            // Hide current label, show current label in title
+            if (!isActive) {
+                $('#shuffle-filter .active').removeClass('active');
+            }
+
+            $this.toggleClass('active');
+
+            // Filter elements
+            $grid.shuffle('shuffle', group);
+        });
+
+        // Sorting options
+        $sort.on('change', function () {
+            var sort = this.value,
+                opts = {};
+
+            // We're given the element wrapped in jQuery
+            if (sort === 'date-created') {
+                opts = {
+                    reverse: true,
+                    by: function ($el) {
+                        return $el.data('date-created');
+                    }
+                };
+            } else if (sort === 'title') {
+                opts = {
+                    by: function ($el) {
+                        return $el.data('title').toLowerCase();
+                    }
+                };
+            }
+
+            // Filter elements
+            $grid.shuffle('sort', opts);
+        });
+
     }
 </script>
 </body>
