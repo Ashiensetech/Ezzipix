@@ -3,14 +3,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'EzzipixController.php';
-require_once 'SocialMediaSDK/dropbox-sdk-php-1.1.5/lib/Dropbox/autoload.php';
+require_once dirname(__FILE__).'/../../SocialMediaSDK/dropbox-sdk-php-1.1.5/lib/Dropbox/autoload.php';
 use \Dropbox as dbx;
-class Dropbox extends EzzipixController {
+class Dropbox  {
     private $url         = "https://api.dropboxapi.com/1/oauth2/";
     private $loginUrl    = "https://www.dropbox.com/1/oauth2/authorize/";
     private $tokenUrl    = "";
-    private $callbackUrl = "http://localhost/ezzipix/dropbox.php";
+    private $callbackUrl;
     private $appKey      = "hcvfe6j8hyuof5l";
     private $appSecret   = "izwbpm05e6dig4t";
     private $code        = "";
@@ -19,18 +18,26 @@ class Dropbox extends EzzipixController {
     private $userId      = "";
     public $pictureList;
     public $dbxClient;
-    public function __construct() {
-
-        parent::__construct();
+    public $responseArray;
+    private $appAuthLink;
+    public function __construct($baseUrl,$code="") {
+        $this->responseArray = array();
+        $this->responseArray["status"] = true;
+        $this->responseArray["msg"] = "";
+        $this->callbackUrl = $baseUrl."social_media.php?r=dropbox";
         $this->tokenUrl = $this->url . "token";
-
-        if (isset($_REQUEST["code"])) {
+        if ($code!="") {
             $this->code = $_REQUEST["code"];
         }
 
         $this->pictureList =  new ArrayObject();
+
+        $this->appAuthLink = $this->loginUrl . "?client_id=" . $this->appKey . "&response_type=code&redirect_uri=" . $this->callbackUrl;
     }
-    public function index() {
+    function getAppAuthLink(){
+        return $this->appAuthLink;
+    }
+    public function initiate() {
 
         $isDropBoxLogin = false;
         if ($this->code) {
@@ -38,7 +45,9 @@ class Dropbox extends EzzipixController {
             $data = json_decode($data);
 
             if(!isset($data->uid)){
-                header('Location: dropbox.php');
+                $this->responseArray["status"] =false;
+                $this->responseArray["msg"] = "Code broken";
+                return  $this->responseArray;
             }
             $this->userId      = $data->uid;
             $this->tokenType   = $data->token_type;
@@ -50,12 +59,12 @@ class Dropbox extends EzzipixController {
             $isDropBoxLogin = true;
         }
 
-        $this->pageData['isDropBoxLogin'] = $isDropBoxLogin;
-        $this->pageData['link'] = $this->loginUrl . "?client_id=" . $this->appKey . "&response_type=code&redirect_uri=" . $this->callbackUrl;
-        $this->pageData['pictureList'] = $this->pictureList;
+        $this->responseArray['isDropBoxLogin'] = $isDropBoxLogin;
+        $this->responseArray['link'] = $this->loginUrl . "?client_id=" . $this->appKey . "&response_type=code&redirect_uri=" . $this->callbackUrl;
+        $this->responseArray['pictureList'] = $this->pictureList;
 
-        $this->loadView("social_media/dropbox",$this->pageData);
-        return;
+
+        return  $this->responseArray;
     }
     public function exploreAllImageFile($folderMetadata){
 
@@ -74,15 +83,4 @@ class Dropbox extends EzzipixController {
         }
     }
 
-    function process() {
-        $method = (isset($_GET['r'])) ? $_GET['r'] : "";
-        switch ($method) {
-            default:
-                $this->index();
-                break;
-        }
-    }
 }
-
-$db = new Dropbox();
-$db->process();
