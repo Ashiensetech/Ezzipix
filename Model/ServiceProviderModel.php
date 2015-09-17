@@ -9,7 +9,7 @@ class ServiceProvider extends EzzipixModel {
     }
 
     public function getProviderList(){
-        $sql = "SELECT id, name FROM service_provider where id <= 2";
+        $sql = "SELECT id, name FROM service_provider";
         return $this->getArrayData(mysql_query($sql));
     }
 }

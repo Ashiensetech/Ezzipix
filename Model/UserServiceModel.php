@@ -59,7 +59,7 @@ class UserService extends EzzipixModel {
                   . " and service_provider_id = $service_provider_id  and u_id = $u_id limit 1";
         $result = $this->getArrayData(mysql_query($query));
 
-        if(!empty($result)){
+        if (!empty($result)) {
             return $result[0];
         }
 
@@ -129,8 +129,9 @@ class UserService extends EzzipixModel {
 
         return FALSE;
     }
+
     function getServiceIDByProviderId($u_id, $serviceProviderId) {
-        $u_id = mysql_real_escape_string(trim($u_id));
+        $u_id              = mysql_real_escape_string(trim($u_id));
         $serviceProviderId = mysql_real_escape_string(trim($serviceProviderId));
 
         $sql  = "SELECT id FROM $this->tableName WHERE service_provider_id = $serviceProviderId AND u_id = $u_id  LIMIT 1";
@@ -142,16 +143,18 @@ class UserService extends EzzipixModel {
 
         return 0;
     }
-    function initiateServiceIdForSocialMedia($u_id,$serviceProviderId){
-        $serviceID = $this->getServiceIDByProviderId($u_id,$serviceProviderId);
-        if($serviceID==0){
-            $data=array(
-                "service_provider_id"=>$serviceProviderId,
-                "u_id"=>$u_id,
-                "active"=>1
-            );
+
+    function initiateServiceIdForSocialMedia($u_id, $serviceProviderId) {
+        $serviceID = $this->getServiceIDByProviderId($u_id, $serviceProviderId);
+        if ($serviceID == 0) {
+            $data      = [
+                "service_provider_id" => $serviceProviderId,
+                "u_id"                => $u_id,
+                "active"              => 0,
+            ];
             $serviceID = $this->insert($data);
         }
+
         return $serviceID;
     }
 }
