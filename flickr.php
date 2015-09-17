@@ -32,9 +32,9 @@ class Flickr extends EzzipixController {
             $url .= "&oauth_version=" . $this->version;
             $url .= "&oauth_callback=" . $this->callBack;
 
-            echo $url . "<br/>";
-
-            print_r(exec("curl " . $url));
+            //echo $url . "<br/>";
+            $data = exec("curl " . $url);
+            print_r($data);
         }
     }
 

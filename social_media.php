@@ -30,19 +30,8 @@ class SocialMedia extends AuthController {
 
     public function index() {
         include_once 'custom_lib/social_media/Dropbox.php';
-        if ($this->accessToken) {
-            $this->pageData["images"]        = $this->getImage();
-            $this->pageData["dataSubmitted"] = TRUE;
-        } else {
-            if (@$_GET["code"]) {
-                $this->pageData["images"]        = $this->getAuthentic();
-                $this->pageData["dataSubmitted"] = TRUE;
-            } else {
-                $this->pageData["dataSubmitted"] = FALSE;
-                $this->pageData["link"]          = "https://instagram.com/oauth/authorize/?client_id=" . $this->clientId . "&redirect_uri=" . $this->redirectUrl . "&response_type=code";
-            }
-        }
         include_once 'custom_lib/social_media/Instagram.php';
+
         $instagram = new Instagram();
         $dropbox   = new Dropbox($this->baseUrl, "");
 
@@ -99,7 +88,6 @@ class SocialMedia extends AuthController {
             ];
 
             $userServiceData->insert($data);
-
             print_r($files);
         }
 
