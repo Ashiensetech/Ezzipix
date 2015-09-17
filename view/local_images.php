@@ -212,10 +212,10 @@
                                         <ul class="list-inline pull-left">\
                                             <li>{{fi-progressBar}}</li>\
                                         </ul>\
-                                        <ul class="list-inline pull-right">\
-                                            <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+                                        <!--<ul class="list-inline pull-right">\
+                                            //<li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
                                         </ul>\
-                                    </div>\
+                                    --></div>\
                                 </div>\
                             </div>\
                         </li>',

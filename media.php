@@ -259,7 +259,6 @@ class MediaController extends EzzipixController {
                 }
             }
 
-
         }
     }
 
@@ -269,7 +268,7 @@ class MediaController extends EzzipixController {
         $userServiceData = new UserServiceData();
 
         $this->pageData['imgGallery'] = $userServiceData->getAllMediaFileByUid($this->userInfo['uId']);
-        $this->pageData['allImg'] = json_encode($userServiceData->getAllMediaFileByUid($this->userInfo['uId']));
+        $this->pageData['allImg']     = json_encode($userServiceData->getAllMediaFileByUid($this->userInfo['uId']));
         $this->loadView('image_gallery', $this->pageData);
     }
 
@@ -317,22 +316,43 @@ class MediaController extends EzzipixController {
         return FALSE;
     }
 
+    function deleteImage() {
+        $imageId     = @$_POST["imageId"];
+        $userService = new UserServiceData();
+        $image       = $userService->getImageByUserId($imageId);
+        $imagePath   = $image[0]["media_file_path"];
+        $file        = dirname(__FILE__) . "/upload/img/" . $imagePath;
+
+        if (file_exists($file)) {
+            if (unlink($file)) {
+                $userService->deleteImage($imageId);
+                echo json_encode(["status" => TRUE]);
+
+                return;
+            }
+        }
+        echo json_encode(["status" => FALSE]);
+    }
+
     function process() {
         $method = (isset($_GET['r'])) ? $_GET['r'] : "";
         switch ($method) {
-            case 'all';
+            case 'all':
                 $this->showAllImage();
                 break;
-            case 'upload';
+            case 'upload':
                 $this->uploadMedia();
                 break;
-            case 'saveUpload';
+            case 'saveUpload':
                 $this->saveUpload();
                 break;
-            case 'telegram';
+            case 'deleteImage':
+                $this->deleteImage();
+                break;
+            case 'telegram':
                 $this->telegram();
                 break;
-            default;
+            default:
                 $this->index();
                 break;
         }

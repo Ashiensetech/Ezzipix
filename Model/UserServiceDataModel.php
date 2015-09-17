@@ -25,4 +25,17 @@ class UserServiceData extends EzzipixModel {
 
         return $this->getArrayData($result);
     }
+
+    function getImageByUserId($imageId) {
+        $query  = "SELECT * FROM $this->tableName WHERE id = $imageId";
+        $result = mysql_query($query);
+
+        return $this->getArrayData($result);
+    }
+
+    function deleteImage($imageId){
+        $query = "DELETE FROM $this->tableName WHERE id = $imageId";
+
+        return mysql_query($query);
+    }
 }
