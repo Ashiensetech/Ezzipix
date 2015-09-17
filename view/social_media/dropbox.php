@@ -26,7 +26,13 @@
         <div class="container">
             <div class="clearfix"></div>
             <div class="submitBtnDiv"  onclick="" id="saveBtnDiv" style="visibility:hidden;">
-                <input class="btn btn-success btn-block" type="button" value="Upload Image" onclick="" />
+                <div style="float:left">
+                    <input class="btn btn-success btn-block" type="button" value="Upload Image" onclick="uploadPictures('dropbox')" />
+                </div>
+                <div  style="float:left;padding:4px 0px 0px 6px;">
+                    <img  id="loadingImg" src="<?php echo $this->baseUrl .'html_template/dist/image/loading/spinner.gif';?>" style="display: none;"/>
+                    <span id="processMsg" > </span>
+                </div>
             </div>
             <div class="clearfix"></div>
             <div class="row" id="shuffle-grid">
@@ -57,7 +63,7 @@
                                         <div class="overlay">
                                             <div class="toolbar">
                                                 <a href="<?php echo  $img["auto"]; ?>" class="btn btn-default magnific" title=""><i class="ico-search"></i></a>
-                                                <a href="javascript:void(0)" url="<?php echo $img["auto"]; ?>" onclick="addPictureToSave('instagram',this)" class="btn btn-success"><i class="ico-plus"></i></a>
+                                                <a href="javascript:void(0)" url="<?php echo $img["auto"]; ?>" onclick="addPictureToSave('dropbox',this)" class="btn btn-success"><i class="ico-plus"></i></a>
                                             </div>
                                         </div>
                                         <img onerror="loadCount()" onload="loadCount()" data-toggle="unveil" src="<?php echo  $img["thumb"]; ?>" data-src="<?php echo  $img["thumb"]; ?>" alt="Photo" width="100%"/>

@@ -25,9 +25,15 @@
     <section class="section bgcolor-white">
         <div class="container">
             <div class="clearfix"></div>
-                <div class="submitBtnDiv"  onclick="" id="saveBtnDiv" style="visibility:hidden;">
-                    <input class="btn btn-success btn-block" type="button" value="Upload Image" onclick="" />
+            <div class="submitBtnDiv"  onclick="" id="saveBtnDiv" style="visibility:hidden;">
+                <div style="float:left">
+                    <input class="btn btn-success btn-block" type="button" value="Upload Image" onclick="uploadPictures('instagram')" />
                 </div>
+                <div  style="float:left;padding:4px 0px 0px 6px;">
+                    <img  id="loadingImg" src="<?php echo $this->baseUrl .'html_template/dist/image/loading/spinner.gif';?>" style="display: none;"/>
+                    <span id="processMsg" > </span>
+                </div>
+            </div>
             <div class="clearfix"></div>
             <div class="row" id="shuffle-grid">
 

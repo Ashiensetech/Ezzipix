@@ -1,6 +1,7 @@
 <script>
-var socialPhoto = {"instagram":[],"facebook":[]}
+var socialPhoto = {"instagram":[],"facebook":[],"dropbox":[]};
 function addPictureToSave(SocialMediaId,elem){
+    $('#processMsg').html("");
     var url = $(elem).attr("url");
     var parent = $(elem).parents(".photoParent").first();
     var check = $(parent).find(".checkIcon").first();
@@ -29,8 +30,6 @@ function addPictureToSave(SocialMediaId,elem){
     }else{
         $('#saveBtnDiv').css("visibility","hidden");
     }
-
-
 }
 //var imgJobjArray = JSON.parse($("#allImg").val())
 //var images = [];
@@ -127,11 +126,13 @@ function openPIO() {
 }
     function uploadPictures(socialMediaId){
         $("#loadingImg").show();
-        $('#erroMsg').html("Processing....");
+        $('#processMsg').html("Processing....");
         if(socialPhoto[socialMediaId].length==0){
+            $("#loadingImg").hide();
+            $('#processMsg').html("No image selected");
             return;
         }
-        console.log(socialPhoto[socialMediaId]);
+
         $.ajax({
             url: BaseUrl+"social_media.php?r=submitdata",
             type: "POST",
@@ -143,11 +144,11 @@ function openPIO() {
                 $("#loadingImg").hide();
                var response = JSON.parse(data);
                 if(response.status){
-
+                    $('#processMsg').html(response.msg+" <a href='"+BaseUrl+"media.php?r=all' >Go to image gallery</a>");
                 }else{
-                    $('#erroMsg').html(response.msg);
+                    $('#processMsg').html(response.msg);
                 }
-                $('#erroMsg').html(response.msg);
+
             }
         });
     }

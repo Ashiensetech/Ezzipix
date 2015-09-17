@@ -152,6 +152,7 @@ class SocialMedia extends AuthController {
         $fileManagement  = new FileManagement();
 
         $userServiceData = new UserServiceData();
+        $errorCount = 0;
         for($i=0;$i<sizeof($images);$i++){
             if ($fileName = $fileManagement->saveImage($images[$i],$path)) {
                 $data = [
@@ -159,20 +160,16 @@ class SocialMedia extends AuthController {
                     'media_file_path' => $this->userInfo['uId'] ."/".$serviceProvider ."/". $fileName
                 ];
                 if($userServiceData->insert($data)<=0){
-                    $this->respData['status'] = false;
-                    $this->respData['msg'] = "Internal server error";
-                    echo json_encode($this->respData);
-                    return;
+                    $errorCount++;
                 }
             }else{
-                $this->respData['status'] = false;
-                $this->respData['msg'] = "Unable to save file";
-                echo json_encode($this->respData);
-                return;
+                $errorCount++;
             }
         }
-
-        $this->respData['msg'] = "Success";
+        $successCount = sizeof($images) - $errorCount;
+        $plural = ($successCount>1)?"s":"";
+        $this->respData['msg'] = $successCount. " Image".$plural." successfull uploaded";
+        $this->respData['msg'] =($errorCount>0)?$this->respData['msg']." ".$errorCount." Images are unable to upload ":$this->respData['msg'];
         echo json_encode($this->respData);
         return;
 

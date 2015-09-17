@@ -48,7 +48,7 @@
                 </div>
                     <div  style="float:left;padding:4px 0px 0px 6px;">
                         <img  id="loadingImg" src="<?php echo $this->baseUrl .'html_template/dist/image/loading/spinner.gif';?>" style="display: none;"/>
-                        <span id="erroMsg" > </span>
+                        <span id="processMsg" > </span>
                 </div>
             </div>
             <div class="clearfix"></div>

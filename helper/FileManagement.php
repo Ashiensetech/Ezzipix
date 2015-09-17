@@ -11,7 +11,9 @@ class FileManagement
 
     function saveImage($imgUrl, $path = "upload/img") {
         if (!file_exists($path)) {
-            mkdir($path, 0755, TRUE);
+            $old_umask = umask(0);
+            mkdir($path, 0777);
+            umask($old_umask);
         }
 
         $imageType = str_replace('image/', '', getimagesize($imgUrl)["mime"]);
