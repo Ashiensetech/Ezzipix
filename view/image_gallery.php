@@ -23,6 +23,23 @@ LAST UPDATE: 2015/01/05
     <body>
     <!-- START Template Header -->
     <?php include_once 'partial/menu.php'; ?>
+
+    <input type="hidden" id="imgSize" value="<?php echo sizeof($imgGallery);?>" ?>
+    <script>
+        var imgSize = JSON.parse(document.getElementById("imgSize").value);
+        var picLoadCount = 0;
+        var isTrigger = false;
+        function loadCount(l){
+            picLoadCount++;
+            console.log(l);
+            console.log(picLoadCount+" "+imgSize);
+            if(picLoadCount>=imgSize && !isTrigger){
+                console.log("triggerImageEffect Fired");
+                triggerImageEffect();
+            }
+
+        }
+    </script>
         <!-- START Template Header -->
 
         <section id="main" role="main">
@@ -65,6 +82,7 @@ LAST UPDATE: 2015/01/05
                         <?php
                             $j = 1;
                             $i = 0;
+                        $count = 0;
                             foreach ($imgGallery as $img) {
 
                                 ?>
@@ -87,24 +105,20 @@ LAST UPDATE: 2015/01/05
                                                     </div>
                                                 </div>
                                                 <!--/ toolbar overlay -->
-                                                <img data-toggle="unveil" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" data-src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" alt="Photo" width="100%" />
+                                                <img onerror="loadCount('Error')" onload="loadCount('Load')" data-toggle="unveil" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" data-src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" alt="Photo" width="100%" />
                                             </div>
                                             <!--/ media -->
                                         </div>
                                         <!--/ thumbnail -->
                                         <!-- Meta -->
-                                        <div class="panel-footer" style="padding:25px;border:0;">
-                                            <h4 class="text-center mt0 ellipsis"></h4>
-                                            <div class="text-center">
-<!--                                                <i class="ico-tags text-muted mr5"></i>-->
 
-                                            </div>
-                                        </div>
                                         <!--/ Meta -->
                                     </div>
                                 </div>
-                        <?php } ?>
+                        <?php }
 
+
+                        ?>
 
                     </div>
                     <!--/ END row -->
@@ -141,12 +155,13 @@ LAST UPDATE: 2015/01/05
     <input id="allImg" type="hidden" value='<?php echo $allImg;?>' />
     <script>
 
-        var imgJobjArray = JSON.parse($("#allImg").val())
+
+        var imgJobjArray = JSON.parse($("#allImg").val());
         var images=[];
         for(var key in imgJobjArray){
             images.push(BaseUrl+"upload/img/"+imgJobjArray[key].media_file_path);
         }
-        console.log(images);
+
         $(document).ready(function(){
             PIO.config({
                 recipeId:"d672c387-aa6a-480f-8908-782843978773"
@@ -235,7 +250,93 @@ LAST UPDATE: 2015/01/05
             });
         }
 
+        function triggerImageEffect(){
+            isTrigger = true;
+            $('#shuffle-grid').magnificPopup({
+                delegate: '.magnific',
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
 
+            // Carousel
+            // ================================
+            $('#lovely-client').owlCarousel({
+                autoPlay: true,
+                autoHeight : true,
+                pagination : true
+            });
+
+            // Owl carousel
+            // ================================
+            $('#gallery-post').owlCarousel({
+                lazyLoad: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true,
+                autoPlay: true,
+                stopOnHover: true,
+                navigation: true,
+                pagination: false
+            });
+
+            // Shuffle
+            // ================================
+            var $grid   = $('#shuffle-grid'),
+                $filter = $('#shuffle-filter'),
+                $sort   = $('#shuffle-sort'),
+                $sizer  = $grid.find('shuffle-sizer');
+
+            // instatiate shuffle
+            $grid.shuffle({
+                itemSelector: '.shuffle',
+                sizer: $sizer
+            });
+
+            // Filter options
+            $filter.on('click', '.btn', function () {
+                var $this = $(this),
+                    isActive = $this.hasClass('active'),
+                    group = isActive ? 'all' : $this.data('group');
+
+                // Hide current label, show current label in title
+                if (!isActive) {
+                    $('#shuffle-filter .active').removeClass('active');
+                }
+
+                $this.toggleClass('active');
+
+                // Filter elements
+                $grid.shuffle('shuffle', group);
+            });
+
+            // Sorting options
+            $sort.on('change', function () {
+                var sort = this.value,
+                    opts = {};
+
+                // We're given the element wrapped in jQuery
+                if (sort === 'date-created') {
+                    opts = {
+                        reverse: true,
+                        by: function ($el) {
+                            return $el.data('date-created');
+                        }
+                    };
+                } else if (sort === 'title') {
+                    opts = {
+                        by: function ($el) {
+                            return $el.data('title').toLowerCase();
+                        }
+                    };
+                }
+
+                // Filter elements
+                $grid.shuffle('sort', opts);
+            });
+
+        }
     </script>
     </body>
     <!--/ END Body -->
