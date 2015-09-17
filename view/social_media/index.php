@@ -32,6 +32,7 @@
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="btn-group" id="shuffle-filter">
+                                    <button class="btn btn-default"  onclick="javascript:location.href='<?php echo $computerUploadLink; ?>'" >Computer</button>
                                     <button id="fb_loginBtn" class="btn btn-default"  onclick="fbLogin()">Facebook</button>
                                     <button class="btn btn-default"  onclick="javascript:location.href='<?php echo $dropBoxLoginLink; ?>'" >Dropbox</button>
                                     <button class="btn btn-default" onclick="javascript:location.href='<?php echo $instagramLoginLink; ?>'">Instagram</button>

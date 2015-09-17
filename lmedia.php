@@ -49,6 +49,9 @@ class LMedia extends EzzipixController {
         function onFilesRemoveCallback($removed_files) {
             foreach ($removed_files as $key => $value) {
                 $file = 'uploads/' . $value;
+
+                echo $file;
+
                 if (file_exists($file)) {
                     unlink($file);
                 }
@@ -56,6 +59,10 @@ class LMedia extends EzzipixController {
 
             return $removed_files;
         }
+    }
+
+    function insert() {
+
     }
 
     function process() {

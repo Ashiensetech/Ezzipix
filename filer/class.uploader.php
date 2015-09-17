@@ -337,6 +337,9 @@ class Uploader {
 			case "auto":
 				$string = $random_string;
 			break;
+			case "time":
+				$string = md5(time());
+			break;
 			case "name":
 				$string = $file['name'];
 			break;
