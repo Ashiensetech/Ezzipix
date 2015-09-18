@@ -25,87 +25,48 @@ LAST UPDATE: 2015/01/05
 <!-- START Template Main -->
 <section id="main" role="main">
     <!-- START Layerslider -->
-    <section id="layerslider"style="width:100%; height:553px;">
-        <!-- Slide #1 -->
+    <!-- <section id="layerslider"style="width:100%; height:553px;">
         <div class="ls-slide" data-ls="transition2d:1; slidedelay:8000;">
-            <!-- slide background -->
             <img src="<?php echo $this->baseUrl.'html_template/dist/image/layerslider/bg3.png';?>" class="ls-bg">
-            <!--/ slide background -->
-
-            <!-- Layer #1 -->
             <img class="ls-l" style="top:90px;left:68%;" style="height: 200px;width: 200px" src="<?php echo $this->baseUrl.'html_template/dist/image/layerslider/layer/people2.png';?>" data-ls="delayin:1000; easingin:easeOutElastic;">
-            <!--/ Layer #1 -->
-
-            <!-- Layer #2 -->
             <h1 class="ls-l font-alt" style="top:110px;left:150px;" data-ls="offsetxin:0;durationin:2000;delayin:1500;easingin:easeOutElastic;rotatexin:-90;transformoriginin:50% top 0;offsetxout:-200;durationout:1000;">
                 Welcome To <span class="text-primary">Ezzipix</span>
             </h1>
-            <!--/ Layer #2 -->
-
-            <!-- Layer #3 -->
             <h4 class="ls-l" style="top:170px;left:150px;width:550px;" data-ls="offsetxin:0; durationin:2000; delayin:2000; easingin:easeOutElastic; rotatexin:90; transformoriginin:50% top 0; offsetxout:-400;">
                 consectetur adipisicing elit, sed do eiusmod
             </h4>
-            <!--/ Layer #3 -->
-
-            <!-- Layer #4 -->
             <p class="ls-l text-default" style="top:230px;left:150px;width:550px;" data-ls="offsetxin:0; durationin:2000; delayin:2500; easingin:easeOutElastic; rotatexin:90; transformoriginin:50% top 0; offsetxout:-400;">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud.
             </p>
-            <!--/ Layer #4 -->
-
-            <!-- Layer #5 -->
-
-            <!--/ Layer #5 -->
-
-            <!-- Layer #6 -->
-             <!--/ Layer #6 -->
         </div>
-        <!-- Slide #1 -->
-
-        <!-- Slide #2 -->
         <div class="ls-slide" data-ls="transition2d:1; slidedelay:8000;">
-            <!-- slide background -->
             <img src="<?php echo $this->baseUrl.'html_template/dist/image/layerslider/bg2.png';?>" class="ls-bg" alt="Slide background">
-            <!--/ slide background -->
-
-            <!-- Layer #1 -->
             <h4 class="ls-l text-default text-right" style="top:120px;left:65%;width:550px;" data-ls="easingin:easeOutElastic; delayin:0;">
                 Fully Responsive &amp; Clean Design
             </h4>
-            <!--/ Layer #1 -->
-
-            <!-- Layer #2 -->
             <h1 class="ls-l font-alt text-right" style="top:150px;left:65%;width:550px;" data-ls="easingin:easeOutElastic; delayin:500;">
                 <span class="text-primary">Mobile</span> Devices Optimize
             </h1>
-            <!--/ Layer #2 -->
-
-            <!-- Layer #3 -->
             <p class="ls-l text-default text-right" style="top:210px;left:65%;width:550px;" data-ls="easingin:easeOutElastic; delayin:1000;">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation.
             </p>
-            <!--/ Layer #3 -->
-
-            <!-- Layer #5 -->
             <p class="ls-l text-default text-right" style="top:290px;left:65%;width:550px;" data-ls="easingin:easeOutElastic; delayin:1500;">
                 <a href="javascript:void(0);" class="btn btn-primary">
                     Learn More <i class="ico-angle-right ml5"></i>
                 </a>
             </p>
-            <!--/ Layer #5 -->
-
-            <!-- Layer #6 -->
             <img class="ls-l" style="top:80px;left:250px;" src="<?php echo $this->baseUrl.'html_template/dist/image/layerslider/layer/iphone-5s.png';?>" data-ls="delayin:2000; easingin:easeOutElastic;">
-            <!--/ Layer #6 -->
         </div>
-        <!-- Slide #2 -->
-    </section>
+    </section> -->
     <!--/ END Layerslider -->
+
+    <section id="photo-plugin">
+
+    </section>
 
     <!-- START Call To Action Section -->
     <section class="pt35 pb35 bgcolor-accent">
@@ -408,6 +369,23 @@ LAST UPDATE: 2015/01/05
 <script type="text/javascript" src="<?php echo $this->baseUrl.'html_template/dist/javascript/frontend/home/home-v1.js';?>"></script>
 <!--/ Plugins and page level script : optional -->
 <!--/ END JAVASCRIPT SECTION -->
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        var el = document.getElementById('photo-plugin');
+        PIO.open({
+            recipeId:"6cfb4f30-34c7-4cf6-9490-f51925650811",
+            url:"https://widget.print.io/widget/",
+            embedInElement:el,
+            style:{
+                showHeader:false
+            }
+        });
+
+        $("iframe").css({"max-width": "100%", "width": "100%"});
+    });
+</script>
+
 </body>
 <!--/ END Body -->
 </html>
