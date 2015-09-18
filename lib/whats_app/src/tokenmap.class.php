@@ -1,6 +1,6 @@
 <?php
-
-class TokenMap {
+class TokenMap
+{
     private static $primaryStrings = array(
         "",
         "",
@@ -467,25 +467,27 @@ class TokenMap {
         "call-id"
     );
 
-    public static function TryGetToken($string, &$subdict, &$token) {
+    public static function TryGetToken($string, &$subdict, &$token)
+    {
         $foo = array_search($string, self::$primaryStrings);
         if ($foo) {
             $token = $foo;
-            return TRUE;
+            return true;
         }
         $foo = array_search($string, self::$secondaryStrings);
         if ($foo) {
-            $subdict = TRUE;
-            $token = $foo;
-            return TRUE;
+            $subdict = true;
+            $token   = $foo;
+            return true;
         }
-        return FALSE;
+        return false;
     }
 
-    public static function GetToken($token, &$subdict, &$string) {
+    public static function GetToken($token, &$subdict, &$string)
+    {
         //override subdict
         if (!$subdict && $token >= 236 && $token < (236 + count(self::$secondaryStrings))) {
-            $subdict = TRUE;
+            $subdict = true;
         }
 
         if ($subdict) {

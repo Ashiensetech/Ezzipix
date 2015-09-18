@@ -1,22 +1,26 @@
 <?php
 
-class BinTreeNodeWriter {
+class BinTreeNodeWriter
+{
     private $output;
     /** @var $key KeyStream */
     private $key;
 
-    public function resetKey() {
-        $this->key = NULL;
+    public function resetKey()
+    {
+        $this->key = null;
     }
 
-    public function setKey($key) {
+    public function setKey($key)
+    {
         $this->key = $key;
     }
 
-    public function StartStream($domain, $resource) {
+    public function StartStream($domain, $resource)
+    {
         $attributes = array();
 
-        $attributes["to"] = $domain;
+        $attributes["to"]       = $domain;
         $attributes["resource"] = $resource;
         $this->writeListStart(count($attributes) * 2 + 1);
 
@@ -32,8 +36,9 @@ class BinTreeNodeWriter {
      *
      * @return string
      */
-    public function write($node, $encrypt = TRUE) {
-        if ($node == NULL) {
+    public function write($node, $encrypt = true)
+    {
+        if ($node == null) {
             $this->output .= "\x00";
         } else {
             $this->writeInternal($node);
@@ -45,9 +50,10 @@ class BinTreeNodeWriter {
     /**
      * @param ProtocolNode $node
      */
-    protected function writeInternal($node) {
+    protected function writeInternal($node)
+    {
         $len = 1;
-        if ($node->getAttributes() != NULL) {
+        if ($node->getAttributes() != null) {
             $len += count($node->getAttributes()) * 2;
         }
         if (count($node->getChildren()) > 0) {
@@ -70,32 +76,35 @@ class BinTreeNodeWriter {
         }
     }
 
-    protected function parseInt24($data) {
+    protected function parseInt24($data)
+    {
         $ret = ord(substr($data, 0, 1)) << 16;
         $ret |= ord(substr($data, 1, 1)) << 8;
         $ret |= ord(substr($data, 2, 1)) << 0;
         return $ret;
     }
 
-    protected function flushBuffer($encrypt = TRUE) {
+    protected function flushBuffer($encrypt = true)
+    {
         $size = strlen($this->output);
         $data = $this->output;
-        if ($this->key != NULL && $encrypt) {
+        if ($this->key != null && $encrypt) {
             $bsize = $this->getInt24($size);
             //encrypt
-            $data = $this->key->EncodeMessage($data, $size, 0, $size);
-            $len = strlen($data);
+            $data     = $this->key->EncodeMessage($data, $size, 0, $size);
+            $len      = strlen($data);
             $bsize[0] = chr((8 << 4) | (($len & 16711680) >> 16));
             $bsize[1] = chr(($len & 65280) >> 8);
             $bsize[2] = chr($len & 255);
-            $size = $this->parseInt24($bsize);
+            $size     = $this->parseInt24($bsize);
         }
-        $ret = $this->writeInt24($size) . $data;
+        $ret          = $this->writeInt24($size) . $data;
         $this->output = '';
         return $ret;
     }
 
-    protected function getInt24($length) {
+    protected function getInt24($length)
+    {
         $ret = '';
         $ret .= chr((($length & 0xf0000) >> 16));
         $ret .= chr((($length & 0xff00) >> 8));
@@ -103,7 +112,8 @@ class BinTreeNodeWriter {
         return $ret;
     }
 
-    protected function writeToken($token) {
+    protected function writeToken($token)
+    {
         if ($token < 0xf5) {
             $this->output .= chr($token);
         } elseif ($token <= 0x1f4) {
@@ -111,7 +121,8 @@ class BinTreeNodeWriter {
         }
     }
 
-    protected function writeJid($user, $server) {
+    protected function writeJid($user, $server)
+    {
         $this->output .= "\xfa";
         if (strlen($user) > 0) {
             $this->writeString($user);
@@ -121,20 +132,23 @@ class BinTreeNodeWriter {
         $this->writeString($server);
     }
 
-    protected function writeInt8($v) {
+    protected function writeInt8($v)
+    {
         $ret = chr($v & 0xff);
 
         return $ret;
     }
 
-    protected function writeInt16($v) {
+    protected function writeInt16($v)
+    {
         $ret = chr(($v & 0xff00) >> 8);
         $ret .= chr(($v & 0x00ff) >> 0);
 
         return $ret;
     }
 
-    protected function writeInt24($v) {
+    protected function writeInt24($v)
+    {
         $ret = chr(($v & 0xff0000) >> 16);
         $ret .= chr(($v & 0x00ff00) >> 8);
         $ret .= chr(($v & 0x0000ff) >> 0);
@@ -142,7 +156,8 @@ class BinTreeNodeWriter {
         return $ret;
     }
 
-    protected function writeBytes($bytes) {
+    protected function writeBytes($bytes)
+    {
         $len = strlen($bytes);
         if ($len >= 0x100) {
             $this->output .= "\xfd";
@@ -154,9 +169,10 @@ class BinTreeNodeWriter {
         $this->output .= $bytes;
     }
 
-    protected function writeString($tag) {
-        $intVal = -1;
-        $subdict = FALSE;
+    protected function writeString($tag)
+    {
+        $intVal  = -1;
+        $subdict = false;
         if (TokenMap::TryGetToken($tag, $subdict, $intVal)) {
             if ($subdict) {
                 $this->writeToken(236);
@@ -167,14 +183,15 @@ class BinTreeNodeWriter {
         $index = strpos($tag, '@');
         if ($index) {
             $server = substr($tag, $index + 1);
-            $user = substr($tag, 0, $index);
+            $user   = substr($tag, 0, $index);
             $this->writeJid($user, $server);
         } else {
             $this->writeBytes($tag);
         }
     }
 
-    protected function writeAttributes($attributes) {
+    protected function writeAttributes($attributes)
+    {
         if ($attributes) {
             foreach ($attributes as $key => $value) {
                 $this->writeString($key);
@@ -183,7 +200,8 @@ class BinTreeNodeWriter {
         }
     }
 
-    protected function writeListStart($len) {
+    protected function writeListStart($len)
+    {
         if ($len == 0) {
             $this->output .= "\x00";
         } elseif ($len < 256) {

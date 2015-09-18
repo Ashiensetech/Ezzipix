@@ -1,41 +1,46 @@
 <?php
 require 'exception.php';
 
-class IncompleteMessageException extends CustomException {
+class IncompleteMessageException extends CustomException
+{
     private $input;
 
-    public function __construct($message = NULL, $code = 0) {
+    public function __construct($message = null, $code = 0)
+    {
         parent::__construct($message, $code);
     }
 
-    public function setInput($input) {
+    public function setInput($input)
+    {
         $this->input = $input;
     }
 
-    public function getInput() {
+    public function getInput()
+    {
         return $this->input;
     }
 }
 
-class ProtocolNode {
-    private        $tag;
-    private        $attributeHash;
-    private        $children;
-    private        $data;
-    private static $cli = NULL;
+class ProtocolNode
+{
+    private $tag;
+    private $attributeHash;
+    private $children;
+    private $data;
+    private static $cli = null;
 
     /**
      * check if call is from command line
-     *
      * @return bool
      */
-    private static function isCli() {
-        if (self::$cli === NULL) {
+    private static function isCli()
+    {
+        if (self::$cli === null) {
             //initial setter
             if (php_sapi_name() == "cli") {
-                self::$cli = TRUE;
+                self::$cli = true;
             } else {
-                self::$cli = FALSE;
+                self::$cli = false;
             }
         }
         return self::$cli;
@@ -44,36 +49,41 @@ class ProtocolNode {
     /**
      * @return string
      */
-    public function getData() {
+    public function getData()
+    {
         return $this->data;
     }
 
     /**
      * @return string
      */
-    public function getTag() {
+    public function getTag()
+    {
         return $this->tag;
     }
 
     /**
      * @return string[]
      */
-    public function getAttributes() {
+    public function getAttributes()
+    {
         return $this->attributeHash;
     }
 
     /**
      * @return ProtocolNode[]
      */
-    public function getChildren() {
+    public function getChildren()
+    {
         return $this->children;
     }
 
-    public function __construct($tag, $attributeHash, $children, $data) {
-        $this->tag = $tag;
+    public function __construct($tag, $attributeHash, $children, $data)
+    {
+        $this->tag           = $tag;
         $this->attributeHash = $attributeHash;
-        $this->children = $children;
-        $this->data = $data;
+        $this->children      = $children;
+        $this->data          = $data;
     }
 
     /**
@@ -81,20 +91,21 @@ class ProtocolNode {
      * @param bool   $isChild
      * @return string
      */
-    public function nodeString($indent = "", $isChild = FALSE) {
+    public function nodeString($indent = "", $isChild = false)
+    {
         //formatters
         $lt = "<";
         $gt = ">";
         $nl = "\n";
-        if (!self::isCli()) {
-            $lt = "&lt;";
-            $gt = "&gt;";
-            $nl = "<br />";
+        if ( ! self::isCli()) {
+            $lt     = "&lt;";
+            $gt     = "&gt;";
+            $nl     = "<br />";
             $indent = str_replace(" ", "&nbsp;", $indent);
         }
 
         $ret = $indent . $lt . $this->tag;
-        if ($this->attributeHash != NULL) {
+        if ($this->attributeHash != null) {
             foreach ($this->attributeHash as $key => $value) {
                 $ret .= " " . $key . "=\"" . $value . "\"";
             }
@@ -113,16 +124,16 @@ class ProtocolNode {
             $ret .= $nl;
             $foo = array();
             foreach ($this->children as $child) {
-                $foo[] = $child->nodeString($indent . "  ", TRUE);
+                $foo[] = $child->nodeString($indent . "  ", true);
             }
             $ret .= implode($nl, $foo);
             $ret .= $nl . $indent;
         }
         $ret .= $lt . "/" . $this->tag . $gt;
 
-        if (!$isChild) {
+        if ( ! $isChild) {
             $ret .= $nl;
-            if (!self::isCli()) {
+            if ( ! self::isCli()) {
                 $ret .= $nl;
             }
         }
@@ -134,7 +145,8 @@ class ProtocolNode {
      * @param $attribute
      * @return string
      */
-    public function getAttribute($attribute) {
+    public function getAttribute($attribute)
+    {
         $ret = "";
         if (isset($this->attributeHash[$attribute])) {
             $ret = $this->attributeHash[$attribute];
@@ -147,8 +159,9 @@ class ProtocolNode {
      * @param string $needle
      * @return boolean
      */
-    public function nodeIdContains($needle) {
-        return (strpos($this->getAttribute("id"), $needle) !== FALSE);
+    public function nodeIdContains($needle)
+    {
+        return (strpos($this->getAttribute("id"), $needle) !== false);
     }
 
     //get children supports string tag or int index
@@ -156,14 +169,15 @@ class ProtocolNode {
      * @param $tag
      * @return ProtocolNode
      */
-    public function getChild($tag) {
-        $ret = NULL;
+    public function getChild($tag)
+    {
+        $ret = null;
         if ($this->children) {
             if (is_int($tag)) {
                 if (isset($this->children[$tag])) {
                     return $this->children[$tag];
                 } else {
-                    return NULL;
+                    return null;
                 }
             }
             foreach ($this->children as $child) {
@@ -177,25 +191,27 @@ class ProtocolNode {
             }
         }
 
-        return NULL;
+        return null;
     }
 
     /**
      * @param $tag
      * @return bool
      */
-    public function hasChild($tag) {
-        return $this->getChild($tag) == NULL ? FALSE : TRUE;
+    public function hasChild($tag)
+    {
+        return $this->getChild($tag) == null ? false : true;
     }
 
     /**
      * @param int $offset
      */
-    public function refreshTimes($offset = 0) {
+    public function refreshTimes($offset = 0)
+    {
         if (isset($this->attributeHash['id'])) {
-            $id = $this->attributeHash['id'];
-            $parts = explode('-', $id);
-            $parts[0] = time() + $offset;
+            $id                        = $this->attributeHash['id'];
+            $parts                     = explode('-', $id);
+            $parts[0]                  = time() + $offset;
             $this->attributeHash['id'] = implode('-', $parts);
         }
         if (isset($this->attributeHash['t'])) {
@@ -208,7 +224,8 @@ class ProtocolNode {
      *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
         $readableNode = array(
             'tag'           => $this->tag,
             'attributeHash' => $this->attributeHash,
@@ -216,6 +233,6 @@ class ProtocolNode {
             'data'          => $this->data
         );
 
-        return print_r($readableNode, TRUE);
+        return print_r($readableNode, true);
     }
 }
