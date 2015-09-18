@@ -1,19 +1,20 @@
 <?php
-
 /**
  * Media uploader class
  */
-class WhatsMediaUploader {
-    protected static function sendData($host, $POST, $HEAD, $filepath, $mediafile, $TAIL) {
+class WhatsMediaUploader
+{
+    protected static function sendData($host, $POST, $HEAD, $filepath, $mediafile, $TAIL)
+    {
         $sock = fsockopen("ssl://" . $host, 443);
 
         fwrite($sock, $POST);
         fwrite($sock, $HEAD);
 
         //write file data
-        $buf = 1024;
+        $buf       = 1024;
         $totalread = 0;
-        $fp = fopen($filepath, "r");
+        $fp        = fopen($filepath, "r");
         while ($totalread < $mediafile['filesize']) {
             $buff = fread($fp, $buf);
             fwrite($sock, $buff, $buf);
@@ -35,26 +36,28 @@ class WhatsMediaUploader {
         list($header, $body) = preg_split("/\R\R/", $data, 2);
 
         $json = json_decode($body);
-        if (!is_null($json)) {
+        if ( ! is_null($json)) {
             return $json;
         }
-        return FALSE;
+        return false;
     }
 
-    public static function pushFile($uploadResponseNode, $messageContainer, $mediafile, $selfJID) {
+    public static function pushFile($uploadResponseNode, $messageContainer, $mediafile, $selfJID)
+    {
         //get vars
-        $url = $uploadResponseNode->getChild("media")->getAttribute("url");
+        $url      = $uploadResponseNode->getChild("media")->getAttribute("url");
         $filepath = $messageContainer["filePath"];
-        $to = $messageContainer["to"];
+        $to       = $messageContainer["to"];
         return self::getPostString($filepath, $url, $mediafile, $to, $selfJID);
     }
 
-    protected static function getPostString($filepath, $url, $mediafile, $to, $from) {
+    protected static function getPostString($filepath, $url, $mediafile, $to, $from)
+    {
         $host = parse_url($url, PHP_URL_HOST);
 
         //filename to md5 digest
-        $cryptoname = md5($filepath) . "." . $mediafile['fileextension'];
-        $boundary = "zzXXzzYYzzXXzzQQ";
+        $cryptoname    = md5($filepath) . "." . $mediafile['fileextension'];
+        $boundary      = "zzXXzzYYzzXXzzQQ";
 
         if (is_array($to)) {
             $to = implode(',', $to);

@@ -2,8 +2,8 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
-require 'lib/whatsprot.class.php';
-require 'lib/events/MyEvents.php';
+require 'lib/whats_app/src/whatsprot.class.php';
+require 'lib/whats_app/src/events/MyEvents.php';
 
 class WhatsAppAPIController {
 

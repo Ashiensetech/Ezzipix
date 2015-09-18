@@ -1,6 +1,6 @@
 <?php
-
-interface IException {
+interface IException
+{
     /* Protected methods inherited from Exception class */
     public function getMessage();                 // Exception message
 
@@ -17,25 +17,28 @@ interface IException {
     /* Overrideable methods inherited from Exception class */
     public function __toString();                 // formated string for display
 
-    public function __construct($message = NULL, $code = 0);
+    public function __construct($message = null, $code = 0);
 }
 
-abstract class CustomException extends Exception implements IException {
+abstract class CustomException extends Exception implements IException
+{
     protected $message = 'Unknown exception';     // Exception message
-    protected $code    = 0;                       // User-defined exception code
+    protected $code = 0;                       // User-defined exception code
     protected $file;                              // Source filename of exception
     protected $line;                              // Source line of exception
 
-    public function __construct($message = NULL, $code = 0) {
-        if (!$message) {
+    public function __construct($message = null, $code = 0)
+    {
+        if ( ! $message) {
             throw new $this('Unknown ' . get_class($this));
         }
         parent::__construct($message, $code);
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return get_class($this) . " '{$this->message}' in {$this->file}({$this->line})\n"
-               . "{$this->getTraceAsString()}";
+        . "{$this->getTraceAsString()}";
     }
 }
 
@@ -43,9 +46,6 @@ abstract class CustomException extends Exception implements IException {
  * Exception occurs when we have no active socket
  * connection to whatsapp
  */
+class ConnectionException extends Exception{}
 
-class ConnectionException extends Exception {
-}
-
-class LoginFailureException extends Exception {
-}
+class LoginFailureException extends Exception{}
