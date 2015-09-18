@@ -39,7 +39,7 @@
             <div class="collapse navbar-collapse navbar-collapse-alt" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown ">
-                        <a href="#" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
+                        <a href="<?php echo $this->baseUrl; ?>home.php" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
                             <span class="meta">
                                 <span class="text">Home</span>
                                 <!--<span class="caret"></span>-->
@@ -60,7 +60,7 @@
                     </li>
                     <?php } ?>
                     <li class="dropdown ">
-                        <a href="#" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
                             <span class="meta">
                                 <span class="text">Gallery</span>
                                 <span class="caret"></span>
