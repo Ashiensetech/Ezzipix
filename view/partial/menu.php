@@ -97,15 +97,17 @@
                             </span>
                             </a>
                         </li>
-                        <li class="dropdown ">
-                            <a href="javascript:void(0);" onclick="openPIO()">
-                            <span class="meta">
-                                <span class="text"><span class="icon"><i class="ico-print"></i></span></span>
-                                <!--<span class="caret"></span>-->
-                            </span>
-                            </a>
-                            <!--<a href="javascript:void(0);" onclick="openPIO()"><span class="icon"><i class="ico-print"></i></span></a>-->
-                        </li>
+                        <?php if(isset($printEnable) && $printEnable){ ?>
+                                <li class="dropdown ">
+                                    <a href="javascript:void(0);" onclick="openPIO()">
+                                    <span class="meta">
+                                        <span class="text"><span class="icon"><i class="ico-print"></i></span></span>
+                                        <!--<span class="caret"></span>-->
+                                    </span>
+                                    </a>
+                                    <!--<a href="javascript:void(0);" onclick="openPIO()"><span class="icon"><i class="ico-print"></i></span></a>-->
+                                </li>
+                         <?php } ?>
                     <?php } ?>
                 </ul>
             </div>

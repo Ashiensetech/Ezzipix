@@ -5,7 +5,9 @@ require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
 require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
 
 class Home extends EzzipixController {
+
     function index(){
+        $this->pageData['printEnable'] = true;
         $this->loadView('home', $this->pageData);
     }
     function process() {

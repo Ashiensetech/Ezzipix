@@ -36,6 +36,7 @@
                                     <button id="fb_loginBtn" class="btn btn-default"  onclick="fbLogin()">Facebook</button>
                                     <button class="btn btn-default"  onclick="javascript:location.href='<?php echo $dropBoxLoginLink; ?>'" >Dropbox</button>
                                     <button class="btn btn-default" onclick="javascript:location.href='<?php echo $instagramLoginLink; ?>'">Instagram</button>
+                                    <button class="btn btn-default" onclick="javascript:location.href='<?php echo $this->baseUrl.'service.php?r=new'; ?>'">Telegram</button>
                                 </div>
                             </div>
                         </div>

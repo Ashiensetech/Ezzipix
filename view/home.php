@@ -19,6 +19,7 @@ LAST UPDATE: 2015/01/05
 <body>
 <!-- START Template Header -->
 <?php include_once 'partial/menu.php' ?>
+
 <!--/ END Template Header -->
 
 <!-- START Template Main -->
@@ -110,7 +111,7 @@ LAST UPDATE: 2015/01/05
     <section class="pt35 pb35 bgcolor-accent">
         <div class="container">
             <div class="col-sm-9">
-                <h3 class="font-alt text-white nm mt3">Ezzipix sed ut perspiciatis unde omnis iste natus .</h3>
+                <h3 class="font-alt text-white nm mt3">Ezzipix sed ut perspiciatis unde omnis iste natus . </h3>
             </div>
             <div class="mb15 visible-xs"></div>
 <!--            <div class="col-sm-3 clearfix">-->
@@ -377,6 +378,27 @@ LAST UPDATE: 2015/01/05
 <?php include_once 'partial/core_script.php' ?>
 <!--/ Application and vendor script : mandatory -->
 
+<script src="<?php echo $this->baseUrl. "js/printio/pio.latest.v2.js"; ?>"></script>
+<script type="text/javascript">
+
+    var imgJobjArray = JSON.parse($("#allImg").val())
+    var images = [];
+    for (var key in imgJobjArray) {
+        images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
+    }
+    $(document).ready(function () {
+
+
+    });
+    function openPIO() {
+        PIO.config({
+            recipeId: "d672c387-aa6a-480f-8908-782843978773"
+        });
+        PIO.open();
+    }
+
+
+</script>
 <!-- Plugins and page level script : optional -->
 <script type="text/javascript" src="<?php echo $this->baseUrl.'html_template/dist/plugins/smoothscroll/js/smoothscroll.js';?>"></script>
 <script type="text/javascript" src="<?php echo $this->baseUrl.'html_template/dist/plugins/owl/js/owl.carousel.js';?>"></script>
