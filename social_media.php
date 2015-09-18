@@ -32,7 +32,7 @@ class SocialMedia extends AuthController {
         include_once 'custom_lib/social_media/Dropbox.php';
         include_once 'custom_lib/social_media/Instagram.php';
 
-        $instagram = new Instagram();
+        $instagram = new Instagram($this->baseUrl);
         $dropbox   = new Dropbox($this->baseUrl, "");
 
         $this->pageData["computerUploadLink"] = $this->baseUrl . "social_media.php?r=computer";
@@ -137,7 +137,7 @@ class SocialMedia extends AuthController {
             $code = $_GET["code"];
         }
 
-        $instagram = new Instagram($accessToken, $code);
+        $instagram = new Instagram($this->baseUrl,$accessToken, $code);
 
         if (@ $_GET["code"]) {
             $this->pageData["images"]        = $instagram->getAuthentic();

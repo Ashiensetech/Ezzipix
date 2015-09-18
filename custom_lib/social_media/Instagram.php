@@ -3,7 +3,7 @@
 class Instagram {
     private $accessToken      = NULL;
     private $code             = NULL;
-    private $redirectUrl      = "http://localhost/ezzipix/social_media.php?r=instagram";
+    private $redirectUrl      = NULL;
     private $serviceUrl       = "https://api.instagram.com/";
     private $apiVersion       = "v1/";
     private $authRoute        = "oauth/access_token/";
@@ -12,8 +12,10 @@ class Instagram {
     private $clientSecret     = "76a90fd2f95e4d14bbb6960049006e0a";
     private $grantType        = "authorization_code";
     public $responseData;
-    public function __construct($accessToken="",$code=""){
+    public function __construct($base_url,$accessToken="",$code=""){
         $this->responseData = array();
+
+        $this->redirectUrl      = $base_url."social_media.php?r=instagram";
         if($accessToken!=""){
             $this->accessToken = $accessToken;
         }
