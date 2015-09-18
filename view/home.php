@@ -64,8 +64,10 @@ LAST UPDATE: 2015/01/05
     </section> -->
     <!--/ END Layerslider -->
 
-    <section id="photo-plugin" class="text-center bgcolor-white">
-        <img src="<?php echo $this->baseUrl . "html_template/dist/image/loading/spinner@2x.gif"; ?>" id="photo-plugin-loder"/>
+    <section class="bgcolor-white">
+        <div id="photo-plugin"  class="container text-center ">
+            <img src="<?php echo $this->baseUrl . "html_template/dist/image/loading/spinner@2x.gif"; ?>" id="photo-plugin-loder"/>
+        </div>
     </section>
 
     <!-- START Call To Action Section -->
@@ -407,7 +409,7 @@ LAST UPDATE: 2015/01/05
             },
             iframeStyles: {
                 width: "100%",
-                "max-width": "inherit"
+                "max-width": "100%"
             },
             fns: {
                 //callback for when the widget cart/order changes
