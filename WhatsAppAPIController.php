@@ -10,14 +10,13 @@ class WhatsAppAPIController {
     public $username  = "8801977974819";
     public $nickname  = "Ezeepix";
     public $password  = "GGfvxQIBC4x5FHBLQ1U7C4bv+Dc=";
-    public $debug     = TRUE;
+    public $debug     = FALSE;
     public $w         = NULL;
     public $target    = NULL; // The number of the person you are sending the message
     public $message   = NULL;
     public $imagePath = 'upload/img/';
 
     function __construct() {
-        echo $this->username.' '. $this->nickname.' '.$this->password;
         $this->w = new WhatsProt($this->username, $this->nickname, $this->debug);
         if($this->w->connect()){
             $this->w->loginWithPassword($this->password);

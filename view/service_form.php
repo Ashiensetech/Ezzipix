@@ -61,8 +61,8 @@ LAST UPDATE: 2015/01/05
                         <tr id="verification_code_tr" style="display: none">
                             <td>Verification Code :</td>
                             <td>
-                                <input type="verification_code" id="verification_code"/>&nbsp;
-                                <input id="resendTokenBtn" type="button" onclick="sendCode();" value="Resend Code"/>
+                                <input class="text-default" type="verification_code" id="verification_code"/>&nbsp;
+                                <input class="text-default" id="resendTokenBtn" type="button" onclick="sendCode();" value="Resend Code"/>
                             </td>
 
                         </tr>

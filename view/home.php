@@ -14,6 +14,12 @@ LAST UPDATE: 2015/01/05
 <!-- START Head -->
 <?php include_once 'partial/head.php' ?>
 <!--/ END Head -->
+<style>
+    iframe{
+        height: 1470px;
+
+    }
+</style>
 
 <!-- START Body -->
 <body>
@@ -70,286 +76,6 @@ LAST UPDATE: 2015/01/05
         </div>
     </section>
 
-    <!-- START Call To Action Section -->
-    <section class="pt35 pb35 bgcolor-accent">
-        <div class="container">
-            <div class="col-sm-9">
-                <h3 class="font-alt text-white nm mt3">Ezeepix sed ut perspiciatis unde omnis iste natus . </h3>
-            </div>
-            <div class="mb15 visible-xs"></div>
-            <!--            <div class="col-sm-3 clearfix">-->
-            <!--                <a href="javascript:void(0);" class="btn btn-outline btn-default text-white pull-right semibold">CALL TO ACTION</a>-->
-            <!--            </div>-->
-        </div>
-    </section>
-    <!-- END Call To Action Section -->
-
-    <!-- START Features Section -->
-    <section class="section bgcolor-white">
-        <div class="container">
-            <!-- START Section Header -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-header text-center">
-                        <h1 class="section-title font-alt mb25">Awesome Features</h1>
-
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
-                                <h4 class="thin text-muted text-center">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ END Section Header -->
-
-            <!-- START row -->
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="table-layout animation" data-toggle="waypoints" data-showanim="fadeInRight" data-trigger-once="true">
-                        <div class="col-xs-2 valign-top">
-                            <img src="<?php echo $this->baseUrl . 'html_template/dist/image/icons/responsivewebdesign.png'; ?>" width="100%" alt="">
-                        </div>
-                        <div class="col-xs-19 pl15">
-                            <h4 class="font-alt">Responsive Design</h4>
-
-                            <p class="nm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="table-layout animation" data-toggle="waypoints" data-showanim="fadeInRight" data-trigger-once="true">
-                        <div class="col-xs-2 valign-top">
-                            <img src="<?php echo $this->baseUrl . 'html_template/dist/image/icons/seoplanning.png'; ?>" width="100%" alt="">
-                        </div>
-                        <div class="col-xs-10 pl15">
-                            <h4 class="font-alt">SEO Optimize</h4>
-
-                            <p class="nm">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo
-                                consequat.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="table-layout animation" data-toggle="waypoints" data-showanim="fadeInRight" data-trigger-once="true">
-                        <div class="col-xs-2 valign-top">
-                            <img src="<?php echo $this->baseUrl . 'html_template/dist/image/icons/branddevelopment.png'; ?>" width="100%" alt="">
-                        </div>
-                        <div class="col-xs-10 pl15">
-                            <h4 class="font-alt">Blazing Fast</h4>
-
-                            <p class="nm">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                deserunt mollit anim id est laborum.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ END row -->
-
-            <!-- START row -->
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="table-layout animation mb0" data-toggle="waypoints" data-showanim="fadeInLeft" data-trigger-once="true">
-                        <div class="col-xs-2 valign-top">
-                            <img src="<?php echo $this->baseUrl . 'html_template/dist/image/icons/affiliatemarketing.png'; ?>" width="100%" alt="">
-                        </div>
-                        <div class="col-xs-19 pl15">
-                            <h4 class="font-alt">Worth Every Peny</h4>
-
-                            <p class="nm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb15 visible-xs visible-sm"></div>
-                <div class="col-md-4">
-                    <div class="table-layout animation mb0" data-toggle="waypoints" data-showanim="fadeInLeft" data-trigger-once="true">
-                        <div class="col-xs-2 valign-top">
-                            <img src="<?php echo $this->baseUrl . 'html_template/dist/image/icons/targetaudience.png'; ?>" width="100%" alt="">
-                        </div>
-                        <div class="col-xs-10 pl15">
-                            <h4 class="font-alt">Build With You In Mind</h4>
-
-                            <p class="nm">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo
-                                consequat.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb15 visible-xs visible-sm"></div>
-                <div class="col-md-4">
-                    <div class="table-layout animation mb0" data-toggle="waypoints" data-showanim="fadeInLeft" data-trigger-once="true">
-                        <div class="col-xs-2 valign-top">
-                            <img src="<?php echo $this->baseUrl . 'html_template/dist/image/icons/customcoding.png'; ?>" width="100%" alt="">
-                        </div>
-                        <div class="col-xs-10 pl15">
-                            <h4 class="font-alt">Clean Code</h4>
-
-                            <p class="nm">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                deserunt mollit anim id est laborum.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ END row -->
-        </div>
-    </section>
-    <!--/ END Features Section -->
-
-    <!-- START Recent Blog Section -->
-    <section class="section">
-        <div class="container">
-            <!-- START Section Header -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-header text-center">
-                        <h1 class="section-title font-alt mb25">Blog Post</h1>
-                    </div>
-                </div>
-            </div>
-            <!--/ END Section Header -->
-
-            <!-- START row -->
-            <div class="row">
-                <!-- Blog post #1 -->
-                <div class="col-sm-4 post">
-                    <article class="panel no-border overflow-hidden mb0">
-                        <!-- Thumbnail -->
-                        <header class="thumbnail">
-                            <!-- media -->
-                            <div class="media">
-                                <!-- indicator -->
-                                <div class="indicator"><span class="spinner"></span></div>
-                                <!--/ indicator -->
-                                <!-- toolbar overlay -->
-                                <div class="overlay">
-                                    <div class="toolbar">
-                                        <a href="javascript:void(0);" class="btn btn-success"><i class="ico-new-tab"></i></a>
-                                    </div>
-                                </div>
-                                <!--/ toolbar overlay -->
-                                <img data-toggle="unveil" src="<?php echo $this->baseUrl . 'html_template/dist/image/background/blog/placeholder.jpg'; ?>" data-src="<?php echo $this->baseUrl . 'html_template/dist/image/background/blog/blog1.jpg' ?>" alt="Photo" height="200px">
-                            </div>
-                            <!--/ media -->
-                        </header>
-                        <!--/ Thumbnail -->
-                        <!-- Content -->
-                        <section class="pa20">
-                            <!-- heading -->
-                            <h4 class="mt0 ellipsis">Lorem ipsum dolor sit amet</h4>
-                            <!--/ heading -->
-                            <!-- meta -->
-                            <p class="meta nm">
-                                <a href="javascript:void(0);">June, 2014</a><!-- date -->
-                                <span class="text-muted mr5 ml5">&#8226;</span>
-                                <span class="text-muted">By </span><a href="javascript:void(0);">Mark Adams</a><!-- author -->
-                            </p>
-                            <!--/ meta -->
-                        </section>
-                        <!--/ Content -->
-                    </article>
-                    <div class="mb15 visible-xs"></div>
-                </div>
-                <!--/ Blog post #1 -->
-
-                <!-- Blog post #2 -->
-                <div class="col-sm-4 post">
-                    <article class="panel no-border overflow-hidden mb0">
-                        <!-- Thumbnail -->
-                        <header class="thumbnail">
-                            <!-- media -->
-                            <div class="media">
-                                <!-- indicator -->
-                                <div class="indicator"><span class="spinner"></span></div>
-                                <!--/ indicator -->
-                                <!-- toolbar overlay -->
-                                <div class="overlay">
-                                    <div class="toolbar">
-                                        <a href="javascript:void(0);" class="btn btn-success"><i class="ico-new-tab"></i></a>
-                                    </div>
-                                </div>
-                                <!--/ toolbar overlay -->
-                                <img data-toggle="unveil" src="<?php echo $this->baseUrl . 'html_template/dist/image/background/blog/placeholder.jpg'; ?>" data-src="<?php echo $this->baseUrl . 'html_template/dist/image/background/blog/blog2.jpg'; ?>" alt="Photo" height="200px">
-                            </div>
-                            <!--/ media -->
-                        </header>
-                        <!--/ Thumbnail -->
-                        <!-- Content -->
-                        <section class="pa20">
-                            <!-- heading -->
-                            <h4 class="mt0 ellipsis">Duis aute irure dolor in reprehenderit in voluptate.</h4>
-                            <!--/ heading -->
-                            <!-- meta -->
-                            <p class="meta nm">
-                                <a href="javascript:void(0);">June, 2014</a><!-- date -->
-                                <span class="text-muted mr5 ml5">&#8226;</span>
-                                <span class="text-muted">By </span><a href="javascript:void(0);">Jenna Howard</a><!-- author -->
-                            </p>
-                            <!--/ meta -->
-                        </section>
-                        <!--/ Content -->
-                    </article>
-                    <div class="mb15 visible-xs"></div>
-                </div>
-                <!--/ Blog post #2 -->
-
-                <!-- Blog post #3 -->
-                <div class="col-sm-4 post">
-                    <article class="panel no-border overflow-hidden mb0">
-                        <!-- Thumbnail -->
-                        <header class="thumbnail">
-                            <!-- media -->
-                            <div class="media">
-                                <!-- indicator -->
-                                <div class="indicator"><span class="spinner"></span></div>
-                                <!--/ indicator -->
-                                <!-- toolbar overlay -->
-                                <div class="overlay">
-                                    <div class="toolbar">
-                                        <a href="javascript:void(0);" class="btn btn-success"><i class="ico-new-tab"></i></a>
-                                    </div>
-                                </div>
-                                <!--/ toolbar overlay -->
-                                <img data-toggle="unveil" src="<?php echo $this->baseUrl . 'html_template/dist/image/background/blog/placeholder.jpg'; ?>" data-src="<?php echo $this->baseUrl . 'html_template/dist/image/background/blog/blog3.jpg'; ?>" alt="Photo" height="200px">
-                            </div>
-                            <!--/ media -->
-                        </header>
-                        <!--/ Thumbnail -->
-                        <!-- Content -->
-                        <section class="pa20">
-                            <!-- heading -->
-                            <h4 class="mt0 ellipsis">Vivamus nibh dolor, nonummy ac, feugiat non, lobortis quis,
-                                pede.</h4>
-                            <!--/ heading -->
-                            <!-- meta -->
-                            <p class="meta nm">
-                                <a href="javascript:void(0);">Apr, 2014</a><!-- date -->
-                                <span class="text-muted mr5 ml5">&#8226;</span>
-                                <span class="text-muted">By </span><a href="javascript:void(0);">Glenna Espi</a><!-- author -->
-                            </p>
-                            <!--/ meta -->
-                        </section>
-                        <!--/ Content -->
-                    </article>
-                </div>
-                <!--/ Blog post #3 -->
-            </div>
-            <!--/ END row -->
-        </div>
-    </section>
-    <!--/ END Recent Blog Section -->
-
-    <!-- START Lovely Client -->
-
-    <!--/ END Lovely Client -->
-
     <!-- START To Top Scroller -->
     <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>
     <!--/ END To Top Scroller -->
@@ -405,11 +131,13 @@ LAST UPDATE: 2015/01/05
             url: "https://widget.print.io/widget/",
             embedInElement: el,
             style: {
-                showHeader: false
+                showHeader: false,
+
+
             },
             iframeStyles: {
                 width: "100%",
-                "max-width": "100%"
+                height: "1470px"
             },
             fns: {
                 //callback for when the widget cart/order changes
