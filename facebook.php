@@ -1,6 +1,6 @@
 <?php
 /**
- * Project  : ezzipix
+ * Project  : ezeepix
  * File     : facebook.php
  * Author   : Abu Bakar Siddique
  * Email    : absiddique.live@gmail.com

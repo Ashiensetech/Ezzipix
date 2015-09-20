@@ -31,7 +31,7 @@ LAST UPDATE: 2015/01/05
                 <div class="container" style="padding-top:8%;padding-bottom:8%;">
                     <div class="row">
                         <div class="col-md-8">
-                            <h1 class="thin text-white font-alt mt0 mb5">Ezzipix</h1>
+                            <h1 class="thin text-white font-alt mt0 mb5">Ezeepix</h1>
                             <p class="text-white mb15 fsize14">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

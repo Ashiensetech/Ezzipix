@@ -739,7 +739,7 @@ configure:5766: result: none required
 configure:5774: checking for library containing dlopen
 configure:5805: gcc -o conftest -g -O2  -I/usr/local/include -I/usr/include -I/usr/include  -L/usr/local/lib -L/usr/lib -L/usr/lib conftest.c -lconfig -lz -levent -lm   >&5
 /tmp/cc6V6l5y.o: In function `main':
-/home/touch/Projects/php/ezzipix/tg/conftest.c:39: undefined reference to `dlopen'
+/home/touch/Projects/php/ezeepix/tg/conftest.c:39: undefined reference to `dlopen'
 collect2: error: ld returned 1 exit status
 configure:5805: $? = 1
 configure: failed program was:
@@ -791,7 +791,7 @@ configure:5822: result: -ldl
 configure:5844: checking for library containing lua_load
 configure:5879: gcc -o conftest -g -O2  -I/usr/local/include -I/usr/include -I/usr/include  -L/usr/local/lib -L/usr/lib -L/usr/lib conftest.c -lconfig -lz -levent -lm   >&5
 /tmp/ccBsvIZD.o: In function `main':
-/home/touch/Projects/php/ezzipix/tg/conftest.c:39: undefined reference to `lua_load'
+/home/touch/Projects/php/ezeepix/tg/conftest.c:39: undefined reference to `lua_load'
 collect2: error: ld returned 1 exit status
 configure:5879: $? = 1
 configure: failed program was:

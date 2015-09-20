@@ -30,7 +30,7 @@ LAST UPDATE: 2015/01/05
             <img src="<?php echo $this->baseUrl . 'html_template/dist/image/layerslider/bg3.png'; ?>" class="ls-bg">
             <img class="ls-l" style="top:90px;left:68%;" style="height: 200px;width: 200px" src="<?php echo $this->baseUrl . 'html_template/dist/image/layerslider/layer/people2.png'; ?>" data-ls="delayin:1000; easingin:easeOutElastic;">
             <h1 class="ls-l font-alt" style="top:110px;left:150px;" data-ls="offsetxin:0;durationin:2000;delayin:1500;easingin:easeOutElastic;rotatexin:-90;transformoriginin:50% top 0;offsetxout:-200;durationout:1000;">
-                Welcome To <span class="text-primary">Ezzipix</span>
+                Welcome To <span class="text-primary">Ezeepix</span>
             </h1>
             <h4 class="ls-l" style="top:170px;left:150px;width:550px;" data-ls="offsetxin:0; durationin:2000; delayin:2000; easingin:easeOutElastic; rotatexin:90; transformoriginin:50% top 0; offsetxout:-400;">
                 consectetur adipisicing elit, sed do eiusmod
@@ -74,7 +74,7 @@ LAST UPDATE: 2015/01/05
     <section class="pt35 pb35 bgcolor-accent">
         <div class="container">
             <div class="col-sm-9">
-                <h3 class="font-alt text-white nm mt3">Ezzipix sed ut perspiciatis unde omnis iste natus . </h3>
+                <h3 class="font-alt text-white nm mt3">Ezeepix sed ut perspiciatis unde omnis iste natus . </h3>
             </div>
             <div class="mb15 visible-xs"></div>
             <!--            <div class="col-sm-3 clearfix">-->

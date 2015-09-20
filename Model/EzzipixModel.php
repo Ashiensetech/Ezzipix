@@ -11,7 +11,7 @@ class EzzipixModel {
         if (!$this->con) {
             die("Couldn't connect to database!!!");
         }
-        mysql_select_db("ezzipix", $this->con);
+        mysql_select_db("ezeepix", $this->con);
         $this->tableName = $tabName;
     }
 

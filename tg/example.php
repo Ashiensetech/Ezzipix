@@ -70,7 +70,7 @@ if (@$telegram->loadImage($history[0]->id)) {
     $img = $telegram->loadImage($history[0]->id);
     //print_r($img);
     if (@$img->result) {
-        $cmd = 'cp ' . $img->result . ' /home/touch/Projects/php/ezzipix/';
+        $cmd = 'cp ' . $img->result . ' /home/touch/Projects/php/ezeepix/';
         exec($cmd);
         if (saveImage($img->result)) {
             echo "ok";

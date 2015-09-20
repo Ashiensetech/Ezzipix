@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Project  : ezzipix
+ * Project  : ezeepix
  * File     : flickr.php
  * Author   : Abu Bakar Siddique
  * Email    : absiddique.live@gmail.com
@@ -16,7 +16,7 @@ class Flickr extends EzzipixController {
     private $authSign  = "ef842c2934d61012";
     private $signature = "MHAC-SHA1";
     private $version   = "1.0";
-    private $callBack  = "http://localhost/ezzipix/flickr.php";
+    private $callBack  = "http://localhost/ezeepix/flickr.php";
 
     public function index() {
         if (@$_REQUEST) {

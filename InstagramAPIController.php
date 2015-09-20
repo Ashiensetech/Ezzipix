@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Project  : ezzipix
+ * Project  : ezeepix
  * File     : InstagramAPIController.php
  * Author   : Abu Bakar Siddique
  * Email    : absiddique.live@gmail.com

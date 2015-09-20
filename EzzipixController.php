@@ -20,7 +20,7 @@ class EzzipixController {
         $this->respData = array();
 
         $this->baseUrl = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
-        $this->baseUrl .= "://" . $_SERVER['HTTP_HOST'] . "/ezzipix/";
+        $this->baseUrl .= "://" . $_SERVER['HTTP_HOST'] . "/ezeepix/";
 
         $this->userInfo['uId'] = 0;
         $this->userInfo['email'] = NULL;

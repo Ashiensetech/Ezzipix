@@ -1,6 +1,6 @@
 <?php
 /**
- * Project  : ezzipix
+ * Project  : ezeepix
  * File     : instagram.php
  * Author   : Abu Bakar Siddique
  * Email    : absiddique.live@gmail.com
@@ -11,7 +11,7 @@ require_once 'AuthController.php';
 
 class SocialMedia extends AuthController {
     private $accessToken      = NULL;
-    private $redirectUrl      = "http://localhost/ezzipix/social_media.php";
+    private $redirectUrl      = "http://localhost/ezeepix/social_media.php";
     private $serviceUrl       = "https://api.instagram.com/";
     private $apiVersion       = "v1/";
     private $authRoute        = "oauth/access_token/";

@@ -8,7 +8,7 @@ require 'lib/whats_app/src/events/MyEvents.php';
 class WhatsAppAPIController {
 
     public $username  = "8801977974819";
-    public $nickname  = "Ezzipix";
+    public $nickname  = "Ezeepix";
     public $password  = "GGfvxQIBC4x5FHBLQ1U7C4bv+Dc=";
     public $debug     = TRUE;
     public $w         = NULL;
