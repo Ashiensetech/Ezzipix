@@ -4,14 +4,12 @@
         <!-- row -->
         <div class="row">
             <!-- About -->
-            <div class="col-md-4">
+            <div class="col-md-8">
                 <h4 class="font-alt mt0">ABOUT US</h4>
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
                 <p>  when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
                     distribution of letters, as opposed to using 'Content here, content here', making it look like readable
                     English. Many desktop publishing packages and web page editors now use Lorem Ipsum </p>
-
-                <a href="javascript:void(0);" class="text-primary">Learn More</a>
             </div>
             <div class="visible-sm visible-xs" style="margin-bottom:25px;"></div>
             <!--/ About -->
@@ -30,7 +28,7 @@
             <div class="visible-sm visible-xs" style="margin-bottom:25px;"></div>
             <!--/ Address + Social -->
 
-            <!-- Newsletter -->
+            <?php /*<!-- Newsletter -->
             <div class="col-md-4">
                 <h4 class="font-alt mt0">NEWS LETTER</h4>
                 <form role="form">
@@ -43,7 +41,7 @@
                     <button type="submit" class="btn btn-primary btn-block">Subscribe Now</button>
                 </form>
             </div>
-            <!--/ Newsletter -->
+            <!--/ Newsletter --> */ ?>
         </div>
         <!--/ row -->
     </div>

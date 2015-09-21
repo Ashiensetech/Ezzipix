@@ -5,7 +5,7 @@
 <header id="header" class="navbar">
     <div class="container">
         <div class="navbar-header navbar-header-transparent">
-            <a class="navbar-brand" href="javascript:void(0);">
+            <a class="navbar-brand" href="<?php echo $this->baseUrl; ?>home.php">
                 <span class="logo-text"></span>
             </a>
         </div>
@@ -27,7 +27,7 @@
                     </div>
                 </form>
             </div>
-            <ul class="nav navbar-nav navbar-right">
+            <?php /* <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="javascript:void(0);" data-toggle="dropdown" data-target="#dropdown-form">
                         <span class="meta">
@@ -35,41 +35,64 @@
                         </span>
                     </a>
                 </li>
-            </ul>
+            </ul> */ ?>
             <div class="collapse navbar-collapse navbar-collapse-alt" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown ">
-                        <a href="<?php echo $this->baseUrl; ?>home.php" class="dropdown-toggle dropdown-hover">
+                    <?php if (@$this->userInfo['uId'] > 0) { ?>
+                        <li class="dropdown ">
+                            <a href="<?php echo $this->baseUrl; ?>dashboard.php" class="dropdown-toggle dropdown-hover">
+                            <!--<a href="--><?php //echo $this->baseUrl; ?><!--media.php?r=all" class="dropdown-toggle dropdown-hover">-->
                             <span class="meta">
                                 <span class="text">Home</span>
                                 <!--<span class="caret"></span>-->
                             </span>
-                        </a>
-                    </li>
-                    <?php if (@$this->userInfo['uId'] > 0) { ?>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
+                            </a>
+                        </li>
+                    <?php } else { ?>
+                        <li class="dropdown ">
+                            <a href="<?php echo $this->baseUrl; ?>home.php" class="dropdown-toggle dropdown-hover">
+                            <span class="meta">
+                                <span class="text">Home</span>
+                                <!--<span class="caret"></span>-->
+                            </span>
+                            </a>
+                        </li>
+                    <?php }
+                    if (@$this->userInfo['uId'] > 0) { ?>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
                             <span class="meta">
                                 <span class="text">Profile</span>
                                 <span class="caret"></span>
                             </span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-alt">
-                            <li><a href="<?php echo $this->baseUrl; ?>login.php">Default</a></li>
-                        </ul>
-                    </li>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-alt">
+                                <li><a href="<?php echo $this->baseUrl; ?>login.php">Default</a></li>
+                            </ul>
+                        </li>
                     <?php } ?>
                     <li class="dropdown ">
-                        <a href="javascript:void(0);" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
+                        <a href="<?php echo $this->baseUrl; ?>social_media.php" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
                             <span class="meta">
-                                <span class="text">Gallery</span>
+                                <span class="text">Add Photo</span>
                                 <span class="caret"></span>
                             </span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-alt">
-                            <li><a href="<?php echo $this->baseUrl; ?>media.php?r=all">Images</a></li>
-                            <li><a href="<?php echo $this->baseUrl; ?>social_media.php">Upload Images</a></li>
+                            <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=computer">My Device</a></li>
+                            <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=computer">Facebook</a></li>
+                            <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=dropbox">Dropbox</a></li>
+                            <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=instagram">Instagram</a></li>
+                            <!--<li><a href="-->
+                            <?php //echo $this->baseUrl; ?><!--social_media.php">Upload Images</a></li>-->
                         </ul>
+                    </li>
+                    <li class="dropdown-toggle dropdown-hover">
+                        <a href="<?php echo $this->baseUrl ?>media.php?r=all" class="dropdown-toggle dropdown-hover">
+                            <span class="meta">
+                                <span class="text">My Photo</span>
+                            </span>
+                        </a>
                     </li>
                     <?php if (@$this->userInfo['uId'] > 0) { ?>
                         <li class="dropdown ">
@@ -97,7 +120,7 @@
                             </span>
                             </a>
                         </li>
-                        <?php if(isset($printEnable) && $printEnable){ ?>
+                        <?php /* if(isset($printEnable) && $printEnable){ ?>
                                 <li class="dropdown ">
                                     <a href="javascript:void(0);" onclick="openPIO()">
                                     <span class="meta">
@@ -107,7 +130,7 @@
                                     </a>
                                     <!--<a href="javascript:void(0);" onclick="openPIO()"><span class="icon"><i class="ico-print"></i></span></a>-->
                                 </li>
-                         <?php } ?>
+                         <?php } */ ?>
                     <?php } ?>
                 </ul>
             </div>

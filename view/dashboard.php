@@ -32,10 +32,10 @@ LAST UPDATE: 2015/01/05
                     <div class="row">
                         <div class="content" style="background: #444444;">
                             <table align="center" class="table table-responsive">
-                                <tr>
+                                <?php /*<tr>
                                     <td>Action :</td>
                                     <td><a href="dashboard.php?r=logout">Logout</a></td>
-                                </tr>
+                                </tr> */ ?>
                                 <tr>
                                     <td>Full name :</td>
                                     <td><?php echo @$user['full_name'] ?></td>
@@ -48,7 +48,7 @@ LAST UPDATE: 2015/01/05
                                     <td>Gender :</td>
                                     <td><?php echo @$user['gender'] ?></td>
                                 </tr>
-
+                                <?php /* ?>
                                 <tr>
                                     <td>Add Service :</td>
                                     <td><a href="service.php?r=new">Add New Service</a></td>
@@ -70,7 +70,7 @@ LAST UPDATE: 2015/01/05
                                             <?php } ?>
                                         </td>
                                     </tr>
-                                <?php } ?>
+                                <?php } */ ?>
                                 <tr>
                                     <td></td>
                                     <td><a href="<?php echo $this->baseUrl . 'media.php?r=all'; ?>">Image Gallery</a></td>
