@@ -46,6 +46,10 @@ class SocialMedia extends AuthController {
         $this->loadView("local_images", $this->pageData);
     }
 
+    public function facebook(){
+        $this->loadView("social_media/fb_by_js", $this->pageData);
+    }
+
     public function upload() {
         $path = "upload/img/" . $this->userInfo['uId'] . "/desktop/";
 
@@ -79,10 +83,10 @@ class SocialMedia extends AuthController {
             include_once 'Model/UserServiceModel.php';
             include_once 'Model/UserServiceDataModel.php';
 
-            $userService = new UserService();
+            $userService     = new UserService();
             $userServiceData = new UserServiceData();
-            $serviceID = $userService->initiateServiceIdForSocialMedia($this->userInfo['uId'], 8);
-            $data = [
+            $serviceID       = $userService->initiateServiceIdForSocialMedia($this->userInfo['uId'], 8);
+            $data            = [
                 'user_service_id' => $serviceID,
                 'media_file_path' => $this->userInfo['uId'] . "/" . "desktop" . "/" . $files["metas"][0]["name"],
             ];
@@ -137,7 +141,7 @@ class SocialMedia extends AuthController {
             $code = $_GET["code"];
         }
 
-        $instagram = new Instagram($this->baseUrl,$accessToken, $code);
+        $instagram = new Instagram($this->baseUrl, $accessToken, $code);
 
         if (@ $_GET["code"]) {
             $this->pageData["images"]        = $instagram->getAuthentic();
@@ -241,6 +245,9 @@ class SocialMedia extends AuthController {
         switch ($method) {
             case "computer":
                 $this->computer();
+                break;
+            case "facebook":
+                $this->facebook();
                 break;
             case "upload":
                 $this->upload();

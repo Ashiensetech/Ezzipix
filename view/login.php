@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-5 col-md-offset-1">
                     <form class="panel no-border mb0" name="form-login" onsubmit="return doLogin()">
                         <div class="panel-body">
                             <div class="alert alert-warning" id="msg" style="display: none;">
@@ -57,7 +57,8 @@
                                         </div>
                                     </div>-->
                                     <div class="col-xs-6">
-                                        <a href="<?php echo $this->baseUrl ?>login.php?r=forgetPassword">Lost password?</a>
+                                        <a href="<?php echo $this->baseUrl ?>login.php?r=forgetPassword">Lost
+                                            password?</a>
                                     </div>
                                 </div>
                             </div>
@@ -67,28 +68,32 @@
                             </div>
                         </div>
                     </form>
-                    <!-- Login form -->
                 </div>
+
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="panel-body bgcolor-white">
+                        <div id="error-container" class="mb15"></div>
+                        <div>
+                            <h3>Join Ezeepix</h3>
+                            <p>New Customer Offer: 100 Free 4x6 prints<br/>
+                            Transform everyday photos into books, calendars and gifts you’ll cherish forever.</p>
+                        </div>
+                        <div class="form-group nm">
+                            <a href="<?php echo $this->baseUrl ?>signup.php">
+                                <button type="submit" class="btn btn-block btn-primary">
+                                    <span class="semibold">Sign Up</span></button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <!--/ END Row -->
         </div>
     </section>
-    <!--/ END Register Content -->
-
-    <!-- START To Top Scroller -->
-
-    <!--/ END To Top Scroller -->
 </section>
-<!--/ END Template Main -->
-
-<!-- START Template Footer -->
 <?php include_once 'partial/footer.php' ?>
-<!-- End Template Footer -->
 <?php include_once 'partial/core_script.php' ?>
-
-<!-- Plugins and page level script : optional -->
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/smoothscroll/js/smoothscroll.js'; ?>"></script>
-
 
 <script>
     function doLogin() {
@@ -112,8 +117,5 @@
         return false;
     }
 </script>
-<!--/ Plugins and page level script : optional -->
-<!--/ END JAVASCRIPT SECTION -->
 </body>
-<!--/ END Body -->
 </html>

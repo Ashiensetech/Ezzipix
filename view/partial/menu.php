@@ -41,7 +41,8 @@
                     <?php if (@$this->userInfo['uId'] > 0) { ?>
                         <li class="dropdown ">
                             <a href="<?php echo $this->baseUrl; ?>dashboard.php" class="dropdown-toggle dropdown-hover">
-                            <!--<a href="--><?php //echo $this->baseUrl; ?><!--media.php?r=all" class="dropdown-toggle dropdown-hover">-->
+                                <!--<a href="-->
+                                <?php //echo $this->baseUrl; ?><!--media.php?r=all" class="dropdown-toggle dropdown-hover">-->
                             <span class="meta">
                                 <span class="text">Home</span>
                                 <!--<span class="caret"></span>-->
@@ -67,7 +68,9 @@
                             </span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-alt">
-                                <li><a href="<?php echo $this->baseUrl; ?>login.php">Default</a></li>
+                                <li><a href="<?php echo $this->baseUrl; ?>dashboard.php">Home</a></li>
+                                <li><a href="<?php echo $this->baseUrl; ?>dashboard.php?r=updatePassword">Change
+                                        Password</a></li>
                             </ul>
                         </li>
                     <?php } ?>
@@ -80,9 +83,11 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-alt">
                             <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=computer">My Device</a></li>
-                            <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=computer">Facebook</a></li>
+                            <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=facebook">Facebook</a></li>
                             <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=dropbox">Dropbox</a></li>
                             <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=instagram">Instagram</a></li>
+                            <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=w">Whats App</a></li>
+                            <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=t">Telegram</a></li>
                             <!--<li><a href="-->
                             <?php //echo $this->baseUrl; ?><!--social_media.php">Upload Images</a></li>-->
                         </ul>

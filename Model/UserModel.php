@@ -13,5 +13,4 @@ class User extends EzzipixModel {
         $result = mysql_query($sql);
         return $this->getArrayData($result);
     }
-
 }

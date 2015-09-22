@@ -28,8 +28,15 @@ class ResetPassword extends EzzipixModel {
         return $this->getArrayData($result);
     }
 
-    function verifyToken() {
+    function verifyToken($email, $token) {
+        $sql    = "SELECT * FROM $this->tableName WHERE email = '$email' AND token = '$token' AND expired > NOW() LIMIT 1";
+        $result = mysql_query($sql);
 
+        if (mysql_num_rows($result) > 0) {
+            return TRUE;
+        }
+
+        return FALSE;
     }
 
     function deleteToken($email) {
