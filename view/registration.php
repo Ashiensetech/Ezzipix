@@ -30,7 +30,7 @@ LAST UPDATE: 2015/01/05
                 <!--/ pattern + overlay -->
                 <div class="container" style="padding-top:8%;padding-bottom:8%;">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-5 cstm-background">
                             <h1 class="thin text-white font-alt mt0 mb5">Ezeepix</h1>
                             <p class="text-white mb15 fsize14">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -40,7 +40,8 @@ LAST UPDATE: 2015/01/05
                             </p>
                             <h4 class="mt0"><a href="javascript:void(0);">Learn More...</a></h4>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-5 cstm-background">
                             <form role="form" onsubmit="return signup();">
                                 <div class="form-group">
                                     <input type="text" class="form-control input-lg mendatory" id="name" placeholder="Your full name">
@@ -83,16 +84,16 @@ LAST UPDATE: 2015/01/05
     </body>
     <!--/ END Body -->
     <script>
-        function signup(){
+        function signup() {
             var valid = true;
             var errorMsg = "";
             $('#msg').html("");
-            $('.mendatory').each(function(){
-                if(valid && $(this).val() == ""){
-                    if($(this).prop("tagName") == "SELECT"){
-                        errorMsg = "Select "+$(this).attr("id");
-                    }else{
-                        errorMsg = $(this).attr("id")+" field required";
+            $('.mendatory').each(function () {
+                if (valid && $(this).val() == "") {
+                    if ($(this).prop("tagName") == "SELECT") {
+                        errorMsg = "Select " + $(this).attr("id");
+                    } else {
+                        errorMsg = $(this).attr("id") + " field required";
                     }
 
                     $(this).focus();
@@ -102,17 +103,17 @@ LAST UPDATE: 2015/01/05
             });
             var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
-            if($('#email').val()!="" && !re.test($('#email').val())){
+            if ($('#email').val() != "" && !re.test($('#email').val())) {
                 $('#email').focus();
                 valid = false;
-                errorMsg ='Email is not in valid format';
+                errorMsg = 'Email is not in valid format';
             }
-            if($('#password').val()!="" && $('#password').val().length<6){
+            if ($('#password').val() != "" && $('#password').val().length < 6) {
                 $('#password').focus();
                 valid = false;
-                errorMsg ='At least 6 digit required';
+                errorMsg = 'At least 6 digit required';
             }
-            if(!valid){
+            if (!valid) {
                 $('#msg').html(errorMsg);
                 return false;
             }
@@ -129,17 +130,17 @@ LAST UPDATE: 2015/01/05
                 url: "?r=register",
                 method: "POST",
                 data: {
-                    "name":name,
-                    "gender":gender,
+                    "name": name,
+                    "gender": gender,
                     "email": email,
                     "password": password
                 },
                 success: function (data) {
                     var resp = jQuery.parseJSON(data);
                     $('#msg').html(resp.msg);
-                    if(resp.regStatus){
-                        $('#msg').delay(1000).fadeOut(500,function(){
-                            window.location.href = BaseUrl+'login'+phpSuffix;
+                    if (resp.regStatus) {
+                        $('#msg').delay(1000).fadeOut(500, function () {
+                            window.location.href = BaseUrl + 'login' + phpSuffix;
                         });
                     }
 

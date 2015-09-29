@@ -1,5 +1,5 @@
-<?php 
-    include_once 'head.php';
+<?php
+include_once 'head.php';
 ?>
 <style>
     body{
@@ -23,49 +23,53 @@
     }
 </style>
 <body>
-<div class="content">
-    <form action="" onsubmit="return doLogin();">
-        <table align="center" >
+    <div class="content">
+        <form action="" onsubmit="return doLogin();">
+            <table align="center" >
 
-            <tr>
-                <td>Email</td>
-                <td><input type="text" id="email" /></td>
-            </tr> 
-            <tr>
-                <td>Password :</td>
-                <td> <input type="password" id="password" /></td>
-            </tr>
-             <tr>
-                <td></td>
-                <td><div id='msg'></div></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><input type="submit" value="Submit" /></td>
-            </tr>
-           
-        </table>
-    </form>
-</div>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" id="email" /></td>
+                </tr> 
+                <tr>
+                    <td>Password :</td>
+                    <td> <input type="password" id="password" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><div id='msg'></div></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="Submit" /></td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
 </body>
 </html>
 <script>
-    function doLogin(){
+    function doLogin() {
         var email = $('#email').val();
         var password = $('#password').val();
         $('#msg').html("");
-          $.ajax({
+        $.ajax({
             url: "?r=authinticate",
             method: "POST",
             data: {"email": email, "password": password},
             success: function (data) {
                 var resp = jQuery.parseJSON(data);
                 $('#msg').html(resp.msg);
-                if(resp.loginStatus){
-                    window.location.href = 'dashboard'+phpSuffix+'?r=index';
-                }                
+                if (resp.loginStatus) {
+                    window.location.href = 'dashboard' + phpSuffix + '?r=index';
+                }
             }
         });
         return false;
     }
+</script>
+<script type="text/javascript">
+    document.getElementsByClassName('.pt-featured-visible')[0].style.visibility='hidden';
+    });
 </script>
