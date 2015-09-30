@@ -145,6 +145,9 @@ LAST UPDATE: 2015/01/05
                     width: "100%",
                     height: "1470px"
                 },
+                iframeStyles > pt-featured-visible {
+                    display: block,
+                },
                 fns: {
                     //callback for when the widget cart/order changes
                     onCartChange: function (cart) {

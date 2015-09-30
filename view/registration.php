@@ -30,7 +30,7 @@ LAST UPDATE: 2015/01/05
                 <!--/ pattern + overlay -->
                 <div class="container" style="padding-top:8%;padding-bottom:8%;">
                     <div class="row">
-                        <div class="col-md-5 cstm-background">
+                        <div class="col-md-5 cstm-background site-border">
                             <h1 class="thin text-white font-alt mt0 mb5">Ezeepix</h1>
                             <p class="text-white mb15 fsize14">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -38,10 +38,12 @@ LAST UPDATE: 2015/01/05
                                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                 consequat.
                             </p>
-                            <h4 class="mt0"><a href="javascript:void(0);">Learn More...</a></h4>
+                            <div class="col-md-4 col-md-offset-4">
+                                <button type="button" class="btn btn-info btn-block">Learn More</button>
+                            </div>
                         </div>
                         <div class="col-md-2"></div>
-                        <div class="col-md-5 cstm-background">
+                        <div class="col-md-5 cstm-background site-border">
                             <form role="form" onsubmit="return signup();">
                                 <div class="form-group">
                                     <input type="text" class="form-control input-lg mendatory" id="name" placeholder="Your full name">

@@ -33,7 +33,7 @@
             </div>
             <div class="row">
                 <div class="col-md-5 col-md-offset-1 login-back">
-                    <form class="panel no-border mb0 zborder" name="form-login" onsubmit="return doLogin()">
+                    <form class="panel no-border mb0 zborder site-border" name="form-login" onsubmit="return doLogin()">
                         <div class="panel-body">
                             <div class="alert alert-warning" id="msg" style="display: none;">
                             </div>
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="col-md-5 col-md-offset-1 login-back">
-                    <div class="panel-body bgcolor-white min-height transparent-b">
+                    <div class="panel-body bgcolor-white min-height transparent-b site-border">
                         <div id="error-container" class="mb15"></div>
                         <div class="join">
                             <h3>Join Ezeepix</h3>

@@ -30,58 +30,60 @@ LAST UPDATE: 2015/01/05
                 <!--/ pattern + overlay -->
                 <div class="container" style="padding-top:8%;padding-bottom:8%;">
                     <div class="row">
-                        <div class="content" style="background: #444444;">
-                            <table align="center" class="table table-responsive">
-                                <?php /*<tr>
-                                    <td>Action :</td>
-                                    <td><a href="dashboard.php?r=logout">Logout</a></td>
-                                </tr> */ ?>
-                                <tr>
-                                    <td>Full name :</td>
-                                    <td><?php echo @$user['full_name'] ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Email :</td>
-                                    <td><?php echo @$user['email'] ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Gender :</td>
-                                    <td><?php echo @$user['gender'] ?></td>
-                                </tr>
-                                <?php /* ?>
-                                <tr>
-                                    <td>Add Service :</td>
-                                    <td><a href="service.php?r=new">Add New Service</a></td>
-                                </tr>
-                                <?php if (@$services && @$services != NULL) { ?>
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="content data-profile site-border">
+                                <table align="center" class="table table-responsive profile-table">
+                                    <?php /* <tr>
+                                      <td>Action :</td>
+                                      <td><a href="dashboard.php?r=logout">Logout</a></td>
+                                      </tr> */ ?>
                                     <tr>
-                                        <td>Added Service :</td>
-                                        <td>
-                                            <?php foreach ($services as $service) { ?>
-                                                <?php if ($service['active'] == 1) { ?>
-                                                    <div style="width: 100%; border-bottom: 1px solid #222; overflow: hidden; padding: 3px 5px; margin: 0 -5px;">
-                                                        <p style="padding: 0; margin: 0; float: left; "><?php echo $service['name'] . '(' . $service['service_user_id'] . ')'; ?></p>
+                                        <td>Full name :</td>
+                                        <td><?php echo @$user['full_name'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email :</td>
+                                        <td><?php echo @$user['email'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gender :</td>
+                                        <td><?php echo @$user['gender'] ?></td>
+                                    </tr>
+                                    <?php /* ?>
+                                      <tr>
+                                      <td>Add Service :</td>
+                                      <td><a href="service.php?r=new">Add New Service</a></td>
+                                      </tr>
+                                      <?php if (@$services && @$services != NULL) { ?>
+                                      <tr>
+                                      <td>Added Service :</td>
+                                      <td>
+                                      <?php foreach ($services as $service) { ?>
+                                      <?php if ($service['active'] == 1) { ?>
+                                      <div style="width: 100%; border-bottom: 1px solid #222; overflow: hidden; padding: 3px 5px; margin: 0 -5px;">
+                                      <p style="padding: 0; margin: 0; float: left; "><?php echo $service['name'] . '(' . $service['service_user_id'] . ')'; ?></p>
 
-                                                        <div style="width: 70px; float: right; ">
-                                                            <input class="btn btn-success btn-block"  type="button" value="Cancel" onclick="cancelService('<?php echo $service['spId']; ?>','<?php echo $service['service_user_id']; ?>',this)"/>
-                                                        </div>
-                                                    </div>
-                                                <?php } ?>
-                                            <?php } ?>
+                                      <div style="width: 70px; float: right; ">
+                                      <input class="btn btn-success btn-block"  type="button" value="Cancel" onclick="cancelService('<?php echo $service['spId']; ?>','<?php echo $service['service_user_id']; ?>',this)"/>
+                                      </div>
+                                      </div>
+                                      <?php } ?>
+                                      <?php } ?>
+                                      </td>
+                                      </tr>
+                                      <?php } */ ?>
+                                    <tr>
+                                        <td></td>
+                                        <td><a href="<?php echo $this->baseUrl . 'media.php?r=all'; ?>">Image Gallery</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <div id="msg"></div>
                                         </td>
                                     </tr>
-                                <?php } */ ?>
-                                <tr>
-                                    <td></td>
-                                    <td><a href="<?php echo $this->baseUrl . 'media.php?r=all'; ?>">Image Gallery</a></td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <div id="msg"></div>
-                                    </td>
-                                </tr>
-                            </table>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

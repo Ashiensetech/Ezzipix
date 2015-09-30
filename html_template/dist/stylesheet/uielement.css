@@ -1834,8 +1834,8 @@ fieldset[disabled] .btn-twitter.active {
     border-top: 1px solid #eff2f3;
 }
 .dropdown-menu.dropdown-menu-alt > li:last-child > a {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 .dropdown.custom > .dropdown-menu {
     border-color: #e0e7e8;
@@ -15003,6 +15003,7 @@ hr {
 .cstm-background {
     padding-top: 18px;
     padding-bottom: 18px;
+    padding: 30px;
     background-color: rgba(255,255,255,0.8);
 }
 .cstm-background h1,
@@ -15011,6 +15012,7 @@ hr {
 }
 .cstm-background h1{
     text-align: center;
+    border-bottom: 3px solid #D3D3D3;
 }
 .cstm-background p{
     text-align: center;
@@ -15063,6 +15065,13 @@ input[type=password]:focus {
 }
 .fp{
     text-align: center;
+    font-weight: bold;
+}
+.fp a{
+    color: #414141 !important;
+}
+.fp a:hover{
+    color: #000 !important;
 }
 .login-back{
     border-radius: 0px !important;
@@ -15102,5 +15111,70 @@ input[type=password]:focus {
 }
 .pt-featured-visible{
     display: none !important;
+}
+.data-profile{
+    background: #444444;
+    padding-top: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: rgba(45, 45, 45, 0.8);
+}
+.profile-table > tbody > tr{
+    border: #ccc !important;
+}
+.profile-table > thead > tr > th, .profile-table > tbody > tr > th, .profile-table > tfoot > tr > th, .profile-table > thead > tr > td, .profile-table > tbody > tr > td, .profile-table > tfoot > tr > td{
+    border-color: #5D5D5D !important;
+}
+.cstm-menu > .formenu > a:hover{
+    border-bottom: 3px solid #44c282;
+    background: #F5F5F5 !important;
+    color: #414141 !important;
+}
+.drop-menu li a:hover{
+    background: #44c282 !important;
+    color: #fff !important;
+}
+.cstm-dropdown li a:hover{
+    background: #44c282 !important;
+    color: #fff !important;
+}
+.old i{
+    color: #9D9D9D !Important;
+}
+.old input{
+    border-radius: 0px !important;
+}
+.new input{
+    border-radius: 0px !important;
+}
+.new i{
+    color: #404040 !Important;
+}
+.no-padding{
+    padding: 0px !important;
+}
+.update-pass button{
+    border-radius: 0px !important;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.telegram-back{
+    background: rgba(45, 45, 45, 0.8);
+    padding: 30px;
+}
+.tele-table > thead > tr > th, .tele-table > tbody > tr > th, .tele-table > tfoot > tr > th, .tele-table > thead > tr > td, .tele-table > tbody > tr > td, .tele-table > tfoot > tr > td{
+    vertical-align: middle !important;
+    border: none !important;
+}
+.tele-table input,
+.tele-table select{
+    border-radius: 0px !important;
+}
+.pt-product li{
+    border: 1px solid #44C282 !important;
+}
+.site-border{
+    border-top: 5px solid #44c282 !important;
 }
 /*Rafiul Customd design improvemnt*/
