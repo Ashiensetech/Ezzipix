@@ -15175,6 +15175,17 @@ input[type=password]:focus {
     border: 1px solid #44C282 !important;
 }
 .site-border{
-    border-top: 5px solid #44c282 !important;
+    border-top: 4px solid #44c282 !important;
+    box-shadow: 0px 2px 2px 0px #171717;
+}
+.dropdown span{
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    font-size: 16px !important;
+    font-weight: normal !important;
+}
+.dropdown li a{
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    font-size: 14px !important;
+    color: #9D9D9D;
 }
 /*Rafiul Customd design improvemnt*/
