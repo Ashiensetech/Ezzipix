@@ -1,5 +1,4 @@
-<link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 <script>
     var BaseUrl = "<?php echo $this->baseUrl; ?>";
     var phpSuffix = ".php";

@@ -1,196 +1,153 @@
 <!DOCTYPE html>
 <html class="frontend">
-<link rel="stylesheet" href="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/css/magnific.css'; ?>">
-<link rel="stylesheet" href="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/css/owl-carousel.css'; ?>">
-<?php include_once dirname(__FILE__).'/../partial/head.php' ?>
-<script src="<?php echo $this->baseUrl . "js/printio/pio.latest.v2.js"; ?>"></script>
-<body>
-<?php include_once dirname(__FILE__).'/../partial/menu.php'; ?>
-<section id="main" role="main">
-    <section class="page-header page-header-block nm">
-        <div class="pattern pattern9"></div>
-        <div class="container pt15 pb15">
-            <div class="page-header-section">
-            </div>
-            <div class="page-header-section">
-                <div class="toolbar">
-                    <ol class="breadcrumb breadcrumb-transparent nm">
-
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="clearfix"></div>
-    <section class="section bgcolor-white">
-        <div class="container">
-            <div class="clearfix"></div>
-            <div class="submitBtnDiv"  onclick="" id="saveBtnDiv" style="visibility:hidden;">
-                <div style="float:left">
-                    <input class="btn btn-success btn-block" type="button" value="Upload Image" onclick="uploadPictures('dropbox')" />
-                </div>
-                <div  style="float:left;padding:4px 0px 0px 6px;">
-                    <img  id="loadingImg" src="<?php echo $this->baseUrl .'html_template/dist/image/loading/spinner.gif';?>" style="display: none;"/>
-                    <span id="processMsg" > </span>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="row" id="shuffle-grid">
-
-                <?php
-                $j = 1;
-                $i = 0;
-                if (!@$isDropBoxLogin) { ?>
-                    <div class="row shuffle clearfix">
-                        <div class="col-lg-12"><a href="<?= @$link ?>">Login with Drop Box</a></div>
-                    </div>
-                <?php } else {
-                    foreach ($pictureList as $img) { ?>
-                        <img style="" src=""/>
-                        <div class="col-sm-3 shuffle" data-groups='["creative", "people"]'>
-
-                            <div class="panel no-border overflow-hidden photoParent">
-
-                                <div class="thumbnail nm">
-                                    <div class="checkIconDiv">
-                                        <a href="javascript:void(0)" class="btn btn-success checkIcon" style="display:none;"><i class="ico-check"></i></a>
-                                    </div>
-
-
-                                    <div class="media">
-
-                                        <div class="indicator"><span class="spinner"></span></div>
-                                        <div class="overlay">
-                                            <div class="toolbar">
-                                                <a href="<?php echo  $img["auto"]; ?>" class="btn btn-default magnific" title=""><i class="ico-search"></i></a>
-                                                <a href="javascript:void(0)" url="<?php echo $img["auto"]; ?>" onclick="addPictureToSave('dropbox',this)" class="btn btn-success"><i class="ico-plus"></i></a>
-                                            </div>
-                                        </div>
-                                        <img onerror="loadCount()" onload="loadCount()" data-toggle="unveil" src="<?php echo  $img["thumb"]; ?>" data-src="<?php echo  $img["thumb"]; ?>" alt="Photo" width="100%"/>
-                                    </div>
+    <link rel="stylesheet" href="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/css/magnific.css'; ?>">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/css/owl-carousel.css'; ?>">
+    <?php include_once dirname(__FILE__) . '/../partial/head.php' ?>
+    <script src="<?php echo $this->baseUrl . "js/printio/pio.latest.v2.js"; ?>"></script>
+    <body>
+        <?php include_once dirname(__FILE__) . '/../partial/menu.php'; ?>
+        <section id="main" role="main">
+            <!-- START jumbotron -->
+            <section class="jumbotron jumbotron-bg7 nm" data-stellar-background-ratio="0.4" style="min-height:486px;">
+                <!-- pattern + overlay -->
+                <div class="overlay pattern pattern2"></div>
+                <!--/ pattern + overlay -->
+                <div class="container" style="padding-top:8%;padding-bottom:8%;" style="background: #444444;">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 telegram-back site-border">
+                            <div class="form-group">
+                                <div class="col-md-12 cstm-head-profile">
+                                    <p>Add Photo With Dropbox</p> 
                                 </div>
-
+                                <div class="col-md-12 login-with-btn">
+                                    <button class="btn btn-block btn-dropbox-m">| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in With Dropbox</button>
+                                    <i class="fa fa-dropbox"></i>
+                                </div>
                             </div>
+                            
                         </div>
-                    <?php } ?>
-                <?php } ?>
-            </div>
-        </div>
-    </section>
-    <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>
-</section>
-<?php include_once dirname(__FILE__).'/../partial/footer.php' ?>
-<?php include_once dirname(__FILE__).'/../partial/core_script.php' ?>
+                    </div>
+                </div>
+            </section>
+            <!--/ END jumbotron -->
 
-<script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/smoothscroll/js/smoothscroll.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/js/jquery.magnific-popup.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/js/owl.carousel.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/shuffle/js/jquery.shuffle.js'; ?>"></script>
-<!--<script type="text/javascript" src="--><?php //echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js'; ?><!--"></script>-->
-<input id="picListSize" type="hidden" value="<?php echo sizeof($pictureList); ?>" />
-<script>
-    var picLoadCount = 0;
-    function loadCount(){
-        var picturelistSize = parseInt($('#picListSize').val());
-        picLoadCount++;
 
-        console.log(picLoadCount+" "+picturelistSize);
-        if(picLoadCount>=picturelistSize){
-            triggerImageEffect();
-        }
-    }
+            <!-- START To Top Scroller -->
+            <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>
+            <!--/ END To Top Scroller -->
+        </section>
+        <?php include_once dirname(__FILE__) . '/../partial/footer.php' ?>
+        <?php include_once dirname(__FILE__) . '/../partial/core_script.php' ?>
 
-    function triggerImageEffect(){
-        $('#shuffle-grid').magnificPopup({
-            delegate: '.magnific',
-            type: 'image',
-            gallery: {
-                enabled: true
-            }
-        });
+        <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/smoothscroll/js/smoothscroll.js'; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/js/jquery.magnific-popup.js'; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/js/owl.carousel.js'; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/shuffle/js/jquery.shuffle.js'; ?>"></script>
+        <!--<script type="text/javascript" src="--><?php //echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js';     ?><!--"></script>-->
+        <input id="picListSize" type="hidden" value="<?php echo sizeof($pictureList); ?>" />
+        <script>
+                                                var picLoadCount = 0;
+                                                function loadCount() {
+                                                    var picturelistSize = parseInt($('#picListSize').val());
+                                                    picLoadCount++;
 
-        // Carousel
-        // ================================
-        $('#lovely-client').owlCarousel({
-            autoPlay: true,
-            autoHeight : true,
-            pagination : true
-        });
+                                                    console.log(picLoadCount + " " + picturelistSize);
+                                                    if (picLoadCount >= picturelistSize) {
+                                                        triggerImageEffect();
+                                                    }
+                                                }
 
-        // Owl carousel
-        // ================================
-        $('#gallery-post').owlCarousel({
-            lazyLoad: true,
-            slideSpeed: 300,
-            paginationSpeed: 400,
-            singleItem: true,
-            autoPlay: true,
-            stopOnHover: true,
-            navigation: true,
-            pagination: false
-        });
+                                                function triggerImageEffect() {
+                                                    $('#shuffle-grid').magnificPopup({
+                                                        delegate: '.magnific',
+                                                        type: 'image',
+                                                        gallery: {
+                                                            enabled: true
+                                                        }
+                                                    });
 
-        // Shuffle
-        // ================================
-        var $grid   = $('#shuffle-grid'),
-            $filter = $('#shuffle-filter'),
-            $sort   = $('#shuffle-sort'),
-            $sizer  = $grid.find('shuffle-sizer');
+                                                    // Carousel
+                                                    // ================================
+                                                    $('#lovely-client').owlCarousel({
+                                                        autoPlay: true,
+                                                        autoHeight: true,
+                                                        pagination: true
+                                                    });
 
-        // instatiate shuffle
-        $grid.shuffle({
-            itemSelector: '.shuffle',
-            sizer: $sizer
-        });
+                                                    // Owl carousel
+                                                    // ================================
+                                                    $('#gallery-post').owlCarousel({
+                                                        lazyLoad: true,
+                                                        slideSpeed: 300,
+                                                        paginationSpeed: 400,
+                                                        singleItem: true,
+                                                        autoPlay: true,
+                                                        stopOnHover: true,
+                                                        navigation: true,
+                                                        pagination: false
+                                                    });
 
-        // Filter options
-        $filter.on('click', '.btn', function () {
-            var $this = $(this),
-                isActive = $this.hasClass('active'),
-                group = isActive ? 'all' : $this.data('group');
+                                                    // Shuffle
+                                                    // ================================
+                                                    var $grid = $('#shuffle-grid'),
+                                                            $filter = $('#shuffle-filter'),
+                                                            $sort = $('#shuffle-sort'),
+                                                            $sizer = $grid.find('shuffle-sizer');
 
-            // Hide current label, show current label in title
-            if (!isActive) {
-                $('#shuffle-filter .active').removeClass('active');
-            }
+                                                    // instatiate shuffle
+                                                    $grid.shuffle({
+                                                        itemSelector: '.shuffle',
+                                                        sizer: $sizer
+                                                    });
 
-            $this.toggleClass('active');
+                                                    // Filter options
+                                                    $filter.on('click', '.btn', function () {
+                                                        var $this = $(this),
+                                                                isActive = $this.hasClass('active'),
+                                                                group = isActive ? 'all' : $this.data('group');
 
-            // Filter elements
-            $grid.shuffle('shuffle', group);
-        });
+                                                        // Hide current label, show current label in title
+                                                        if (!isActive) {
+                                                            $('#shuffle-filter .active').removeClass('active');
+                                                        }
 
-        // Sorting options
-        $sort.on('change', function () {
-            var sort = this.value,
-                opts = {};
+                                                        $this.toggleClass('active');
 
-            // We're given the element wrapped in jQuery
-            if (sort === 'date-created') {
-                opts = {
-                    reverse: true,
-                    by: function ($el) {
-                        return $el.data('date-created');
-                    }
-                };
-            } else if (sort === 'title') {
-                opts = {
-                    by: function ($el) {
-                        return $el.data('title').toLowerCase();
-                    }
-                };
-            }
+                                                        // Filter elements
+                                                        $grid.shuffle('shuffle', group);
+                                                    });
 
-            // Filter elements
-            $grid.shuffle('sort', opts);
-        });
+                                                    // Sorting options
+                                                    $sort.on('change', function () {
+                                                        var sort = this.value,
+                                                                opts = {};
 
-    }
+                                                        // We're given the element wrapped in jQuery
+                                                        if (sort === 'date-created') {
+                                                            opts = {
+                                                                reverse: true,
+                                                                by: function ($el) {
+                                                                    return $el.data('date-created');
+                                                                }
+                                                            };
+                                                        } else if (sort === 'title') {
+                                                            opts = {
+                                                                by: function ($el) {
+                                                                    return $el.data('title').toLowerCase();
+                                                                }
+                                                            };
+                                                        }
 
-</script>
+                                                        // Filter elements
+                                                        $grid.shuffle('sort', opts);
+                                                    });
 
-<?php include_once dirname(__FILE__).'/../partial/script/add_picture_script.php' ?>
+                                                }
 
-</body>
-<!--/ END Body -->
+        </script>
+
+        <?php include_once dirname(__FILE__) . '/../partial/script/add_picture_script.php' ?>
+
+    </body>
+    <!--/ END Body -->
 </html>

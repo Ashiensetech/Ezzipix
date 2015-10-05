@@ -18,6 +18,7 @@
     <!-- Plugins stylesheet : optional -->
     <link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/plugins/owl/css/owl-carousel.css'; ?>">
     <link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/plugins/layerslider/css/layerslider.css';?>">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!--/ Plugins stylesheet : optional -->
 
     <!-- Application stylesheet : mandatory -->

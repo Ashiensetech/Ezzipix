@@ -115,7 +115,7 @@ LAST UPDATE: 2015/01/05
             PIO.config({
                 recipeId: "d672c387-aa6a-480f-8908-782843978773"
             });
-            PIO.open();
+           PIO.open();
         }
 
 
@@ -139,7 +139,7 @@ LAST UPDATE: 2015/01/05
                 url: "https://widget.print.io/widget/",
                 embedInElement: el,
                 style: {
-                    showHeader: false,
+                    showHeader: false
                 },
                 iframeStyles: {
                     width: "100%",
@@ -148,7 +148,7 @@ LAST UPDATE: 2015/01/05
                 fns: {
                     //callback for when the widget cart/order changes
                     onCartChange: function (cart) {
-
+                            
                     },
                     //callback on widget close
                     onClose: function () {
@@ -156,7 +156,8 @@ LAST UPDATE: 2015/01/05
                     },
                     //callback on widget open
                     onOpen: function () {
-                        $("#photo-plugin-loder").css("display", "none");
+                         console.log("After Open");
+                     
                     }
                 }
             });

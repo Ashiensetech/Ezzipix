@@ -31,6 +31,11 @@ LAST UPDATE: 2015/01/05
                 <div class="container" style="padding-top:8%;padding-bottom:8%;" style="background: #444444;">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3 telegram-back site-border">
+                            <div class="form-group">
+                                <div class="col-md-12 cstm-head-profile">
+                                    <p>ADD PHOTO</p>
+                                </div>
+                            </div>
                             <form id="addServiceForm" action="" onsubmit="return false;">
                                 <table align="center" class="table table-responsive tele-table">
                                     <tr id="verification_code_msg" style="display: none">
@@ -39,7 +44,7 @@ LAST UPDATE: 2015/01/05
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Select Service :</td>
+                                        <td style="color:#414141; font-weight: 600;">Select Service :</td>
                                         <td>
                                             <select name="service_provider_id" id="service_provider_id" onchange="whatsAppPhoneNumberConvention()" class="form-control">
                                                 <option value="">Select a Service</option>
@@ -49,7 +54,7 @@ LAST UPDATE: 2015/01/05
                                                         if (!in_array($service['id'], ['3', '4', '5', '6', '7', '8'])) {
                                                             ?>
                                                             <option value="<?php echo $service['id'] ?>"><?php echo $service['name'] ?></option>
-                                                        <?php
+                                                            <?php
                                                         }
                                                     }
                                                 }
@@ -58,7 +63,7 @@ LAST UPDATE: 2015/01/05
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Service ID :</td>
+                                        <td style="color:#414141; font-weight: 600;">Service ID :</td>
                                         <td><input type="service_user_id" id="service_user_id" class="form-control"/></td>
                                     </tr>
                                     <tr id="verification_code_tr" style="display: none">
@@ -72,7 +77,7 @@ LAST UPDATE: 2015/01/05
                                     <tr id="verification_code_send">
                                         <td>&nbsp;</td>
                                         <td>
-                                            <input id="getVerifucationBtn" type="button" onclick="sendCode();" value="Get Verification Code" class="btn btn-success btn-block"/>
+                                            <input id="getVerifucationBtn" type="button" onclick="sendCode();" value="Get Verification Code" class="btn btn-info btn-block"/>
                                         </td>
                                     </tr>
                                     <tr id="verification_code_submit" style="display: none">
@@ -100,9 +105,9 @@ LAST UPDATE: 2015/01/05
         <!--/ END Template Main -->
 
         <!-- START Template Footer -->
-<?php include_once 'partial/footer.php' ?>
+        <?php include_once 'partial/footer.php' ?>
         <!-- End Template Footer -->
-<?php include_once 'partial/core_script.php' ?>
+        <?php include_once 'partial/core_script.php' ?>
 
     </body>
     <!--/ END Body -->
