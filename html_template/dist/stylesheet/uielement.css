@@ -15474,4 +15474,7 @@ input[type=password]:focus {
     background: #4c70ba;
     color: #fff;
 }
+.overlay:hover i{
+    color: #44c282;
+}
 /*Rafiul Customd design improvemnt*/
