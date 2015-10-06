@@ -58,10 +58,10 @@
 }
 .logo-text {
     width: 110px;
-    background-image: url("../image/logo/logo-text.png");
+    background-image: url("../image/logo/logo-text-inverse.png");
     background-repeat: no-repeat;
     -webkit-background-size: 150px 75px;
-    background-size: 150px 75px;
+    background-size: 140px 70px;
 }
 .logo-text + .logo-figure {
     margin-left: -13px;
@@ -13074,6 +13074,14 @@ a.thumbnail.active {
 .panel .panel-figure > .thumbnail > .media > .overlay,
 .panel .panel-figure > .thumbnail > .media > img {
     border-radius: 0px;
+    border: 1px solid #7BC77C;
+}
+.panel > .thumbnail > .media > .overlay:hover,
+.panel > .thumbnail > .media > img:hover,
+.panel .panel-figure > .thumbnail > .media > .overlay:hover,
+.panel .panel-figure > .thumbnail > .media > img:hover {
+    border-radius: 0px;
+    border: 1px solid #8F8F8F !important;;
 }
 .panel > .thumbnail > .caption,
 .panel > .thumbnail > .meta,
@@ -15237,17 +15245,18 @@ input[type=password]:focus {
 }
 .cstm-image-profile a{
     border-radius: 0px;
-    border: 1px solid #C98C82;
-    background: #D19288 !important;
+    border: 1px solid #4AB07C;
+    background: #44C282 !important;
     color: #fff;
     padding: 12px;
     font-size: 14px;
     box-shadow: 0px 2px 2px 0px #BDBDBD;
 }
-.cstm-image-profile a:hover{
+.cstm-image-profile a:hover
+.cstm-image-profile a:active{
+    background: #499073 !important;
+    border: 1px solid #4AB07C;
     color: #fff;
-    background: pink !important;
-
 }
 .formenu a:hover{
     color: #44C282 !important;
@@ -15421,9 +15430,9 @@ input[type=password]:focus {
 }
 .login-with-btn i{
     position: absolute;
-    top: 8px;
+    top: 38px;
     font-size: 30px;
-    right: 350px;
+    right: 395px;
     color: #fff;
 }
 .btn-instagram-m{
@@ -15476,5 +15485,70 @@ input[type=password]:focus {
 }
 .overlay:hover i{
     color: #44c282;
+}
+.cstm-right-i i{
+    right: 362px !important;
+}
+.login-with-btn a button{
+    color: #fff !important;
+}
+.ifrmae-body{
+    margin: 0px;
+    width: 100%;
+    padding-top: 20px;
+}
+.beta {
+    position: fixed;
+    z-index: 999999;
+    top: 0px;
+    right: 0px;
+    width: 65px;
+    height: 65px;
+    background: url("../image/beta/beta.png")no-repeat;
+    background-size: cover;
+}
+.my-photo-header h3{
+    text-align: right;
+    border-bottom: 2px solid #44C282;
+    display: table-cell;
+    padding-bottom: 7px;
+}
+.photo-header{
+    margin-bottom: 40px;
+}
+.print{
+    margin-top: 15px !important;
+    margin-left: 75px !important;
+    background: #8ECEFF;
+    padding: 10px;
+    width: 8%;
+    border-radius: 50%;
+    height: 80px;
+    line-height: 4.4;
+}
+.print a{
+    color: #fff;
+}
+.print:hover {
+    background: #67A4D3 !important;
+}
+.cstm-padding-top{
+    padding-top: 40px !important;
+}
+.cstm-padding-top-fb{
+    padding-top: 108px;
+}
+.cstm-padding-top-it{
+    padding-top: 48px;
+}
+.cstm-image-profile a:hover{
+    color: #fff;    
+}
+.print-local{
+    width: 23% !important;
+    margin-left: 70px !important;
+}
+.local-img-header{
+    margin-left: 66px !important;
 }
 /*Rafiul Customd design improvemnt*/

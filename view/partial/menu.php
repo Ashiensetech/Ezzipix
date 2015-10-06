@@ -3,6 +3,7 @@
     var BaseUrl = "<?php echo $this->baseUrl; ?>";
     var phpSuffix = ".php";
 </script>
+<div class="beta"></div>
 <header id="header" class="navbar">
     <div class="container">
         <div class="navbar-header navbar-header-transparent">
@@ -59,7 +60,8 @@
                                 </span>
                             </a>
                         </li>
-                    <?php }
+                    <?php
+                    }
                     if (@$this->userInfo['uId'] > 0) {
                         ?>
                         <li class="dropdown formenu">
@@ -91,7 +93,7 @@
                             <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=w">Whats App</a></li>
                             <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=t">Telegram</a></li>
                             <!--<li><a href="-->
-<?php //echo $this->baseUrl;  ?><!--social_media.php">Upload Images</a></li>-->
+<?php //echo $this->baseUrl;   ?><!--social_media.php">Upload Images</a></li>-->
                         </ul>
                     </li>
                     <li class="dropdown dropdown-toggle dropdown-hover formenu">

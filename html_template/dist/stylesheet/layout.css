@@ -405,7 +405,7 @@ html.frontend body {
     .frontend #header.navbar .navbar-header > .navbar-brand > .logo-text,
     .frontend #header.navbar .navbar-header > .navbar-brand > .logo-figure {
         height: 90px;
-        margin-top: 7px;
+        margin-top: 9px;
         width: 100%;
     }
     #header.navbar .navbar-toolbar {

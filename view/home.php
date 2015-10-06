@@ -79,8 +79,7 @@ LAST UPDATE: 2015/01/05
             <!--/ END Layerslider -->
 
             <section class="bgcolor-white">
-                <div id="photo-plugin"  class="container text-center ">
-                    <img src="<?php echo $this->baseUrl . "html_template/dist/image/loading/spinner@2x.gif"; ?>" id="photo-plugin-loder"/>
+                <div id="photo-plugin"  class="container text-center ifrmae-body">
                 </div>
             </section>
 
@@ -173,6 +172,11 @@ LAST UPDATE: 2015/01/05
                 $("iframe").contents().find(".pt-featured").css('display', 'none'));
             });
         </script>
+        <style>
+            iframe {
+                max-width: 100% !important;
+            }
+        </style>
 
     </body>
     <!--/ END Body -->
