@@ -133,7 +133,9 @@ LAST UPDATE: 2015/01/05
     function changePhotoPluginDivHeight() {
         var ifrmH = screen.height;
         if (ifrmH <= 800) {
-            ifrmH = 1250;
+            ifrmH = 2100;
+        }else{
+            ifrmH = 1550;
         }
 
         var iframeHeight = ifrmH + "px";
