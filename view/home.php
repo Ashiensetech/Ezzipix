@@ -130,24 +130,39 @@ LAST UPDATE: 2015/01/05
         <!--/ END JAVASCRIPT SECTION -->
 
         <script type="text/javascript">
+            function changePhotoPluginDivHeight(){
+                var ifrmH = screen.height;
+                if(ifrmH<=800){
+                    ifrmH = 1250;
+                }
+
+                var iframeHeight = ifrmH+"px";
+                $('#photo-plugin').height(iframeHeight);
+            }
+        function srinkPhotPluginDivHeight(){
+            var ifrmH = (screen.height*70)/100;
+            var iframeHeight = ifrmH+"px";
+            $('#photo-plugin').height(iframeHeight);
+        }
         jQuery(document).ready(function () {
             var el = document.getElementById('photo-plugin');
-
+            changePhotoPluginDivHeight();
             PIO.open({
                 recipeId: "6cfb4f30-34c7-4cf6-9490-f51925650811",
                 url: "https://widget.print.io/widget/",
                 embedInElement: el,
                 style: {
-                    showHeader: false
+                    showHeader: false,
+                    showFeatured: false
                 },
                 iframeStyles: {
                     width: "100%",
-                    height: "1470px"
+                    height:"100%"
                 },
                 fns: {
                     //callback for when the widget cart/order changes
                     onCartChange: function (cart) {
-                            
+                            console.log("HOGA");
                     },
                     //callback on widget close
                     onClose: function () {
@@ -156,8 +171,74 @@ LAST UPDATE: 2015/01/05
                     //callback on widget open
                     onOpen: function () {
                          console.log("After Open");
+                        $('iframe').click(function(){
+                            console.log("Iframe Clicked");
+                        });
                      
+                    },
+                    onEvent:function(key, val){
+                        if(key==="section-init"){
+                            // when a user navigates to a new page/section in the widget
+                            // you can later use val.tplName as the 'goTo' param in .open()
+                            // to direct the user back to that step
+                            console.log('the user is now looking at the '+val.tplName+' template');
+                            if(val.tplName.trim() == "tpl-product-a"){
+                                changePhotoPluginDivHeight();
+                                console.log('At Home');
+                            }
+
+                        } else if (key==="address-change"){
+                            // val contains firstName, lastName, line1, line2, city,
+                            //  state, postalCode, email, countryCode
+                            console.log("the user's shipto address:",val);
+                        }else if(key==="image-added"){
+                            // when a user adds an image to their gallery
+                            // to potential buy it on a product
+                            // val is the url of the image
+                            console.log("the user is considering printing the image that has the url "+val);
+                        }else if(key==="product-focus-change"){
+                            // when a user selects a product initially
+                            // val is the product name and id
+
+                            console.log(val);
+                            srinkPhotPluginDivHeight();
+                            console.log("the user is looking at the product named: "+val.name+" id:"+val.id);
+                        } else if(key==="onCartChange"){
+                            // val has an array of items,
+                            //   an item is productId, quantity, sku, template, and customizationState,
+                            //   which contains the images for the product and their positioning
+                            console.log("cart is",val);
+                        } else if(key==="analytics-pageview"){
+                            // when a user switches to another page/section
+                            // similar to section-init, but makes it extra easy
+                            // to publish to custom analytics engines
+                            // val is page, title
+                            //
+                            // note that publishing this info to GA is turned on by default
+                            console.log("page view occurred",val.page,val.title);
+                        } else if(key==="analytics-event"){
+                            // when a specific tracking event occurs in the widget
+                            // feel free to suggest events if you want them added
+                            // mostly we use pageviews for data currently
+                            //
+                            // note that publishing this info to GA is turned on by default
+                        } else if(key==="analytics-addTransaction"){
+                            // this and the next 2 events are for GA Ecommerce tracking
+                            // the data and the flow is exactly as described here:
+                            // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce
+                            //
+                            // note that publishing this info to GA is turned on by default
+                        } else if(key==="analytics-send"){
+
+                        } else if(key==="analytics-addItem"){
+
+                        } else if(key==="onOrderSubmit"){
+                            // contains data similar to analytics ecommerce events
+                            // == full order data
+                        }
+
                     }
+
                 }
             });
 
@@ -169,7 +250,7 @@ LAST UPDATE: 2015/01/05
         <script type="text/javascript">
             $(function () {
                 //     $('.pt-featured').css('display','none');
-                $("iframe").contents().find(".pt-featured").css('display', 'none'));
+                $("iframe").contents().find(".pt-featured").css('display', 'none');
             });
         </script>
         <style>
