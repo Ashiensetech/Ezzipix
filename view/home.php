@@ -156,8 +156,7 @@ LAST UPDATE: 2015/01/05
         var el = document.getElementById('photo-plugin');
         changePhotoPluginDivHeight();
         PIO.open({
-            recipeId: "6cfb4f30-34c7-4cf6-9490-f51925650811",
-            url: "https://widget.print.io/widget/",
+            recipeId: "d672c387-aa6a-480f-8908-782843978773",
             embedInElement: el,
             style: {
                 showHeader: false,
