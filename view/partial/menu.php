@@ -40,30 +40,15 @@
               </ul> */ ?>
             <div class="collapse navbar-collapse navbar-collapse-alt" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right cstm-menu">
+                    <li class="dropdown formenu">
+                        <a href="<?php echo $this->baseUrl; ?>home.php" class="dropdown-toggle dropdown-hover">
+                                <span class="meta">
+                                    <span class="text">Home</span>
+                                    <!--<span class="caret"></span>-->
+                                </span>
+                        </a>
+                    </li>
                     <?php if (@$this->userInfo['uId'] > 0) { ?>
-                        <li class="dropdown formenu">
-                            <a href="<?php echo $this->baseUrl; ?>dashboard.php" class="dropdown-toggle dropdown-hover">
-                                <!--<a href="-->
-                                <?php //echo $this->baseUrl; ?><!--media.php?r=all" class="dropdown-toggle dropdown-hover">-->
-                                <span class="meta">
-                                    <span class="text">Home</span>
-                                    <!--<span class="caret"></span>-->
-                                </span>
-                            </a>
-                        </li>
-                    <?php } else { ?>
-                        <li class="dropdown formenu">
-                            <a href="<?php echo $this->baseUrl; ?>home.php" class="dropdown-toggle dropdown-hover">
-                                <span class="meta">
-                                    <span class="text">Home</span>
-                                    <!--<span class="caret"></span>-->
-                                </span>
-                            </a>
-                        </li>
-                    <?php
-                    }
-                    if (@$this->userInfo['uId'] > 0) {
-                        ?>
                         <li class="dropdown formenu">
                             <a href="#" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
                                 <span class="meta">
@@ -77,7 +62,7 @@
                                         Password</a></li>
                             </ul>
                         </li>
-<?php } ?>
+                    <?php } ?>
                     <li class="dropdown formenu">
                         <a href="<?php echo $this->baseUrl; ?>social_media.php" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
                             <span class="meta">
@@ -93,7 +78,7 @@
                             <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=w">Whats App</a></li>
                             <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=t">Telegram</a></li>
                             <!--<li><a href="-->
-<?php //echo $this->baseUrl;   ?><!--social_media.php">Upload Images</a></li>-->
+                            <?php //echo $this->baseUrl;   ?><!--social_media.php">Upload Images</a></li>-->
                         </ul>
                     </li>
                     <li class="dropdown dropdown-toggle dropdown-hover formenu">
@@ -103,7 +88,7 @@
                             </span>
                         </a>
                     </li>
-<?php if (@$this->userInfo['uId'] > 0) { ?>
+                    <?php if (@$this->userInfo['uId'] > 0) { ?>
                         <li class="dropdown formenu">
                             <a href="<?php echo $this->baseUrl; ?>dashboard.php?r=logout" class="dropdown-toggle dropdown-hover">
                                 <span class="meta">
@@ -112,7 +97,7 @@
                                 </span>
                             </a>
                         </li>
-<?php } else { ?>
+                    <?php } else { ?>
                         <li class="dropdown formenu">
                             <a href="<?php echo $this->baseUrl; ?>login.php" class="dropdown-toggle dropdown-hover">
                                 <span class="meta">
@@ -140,7 +125,7 @@
                           <!--<a href="javascript:void(0);" onclick="openPIO()"><span class="icon"><i class="ico-print"></i></span></a>-->
                           </li>
                           <?php } */ ?>
-<?php } ?>
+                    <?php } ?>
                 </ul>
             </div>
         </div>

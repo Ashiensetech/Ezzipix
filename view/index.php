@@ -2,51 +2,58 @@
 include_once 'head.php';
 ?>
 <style>
-    body{
+    body {
         margin: 10px auto 0;
         width: 980px;
     }
-    .content{
+
+    .content {
         text-align: center;
     }
-    .content table , td{
+
+    .content table, td {
         border: 1px solid #000000;
     }
-    .content td{
+
+    .content td {
         padding: 2px 5px;
     }
-    .form{
+
+    .form {
         width: 100%;
     }
-    .error{
+
+    .error {
         color: #FF0000;
     }
 </style>
 <body>
-    <div class="content">
-        <form action="" onsubmit="return doLogin();">
-            <table align="center" >
+<div class="content">
+    <form action="" onsubmit="return doLogin();">
+        <table align="center">
 
-                <tr>
-                    <td>Email</td>
-                    <td><input type="text" id="email" /></td>
-                </tr> 
-                <tr>
-                    <td>Password :</td>
-                    <td> <input type="password" id="password" /></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><div id='msg'></div></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td><input type="submit" value="Submit" /></td>
-                </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" id="email"/></td>
+            </tr>
+            <tr>
+                <td>Password :</td>
+                <td><input type="password" id="password"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div id='msg'></div>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Submit"/></td>
+            </tr>
 
-            </table>
-        </form>
-    </div>
+        </table>
+    </form>
+</div>
 </body>
 </html>
 <script>
@@ -70,6 +77,7 @@ include_once 'head.php';
     }
 </script>
 <script type="text/javascript">
-    document.getElementsByClassName('.pt-featured-visible')[0].style.visibility='hidden';
-    });
+    document.getElementsByClassName('.pt-featured-visible')[0].style.visibility = 'hidden';
+    })
+    ;
 </script>
