@@ -9,7 +9,7 @@ class ActivationToken extends  EzzipixModel{
     }
 
     public function checkToken($service_provider_id, $u_id, $token){
-        $sql = "SELECT COUNT(*) AS numbers FROM activation_token WHERE service_provider_id = $service_provider_id AND u_id = $u_id AND token = '$token'";
+        $sql = "SELECT COUNT(*) AS numbers FROM activation_token WHERE service_provider_id = $service_provider_id AND u_id = $u_id AND BINARY token = '$token'";
         $count = $this->getArrayData(mysql_query($sql))[0];
         return $count['numbers'];
     }

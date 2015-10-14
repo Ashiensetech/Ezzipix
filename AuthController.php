@@ -8,7 +8,7 @@ class AuthController extends EzzipixController {
         $this->auth();
     }
 
-    private function auth(){
+    function auth(){
         if(!@$_SESSION['email'] && !@$_SESSION['uId']){
             header('Location: login.php');
         }
