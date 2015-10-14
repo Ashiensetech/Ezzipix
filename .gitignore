@@ -3,6 +3,7 @@
 lib/wadata
 nohup.out
 vendor
+lib/whats_app/src/wadata
 *~$
 
 /nbproject/
