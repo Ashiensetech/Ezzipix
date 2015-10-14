@@ -131,15 +131,15 @@ LAST UPDATE: 2015/01/05
 <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
 <script type="text/javascript">
     function changePhotoPluginDivHeight() {
-        var ifrmH = screen.height;
-        if (ifrmH <= 800) {
-            ifrmH = 2100;
+        var ifrmParentH = screen.height;
+        if (ifrmParentH <= 800) {
+            ifrmParentH = 2140;
         }else{
-            ifrmH = 1550;
+            ifrmParentH = 1600;
         }
 
-        var iframeHeight = ifrmH + "px";
-        $('#photo-plugin').height(iframeHeight);
+        var iframeParentHeight = ifrmParentH + "px";
+        $('#photo-plugin').height(iframeParentHeight);
     }
     function srinkPhotPluginDivHeight() {
         var ifrmH = (screen.height * 70) / 100;
@@ -157,18 +157,15 @@ LAST UPDATE: 2015/01/05
 
         var el = document.getElementById('photo-plugin');
         changePhotoPluginDivHeight();
+        var clickCount = 0;
         PIO.open({
             recipeId: "d672c387-aa6a-480f-8908-782843978773",
             embedInElement: el,
-            style: {
-                showHeader: false,
-                showFeatured: false
-            },
             iframeStyles: {
                 width: "100%",
                 height: "100%"
             },
-            <?php if(@$this->userInfo['uId'] > 0){ ?>
+
             photosources: {
                 local: {
                     enabled: false,
@@ -212,11 +209,12 @@ LAST UPDATE: 2015/01/05
                     iconUrl: BaseUrl + 'img/ezeepix-48.png'
                 }
             },
-            <?php } ?>
+
             fns: {
                 <?php if(@$this->userInfo['uId'] > 0){ ?>
                 onPhotoSourceReq: function (request, replyFn) {
                     // if the request is for the root
+
                     var picture = {};
                     var pictureArray = [];
                     //pictureArray.push({id: "f1", isFolder: true, name: "fave pics"}); // Create new folder
@@ -229,6 +227,29 @@ LAST UPDATE: 2015/01/05
                         page: 1,
                         totalPages: 1,
                         items: pictureArray
+                        /*items: [
+                         // pass in that there is a folder
+                         {id: "f1", isFolder: true, name: "fave pics"},
+
+                         // pass in three images
+                         {picture: "http://img.ffffound.com/static-data/assets/6/8fc3b482de5086f5f6bb64b75805b3413936c49a_m.png"},
+                         {picture: "http://img.ffffound.com/static-data/assets/6/c9c55336befdeae882e2d1794fc13888053e7f66_m.png"},
+                         {picture: "http://img.ffffound.com/static-data/assets/6/6dc8a64f665183d97a37e44cac72410531ec0978_m.png"}
+                         ]*/
+                    });
+                },
+                <?php }else{ ?>
+                onPhotoSourceReq: function (request, replyFn) {
+                    if(clickCount>0){
+                        window.location="<?php echo $this->baseUrl."login.php"?>";
+
+                    }
+                    clickCount++;
+                    replyFn({
+                        id: "",
+                        page: 0,
+                        totalPages: 0,
+                        items: []
                         /*items: [
                          // pass in that there is a folder
                          {id: "f1", isFolder: true, name: "fave pics"},
@@ -296,6 +317,9 @@ LAST UPDATE: 2015/01/05
                         // val is page, title
                         //
                         // note that publishing this info to GA is turned on by default
+
+                        console.log("Ezeepixxx");
+
                         console.log("page view occurred", val.page, val.title);
                     } else if (key === "analytics-event") {
                         // when a specific tracking event occurs in the widget

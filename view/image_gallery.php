@@ -151,6 +151,7 @@ LAST UPDATE: 2015/01/05
 <!--/ Plugins and page level script : optional -->
 <!--/ END JAVASCRIPT SECTION -->
 <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
+<input id="printPhoto" type="hidden" value='<?php echo (isset($_GET['print']))?$_GET['print']:"false"; ?>'/>
 <script type="text/javascript">
     var imgJobjArray = JSON.parse($("#allImg").val());
     var images = [];
@@ -159,9 +160,13 @@ LAST UPDATE: 2015/01/05
     }
 
     $(document).ready(function () {
-        PIO.config({
-            recipeId: "d672c387-aa6a-480f-8908-782843978773"
-        });
+        if($("#printPhoto").val()=="true"){
+            PIO.config({
+                recipeId: "d672c387-aa6a-480f-8908-782843978773"
+            });
+            openPIO();
+        }
+
     });
     function openPIO() {
         PIO.open({
