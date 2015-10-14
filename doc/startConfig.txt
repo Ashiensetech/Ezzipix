@@ -1,0 +1,31 @@
+bin/telegram-cli -k tg-server.pub
+
+sudo -u www-data ./bin/telegram-cli --json -dWS /tmp/tg.sck &
+nohup php myscript.php &
+./bin/telegram-cli --json -dWS /tmp/tg.sck &
+
+
+sudo -i
+sudo -u www-data ./bin/telegram-cli --json -dWS /tmp/tg.sck &
+
+
+run daemon
+nohup php telegram_nohup.php &
+nohup php whatsapp_nohup.php &
+
+
+
+
+
+
+#terminal - 1
+sudo whoami #result must be root
+cd Projects/php/ezeepix/tg/
+sudo -u www-data ./bin/telegram-cli --json -dWS /tmp/tg.sck &
+sudo chmod 777 /tmp/tg.sck
+
+#terminal - 2
+sudo -i
+cd /home/touch/Projects/php/ezeepix
+nohup php telegram_nohup.php &
+nohup php whatsapp_nohup.php &

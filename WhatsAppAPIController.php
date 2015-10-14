@@ -2,23 +2,28 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
-require 'lib/whatsprot.class.php';
-require 'lib/events/MyEvents.php';
+require 'lib/whats_app/src/whatsprot.class.php';
+require 'lib/whats_app/src/events/MyEvents.php';
 
 class WhatsAppAPIController {
 
-    public $username = "8801977974819";
-    public $nickname = "userpasta";
-    public $password = "gU4gJ6TgGZZNgxlJtElf4UM5Lcw";
-    public $debug    = FALSE;
-    public $w        = NULL;
-    public $target   = NULL; // The number of the person you are sending the message
-    public $message  = NULL;
+    public $username  = "8801977974819";
+    public $nickname  = "Ezeepix";
+    public $password  = "GGfvxQIBC4x5FHBLQ1U7C4bv+Dc=";
+    public $debug     = FALSE;
+    public $w         = NULL;
+    public $target    = NULL; // The number of the person you are sending the message
+    public $message   = NULL;
+    public $imagePath = 'upload/img/';
 
     function __construct() {
         $this->w = new WhatsProt($this->username, $this->nickname, $this->debug);
-        $this->w->connect();
-        $this->w->loginWithPassword($this->password);
+        if($this->w->connect()){
+            $this->w->loginWithPassword($this->password);
+        }else{
+            echo "Unable to connect";
+        }
+
     }
 
     public function getMessages() {
@@ -33,16 +38,6 @@ class WhatsAppAPIController {
         return $this->w->sendMessage($target, $message);
     }
 
-    function getConfirmCode($length) {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $code = '';
-        for ($i = 0; $i < $length; $i++) {
-            $code .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $code;
-    }
-
     function saveImage($imgUrl, $path = "upload/img") {
         if (!file_exists($path)) {
             mkdir($path, 0755, TRUE);
@@ -50,10 +45,15 @@ class WhatsAppAPIController {
 
         $imageType = str_replace('image/', '', getimagesize($imgUrl)["mime"]);
         $imageType = ($imageType == 'jpeg') ? 'jpg' : $imageType;
-        if (file_put_contents($path . '/' . md5(time()) . '.' . $imageType, file_get_contents($imgUrl))) {
-            return TRUE;
+        $imageName = md5(time()) . '.' . $imageType;
+        if (file_put_contents($path . '/' . $imageName, file_get_contents($imgUrl))) {
+            return $imageName;
         }
+
         return FALSE;
+    }
+    function isConnected(){
+        return $this->w->isConnected();
     }
 }
 
@@ -78,29 +78,29 @@ foreach ($messages as $message) {
 
     foreach ($messageBody as $message) {
         $text = $message->getData();
-        list($form) = explode('@', $messageFrom['from']);
+        list($from) = explode('@', $messageFrom['from']);
 
-        echo "Form : " . $form . '</br>';
+        echo "Form : " . $from . '</br>';
         echo "Message : " . $text . '</br>';
 
         if (($message->getTag() == "media") && ($message->getAttribute('type') == "image")) {
             $imageUrl = $message->getAttribute('url');
-            $path = "upload/img/";// . $form;
+            $path = "upload/img/";// . $from;
             if (saveImage($imageUrl, $path)) {
-                $w->sendMessage($form, "Image successful uploaded to your account !");
+                $w->sendMessage($from, "Image successful uploaded to your account !");
             } else {
-                $w->sendMessage($form, "Image upload failed !");
+                $w->sendMessage($from, "Image upload failed !");
             }
         }
 
         if (strtoupper($text) === 'START') {
             $code = getConfirmCode(6);
             echo "Response : Thank you for choosing Ezeepix your verification code is - " . $code . '</br>';
-            $w->sendMessage($form, "Thank you for choosing Ezeepix your verification code is : " . $code);
+            $w->sendMessage($from, "Thank you for choosing Ezeepix your verification code is : " . $code);
         }
 
         if (strtoupper($text) === "CANCEL") {
-            $w->sendMessage($form, "Your account has been deactivated.");
+            $w->sendMessage($from, "Your account has been deactivated.");
         }
     }
 }

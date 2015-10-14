@@ -1,5 +1,6 @@
 <?php
 require_once 'EzzipixController.php';
+require_once 'LoginController.php';
 class SignupController  extends EzzipixController{
     function __construct() {
         parent::__construct();
@@ -23,14 +24,22 @@ class SignupController  extends EzzipixController{
         if($login->isEmailExist($email)){
              $this->respData['regStatus']=false;
              $this->respData['msg']='Email Already Exist';
+            echo json_encode($this->respData);
+            return;
         }
         $userInsertData = array('full_name'=>$name,'gender'=>$gender);
         $uId = $user->insert($userInsertData);
         $loginInsertData = array('u_id'=>$uId,'email'=>$email,'password'=>$password);
+
         if($login->insert($loginInsertData)>0){
-            $this->respData['msg']='Registration Success...and <br>Redirect to login page';
+            $this->respData['msg']='Registration Success.';
             $this->respData['regStatus']=true;
-        }    
+            $lc = new LoginController();
+            $lc->authintication($email,$password);
+        }else{
+            $this->respData['msg']='Internal Server error';
+            $this->respData['regStatus']=false;
+        }
         echo json_encode($this->respData);
         return;
     }
