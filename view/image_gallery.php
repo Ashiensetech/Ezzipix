@@ -87,7 +87,7 @@ LAST UPDATE: 2015/01/05
                 foreach ($imgGallery as $img) {
                     ?>
                     <img style="" src=""/>
-                    <div class="image-data col-sm-3 shuffle" data-groups='["creative", "people"]'>
+                    <div class="col-sm-3 shuffle" data-groups='["creative", "people"]'>
 
                         <div class="panel no-border overflow-hidden">
                             <!-- thumbnail -->
@@ -104,8 +104,9 @@ LAST UPDATE: 2015/01/05
                                             <a href="javascript:void(0);" data-value="<?php echo $img["id"] ?>" class="delete-img btn btn-default" title=""><i class="ico-trash"></i></a>
                                         </div>
                                     </div>
+
                                     <!--/ toolbar overlay -->
-                                    <img onerror="loadCount('Error')" onload="loadCount('Load')" data-toggle="unveil" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" data-src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" alt="Photo" width="100%"/>
+                                    <img onerror="loadCount('Error')" onload="loadCount('Load')" data-toggle="unveil" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" data-src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" alt="Photo" width="100%" height="350px"/>
                                 </div>
                                 <!--/ media -->
                             </div>
@@ -147,7 +148,7 @@ LAST UPDATE: 2015/01/05
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/js/jquery.magnific-popup.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/js/owl.carousel.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/shuffle/js/jquery.shuffle.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js'; ?>"></script>
+<!--<script type="text/javascript" src="--><?php //echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js'; ?><!--"></script>-->
 <!--/ Plugins and page level script : optional -->
 <!--/ END JAVASCRIPT SECTION -->
 <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
@@ -206,11 +207,11 @@ LAST UPDATE: 2015/01/05
                     sortOrder: 7,
                     isInitiallyOpen: false
                 }, custom: {
-                    sortOrder: 8,
+                    sortOrder: 1,
                     enabled: true,
                     isInitiallyOpen: true,
                     // an icon for the tab, should be 48x48 px
-                    iconUrl: BaseUrl + 'img/icon.jpg'
+                    iconUrl: BaseUrl + 'img/ezeepix-48.png'
                 }
             }, fns: {
                 // function that handles custom photo source data
@@ -269,16 +270,7 @@ LAST UPDATE: 2015/01/05
 
         // Owl carousel
         // ================================
-        $('#gallery-post').owlCarousel({
-            lazyLoad: true,
-            slideSpeed: 300,
-            paginationSpeed: 400,
-            singleItem: true,
-            autoPlay: true,
-            stopOnHover: true,
-            navigation: true,
-            pagination: false
-        });
+
 
         // Shuffle
         // ================================
@@ -286,7 +278,7 @@ LAST UPDATE: 2015/01/05
             $filter = $('#shuffle-filter'),
             $sort = $('#shuffle-sort'),
             $sizer = $grid.find('shuffle-sizer');
-
+            console.log("$sizer "+$sizer);
         // instatiate shuffle
         $grid.shuffle({
             itemSelector: '.shuffle',
