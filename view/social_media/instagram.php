@@ -66,7 +66,7 @@
                                                         <a href="javascript:void(0)" url="<?php echo $img->images->standard_resolution->url; ?>" onclick="addPictureToSave('instagram', this)" class="btn btn-success"><i class="ico-plus"></i></a>
                                                     </div>
                                                 </div>
-                                                <img data-toggle="unveil" src="<?php echo $img->images->standard_resolution->url; ?>" data-src="<?php echo $img->images->standard_resolution->url; ?>" alt="Photo" width="100%"/>
+                                                <img data-toggle="unveil" src="<?php echo $img->images->standard_resolution->url; ?>" data-src="<?php echo $img->images->standard_resolution->url; ?>" alt="Photo" width="100%" height="350px"/>
                                             </div>
                                         </div>
                                     </div>

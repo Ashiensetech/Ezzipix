@@ -106,16 +106,7 @@ LAST UPDATE: 2015/01/05
     for (var key in imgJobjArray) {
         images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
     }
-    $(document).ready(function () {
 
-
-    });
-    function openPIO() {
-        PIO.config({
-            recipeId: "d672c387-aa6a-480f-8908-782843978773"
-        });
-        PIO.open();
-    }
 
 
 </script>
@@ -160,6 +151,9 @@ LAST UPDATE: 2015/01/05
         var clickCount = 0;
         PIO.open({
             recipeId: "d672c387-aa6a-480f-8908-782843978773",
+            countryCode:"US",
+            currencyCode:"USD",
+            languageCode:"en",
             embedInElement: el,
             iframeStyles: {
                 width: "100%",

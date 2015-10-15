@@ -70,7 +70,7 @@
                                                         <a href="javascript:void(0)" url="<?php echo $img["auto"]; ?>" onclick="addPictureToSave('dropbox', this)" class="btn btn-success"><i class="ico-plus"></i></a>
                                                     </div>
                                                 </div>
-                                                <img onerror="loadCount()" onload="loadCount()" data-toggle="unveil" src="<?php echo $img["thumb"]; ?>" data-src="<?php echo $img["thumb"]; ?>" alt="Photo" width="100%"/>
+                                                <img onerror="loadCount()" onload="loadCount()" data-toggle="unveil" src="<?php echo $img["thumb"]; ?>" data-src="<?php echo $img["thumb"]; ?>" alt="Photo" width="100%" height="350px"/>
                                             </div>
                                         </div>
 
