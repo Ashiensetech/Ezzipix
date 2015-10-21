@@ -33,7 +33,7 @@
                                             <p>Add Photo With Instagram</p> 
                                         </div>
                                         <div class="col-md-12 login-with-btn"> 
-                                            <a href="<?= @$link ?>">
+                                            <a href="<?php echo @$link ?>">
                                                 <button class="btn btn-block btn-instagram-m">| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in With Instagram</button>
                                                 <i class="fa fa-instagram"></i>
                                             </a>

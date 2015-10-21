@@ -38,7 +38,7 @@
                                             <p>Add Photo With Dropbox</p> 
                                         </div>
                                         <div class="col-md-12 login-with-btn cstm-right-i"> 
-                                            <a href="<?= @$link ?>">
+                                            <a href="<?php echo @$link ?>">
                                                 <button class="btn btn-block btn-dropbox-m">| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in With Dropbox</button>
                                                 <i class="fa fa-instagram"></i>
                                             </a>
