@@ -12,24 +12,32 @@
         <?php include_once 'partial/menu.php'; ?>
         <section id="main" role="main">
             <div class="clearfix"></div>
-            <section class="section bgcolor-white cstm-padding-top">
-                <div class="container">
+            <section class="jumbotron jumbotron-bg7 nm" data-stellar-background-ratio="0.4" style="min-height:486px;">
+
+                <div class="overlay pattern pattern2"></div>
+
+                <div class="container" style="padding-top:8%;padding-bottom:8%;">
                     <div class="row">
-                        <div class="col-md-4">
-                        </div>
-                        <div class="col-md-4 my-photo-header photo-header local-img-header">
-                            <h3>Photo In My Device</h3>
-                            <div class="print print-local">
+                        <div class="col-md-6 col-md-offset-3" style="overflow: hidden;">
+                        <div class="content data-profile site-border" style="overflow: hidden;">
+                            <div class="form-group">
+                                <div class="col-md-12 cstm-head-profile">
+                                    <p>PHOTO IN MY DEVICE</p>
+                                </div>
+                            </div>
+                            <div class="print print-local" style="display: none;">
                                 <a href="javascript:void(0);" onclick="openPIO()">Print /</a>
                                 <a href="javascript:void(0);" onclick="openPIO()"><span class="icon"><i class="ico-print"></i></span></a>
                             </div>
+                            <div class="row">
+                                <div class="row shuffle clearfix">
+                                    <div class="col-md-12"><input type="file" multiple="multiple" name="files[]" id="input2"></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="row shuffle clearfix">
-                            <div class="col-md-12"><input type="file" multiple="multiple" name="files[]" id="input2"></div>
+
                         </div>
-                    </div>
+                        </div>
                 </div>
             </section>
             <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>

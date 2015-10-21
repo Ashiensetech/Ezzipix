@@ -51,8 +51,8 @@ LAST UPDATE: 2015/01/05
         <div class="container">
             <!-- START Section Header -->
             <div class="row">
-                <div class="col-md-11 col-md-offset-5 my-photo-header photo-header">
-                    <h3> My Photo Collection</h3>
+                <div class="col-md-11 col-md-offset-5 my-photo-header photo-header no-padding">
+                    <h3>My Photo Collection</h3>
 
                     <!--<div class="print">
                         <a href="javascript:void(0);" onclick="openPIO()">Print /</a>
@@ -75,6 +75,15 @@ LAST UPDATE: 2015/01/05
                                                     </ol>
                                                 </div>
                                             </div>-->
+                <ul class="filter-tab">
+                    <li><a class="active" href="#">All</a> </li>
+                    <li><a href="#">My device</a> </li>
+                    <li><a href="#">Facebook</a> </li>
+                    <li><a href="#">Instagram</a> </li>
+                    <li><a href="#">Whats App</a> </li>
+                    <li><a href="#">Dropbox</a></li>
+                    <li><a href="#">Telegram</a></li>
+                </ul>
             </div>
             <!--/ END Section Header -->
 
@@ -89,7 +98,7 @@ LAST UPDATE: 2015/01/05
                     <img style="" src=""/>
                     <div class="col-sm-3 shuffle" data-groups='["creative", "people"]'>
 
-                        <div class="panel no-border overflow-hidden">
+                        <div class="panel photo-fix no-border overflow-hidden">
                             <!-- thumbnail -->
                             <div class="thumbnail nm">
                                 <!-- media -->
@@ -106,7 +115,7 @@ LAST UPDATE: 2015/01/05
                                     </div>
 
                                     <!--/ toolbar overlay -->
-                                    <img onerror="loadCount('Error')" onload="loadCount('Load')" data-toggle="unveil" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" data-src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" alt="Photo" width="100%" height="350px"/>
+                                    <img onerror="loadCount('Error')" onload="loadCount('Load')" data-toggle="unveil" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" data-src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" alt="Photo"/>
                                 </div>
                                 <!--/ media -->
                             </div>

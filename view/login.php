@@ -37,6 +37,7 @@
                         <div class="panel-body">
                             <div class="alert alert-warning" id="msg" style="display: none;">
                             </div>
+                            <h3 style="color: #444;">Login</h3>
                             <div class="form-group">
                                 <div class="form-stack has-icon pull-left logi">
                                     <input id="email" name="username" type="text" class="form-control input-lg" placeholder="Email" data-parsley-errors-container="#error-container" data-parsley-error-message="Please fill in your username / email" data-parsley-required>
@@ -63,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="form-group nm">
-                                <button type="submit" class="btn btn-block btn-primary">
+                                <button type="submit" class="btn btn-block btn-success">
                                     <span class="semibold">Login</span></button>
                             </div>
                         </div>
@@ -73,13 +74,13 @@
                 <div class="col-md-5 col-md-offset-1 login-back">
                     <div class="panel-body bgcolor-white min-height transparent-b site-border">
                         <div id="error-container" class="mb15"></div>
-                        <div class="join">
+                        <div class="join" style="padding: 15px;">
                             <h3>Join Ezeepix</h3>
 
                             <p><b>New Customer Offer:</b> 100 Free 4x6 prints<br/>
                                 Transform everyday photos into books, calendars and gifts you’ll cherish forever.</p>
                         </div>
-                        <div class="form-group nm">
+                        <div class="form-group nm" style="padding: 15px;">
                             <a href="<?php echo $this->baseUrl ?>signup.php">
                                 <button type="submit" class="btn btn-block btn-success">
                                     <span class="semibold">Sign Up</span></button>

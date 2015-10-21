@@ -57,7 +57,7 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-alt drop-menu">
-                                <li><a href="<?php echo $this->baseUrl; ?>dashboard.php">Home</a></li>
+                                <li><a href="<?php echo $this->baseUrl; ?>dashboard.php">Account Settings</a></li>
                                 <li><a href="<?php echo $this->baseUrl; ?>dashboard.php?r=updatePassword">Change
                                         Password</a></li>
                             </ul>
