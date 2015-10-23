@@ -77,11 +77,64 @@ class DashboardController extends AuthController {
         }
     }
 
+    public function updateAccount() {
+        require_once "Model/UserModel.php";
+        $userId = $_SESSION['uId'];
+        $user   = new User();
+
+        if (@$_POST) {
+            $fullName = @$_POST['full_name'];
+            $gender   = @$_POST['gender'];
+            $dob      = @$_POST['dob'];
+
+            if (!$fullName) {
+                header('Location: dashboard.php?r=updateAccount&message=Full Name Required.');
+
+                return;
+            }
+
+            if (!$gender) {
+                header('Location: dashboard.php?r=updateAccount&message=Gender Required.');
+
+                return;
+            }
+
+            /*if (!$dob) {
+                header('Location: dashboard.php?message=Phone Required.');
+
+                return;
+            }*/
+
+            $data = [
+                'user_id'   => $userId,
+                'full_name' => $fullName,
+                'gender'    => $gender,
+                'dob'       => $dob,
+            ];
+
+            if ($user->updateAccount($data)) {
+                header('Location: dashboard.php?status=success');
+
+                return;
+            } else {
+                header('Location: dashboard.php?status=failed');
+
+                return;
+            }
+        } else {
+            $this->pageData['user'] = $user->getUserById($userId)[0];
+            $this->loadView("update_account", $this->pageData);
+        }
+    }
+
     function process() {
         $method = (isset($_GET['r'])) ? $_GET['r'] : "";
         switch ($method) {
             case 'updatePassword':
                 $this->updatePassword();
+                break;
+            case 'updateAccount':
+                $this->updateAccount();
                 break;
             case 'logout':
                 $this->logout();

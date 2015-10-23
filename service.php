@@ -74,7 +74,6 @@ class ServiceController extends AuthController {
         if ($serviceProviderId == 1) {
             $this->telegram($serviceProviderId, $serviceUserId);
         } elseif ($serviceProviderId == 2) {
-
             $this->whatsApp($serviceProviderId, $serviceUserId);
         }
 
@@ -142,10 +141,8 @@ class ServiceController extends AuthController {
 
         $API   = new WhatsAppAPIController();
         $token = new ActivationToken();
-
-        $code = $this->getConfirmCode(6);
-
-        $data = [
+        $code  = $this->getConfirmCode(6);
+        $data  = [
             'u_id'                => $_SESSION['uId'],
             'service_provider_id' => $serviceProviderId,
             'token'               => $code,

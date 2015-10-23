@@ -62,8 +62,11 @@ LAST UPDATE: 2015/01/05
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-md-12 cstm-image-profile">
+                                    <div class="col-md-6 cstm-image-profile">
                                         <a href="<?php echo $this->baseUrl . 'media.php?r=all'; ?>" class="btn btn-default btn-cstm">View Image Gallery</a>
+                                    </div>
+                                    <div class="col-md-6 cstm-image-profile">
+                                        <a href="<?php echo $this->baseUrl . 'dashboard.php?r=updateAccount'; ?>" class="btn btn-default btn-cstm">Update Account</a>
                                     </div>
                                 </div>
                                 <table align="center" class="table table-responsive profile-table">

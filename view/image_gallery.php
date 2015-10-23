@@ -111,7 +111,7 @@ LAST UPDATE: 2015/01/05
                 $count = 0;
                 foreach ($imgGallery as $img) { ?>
                     <!--<img style="" src=""/>-->
-                    <div class="col-sm-3 shuffle" data-groups='["creative", "people"]'>
+                    <div class="col-sm-2 cstm-col-div-5 shuffle" data-groups='["creative", "people"]'>
 
                         <div class="panel photo-fix no-border overflow-hidden">
                             <!-- thumbnail -->
