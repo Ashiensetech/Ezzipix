@@ -65,16 +65,16 @@ LAST UPDATE: 2015/01/05
                                                     </li>
                                                 </ol>-->
                 </div>
-                <!--                            <div class="col-md-5">
-                                                <div class="toolbar">
-                                                    <ol class="breadcrumb breadcrumb-transparent nm">
-                                                        <li><a href="javascript:void(0);" onclick="openPIO()">Print</a></li>
-                                                        <li class="active">
-                                                            <a href="javascript:void(0);" onclick="openPIO()"><span class="icon"><i class="ico-print"></i></span></a>
-                                                        </li>
-                                                    </ol>
-                                                </div>
-                                            </div>-->
+                <div class="col-md-5">
+                    <div class="toolbar">
+                        <ol class="breadcrumb breadcrumb-transparent nm">
+                            <li><a href="javascript:void(0);" onclick="openPIO()">Print</a></li>
+                            <li class="active">
+                                <a href="javascript:void(0);" onclick="openPIO()"><span class="icon"><i class="ico-print"></i></span></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
                 <ul class="filter-tab">
                     <?php $class = @$_GET['p']; ?>
                     <li>
@@ -188,14 +188,14 @@ LAST UPDATE: 2015/01/05
 
     $(document).ready(function () {
         if ($("#printPhoto").val() == "true") {
-            PIO.config({
-                recipeId: "d672c387-aa6a-480f-8908-782843978773"
-            });
             openPIO();
         }
 
     });
     function openPIO() {
+        PIO.config({
+            recipeId: "d672c387-aa6a-480f-8908-782843978773"
+        });
         PIO.open({
             photosources: {
                 local: {
