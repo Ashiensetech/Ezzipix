@@ -348,6 +348,12 @@ class MediaController extends EzzipixController {
 
                 return;
             }
+        } else {
+            if ($userService->deleteImage($imageId)) {
+                echo json_encode(["status" => TRUE]);
+
+                return;
+            }
         }
         echo json_encode(["status" => FALSE]);
     }

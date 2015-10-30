@@ -6,4 +6,5 @@ vendor
 lib/whats_app/src/wadata
 *~$
 
+/admin
 /nbproject/

@@ -11,145 +11,162 @@ LAST UPDATE: 2015/01/05
 ** PLEASE SUPPORT ME. YOUR SUPPORT ENSURE THE CONTINUITY OF THIS PROJECT **
 -->
 <html class="frontend">
-    <!-- START Head -->
-    <?php include_once 'partial/head.php' ?>
-    <!--/ END Head -->
+<!-- START Head -->
+<?php include_once 'partial/head.php' ?>
+<!--/ END Head -->
 
-    <!-- START Body -->
-    <body>
-        <!-- START Template Header -->
-        <?php include_once 'partial/menu.php'; ?>
-        <!--/ END Template Header -->
+<!-- START Body -->
+<body>
+<!-- START Template Header -->
+<?php include_once 'partial/menu.php'; ?>
+<!--/ END Template Header -->
 
-        <!-- START Template Main -->
-        <section id="main" role="main">
-            <!-- START jumbotron -->
-            <section class="jumbotron jumbotron-bg7 nm" data-stellar-background-ratio="0.4" style="min-height:486px;">
-                <!-- pattern + overlay -->
-                <div class="overlay pattern pattern2"></div>
-                <!--/ pattern + overlay -->
-                <div class="container" style="padding-top:8%;padding-bottom:8%;">
-                    <div class="row">
-                        <div class="col-md-5 cstm-background site-border">
-                            <h1 class="thin text-white font-alt mt0 mb5">Ezeepix</h1>
-                            <p class="text-white mb15 fsize14">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat.
-                            </p>
-                            <div class="col-md-4 col-md-offset-4">
-                                <button type="button" class="btn btn-info btn-block">Learn More</button>
-                            </div>
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-5 cstm-background site-border">
-                            <form role="form" onsubmit="return signup();">
-                                <div class="form-group">
-                                    <input type="text" class="form-control input-lg mendatory" id="name" placeholder="Your full name">
-                                </div>
-                                <div class="form-group">
-                                    <select   class="form-control mendatory" id="gender">
-                                        <option value="">Select gender</option>
-                                        <option value="female">Female</option>
-                                        <option value="male">Male</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control input-lg mendatory" id="email" placeholder="Your email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" id="password" class="form-control input-lg mendatory"  placeholder="Create a password">
-                                    <span  id="msg" class="help-block text-muted"></span>
-                                </div>
-                                <button type="submit" class="btn btn-success btn-block btn-lg">Signup Now</button>
-                            </form>
-                        </div>
+<!-- START Template Main -->
+<section id="main" role="main">
+    <!-- START jumbotron -->
+    <section class="jumbotron jumbotron-bg7 nm" data-stellar-background-ratio="0.4" style="min-height:486px;">
+        <!-- pattern + overlay -->
+        <div class="overlay pattern pattern2"></div>
+        <!--/ pattern + overlay -->
+        <div class="container" style="padding-top:8%;padding-bottom:8%;">
+            <div class="row">
+                <div class="col-md-5 cstm-background site-border">
+                    <h1 class="thin text-white font-alt mt0 mb5">Ezeepix</h1>
+
+                    <p class="text-white mb15 fsize14">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat.
+                    </p>
+
+                    <div class="col-md-4 col-md-offset-4">
+                        <button type="button" class="btn btn-info btn-block">Learn More</button>
                     </div>
                 </div>
-            </section>
-            <!--/ END jumbotron -->
+                <div class="col-md-2"></div>
+                <div class="col-md-5 cstm-background site-border">
+                    <form role="form" onsubmit="return signup();">
+                        <div class="form-group">
+                            <input name="First Name" type="text" class="form-control input-lg mendatory" id="first-name" placeholder="Your first name">
+                        </div>
+                        <div class="form-group">
+                            <input name="Last name" type="text" class="form-control input-lg mendatory" id="last-name" placeholder="Your last name">
+                        </div>
+                        <div class="form-group">
+                            <select name="Gender" class="form-control mendatory" id="gender">
+                                <option value="">Select gender</option>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input name="Email address" type="text" class="form-control input-lg mendatory" id="email" placeholder="Your email">
+                        </div>
+                        <div class="form-group">
+                            <input name="Password" type="password" id="password" class="form-control input-lg mendatory" placeholder="Create a password">
+                        </div>
+                        <div class="clear clearfix">
+                            <input value="1" type="checkbox" id="tnc" class="mendatory" name="Accept terms and condition">
+                            <span style="color: #000">Accept terms and condition</span>
+                            <span id="msg" class="help-block text-muted"></span>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block btn-lg">Signup Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ END jumbotron -->
 
 
+    <!-- START To Top Scroller -->
+    <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>
+    <!--/ END To Top Scroller -->
+</section>
+<!--/ END Template Main -->
 
-            <!-- START To Top Scroller -->
-            <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>
-            <!--/ END To Top Scroller -->
-        </section>
-        <!--/ END Template Main -->
+<!-- START Template Footer -->
+<?php include_once 'partial/footer.php' ?>
+<!-- End Template Footer -->
+<?php include_once 'partial/core_script.php' ?>
 
-        <!-- START Template Footer -->
-        <?php include_once 'partial/footer.php' ?>
-        <!-- End Template Footer -->
-        <?php include_once 'partial/core_script.php' ?>
-
-    </body>
-    <!--/ END Body -->
-    <script>
-        function signup() {
-            var valid = true;
-            var errorMsg = "";
-            $('#msg').html("");
-            $('.mendatory').each(function () {
-                if (valid && $(this).val() == "") {
-                    if ($(this).prop("tagName") == "SELECT") {
-                        errorMsg = "Select " + $(this).attr("id");
-                    } else {
-                        errorMsg = $(this).attr("id") + " field required";
-                    }
-
-                    $(this).focus();
-                    valid = false;
-                    return;
+</body>
+<!--/ END Body -->
+<script>
+    function signup() {
+        var valid = true;
+        var errorMsg = "";
+        $('#msg').html("");
+        $('.mendatory').each(function () {
+            if (valid && $(this).val() == "") {
+                console.log("")
+                if ($(this).prop("tagName") == "SELECT") {
+                    errorMsg = "Select " + $(this).attr("name");
+                } else {
+                    errorMsg = $(this).attr("name") + " field required";
                 }
-            });
-            var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
-            if ($('#email').val() != "" && !re.test($('#email').val())) {
-                $('#email').focus();
+                $(this).focus();
                 valid = false;
-                errorMsg = 'Email is not in valid format';
-            }
-            if ($('#password').val() != "" && $('#password').val().length < 6) {
-                $('#password').focus();
+                return false;
+            } else if (!$("#tnc").is(':checked') && $(this).attr('id') == 'tnc') {
+                errorMsg = $(this).attr("name");
+                $(this).focus();
                 valid = false;
-                errorMsg = 'At least 6 digit required';
-            }
-            if (!valid) {
-                $('#msg').html(errorMsg);
                 return false;
             }
+        });
 
-            var name = $('#name').val();
-            var gender = $('#gender').val();
+        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
-            var email = $('#email').val();
-            var password = $('#password').val();
-
-
-            $('#msg').html("");
-            $.ajax({
-                url: "?r=register",
-                method: "POST",
-                data: {
-                    "name": name,
-                    "gender": gender,
-                    "email": email,
-                    "password": password
-                },
-                success: function (data) {
-                    var resp = jQuery.parseJSON(data);
-                    $('#msg').html(resp.msg);
-                    if (resp.regStatus) {
-                        $('#msg').delay(1000).fadeOut(500, function () {
-                            window.location.href = BaseUrl + 'login' + phpSuffix;
-                        });
-                    }
-
-
-                }
-            });
+        if ($('#email').val() != "" && !re.test($('#email').val())) {
+            $('#email').focus();
+            valid = false;
+            errorMsg = 'Email is not in valid format';
+        }
+        if ($('#password').val() != "" && $('#password').val().length < 6) {
+            $('#password').focus();
+            valid = false;
+            errorMsg = 'At least 6 digit required';
+        }
+        if (!valid) {
+            $('#msg').html(errorMsg);
             return false;
         }
-    </script>
+
+        var firstName = $('#first-name').val();
+        var lastName = $('#last-name').val();
+        var gender = $('#gender').val();
+
+        var email = $('#email').val();
+        var password = $('#password').val();
+
+
+        $('#msg').html("");
+        $.ajax({
+            url: "?r=register",
+            method: "POST",
+            data: {
+                "first_name": firstName,
+                "last_name": lastName,
+                "gender": gender,
+                "email": email,
+                "password": password
+            },
+            success: function (data) {
+                var resp = jQuery.parseJSON(data);
+                $('#msg').html(resp.msg);
+                if (resp.regStatus) {
+                    $('#msg').delay(1000).fadeOut(500, function () {
+                        window.location.href = BaseUrl + 'login' + phpSuffix;
+                    });
+                }
+
+
+            }
+        });
+        return false;
+    }
+</script>
 </html>

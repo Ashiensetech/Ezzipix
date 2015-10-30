@@ -83,12 +83,19 @@ class DashboardController extends AuthController {
         $user   = new User();
 
         if (@$_POST) {
-            $fullName = @$_POST['full_name'];
-            $gender   = @$_POST['gender'];
-            $dob      = @$_POST['dob'];
+            $firstName = @$_POST['first_name'];
+            $lastName  = @$_POST['last_name'];
+            $gender    = @$_POST['gender'];
+            $dob       = @$_POST['dob'];
 
-            if (!$fullName) {
-                header('Location: dashboard.php?r=updateAccount&message=Full Name Required.');
+            if (!$firstName) {
+                header('Location: dashboard.php?r=updateAccount&message=First Name Required.');
+
+                return;
+            }
+
+            if (!$lastName) {
+                header('Location: dashboard.php?r=updateAccount&message=Last Name Required.');
 
                 return;
             }
@@ -106,10 +113,11 @@ class DashboardController extends AuthController {
             }*/
 
             $data = [
-                'user_id'   => $userId,
-                'full_name' => $fullName,
-                'gender'    => $gender,
-                'dob'       => $dob,
+                'user_id'    => $userId,
+                'first_name' => $firstName,
+                'last_name'  => $lastName,
+                'gender'     => $gender,
+                'dob'        => $dob,
             ];
 
             if ($user->updateAccount($data)) {

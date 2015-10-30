@@ -12,7 +12,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="content data-profile site-border">
                         <form method="post" name="form-login" action="<?php echo $this->baseUrl ?>dashboard.php?r=updateAccount">
-                            <div class="form-group">
+                            <div>
                                 <div class="col-md-12 cstm-head-profile">
                                     <p class="text-uppercase">Update Account</p>
                                 </div>
@@ -27,9 +27,29 @@
 
                                 <div class="form-group">
                                     <div class="form-stack has-icon pull-left old">
-                                        <input name="full_name" type="text" value="<?php echo ($user) ? $user['full_name'] : ''; ?>"
+                                        <input name="first_name" type="text" value="<?php echo ($user) ? $user['first_name'] : ''; ?>"
                                                class="form-control input-lg"
-                                               placeholder="Full Name" data-parsley-errors-container="#error-container"
+                                               placeholder="First Name" data-parsley-errors-container="#error-container"
+                                               data-parsley-error-message="Please fill in your Full Name"
+                                               data-parsley-required="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-stack has-icon pull-left old">
+                                        <input name="last_name" type="text" value="<?php echo ($user) ? $user['last_name'] : ''; ?>"
+                                               class="form-control input-lg"
+                                               placeholder="Last Name" data-parsley-errors-container="#error-container"
+                                               data-parsley-error-message="Please fill in your Full Name"
+                                               data-parsley-required="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-stack has-icon pull-left old">
+                                        <input id="datepicker" name="dob" type="text" value="<?php echo ($user) ? date('d-m-Y', strtotime($user['dob'])) : ''; ?>"
+                                               class="form-control input-lg"
+                                               placeholder="Date of Birth" data-parsley-errors-container="#error-container"
                                                data-parsley-error-message="Please fill in your Full Name"
                                                data-parsley-required="">
                                     </div>
@@ -97,6 +117,19 @@
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/javascript/frontend/home/home-v1.js'; ?>"></script>
 <!--/ Plugins and page level script : optional -->
 <!--/ END JAVASCRIPT SECTION -->
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            dateFormat: "dd-mm-yy",
+            autoSize: true,
+        });
+    });
+</script>
 
 <script type="text/javascript">
     jQuery(document).ready(function () {

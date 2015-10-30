@@ -32,4 +32,9 @@
     <script type="text/javascript" src="<?php echo $this->baseUrl.'html_template/dist/plugins/modernizr/js/modernizr.js';?>"></script>
     <!--/ modernizr script -->
     <!-- END STYLESHEETS -->
+    <style type="text/css">
+        .no-margin-bottom{
+            margin-bottom: 0px !important;
+        }
+    </style>
 </head>

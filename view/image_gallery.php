@@ -65,7 +65,7 @@ LAST UPDATE: 2015/01/05
                                                     </li>
                                                 </ol>-->
                 </div>
-                <div class="col-md-5">
+                <!--<div class="col-md-5">
                     <div class="toolbar">
                         <ol class="breadcrumb breadcrumb-transparent nm">
                             <li><a href="javascript:void(0);" onclick="openPIO()">Print</a></li>
@@ -74,7 +74,7 @@ LAST UPDATE: 2015/01/05
                             </li>
                         </ol>
                     </div>
-                </div>
+                </div>-->
                 <ul class="filter-tab">
                     <?php $class = @$_GET['p']; ?>
                     <li>
@@ -111,7 +111,7 @@ LAST UPDATE: 2015/01/05
                 $count = 0;
                 foreach ($imgGallery as $img) { ?>
                     <!--<img style="" src=""/>-->
-                    <div class="col-sm-2 cstm-col-div-5 shuffle" data-groups='["creative", "people"]'>
+                    <div class="col-sm-2 cstm-col-div-5 shuffle image-data" data-groups='["creative", "people"]'>
 
                         <div class="panel photo-fix no-border overflow-hidden">
                             <!-- thumbnail -->
@@ -131,7 +131,7 @@ LAST UPDATE: 2015/01/05
                                     </div>
 
                                     <!--/ toolbar overlay -->
-                                    <img onerror="loadCount('Error')" onload="loadCount('Load')" data-toggle="unveil" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" data-src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" alt="Photo"/>
+                                    <img style="max-width:100%;transform: scale(2);" onerror="loadCount('Error')" onload="loadCount('Load')" data-toggle="unveil" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" data-src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" alt="Photo"/>
                                 </div>
                                 <!--/ media -->
                             </div>
@@ -372,6 +372,9 @@ LAST UPDATE: 2015/01/05
                     data = JSON.parse(data);
                     if (data.status) {
                         img.remove();
+                        //alert("Image Deleted Successfully")
+                    } else {
+                        alert("Image Delete Failed")
                     }
                 }
             });
