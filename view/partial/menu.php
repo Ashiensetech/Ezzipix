@@ -88,9 +88,14 @@
                             </span>
                         </a>
                     </li>
+                    <li class="dropdown dropdown-toggle dropdown-hover formenu">
+                        <a href="<?php echo $this->baseUrl ?>about.php" class="dropdown-toggle dropdown-hover">
+                            <span class="meta">
+                                <span class="text">About Us</span>
+                            </span>
+                        </a>
+                    </li>
                     <?php if (@$this->userInfo['uId'] > 0) { ?>
-
-
                         <li class="dropdown formenu">
                             <a href="<?php echo $this->baseUrl; ?>media.php?r=all&print=true" class="dropdown-toggle dropdown-hover">
                                 <span class="meta">

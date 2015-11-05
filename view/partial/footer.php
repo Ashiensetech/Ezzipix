@@ -6,9 +6,10 @@
             <!-- About -->
             <div class="col-md-5 pre-foot-left">
                 <h4 class="font-alt mt0"> ABOUT US </h4>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look like readable
-                    English. Many desktop publishing packages and web page editors now use. 
+
+                <p>
+                    Photos are more than a file on your phone. They’re memories and tools to share ideas and inspire. A
+                    picture is worth a thousand words. At Ezeepix we get that, and we don’t think .. <a href="about.php">more</a>
                 </p>
             </div>
             <div class="visible-sm visible-xs" style="margin-bottom:25px;"></div>
@@ -27,8 +28,9 @@
             </div>
             <div class="col-md-3 pre-foot-right-r">
                 <h4 class="font-alt mt0">CONNECT WITH US</h4>
+
                 <div class="icons">
-                    <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                    <a href="//www.facebook.com/ezeepix" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
                     <a href="#" class="btn-social btn-outline"><i class="fa fa-instagram"></i></a>
                     <a href="#" class="btn-social btn-outline"><i class="fa fa-whatsapp"></i></a>
                     <a href="#" class="btn-social btn-outline"><i class="fa fa-google-plus"></i></a>
@@ -63,7 +65,9 @@
             <div class="row">
                 <div class="col-sm-6 copyrights">
                     <!-- copyright -->
-                    <p class="nm text-muted">&copy; Copyright <?php echo date("Y"); ?> by <a href="javascript:void(0);" class="text-white">Workspace Infotech</a>. All Rights Reserved.</p>
+                    <p class="nm text-muted">&copy; Copyright <?php echo date("Y"); ?> by
+                        <a href="javascript:void(0);" class="text-white">Workspace Infotech</a>. All Rights Reserved.
+                    </p>
                     <!--/ copyright -->
                 </div>
                 <div class="col-sm-6 text-right hidden-xs policy">
