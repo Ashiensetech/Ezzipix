@@ -194,7 +194,7 @@ LAST UPDATE: 2015/01/05
     });
     function openPIO() {
         PIO.config({
-            recipeId: "d672c387-aa6a-480f-8908-782843978773"
+            recipeId: "d672c387-aa6a-480f-8908-782843978773" // Staging key not live key
         });
         PIO.open({
             photosources: {
