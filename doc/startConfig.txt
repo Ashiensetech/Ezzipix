@@ -1,3 +1,9 @@
+Telegram 3rd party api GITHub : https://github.com/vysheng/tg
+
+For Api Acces : https://my.telegram.org/auth
+
+
+
 bin/telegram-cli -k tg-server.pub
 
 sudo -u www-data ./bin/telegram-cli --json -dWS /tmp/tg.sck &
