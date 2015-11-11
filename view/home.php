@@ -150,7 +150,7 @@ LAST UPDATE: 2015/01/05
         changePhotoPluginDivHeight();
         var clickCount = 0;
         PIO.open({
-            recipeId: "d672c387-aa6a-480f-8908-782843978773", // Staging key not live key
+            recipeId: "d672c387-aa6a-480f-8908-782843978773",
             countryCode:"US",
             currencyCode:"USD",
             languageCode:"en",

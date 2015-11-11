@@ -20,7 +20,8 @@ nohup php telegram_nohup.php &
 nohup php whatsapp_nohup.php &
 
 
-
+#Get All nohup PID
+ps -ef | grep php
 
 
 
