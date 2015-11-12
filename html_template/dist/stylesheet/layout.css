@@ -405,7 +405,7 @@ html.frontend body {
     .frontend #header.navbar .navbar-header > .navbar-brand > .logo-text,
     .frontend #header.navbar .navbar-header > .navbar-brand > .logo-figure {
         height: 90px;
-        margin-top: 9px;
+        margin-top: 18px;
         width: 100%;
     }
     #header.navbar .navbar-toolbar {
@@ -911,4 +911,91 @@ section.section .section-header > .section-title:after {
 }
 section.section .section-header.no-border > .section-title:after {
     display: none;
+}
+.cstm-padding{
+    padding: 20px 100px 20px 100px;
+}
+.steps-heading h2{
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    font-size: 33px;
+}
+.icon-div-pic{
+    text-align: center;
+}
+.icon-div-pic i{
+    font-size: 44px;
+    padding: 18px;
+    color: #C22666;
+}
+.pick-favourite:hover .icon-div-pic i{
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+}
+.icon-div-pro{
+    text-align: center;
+}
+.icon-div-pro i{
+    font-size: 44px;
+    padding: 18px;
+    color: #3989C9;
+}
+.stylish-pro:hover .icon-div-pro i{
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+}
+.icon-div-cus{
+    text-align: center;
+}
+.icon-div-cus i{
+    font-size: 44px;
+    padding: 18px;
+    color: #4ABB81;
+}
+.custo-check:hover .icon-div-cus i{
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+}
+.pick-favourite h3{
+    text-align: center;
+    font-size: 20px;
+    color: #C22666;
+}
+.pick-favourite p{
+    text-align: center;
+}
+.stylish-pro h3{
+    text-align: center;
+    color: #3989C9;
+    font-size: 20px;
+}
+.stylish-pro p{
+    text-align: center;
+}
+.custo-check h3{
+    text-align: center;
+    color: #4ABB81;
+    font-size: 20px;
+}
+.custo-check p{
+    text-align: center;
+}
+.steps-heading{
+    padding: 25px 0 35px 0;
 }

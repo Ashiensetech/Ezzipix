@@ -5,12 +5,12 @@
  *
  * --------------------------- */
 #header.navbar {
-  position: fixed;
-  -webkit-box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.15), 0 1px 0 rgba(0, 0, 0, 0.03);
-          box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.15), 0 1px 0 rgba(0, 0, 0, 0.03);
+    position: fixed;
+    -webkit-box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.33), 0 1px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.33), 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 #main {
-  padding-top: 100px;
+    padding-top: 100px;
 }
 /* ----------------------------
  *
@@ -18,13 +18,13 @@
  *
  * --------------------------- */
 @media (min-width: 768px) {
-  .sidebar.sidebar-menu {
-    margin-top: 60px;
-  }
-  #main {
-    padding-top: 60px;
-  }
-  .frontend #main {
-    padding-top: 90px;
-  }
+    .sidebar.sidebar-menu {
+        margin-top: 60px;
+    }
+    #main {
+        padding-top: 60px;
+    }
+    .frontend #main {
+        padding-top: 90px;
+    }
 }
