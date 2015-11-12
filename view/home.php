@@ -149,8 +149,10 @@ LAST UPDATE: 2015/01/05
         var el = document.getElementById('photo-plugin');
         changePhotoPluginDivHeight();
         var clickCount = 0;
-        PIO.open({
-            recipeId: "d672c387-aa6a-480f-8908-782843978773",
+        PIO.config({
+           // url:"https://widget.print.io/widget/",
+            recipeId: "d672c387-aa6a-480f-8908-782843978773" // Staging recipeId
+            //  recipeId:"11ebd314-7bbc-4c92-bafb-cad6dd6622f9", //live
             countryCode:"US",
             currencyCode:"USD",
             languageCode:"en",
@@ -159,13 +161,12 @@ LAST UPDATE: 2015/01/05
                 width: "100%",
                 height: "100%"
             },
-
             photosources: {
-                local: {
-                    enabled: false,
-                    sortOrder: 1,
-                    isInitiallyOpen: false
-                },
+//                local: {
+//                    enabled: false,
+//                    sortOrder: 1,
+//                    isInitiallyOpen: false
+//                },
                 facebook: {
                     enabled: false,
                     sortOrder: 2,
@@ -173,12 +174,12 @@ LAST UPDATE: 2015/01/05
                 },
                 instagram: {
                     enabled: false,
-                    sortOrder: 2,
+                    sortOrder: 3,
                     isInitiallyOpen: false
                 },
                 photobucket: {
                     enabled: false,
-                    sortOrder: 3,
+                    sortOrder: 4,
                     isInitiallyOpen: false
                 },
                 flickr: {
@@ -196,13 +197,16 @@ LAST UPDATE: 2015/01/05
                     sortOrder: 7,
                     isInitiallyOpen: false
                 }, custom: {
-                    sortOrder: 1,
+                    sortOrder: 8,
                     enabled: true,
                     isInitiallyOpen: true,
                     // an icon for the tab, should be 48x48 px
                     iconUrl: BaseUrl + 'img/ezeepix-48.png'
                 }
-            },
+            }
+        });
+        PIO.open({
+
 
             fns: {
                 <?php if(@$this->userInfo['uId'] > 0){ ?>
