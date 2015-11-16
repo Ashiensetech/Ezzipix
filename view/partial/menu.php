@@ -48,6 +48,14 @@
                                 </span>
                         </a>
                     </li>
+                    <li class="dropdown formenu">
+                        <a href="<?php echo $this->baseUrl; ?>home.php" class="dropdown-toggle dropdown-hover">
+                                <span class="meta">
+                                    <span class="text">Products</span>
+                                    <!--<span class="caret"></span>-->
+                                </span>
+                        </a>
+                    </li>
                     <?php if (@$this->userInfo['uId'] > 0) { ?>
                         <li class="dropdown formenu">
                             <a href="#" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
@@ -66,7 +74,7 @@
                     <li class="dropdown formenu">
                         <a href="<?php echo $this->baseUrl; ?>social_media.php" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
                             <span class="meta">
-                                <span class="text">Add Photo</span>
+                                <span class="text">Add Photos</span>
                                 <span class="caret"></span>
                             </span>
                         </a>
@@ -84,7 +92,7 @@
                     <li class="dropdown dropdown-toggle dropdown-hover formenu">
                         <a href="<?php echo $this->baseUrl ?>media.php?r=all" class="dropdown-toggle dropdown-hover">
                             <span class="meta">
-                                <span class="text">My Photo</span>
+                                <span class="text">My Photos</span>
                             </span>
                         </a>
                     </li>

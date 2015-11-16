@@ -17,13 +17,13 @@
             <div class="col-md-1"></div>
             <!-- Address + Social -->
             <div class="col-md-3 pre-foot-right" style="background: url('../image/others/map-vector.png') no-repeat center center;background-size: 100%;">
-                <h4 class="font-alt mt0">ADDRESS</h4>
+<!--                <h4 class="font-alt mt0">ADDRESS</h4>
                 <address class="cstm-address">
                     <strong>NY, Inc.</strong><br>
                     <i class="fa fa-home"></i> 795 Falcon Ave, Suite 600<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;San Francisco, CA <br>
                     <i class="fa fa-phone"></i> (123) 456-7890
-                </address>
+                </address>-->
 
             </div>
             <div class="col-md-3 pre-foot-right-r">
@@ -32,7 +32,7 @@
                 <div class="icons">
                     <a href="//www.facebook.com/ezeepix" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
                     <a href="#" class="btn-social btn-outline"><i class="fa fa-instagram"></i></a>
-                    <a href="#" class="btn-social btn-outline"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="btn-social btn-outline"><i class="fa fa-twitter"></i></a>
                     <a href="#" class="btn-social btn-outline"><i class="fa fa-google-plus"></i></a>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <div class="col-sm-6 copyrights">
                     <!-- copyright -->
                     <p class="nm text-muted">&copy; Copyright <?php echo date("Y"); ?> by
-                        <a href="javascript:void(0);" class="text-white">Workspace Infotech</a>. All Rights Reserved.
+                        <a href="javascript:void(0);" class="text-white">ezeepix.com</a>. All Rights Reserved.
                     </p>
                     <!--/ copyright -->
                 </div>
@@ -74,6 +74,12 @@
                     <a href="javascript:void(0);" class="text-white">Privacy Policy</a>
                     <span class="ml5 mr5">|</span>
                     <a href="javascript:void(0);" class="text-white">Terms of Service</a>
+                    <span class="ml5 mr5">|</span>
+                    <a href="javascript:void(0);" class="text-white">Contact Us</a>
+                    <span class="ml5 mr5">|</span>
+                    <a href="javascript:void(0);" class="text-white">Support</a>
+                    <span class="ml5 mr5">|</span>
+                    <a href="javascript:void(0);" class="text-white">FAQ</a>
                 </div>
             </div>
         </div>

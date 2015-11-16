@@ -80,7 +80,7 @@ LAST UPDATE: 2015/01/05
             <!--/ END Layerslider -->
 
             <section class="bgcolor-white">
-                <div class="row steps-heading">
+<!--                <div class="row steps-heading">
                     <h2><span style="color: #C22666;">Three</span> <span style="color: #3989C9">Easy</span> <span style="color: #4ABB81;">Steps</span></h2>
                     <div class="col-md-12 cstm-padding">
                         <div class="col-md-4 pick-favourite">
@@ -110,7 +110,7 @@ LAST UPDATE: 2015/01/05
                                 quality guaranteed.</p>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <div id="photo-plugin" class="container text-center ifrmae-body">
                 </div>
             </section>
