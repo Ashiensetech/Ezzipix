@@ -15719,3 +15719,165 @@ input[type=password]:focus {
 .cstm-col-div-5{
     width: 20% !important;
 }
+
+
+/*Home page design*/
+.home-design{
+    padding-top: 90px;
+}
+.upper-banner{
+    background: #777 url(../image/top-banner.png)no-repeat;
+    background-size: cover;
+    height: 400px;
+
+}
+.welcome-txt-container{
+    background: rgba(0,0,0,0.8);
+    margin: 10px auto;
+    margin-top: 40px;
+    color: #fff;
+    padding: 20px;
+    width: 60%;
+}
+.welcome-txt-container h2{
+    font-size:3em;
+    font-weight: lighter;
+    margin-top: 0px;
+}
+.welcome-txt-container p{
+    color: #FF0090;
+    font-size: 22px;
+}
+.see-products-btn{
+    background: transparent;
+    color:#fff;
+    font-size: 20px;
+    border: 2px solid #fff;
+    padding: 15px 20px;
+    margin-top: 30px;
+    border-radius: 0px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.see-products-btn:hover{
+    background: #FF0090;
+    border-color: #FF0090;
+    color: #fff;
+}
+.steps-container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+.home-head span{
+    position: relative;
+}
+.home-head span:before{
+    position: absolute;
+    width: 60px;
+    content: " ";
+    height: 5px;
+    bottom: -14px;
+    background: #35F381 none repeat scroll 0% 0%;
+    left: 0px;
+    border-radius: 3px;
+    z-index: 99;
+}
+.step-single{
+    margin-top: 20px;
+}
+.step-single .img-div{
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+}
+.step-single p{
+    font-size:16px;
+}
+.feature-container{
+    background: #f7f7f7;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.feature-single{
+    background:rgba(255,255,255,1);
+    padding:30px 15px;
+    padding-top: 0px;
+    margin-top: 30px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    min-height: 350px;
+    border-bottom: 5px solid #777;
+}
+.feature-single:hover{
+    border-color:#FF0090 ;
+}
+.feature-single h3{
+    position: relative;
+    color: #1B1B1B;
+    margin-top: -20px;
+}
+.feature-single span{
+    background: #fff;
+    padding: 5px 15px;
+    border: 2px solid #fff;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.feature-single:hover span{
+    background: #FF0090;
+    color: #fff;
+}
+
+.feature-single p{
+    color: #5D5D5D;
+    font-size: 18px;
+    margin-top: 20px;
+}
+.no-margin{
+    margin: 0px;
+}
+.img-src-container{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.icon-div{
+    margin-top: 50px;
+}
+.icon-div p{
+    font-weight: bold;
+}
+.icon-div i{
+    font-size: 4em;
+    margin-bottom: 10px;
+}
+.icon-div .fa-send{
+    color: #5ED5DE;
+}
+.icon-div .fa-facebook{
+    color: #0D3F6B;
+}
+.icon-div .fa-whatsapp{
+    color: #2CC933;
+}
+.icon-div .fa-dropbox{
+    color: #007CEA;
+}
+.icon-div .fa-mobile-phone{
+    color: #8C46FF;
+}
+.icon-div .fa-instagram{
+    color: #B68F22;
+}
+/*Home page design*/

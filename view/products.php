@@ -37,119 +37,88 @@ LAST UPDATE: 2015/01/05
         <!--/ END Template Header -->
 
         <!-- START Template Main -->
-        <div class="home-design">
-            <div class="container-fluid upper-banner text-center">
-                <div class="welcome-txt-container text-center">
-                    <h2>We love to print</h2>
-                    <p>Simply, the best printed products for the best prices anywhere</p>
-                </div>
+        <section id="main" role="main">
 
-                <button class="btn btn-default see-products-btn">See Our Products</button>
+            <!-- START Layerslider -->
+            <!-- <section id="layerslider"style="width:100%; height:553px;">
+                        <div class="ls-slide" data-ls="transition2d:1; slidedelay:8000;">
+                            <img src="<?php echo $this->baseUrl . 'html_template/dist/image/layerslider/bg3.png'; ?>" class="ls-bg">
+                            <img class="ls-l" style="top:90px;left:68%;" style="height: 200px;width: 200px" src="<?php echo $this->baseUrl . 'html_template/dist/image/layerslider/layer/people2.png'; ?>" data-ls="delayin:1000; easingin:easeOutElastic;">
+                            <h1 class="ls-l font-alt" style="top:110px;left:150px;" data-ls="offsetxin:0;durationin:2000;delayin:1500;easingin:easeOutElastic;rotatexin:-90;transformoriginin:50% top 0;offsetxout:-200;durationout:1000;">
+                                Welcome To <span class="text-primary">Ezeepix</span>
+                            </h1>
+                            <h4 class="ls-l" style="top:170px;left:150px;width:550px;" data-ls="offsetxin:0; durationin:2000; delayin:2000; easingin:easeOutElastic; rotatexin:90; transformoriginin:50% top 0; offsetxout:-400;">
+                                consectetur adipisicing elit, sed do eiusmod
+                            </h4>
+                            <p class="ls-l text-default" style="top:230px;left:150px;width:550px;" data-ls="offsetxin:0; durationin:2000; delayin:2500; easingin:easeOutElastic; rotatexin:90; transformoriginin:50% top 0; offsetxout:-400;">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud.
+                            </p>
+                        </div>
+                        <div class="ls-slide" data-ls="transition2d:1; slidedelay:8000;">
+                            <img src="<?php echo $this->baseUrl . 'html_template/dist/image/layerslider/bg2.png'; ?>" class="ls-bg" alt="Slide background">
+                            <h4 class="ls-l text-default text-right" style="top:120px;left:65%;width:550px;" data-ls="easingin:easeOutElastic; delayin:0;">
+                                Fully Responsive &amp; Clean Design
+                            </h4>
+                            <h1 class="ls-l font-alt text-right" style="top:150px;left:65%;width:550px;" data-ls="easingin:easeOutElastic; delayin:500;">
+                                <span class="text-primary">Mobile</span> Devices Optimize
+                            </h1>
+                            <p class="ls-l text-default text-right" style="top:210px;left:65%;width:550px;" data-ls="easingin:easeOutElastic; delayin:1000;">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation.
+                            </p>
+                            <p class="ls-l text-default text-right" style="top:290px;left:65%;width:550px;" data-ls="easingin:easeOutElastic; delayin:1500;">
+                                <a href="javascript:void(0);" class="btn btn-primary">
+                                    Learn More <i class="ico-angle-right ml5"></i>
+                                </a>
+                            </p>
+                            <img class="ls-l" style="top:80px;left:250px;" src="<?php echo $this->baseUrl . 'html_template/dist/image/layerslider/layer/iphone-5s.png'; ?>" data-ls="delayin:2000; easingin:easeOutElastic;">
+                        </div>
+                    </section> -->
+            <!--/ END Layerslider -->
 
-            </div>
-            <div class="container text-center steps-container">
-                <div class="row clearfix">
-                    <h2 class="home-head"><span>3 Easy Steps</span></h2>
-                    <div class="col-md-4 step-single">
-                        <div class="img-div">
-                            <img src="<?php echo $this->baseUrl.'html_template/dist/image/heart.png';?>">
-                        </div>
-                        <h3>Pick your favourite Photos</h3>
-                        <p>Prints look great from your
-                            camera, Facebook, Instagram,
-                            or favorite photo App.</p>
-                    </div>
-                    <div class="col-md-4 step-single">
-                        <div class="img-div">
-                            <img src="<?php echo $this->baseUrl.'html_template/dist/image/phone.png';?>">
-                        </div>
-                        <h3>Browse Stylish Products</h3>
-                        <p>Our product team makes sure we carry the hottest items on the market.</p>
-                    </div>
-                    <div class="col-md-4 step-single">
-                        <div class="img-div">
-                            <img src="<?php echo $this->baseUrl.'html_template/dist/image/tick.png';?>">
-                        </div>
-                        <h3>Customize and Check-Out</h3>
-                        <p>Our web and mobile apps are clean
-                            and simple. We ship risk-free and
-                            quality guaranteed.</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="container-fluid feature-container text-center">
-                <h2 class="home-head"><span>Our top features</span></h2>
-                <div class="container">
-                    <div class="col-md-4">
-                        <div class="row clearfix no-margin">
-                            <div class="col-md-12 feature-single">
-                                <div class="row clearfix">
-                                    <img class="img-responsive" src="<?php echo $this->baseUrl.'html_template/dist/image/feature-1.png';?>">
-                                </div>
-                                <h3><span>Quality</span></h3>
-                                <p>Our products are made from the highest quality materials in the industry.</p>
+            <section class="bgcolor-white">
+<!--                <div class="row steps-heading">
+                    <h2><span style="color: #C22666;">Three</span> <span style="color: #3989C9">Easy</span> <span style="color: #4ABB81;">Steps</span></h2>
+                    <div class="col-md-12 cstm-padding">
+                        <div class="col-md-4 pick-favourite">
+                            <div class="icon-div-pic">
+                                <i class="fa fa-heart"></i>
                             </div>
+                            <h3>Pick Your Favorite Photos</h3>
+                            <p>Prints look great from your 
+                                camera, Facebook, Instagram,
+                                or favorite photo App.
+                            </p>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row clearfix no-margin">
-                            <div class="col-md-12 feature-single">
-                                <div class="row clearfix">
-                                    <img class="img-responsive" src="<?php echo $this->baseUrl.'html_template/dist/image/feature-2.png';?>">
-                                </div>
-                                <h3><span>Love Guarantee</span></h3>
-                                <p>If you don’t love it, we'll fix it. Happiness like your first love, every time.</p>
+                        <div class="col-md-4 stylish-pro">
+                            <div class="icon-div-pro">
+                                <i class="fa fa-mobile"></i>
                             </div>
+                            <h3>Browse Stylish Products</h3>
+                            <p>Our product team makes sure we carry the hottest items on the market.</p>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row clearfix no-margin">
-                            <div class="col-md-12 feature-single">
-                                <div class="row clearfix">
-                                    <img class="img-responsive" src="<?php echo $this->baseUrl.'html_template/dist/image/feature-3.png';?>">
-                                </div>
-                                <h3><span>Picture Perfect</span></h3>
-                                <p>Our experts have perfected the artistic process, guaranteeing beautiful prints every time.</p>
+                        <div class="col-md-4 custo-check">
+                            <div class="icon-div-cus">
+                                <i class="fa fa-check"></i>
                             </div>
+                            <h3>Customize and Check-Out</h3>
+                            <p>Our web and mobile apps are clean 
+                                and simple. We ship risk-free and 
+                                quality guaranteed.</p>
                         </div>
                     </div>
-
+                </div>-->
+                <div id="photo-plugin" class="container text-center ifrmae-body">
                 </div>
-            </div>
+            </section>
 
-            <div class="container-fluid img-src-container text-center">
-                <div class="row clearfix">
-                    <h2 class="home-head"><span>Photos from your favorite sources</span></h2>
-                    <div class="container icon-div">
-                        <div class="col-md-2">
-                            <i class="fa fa-3x fa-mobile-phone"></i>
-                            <p>Device</p>
-                        </div>
-                        <div class="col-md-2">
-                            <i class="fa fa-3x fa-facebook"></i>
-                            <p>Facebook</p>
-                        </div>
-                        <div class="col-md-2">
-                            <i class="fa fa-3x fa-dropbox"></i>
-                            <p>Dropbox</p>
-                        </div>
-                        <div class="col-md-2">
-                            <i class="fa fa-3x fa-instagram"></i>
-                            <p>Instagram</p>
-                        </div>
-                        <div class="col-md-2">
-                            <i class="fa fa-3x fa-whatsapp"></i>
-                            <p>Whatsapp</p>
-                        </div>
-                        <div class="col-md-2">
-                            <i class="fa fa-3x fa-send"></i>
-                            <p>Telegram</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <!-- START To Top Scroller -->
+            <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>
+            <!--/ END To Top Scroller -->
+        </section>
         <!--/ END Template Main -->
 
         <!-- START Template Footer -->
@@ -183,7 +152,7 @@ LAST UPDATE: 2015/01/05
         <!--/ Plugins and page level script : optional -->
         <!--/ END JAVASCRIPT SECTION -->
         <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
-<!--        <script type="text/javascript">
+        <script type="text/javascript">
             function changePhotoPluginDivHeight() {
                 var ifrmParentH = screen.height;
                 if (ifrmParentH <= 800) {
@@ -409,17 +378,17 @@ LAST UPDATE: 2015/01/05
 
                 //$("iframe").css({"max-width": "100%", "width": "100%"});
             });
-        </script>-->
+        </script>
         <script type="text/javascript">
             $(function () {
                 //     $('.pt-featured').css('display','none');
-             //   $("iframe").contents().find(".pt-featured").css('display', 'none');
+                $("iframe").contents().find(".pt-featured").css('display', 'none');
             });
         </script>
         <style>
-/*            iframe {
+            iframe {
                 max-width: 100% !important;
-            }*/
+            }
         </style>
 
     </body>
