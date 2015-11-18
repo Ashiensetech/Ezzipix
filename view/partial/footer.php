@@ -71,15 +71,15 @@
                     <!--/ copyright -->
                 </div>
                 <div class="col-sm-6 text-right hidden-xs policy">
-                    <a href="javascript:void(0);" class="text-white">Privacy Policy</a>
+                    <a href="<?php echo $this->baseUrl ?>policy.php" class="text-white">Privacy Policy</a>
                     <span class="ml5 mr5">|</span>
-                    <a href="javascript:void(0);" class="text-white">Terms of Service</a>
+                    <a href="<?php echo $this->baseUrl ?>terms.php" class="text-white">Terms of Service</a>
                     <span class="ml5 mr5">|</span>
-                    <a href="javascript:void(0);" class="text-white">Contact Us</a>
+                    <a href="<?php echo $this->baseUrl ?>contactus.php">Contact Us</a>
                     <span class="ml5 mr5">|</span>
-                    <a href="javascript:void(0);" class="text-white">Support</a>
+                    <a href="<?php echo $this->baseUrl ?>support.php">Support</a>
                     <span class="ml5 mr5">|</span>
-                    <a href="javascript:void(0);" class="text-white">FAQ</a>
+                    <a href="<?php echo $this->baseUrl ?>faq.php">FAQ</a>
                 </div>
             </div>
         </div>

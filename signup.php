@@ -5,6 +5,9 @@ require_once 'LoginController.php';
 class SignupController extends EzzipixController {
     function __construct() {
         parent::__construct();
+        if(@$_SESSION['email'] || @$_SESSION['uId']){
+            header('Location: home.php');
+        }
     }
 
     function index() {
@@ -22,6 +25,7 @@ class SignupController extends EzzipixController {
 
         $email    = trim($_POST["email"]);
         $password = trim($_POST["password"]);
+        $dob      = trim($_POST["dob"]);
 
         $login = new Login();
         $user  = new User();
@@ -36,6 +40,7 @@ class SignupController extends EzzipixController {
             'first_name' => $firstName,
             'last_name'  => $lastName,
             'gender'     => $gender,
+            'dob'        => $dob
         ];
         $uId             = $user->insert($userInsertData);
         $loginInsertData = ['u_id' => $uId, 'email' => $email, 'password' => $password];

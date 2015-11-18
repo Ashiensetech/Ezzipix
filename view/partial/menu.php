@@ -49,7 +49,7 @@
                         </a>
                     </li>
                     <li class="dropdown formenu">
-                        <a href="<?php echo $this->baseUrl; ?>home.php" class="dropdown-toggle dropdown-hover">
+                        <a href="<?php echo $this->baseUrl; ?>product.php" class="dropdown-toggle dropdown-hover">
                                 <span class="meta">
                                     <span class="text">Products</span>
                                     <!--<span class="caret"></span>-->
@@ -84,7 +84,7 @@
                             <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=dropbox">Dropbox</a></li>
                             <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=instagram">Instagram</a></li>
                             <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=w">Whats App</a></li>
-                            <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=t">Telegram</a></li>
+                            <li style="display: none;"><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=t">Telegram</a></li>
                             <!--<li><a href="-->
                             <?php //echo $this->baseUrl;   ?><!--social_media.php">Upload Images</a></li>-->
                         </ul>
@@ -104,7 +104,7 @@
                         </a>
                     </li>
                     <?php if (@$this->userInfo['uId'] > 0) { ?>
-                        <li class="dropdown formenu">
+                        <li class="dropdown formenu" style="display: none;">
                             <a href="<?php echo $this->baseUrl; ?>media.php?r=all&print=true" class="dropdown-toggle dropdown-hover">
                                 <span class="meta">
                                     <span class="text">Print</span>

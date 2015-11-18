@@ -33,27 +33,43 @@ LAST UPDATE: 2015/01/05
                 <div class="col-md-6 col-md-offset-3 telegram-back site-border">
                     <div class="form-group">
                         <div class="col-md-12 cstm-head-profile">
-                            <p>ADD PHOTO</p>
+                            <?php
+                                    $titleOfDiv = "";
+                                    if(isset($_GET['app'])) {
+                                        $appParam = $_GET['app'];
+                                        if ($appParam == 't') {
+                                            $titleOfDiv = "Telegram";
+                                        } else if ($appParam == 'w') {
+                                            $titleOfDiv = "Whatsapp";
+                                        }
+                                    }
+                                ?>
+                            <p><?php echo $titleOfDiv; ?></p>
                         </div>
                     </div>
                     <form id="addServiceForm" action="" onsubmit="return false;">
                         <table align="center" class="table table-responsive tele-table">
                             <tr id="verification_code_msg" style="display: none">
                                 <td colspan="2">
-                                    <div id='msg'></div>
+                                    <div id='msg' style="color:red"></div>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="color:#414141; font-weight: 600;">Select Service :</td>
+                                <td style="color:#414141; font-weight: 600;"></td>
                                 <td>
-                                    <select name="service_provider_id" id="service_provider_id" onchange="whatsAppPhoneNumberConvention()" class="form-control">
+                                    <?php
+                                            $selectDisabled = (isset($_GET['app']))?"disabled='disabled'":"";
+                                    ?>
+                                    <select  name="service_provider_id" id="service_provider_id" onchange="whatsAppPhoneNumberConvention()" class="form-control" <?php echo $selectDisabled;?> >
                                         <?php
 
                                         $app = @$_GET['app'];
-
+                                        $phonePlaceHolder = "Phone number";
                                         if ($app == 't') { ?>
                                             <option value="1" selected>Telegram</option>
-                                        <?php } else if ($app == 'w') { ?>
+                                        <?php } else if ($app == 'w') {
+                                                $phonePlaceHolder = "Phone number without '+'";
+                                        ?>
                                             <option value="2" selected>Whats App</option>
                                         <?php } else { ?>
                                             <option value="">Select a Service</option>
@@ -73,8 +89,8 @@ LAST UPDATE: 2015/01/05
                                 </td>
                             </tr>
                             <tr>
-                                <td style="color:#414141; font-weight: 600;">Service ID :</td>
-                                <td><input type="service_user_id" id="service_user_id" class="form-control"/></td>
+                                <td style="color:#414141; font-weight: 600;"></td>
+                                <td><input  placeholder="<?php echo $phonePlaceHolder; ?>" type="service_user_id" id="service_user_id" class="form-control"/></td>
                             </tr>
                             <tr id="verification_code_tr" style="display: none">
                                 <td>Verification Code :</td>
@@ -87,7 +103,7 @@ LAST UPDATE: 2015/01/05
                             <tr id="verification_code_send">
                                 <td>&nbsp;</td>
                                 <td>
-                                    <input id="getVerifucationBtn" type="button" onclick="sendCode();" value="Get Verification Code" class="btn btn-info btn-block"/>
+                                    <input id="getVerifucationBtn" type="button" onclick="sendCode();" value="Verify my number" class="btn btn-info btn-block"/>
                                 </td>
                             </tr>
                             <tr id="verification_code_submit" style="display: none">
@@ -134,7 +150,7 @@ LAST UPDATE: 2015/01/05
         $('#addServiceForm').find("input,select").attr("disabled", "disabled");
     }
     function enableAllInform() {
-        $('#addServiceForm').find("input,select").removeAttr("disabled", "disabled");
+        $('#addServiceForm').find("input").removeAttr("disabled", "disabled");
     }
     function sendCode() {
         $('#getVerifucationBtn').attr("disabled", "disabled");
@@ -161,8 +177,9 @@ LAST UPDATE: 2015/01/05
                     $("#verification_code").removeAttr("disabled", "disabled");
                     $("#resendTokenBtn").removeAttr("disabled", "disabled");
                     $("#addServiceBtn").removeAttr("disabled", "disabled");
+                }else{
+                    enableAllInform();
                 }
-
                 $("#msg").html(data.message);
                 $("#verification_code_msg").css({'display': ''});
             }

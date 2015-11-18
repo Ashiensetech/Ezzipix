@@ -44,7 +44,7 @@ LAST UPDATE: 2015/01/05
                     <p>Simply, the best printed products for the best prices anywhere</p>
                 </div>
 
-                <button class="btn btn-default see-products-btn">See Our Products</button>
+                <button class="btn btn-default see-products-btn" onclick="location.href='<?php echo $this->baseUrl.'product.php';?>'">See Our Products</button>
 
             </div>
             <div class="container text-center steps-container">
@@ -99,7 +99,7 @@ LAST UPDATE: 2015/01/05
                                     <img class="img-responsive" src="<?php echo $this->baseUrl.'html_template/dist/image/feature-2.png';?>">
                                 </div>
                                 <h3><span>Love Guarantee</span></h3>
-                                <p>If you don’t love it, we'll fix it. Happiness like your first love, every time.</p>
+                                <p>If you donï¿½t love it, we'll fix it. Happiness like your first love, every time.</p>
                             </div>
                         </div>
                     </div>

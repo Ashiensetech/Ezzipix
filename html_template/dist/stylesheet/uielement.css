@@ -15661,10 +15661,13 @@ input[type=password]:focus {
     text-transform: uppercase;
 }
 .filter-tab{
-    border-top: 4px solid #44C282;
+    border: 1px solid #44C282;
     margin: 15px;
     padding: 0px;
+    padding-top: 7px;
+    padding-left: 7px;
     margin-bottom: 15px;
+    background: #f2f2f2;
     font-size: 0;
     clear: both;
     /* overflow: hidden; */
@@ -15674,7 +15677,7 @@ input[type=password]:focus {
     padding: 0px;
     list-style: none;
     display: inline-block;
-    /* margin-right: 7px; */
+    /* margin-right: 7px; */ 
     position: relative;
     margin: 0 0 7px 0;
 }
@@ -15713,8 +15716,16 @@ input[type=password]:focus {
 .photo-fix .thumbnail .media{
     height: 200px;
     overflow: hidden;
-    box-shadow: -1px 0px 2px #111;
-    border: 5px solid #44C282;
+    /*box-shadow: -1px 0px 2px #111;*/
+    border: 1px solid #44C282;
+    -webkit-transition: all .2s ease;
+-moz-transition: all .2s ease;
+-ms-transition: all .2s ease;
+-o-transition: all .2s ease;
+transition: all .2s ease;
+}
+.photo-fix .thumbnail .media:hover{
+    box-shadow: 0px 0px 2px 3px #44C282; 
 }
 .cstm-col-div-5{
     width: 20% !important;
@@ -15732,27 +15743,29 @@ input[type=password]:focus {
 
 }
 .welcome-txt-container{
-    background: rgba(0,0,0,0.8);
+    background: transparent;
     margin: 10px auto;
     margin-top: 40px;
+
     color: #fff;
     padding: 20px;
     width: 60%;
 }
 .welcome-txt-container h2{
     font-size:3em;
-    font-weight: lighter;
+    font-weight: bold;
     margin-top: 0px;
+    text-shadow: 1px 1px 2px #A2A2A2;
 }
 .welcome-txt-container p{
-    color: #FF0090;
+    color:#383838;
     font-size: 22px;
 }
 .see-products-btn{
-    background: transparent;
-    color:#fff;
+    background: #46BC50 none repeat scroll 0% 0%;
+    color: #fff;
     font-size: 20px;
-    border: 2px solid #fff;
+    border: 2px solid #46BC50;
     padding: 15px 20px;
     margin-top: 30px;
     border-radius: 0px;
@@ -15763,8 +15776,8 @@ input[type=password]:focus {
     transition: all 0.2s ease;
 }
 .see-products-btn:hover{
-    background: #FF0090;
-    border-color: #FF0090;
+    background: #777;
+    border-color: #777;
     color: #fff;
 }
 .steps-container{
@@ -15818,7 +15831,7 @@ input[type=password]:focus {
     border-bottom: 5px solid #777;
 }
 .feature-single:hover{
-    border-color:#FF0090 ;
+    border-color:#46BC50 ;
 }
 .feature-single h3{
     position: relative;
@@ -15836,7 +15849,7 @@ input[type=password]:focus {
     transition: all 0.2s ease;
 }
 .feature-single:hover span{
-    background: #FF0090;
+    background: #46BC50;
     color: #fff;
 }
 
@@ -15881,3 +15894,26 @@ input[type=password]:focus {
     color: #B68F22;
 }
 /*Home page design*/
+
+
+/*Other Custom design*/
+
+.custom-new-welcome{
+    background: transparent;
+    text-align: left;
+    box-shadow: none;
+    padding: 15px;
+}
+.custom-new-welcome h1{
+        font-weight: bold;
+    color: rgb(114, 255, 70) !important;
+    font-size: 3.5em;
+    text-shadow:2px 1px 0px rgb(36, 110, 39);
+}
+.cstm-wlcm-p{
+    font-size: 20px !important;
+    color: rgb(255, 255, 255) !important;
+    text-shadow: 0px 0px 1px rgb(17, 17, 17);
+}
+
+/*Other Custom design*/

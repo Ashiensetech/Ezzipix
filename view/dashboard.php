@@ -80,7 +80,7 @@ LAST UPDATE: 2015/01/05
                                     Account</a>
                             </div>
                             <div class="col-md-3 cstm-image-profile no-margin-bottom">
-                                <a href="<?php echo $this->baseUrl . 'dashboard.php?r=updatePassword'; ?>" class="btn btn-default btn-cstm">Update
+                                <a href="<?php echo $this->baseUrl . 'dashboard.php?r=updatePassword'; ?>" class="btn btn-default btn-cstm">Change
                                     Password</a>
                             </div>
                         </div>
