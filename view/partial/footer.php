@@ -6,9 +6,10 @@
             <!-- About -->
             <div class="col-md-5 pre-foot-left">
                 <h4 class="font-alt mt0"> ABOUT US </h4>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look like readable
-                    English. Many desktop publishing packages and web page editors now use. 
+
+                <p>
+                    Photos are more than a file on your phone. They’re memories and tools to share ideas and inspire. A
+                    picture is worth a thousand words. At Ezeepix we get that, and we don’t think .. <a href="about.php">more</a>
                 </p>
             </div>
             <div class="visible-sm visible-xs" style="margin-bottom:25px;"></div>
@@ -16,21 +17,22 @@
             <div class="col-md-1"></div>
             <!-- Address + Social -->
             <div class="col-md-3 pre-foot-right" style="background: url('../image/others/map-vector.png') no-repeat center center;background-size: 100%;">
-                <h4 class="font-alt mt0">ADDRESS</h4>
+<!--                <h4 class="font-alt mt0">ADDRESS</h4>
                 <address class="cstm-address">
                     <strong>NY, Inc.</strong><br>
                     <i class="fa fa-home"></i> 795 Falcon Ave, Suite 600<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;San Francisco, CA <br>
                     <i class="fa fa-phone"></i> (123) 456-7890
-                </address>
+                </address>-->
 
             </div>
             <div class="col-md-3 pre-foot-right-r">
                 <h4 class="font-alt mt0">CONNECT WITH US</h4>
+
                 <div class="icons">
-                    <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                    <a href="//www.facebook.com/ezeepix" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
                     <a href="#" class="btn-social btn-outline"><i class="fa fa-instagram"></i></a>
-                    <a href="#" class="btn-social btn-outline"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="btn-social btn-outline"><i class="fa fa-twitter"></i></a>
                     <a href="#" class="btn-social btn-outline"><i class="fa fa-google-plus"></i></a>
                 </div>
             </div>
@@ -63,13 +65,21 @@
             <div class="row">
                 <div class="col-sm-6 copyrights">
                     <!-- copyright -->
-                    <p class="nm text-muted">&copy; Copyright <?php echo date("Y"); ?> by <a href="javascript:void(0);" class="text-white">Workspace Infotech</a>. All Rights Reserved.</p>
+                    <p class="nm text-muted">&copy; Copyright <?php echo date("Y"); ?> by
+                        <a href="javascript:void(0);" class="text-white">ezeepix.com</a>. All Rights Reserved.
+                    </p>
                     <!--/ copyright -->
                 </div>
                 <div class="col-sm-6 text-right hidden-xs policy">
-                    <a href="javascript:void(0);" class="text-white">Privacy Policy</a>
+                    <a href="<?php echo $this->baseUrl ?>policy.php" class="text-white">Privacy Policy</a>
                     <span class="ml5 mr5">|</span>
-                    <a href="javascript:void(0);" class="text-white">Terms of Service</a>
+                    <a href="<?php echo $this->baseUrl ?>terms.php" class="text-white">Terms of Service</a>
+                    <span class="ml5 mr5">|</span>
+                    <a href="<?php echo $this->baseUrl ?>contactus.php">Contact Us</a>
+                    <span class="ml5 mr5">|</span>
+                    <a href="<?php echo $this->baseUrl ?>support.php">Support</a>
+                    <span class="ml5 mr5">|</span>
+                    <a href="<?php echo $this->baseUrl ?>faq.php">FAQ</a>
                 </div>
             </div>
         </div>

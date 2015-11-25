@@ -8,7 +8,7 @@
             xfbml: true,
             version: 'v2.4'
         });
-        fbLogin();
+      //  fbLogin();
     };
 
     (function(d){
@@ -49,7 +49,7 @@
     function getData(access_token) {
         FB.api('/me', function (response) {
             $("#linker").html("Get Data From Facebook");
-            //console.log("Welcome " + response.name + ": Your UID is " + response.id);
+            console.log("Welcome " + response.name + ": Your UID is " + response.id);
             getPhoto(response.id, access_token);
         });
     }

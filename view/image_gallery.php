@@ -51,8 +51,8 @@ LAST UPDATE: 2015/01/05
         <div class="container">
             <!-- START Section Header -->
             <div class="row">
-                <div class="col-md-11 col-md-offset-5 my-photo-header photo-header">
-                    <h3> My Photo Collection</h3>
+                <div class="col-md-11 col-md-offset-5 my-photo-header photo-header no-padding">
+                    <h3>My Photo Collection</h3>
 
                     <!--<div class="print">
                         <a href="javascript:void(0);" onclick="openPIO()">Print /</a>
@@ -65,16 +65,41 @@ LAST UPDATE: 2015/01/05
                                                     </li>
                                                 </ol>-->
                 </div>
-                <!--                            <div class="col-md-5">
-                                                <div class="toolbar">
-                                                    <ol class="breadcrumb breadcrumb-transparent nm">
-                                                        <li><a href="javascript:void(0);" onclick="openPIO()">Print</a></li>
-                                                        <li class="active">
-                                                            <a href="javascript:void(0);" onclick="openPIO()"><span class="icon"><i class="ico-print"></i></span></a>
-                                                        </li>
-                                                    </ol>
-                                                </div>
-                                            </div>-->
+                <!--<div class="col-md-5">
+                    <div class="toolbar">
+                        <ol class="breadcrumb breadcrumb-transparent nm">
+                            <li><a href="javascript:void(0);" onclick="openPIO()">Print</a></li>
+                            <li class="active">
+                                <a href="javascript:void(0);" onclick="openPIO()"><span class="icon"><i class="ico-print"></i></span></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>-->
+                <ul class="filter-tab">
+                    <?php $class = @$_GET['p']; ?>
+                    <li>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew' ?>" class="<?php echo ($class) ? '' : 'active' ?>">All</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=desktop' ?>" class="<?php echo ($class == 'my device') ? 'active' : '' ?>">My
+                            device</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=facebook' ?>" class="<?php echo ($class == 'facebook') ? 'active' : '' ?>">Facebook</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=instagram' ?>" class="<?php echo ($class == 'instagram') ? 'active' : '' ?>">Instagram</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=whats app' ?>" class="<?php echo ($class == 'whats app') ? 'active' : '' ?>">Whats
+                            App</a></li>
+                    <li>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=dropbox' ?>" class="<?php echo ($class == 'dropbox') ? 'active' : '' ?>">Dropbox</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=telegram' ?>" class="<?php echo ($class == 'telegram') ? 'active' : '' ?>">Telegram</a>
+                    </li>
+                </ul>
             </div>
             <!--/ END Section Header -->
 
@@ -84,12 +109,11 @@ LAST UPDATE: 2015/01/05
                 $j     = 1;
                 $i     = 0;
                 $count = 0;
-                foreach ($imgGallery as $img) {
-                    ?>
-                    <img style="" src=""/>
-                    <div class="image-data col-sm-3 shuffle" data-groups='["creative", "people"]'>
+                foreach ($imgGallery as $img) { ?>
+                    <!--<img style="" src=""/>-->
+                    <div class="col-sm-2 cstm-col-div-5 shuffle image-data" data-groups='["creative", "people"]'>
 
-                        <div class="panel no-border overflow-hidden">
+                        <div class="panel photo-fix no-border overflow-hidden">
                             <!-- thumbnail -->
                             <div class="thumbnail nm">
                                 <!-- media -->
@@ -100,12 +124,14 @@ LAST UPDATE: 2015/01/05
                                     <!-- toolbar overlay -->
                                     <div class="overlay">
                                         <div class="toolbar">
+                                            <?php $class = explode('/', $img['media_file_path'])[1] ?>
                                             <a href="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" class="btn btn-default magnific" title=""><i class="ico-search"></i></a>
                                             <a href="javascript:void(0);" data-value="<?php echo $img["id"] ?>" class="delete-img btn btn-default" title=""><i class="ico-trash"></i></a>
                                         </div>
                                     </div>
+
                                     <!--/ toolbar overlay -->
-                                    <img onerror="loadCount('Error')" onload="loadCount('Load')" data-toggle="unveil" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" data-src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" alt="Photo" width="100%"/>
+                                    <img style="max-width:100%;transform: scale(2);" onerror="loadCount('Error')" onload="loadCount('Load')" data-toggle="unveil" src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" data-src="<?php echo $this->baseUrl . 'upload/img/' . $img['media_file_path']; ?>" alt="Photo"/>
                                 </div>
                                 <!--/ media -->
                             </div>
@@ -147,11 +173,12 @@ LAST UPDATE: 2015/01/05
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/js/jquery.magnific-popup.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/js/owl.carousel.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/shuffle/js/jquery.shuffle.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js'; ?>"></script>
+<!--<script type="text/javascript" src="-->
+<?php //echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js'; ?><!--"></script>-->
 <!--/ Plugins and page level script : optional -->
 <!--/ END JAVASCRIPT SECTION -->
 <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
-<input id="printPhoto" type="hidden" value='<?php echo (isset($_GET['print']))?$_GET['print']:"false"; ?>'/>
+<input id="printPhoto" type="hidden" value='<?php echo (isset($_GET['print'])) ? $_GET['print'] : "false"; ?>'/>
 <script type="text/javascript">
     var imgJobjArray = JSON.parse($("#allImg").val());
     var images = [];
@@ -160,22 +187,24 @@ LAST UPDATE: 2015/01/05
     }
 
     $(document).ready(function () {
-        if($("#printPhoto").val()=="true"){
-            PIO.config({
-                recipeId: "d672c387-aa6a-480f-8908-782843978773"
-            });
+        if ($("#printPhoto").val() == "true") {
             openPIO();
         }
 
     });
     function openPIO() {
+        PIO.config({
+            url:"https://widget.print.io/widget/",
+//            recipeId: "d672c387-aa6a-480f-8908-782843978773" // Staging recipeId
+          recipeId:"11ebd314-7bbc-4c92-bafb-cad6dd6622f9" //live
+        });
         PIO.open({
             photosources: {
-                local: {
-                    enabled: false,
-                    sortOrder: 1,
-                    isInitiallyOpen: false
-                },
+//                local: {
+//                    enabled: false,
+//                    sortOrder: 1,
+//                    isInitiallyOpen: false
+//                },
                 facebook: {
                     enabled: false,
                     sortOrder: 2,
@@ -206,11 +235,11 @@ LAST UPDATE: 2015/01/05
                     sortOrder: 7,
                     isInitiallyOpen: false
                 }, custom: {
-                    sortOrder: 8,
+                    sortOrder: 1,
                     enabled: true,
                     isInitiallyOpen: true,
                     // an icon for the tab, should be 48x48 px
-                    iconUrl: BaseUrl + 'img/icon.jpg'
+                    iconUrl: BaseUrl + 'img/ezeepix-48.png'
                 }
             }, fns: {
                 // function that handles custom photo source data
@@ -235,14 +264,14 @@ LAST UPDATE: 2015/01/05
                         totalPages: 1,
                         items: pictureArray
                         /*items: [
-                            // pass in that there is a folder
-                            {id: "f1", isFolder: true, name: "fave pics"},
+                         // pass in that there is a folder
+                         {id: "f1", isFolder: true, name: "fave pics"},
 
-                            // pass in three images
-                            {picture: "http://img.ffffound.com/static-data/assets/6/8fc3b482de5086f5f6bb64b75805b3413936c49a_m.png"},
-                            {picture: "http://img.ffffound.com/static-data/assets/6/c9c55336befdeae882e2d1794fc13888053e7f66_m.png"},
-                            {picture: "http://img.ffffound.com/static-data/assets/6/6dc8a64f665183d97a37e44cac72410531ec0978_m.png"}
-                        ]*/
+                         // pass in three images
+                         {picture: "http://img.ffffound.com/static-data/assets/6/8fc3b482de5086f5f6bb64b75805b3413936c49a_m.png"},
+                         {picture: "http://img.ffffound.com/static-data/assets/6/c9c55336befdeae882e2d1794fc13888053e7f66_m.png"},
+                         {picture: "http://img.ffffound.com/static-data/assets/6/6dc8a64f665183d97a37e44cac72410531ec0978_m.png"}
+                         ]*/
                     });
                 }
             }
@@ -269,16 +298,7 @@ LAST UPDATE: 2015/01/05
 
         // Owl carousel
         // ================================
-        $('#gallery-post').owlCarousel({
-            lazyLoad: true,
-            slideSpeed: 300,
-            paginationSpeed: 400,
-            singleItem: true,
-            autoPlay: true,
-            stopOnHover: true,
-            navigation: true,
-            pagination: false
-        });
+
 
         // Shuffle
         // ================================
@@ -286,7 +306,7 @@ LAST UPDATE: 2015/01/05
             $filter = $('#shuffle-filter'),
             $sort = $('#shuffle-sort'),
             $sizer = $grid.find('shuffle-sizer');
-
+        console.log("$sizer " + $sizer);
         // instatiate shuffle
         $grid.shuffle({
             itemSelector: '.shuffle',
@@ -354,6 +374,9 @@ LAST UPDATE: 2015/01/05
                     data = JSON.parse(data);
                     if (data.status) {
                         img.remove();
+                        //alert("Image Deleted Successfully")
+                    } else {
+                        alert("Image Delete Failed")
                     }
                 }
             });

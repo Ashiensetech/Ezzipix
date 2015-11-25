@@ -10,12 +10,12 @@ class FileManagement
 {
 
     function saveImage($imgUrl, $path = "upload/img") {
+
         if (!file_exists($path)) {
             $old_umask = umask(0);
-            mkdir($path, 0777);
+            mkdir($path, 0777,true);
             umask($old_umask);
         }
-
         $imageType = str_replace('image/', '', getimagesize($imgUrl)["mime"]);
         $imageType = ($imageType == 'jpeg') ? 'jpg' : $imageType;
         $imageName = md5(time()) . '.' . $imageType;

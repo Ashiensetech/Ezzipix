@@ -48,6 +48,14 @@
                                 </span>
                         </a>
                     </li>
+                    <li class="dropdown formenu">
+                        <a href="<?php echo $this->baseUrl; ?>product.php" class="dropdown-toggle dropdown-hover">
+                                <span class="meta">
+                                    <span class="text">Products</span>
+                                    <!--<span class="caret"></span>-->
+                                </span>
+                        </a>
+                    </li>
                     <?php if (@$this->userInfo['uId'] > 0) { ?>
                         <li class="dropdown formenu">
                             <a href="#" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
@@ -57,16 +65,16 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-alt drop-menu">
-                                <li><a href="<?php echo $this->baseUrl; ?>dashboard.php">Home</a></li>
-                                <li><a href="<?php echo $this->baseUrl; ?>dashboard.php?r=updatePassword">Change
-                                        Password</a></li>
+                                <li><a href="<?php echo $this->baseUrl; ?>dashboard.php">Account Settings</a></li>
+                                <!--<li><a href="<?php /*echo $this->baseUrl; */?>dashboard.php?r=updatePassword">Change
+                                        Password</a></li>-->
                             </ul>
                         </li>
                     <?php } ?>
                     <li class="dropdown formenu">
                         <a href="<?php echo $this->baseUrl; ?>social_media.php" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
                             <span class="meta">
-                                <span class="text">Add Photo</span>
+                                <span class="text">Add Photos</span>
                                 <span class="caret"></span>
                             </span>
                         </a>
@@ -76,22 +84,27 @@
                             <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=dropbox">Dropbox</a></li>
                             <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=instagram">Instagram</a></li>
                             <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=w">Whats App</a></li>
-                            <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=t">Telegram</a></li>
+                            <li style="display: none;"><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=t">Telegram</a></li>
                             <!--<li><a href="-->
                             <?php //echo $this->baseUrl;   ?><!--social_media.php">Upload Images</a></li>-->
                         </ul>
                     </li>
                     <li class="dropdown dropdown-toggle dropdown-hover formenu">
-                        <a href="<?php echo $this->baseUrl ?>media.php?r=all" class="dropdown-toggle dropdown-hover">
+                        <a href="<?php echo $this->baseUrl ?>media.php?r=allnew" class="dropdown-toggle dropdown-hover">
                             <span class="meta">
-                                <span class="text">My Photo</span>
+                                <span class="text">My Photos</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="dropdown dropdown-toggle dropdown-hover formenu">
+                        <a href="<?php echo $this->baseUrl ?>about.php" class="dropdown-toggle dropdown-hover">
+                            <span class="meta">
+                                <span class="text">About Us</span>
                             </span>
                         </a>
                     </li>
                     <?php if (@$this->userInfo['uId'] > 0) { ?>
-
-
-                        <li class="dropdown formenu">
+                        <li class="dropdown formenu" style="display: none;">
                             <a href="<?php echo $this->baseUrl; ?>media.php?r=all&print=true" class="dropdown-toggle dropdown-hover">
                                 <span class="meta">
                                     <span class="text">Print</span>

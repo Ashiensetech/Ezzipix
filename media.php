@@ -7,8 +7,10 @@ require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
 require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
 
 class MediaController extends EzzipixController {
+    private $serverProvider;
     public function __construct() {
         parent::__construct();
+        $this->serverProvider = array(1=>"telegram",2=>"whatsapp",3=>"facebook",4=>"instagram",5=>"dropbox", 6=>"picasa",7=>"flicker",8=> "desktop" );
     }
 
     public function index() {
@@ -264,14 +266,60 @@ class MediaController extends EzzipixController {
 
     function showAllImage() {
         $this->auth();
-        require_once 'Model/UserServiceDataModel.php';
-        $userServiceData = new UserServiceData();
 
-        $this->pageData['imgGallery'] = $userServiceData->getAllMediaFileByUid($this->userInfo['uId']);
-        $this->pageData['allImg']     = json_encode($userServiceData->getAllMediaFileByUid($this->userInfo['uId']));
+        require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
+        require_once dirname(__FILE__) . '/Model/ServiceProviderModel.php';
+
+        $serviceProvider = new ServiceProvider();
+        $userServiceData = new UserServiceData();
+        $services        = $serviceProvider->getProviderList();
+        $servicesArray   = [];
+
+        foreach ($services as $service) {
+            $servicesArray[$service['id']] = $service['name'];
+        }
+
+        $platform = ucwords(@$_GET['p']);
+
+        if (in_array($platform, $servicesArray)) {
+            $platform                     = array_search($platform, $servicesArray);
+            $this->pageData['imgGallery'] = $userServiceData->getMediaFileByUid($this->userInfo['uId'], $platform);
+        } else {
+            $this->pageData['imgGallery'] = $userServiceData->getAllMediaFileByUid($this->userInfo['uId']);
+        }
+
+        $this->pageData['allImg'] = json_encode($this->pageData['imgGallery']);
         $this->loadView('image_gallery', $this->pageData);
     }
+    function showAllImageNew() {
+        $this->auth();
 
+        require_once 'Model/UserServiceDataModel.php';
+        require_once dirname(__FILE__) . '/Model/ServiceProviderModel.php';
+
+        $serviceProvider = new ServiceProvider();
+        $userServiceData = new UserServiceData();
+        $services        = $serviceProvider->getProviderList();
+        $servicesArray   = [];
+
+
+
+        $platform = (isset($_GET['p']))?trim($_GET['p']):"all";
+
+        if (in_array($platform,  $this->serverProvider)) {
+            $platformId                     = array_search($platform, $this->serverProvider);
+            $this->pageData['imgGallery'] = $userServiceData->getMediaFileByUid($this->userInfo['uId'], $platformId);
+            $this->pageData['imgDateWise'] =$userServiceData->getDistinctDateWiseMediaFileByUidAndServiceId($this->userInfo['uId'],$platformId);
+        } else {
+            $this->pageData['imgGallery'] = $userServiceData->getAllMediaFileByUid($this->userInfo['uId']);
+            $this->pageData['imgDateWise'] =$userServiceData->getDistinctDateWiseMediaFileByUid($this->userInfo['uId']);
+        }
+
+        $this->pageData['platform'] = $platform;
+        $this->pageData['allImg'] = json_encode($this->pageData['imgGallery']);
+
+        $this->loadView('img_gallery/new_gallery', $this->pageData);
+    }
     function uploadMedia() {
         $this->auth();
         $this->loadView('imageForm', $this->pageData);
@@ -330,6 +378,12 @@ class MediaController extends EzzipixController {
 
                 return;
             }
+        } else {
+            if ($userService->deleteImage($imageId)) {
+                echo json_encode(["status" => TRUE]);
+
+                return;
+            }
         }
         echo json_encode(["status" => FALSE]);
     }
@@ -339,6 +393,9 @@ class MediaController extends EzzipixController {
         switch ($method) {
             case 'all':
                 $this->showAllImage();
+                break;
+            case 'allnew':
+                $this->showAllImageNew();
                 break;
             case 'upload':
                 $this->uploadMedia();

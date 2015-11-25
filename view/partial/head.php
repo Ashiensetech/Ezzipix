@@ -14,6 +14,12 @@
     <link rel="shortcut icon" href="<?php echo $this->baseUrl.'html_template/dist/image/favicon.ico'?> ">
     <!--/ END META SECTION -->
 
+    
+
+    <!--[if lte IE 9]>
+      <link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/stylesheet/animations-ie-fix.css';?>">
+<![endif]-->
+
     <!-- START STYLESHEETS -->
     <!-- Plugins stylesheet : optional -->
     <link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/plugins/owl/css/owl-carousel.css'; ?>">
@@ -25,11 +31,18 @@
     <link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/stylesheet/bootstrap.css';?>">
     <link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/stylesheet/layout.css';?>">
     <link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/stylesheet/uielement.css';?>">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/stylesheet/animations.css';?>">
     <link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/stylesheet/themes/layouts/fixed-header.css';?>">
     <!--/ Application stylesheet -->
 
     <!-- modernizr script -->
     <script type="text/javascript" src="<?php echo $this->baseUrl.'html_template/dist/plugins/modernizr/js/modernizr.js';?>"></script>
+    
     <!--/ modernizr script -->
     <!-- END STYLESHEETS -->
+    <style type="text/css">
+        .no-margin-bottom{
+            margin-bottom: 0px !important;
+        }
+    </style>
 </head>

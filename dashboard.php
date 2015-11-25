@@ -77,11 +77,72 @@ class DashboardController extends AuthController {
         }
     }
 
+    public function updateAccount() {
+        require_once "Model/UserModel.php";
+        $userId = $_SESSION['uId'];
+        $user   = new User();
+
+        if (@$_POST) {
+            $firstName = @$_POST['first_name'];
+            $lastName  = @$_POST['last_name'];
+            $gender    = @$_POST['gender'];
+            $dob       = @$_POST['dob'];
+
+            if (!$firstName) {
+                header('Location: dashboard.php?r=updateAccount&message=First Name Required.');
+
+                return;
+            }
+
+            if (!$lastName) {
+                header('Location: dashboard.php?r=updateAccount&message=Last Name Required.');
+
+                return;
+            }
+
+            if (!$gender) {
+                header('Location: dashboard.php?r=updateAccount&message=Gender Required.');
+
+                return;
+            }
+
+            /*if (!$dob) {
+                header('Location: dashboard.php?message=Phone Required.');
+
+                return;
+            }*/
+
+            $data = [
+                'user_id'    => $userId,
+                'first_name' => $firstName,
+                'last_name'  => $lastName,
+                'gender'     => $gender,
+                'dob'        => $dob,
+            ];
+
+            if ($user->updateAccount($data)) {
+                header('Location: dashboard.php?status=success');
+
+                return;
+            } else {
+                header('Location: dashboard.php?status=failed');
+
+                return;
+            }
+        } else {
+            $this->pageData['user'] = $user->getUserById($userId)[0];
+            $this->loadView("update_account", $this->pageData);
+        }
+    }
+
     function process() {
         $method = (isset($_GET['r'])) ? $_GET['r'] : "";
         switch ($method) {
             case 'updatePassword':
                 $this->updatePassword();
+                break;
+            case 'updateAccount':
+                $this->updateAccount();
                 break;
             case 'logout':
                 $this->logout();
