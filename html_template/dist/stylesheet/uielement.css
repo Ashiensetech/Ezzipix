@@ -1,5 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
 /* ----------------------------
  *
  * Font
@@ -15737,28 +15741,27 @@ transition: all .2s ease;
     padding-top: 90px;
 }
 .upper-banner{
-    background: #777 url(../image/top-banner.png)no-repeat;
+    background: #777 url(../image/top-banner-1.png)no-repeat;
     background-size: cover;
-    height: 400px;
+    height: 550px;
 
 }
 .welcome-txt-container{
-    background: transparent;
-    margin: 10px auto;
-    margin-top: 40px;
-
-    color: #fff;
+    background: rgba(255, 255, 255, 0.75) none repeat scroll 0% 0%;
+    margin: 185px auto 10px;
+    color: #FFF;
     padding: 20px;
     width: 60%;
 }
 .welcome-txt-container h2{
-    font-size:3em;
-    font-weight: bold;
+    font-size:3.8em;
+    font-weight: lighter;
     margin-top: 0px;
-    text-shadow: 1px 1px 2px #A2A2A2;
+    color: #000;
+    font-family: 'Pacifico', cursive;
 }
 .welcome-txt-container p{
-    color:#383838;
+    color:#111;
     font-size: 22px;
 }
 .see-products-btn{
@@ -15821,7 +15824,7 @@ transition: all .2s ease;
     background:rgba(255,255,255,1);
     padding:30px 15px;
     padding-top: 0px;
-    margin-top: 30px;
+    margin-top: 60px;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -ms-transition: all 0.2s ease;
@@ -15914,6 +15917,46 @@ transition: all .2s ease;
     font-size: 20px !important;
     color: rgb(255, 255, 255) !important;
     text-shadow: 0px 0px 1px rgb(17, 17, 17);
+}
+
+
+.new-gallery-container{
+    position: relative;
+    margin-top: 20px;
+}
+.new-gallery-container .block{
+    position: relative;
+}
+
+.new-gallery-container .block.active:before{
+    position: absolute;
+    content: " ";
+    bottom: -22px;
+    left: 20px;
+    border-top: 10px solid transparent;
+    border-bottom: 15px solid #eee;
+    border-left: 10px solid transparent;
+    border-right:10px solid transparent;
+}
+
+.block .panel-footer{
+    background: #44c282;
+    color: #fff;
+}
+.block .panel-footer a{
+    display: block;
+    color: #fff;
+    font-weight: bold;
+}
+.block .panel-body{
+    padding: 5px;
+    height: 200px;
+    overflow: hidden;
+}
+.album-all{
+    min-height: 200px;
+    background: #eee;
+    margin-bottom: 30px;
 }
 
 /*Other Custom design*/

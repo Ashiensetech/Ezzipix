@@ -289,7 +289,33 @@ class MediaController extends EzzipixController {
         $this->pageData['allImg'] = json_encode($this->pageData['imgGallery']);
         $this->loadView('image_gallery', $this->pageData);
     }
+    function showAllImageNew() {
+        $this->auth();
 
+        require_once 'Model/UserServiceDataModel.php';
+        require_once dirname(__FILE__) . '/Model/ServiceProviderModel.php';
+
+        $serviceProvider = new ServiceProvider();
+        $userServiceData = new UserServiceData();
+        $services        = $serviceProvider->getProviderList();
+        $servicesArray   = [];
+
+        foreach ($services as $service) {
+            $servicesArray[$service['id']] = $service['name'];
+        }
+
+        $platform = ucwords(@$_GET['p']);
+
+        if (in_array($platform, $servicesArray)) {
+            $platform                     = array_search($platform, $servicesArray);
+            $this->pageData['imgGallery'] = $userServiceData->getMediaFileByUid($this->userInfo['uId'], $platform);
+        } else {
+            $this->pageData['imgGallery'] = $userServiceData->getAllMediaFileByUid($this->userInfo['uId']);
+        }
+
+        $this->pageData['allImg'] = json_encode($this->pageData['imgGallery']);
+        $this->loadView('new-gallery', $this->pageData);
+    }
     function uploadMedia() {
         $this->auth();
         $this->loadView('imageForm', $this->pageData);
@@ -363,6 +389,9 @@ class MediaController extends EzzipixController {
         switch ($method) {
             case 'all':
                 $this->showAllImage();
+                break;
+            case 'allnew':
+                $this->showAllImageNew();
                 break;
             case 'upload':
                 $this->uploadMedia();
