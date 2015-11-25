@@ -107,57 +107,31 @@ LAST UPDATE: 2015/01/05
 
         <div class="container new-gallery-container">
             <div class="row clearfix">
-                <div class="col-md-3">
-                    <div class="panel panel-default block active">
-                        <div class="panel-body">
-                            <a href="#">
-                            <img class="img-responsive" src="./images/feature-1.png">
-                            </a>
-                        </div>
-                        <div class="panel-footer">
-                            <a href="#">Album name</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="panel panel-default block">
-                        <div class="panel-body">
-                            <a href="#">
-                            <img class="img-responsive" src="./images/feature-1.png">
-                            </a>
-                        </div>
-                        <div class="panel-footer">
-                            <a href="#">Album name</a>
+                <?php foreach($uploadDateWise as $row){ ?>
+                    <div class="col-md-3">
+                        <div class="panel panel-default block ">
+                            <div class="panel-body" >
+                                <a href="#">
+                                <img class="img-responsive" src="<?php echo $this->baseUrl . 'upload/img/' . $row['media_file_path']; ?>" />
+                                </a>
+                            </div>
+                            <div class="panel-footer">
+                                <?php  $date = new DateTime($row['created_date']); ?>
+                                <a href="<?php echo $this->baseUrl.'photo.php?r=date&d='.$date->format('Y-m-d');?>" >
+                                    <?php
+                                        echo $date->format('D d, M  Y');
+                                    ?>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="panel panel-default block">
-                        <div class="panel-body">
-                            <a href="#">
-                            <img class="img-responsive" src="./images/feature-1.png">
-                            </a>
-                        </div>
-                        <div class="panel-footer">
-                            <a href="#">Album name</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="panel panel-default block">
-                        <div class="panel-body">
-                            <a href="#">
-                            <img class="img-responsive" src="./images/feature-1.png">
-                            </a>
-                        </div>
-                        <div class="panel-footer">
-                            <a href="#">Album name</a>
-                        </div>
-                    </div>
-                </div>
+                <?php  } ?>
             </div>
             <div class="row album-all">
-                
+                <div style="text-align: center;padding-top: 5%;">
+                    <img src="<?php echo $this->baseUrl.'img/loader/loading.GIF';?>" />
+                </div>
+
             </div>
         </div>
     </section>

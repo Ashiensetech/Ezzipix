@@ -265,7 +265,7 @@ class MediaController extends EzzipixController {
     function showAllImage() {
         $this->auth();
 
-        require_once 'Model/UserServiceDataModel.php';
+        require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
         require_once dirname(__FILE__) . '/Model/ServiceProviderModel.php';
 
         $serviceProvider = new ServiceProvider();
@@ -312,9 +312,9 @@ class MediaController extends EzzipixController {
         } else {
             $this->pageData['imgGallery'] = $userServiceData->getAllMediaFileByUid($this->userInfo['uId']);
         }
-
+        $this->pageData['uploadDateWise'] =$userServiceData->getDistinctDateWiseMediaFileByUid($this->userInfo['uId']);
         $this->pageData['allImg'] = json_encode($this->pageData['imgGallery']);
-        $this->loadView('new-gallery', $this->pageData);
+        $this->loadView('new_gallery', $this->pageData);
     }
     function uploadMedia() {
         $this->auth();

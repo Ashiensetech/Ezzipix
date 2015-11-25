@@ -189,6 +189,8 @@
 <script type="text/javascript" src="filer/js/jquery.filer.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+        var picCount = 0;
+        var picSent = 0;
         $('#input2').filer({
             limit: 4,
             maxSize: null,
@@ -257,12 +259,18 @@
                 type: 'POST',
                 enctype: 'multipart/form-data',
                 beforeSend: function () {
+                    picCount++;
                 },
                 success: function (data, el) {
                     var parent = el.find(".jFiler-jProgressBar").parent();
                     el.find(".jFiler-jProgressBar").fadeOut("slow", function () {
                         $("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");
                     });
+                    picSent++;
+
+                    if(picSent == picCount){
+                        window.location = BaseUrl+"media.php?r=all";
+                    }
                 },
                 error: function (el) {
                     var parent = el.find(".jFiler-jProgressBar").parent();
@@ -291,9 +299,11 @@
             onSelect: function () {
             },
             afterShow: function () {
+                //window.location = BaseUrl+"media.php?r=all";
+
             },
             onRemove: function () {
-                console.log("hehe");
+
                 return false;
             },
             onEmpty: function () {

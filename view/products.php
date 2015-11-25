@@ -151,6 +151,15 @@ LAST UPDATE: 2015/01/05
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/javascript/frontend/home/home-v1.js'; ?>"></script>
         <!--/ Plugins and page level script : optional -->
         <!--/ END JAVASCRIPT SECTION -->
+        <input id="TelegramImg" type="hidden" value='<?php echo (isset($TelegramImg))?$TelegramImg:null; ?>'/>
+        <input id="WhatsAppImg" type="hidden" value='<?php echo (isset($WhatsAppImg))?$WhatsAppImg:null; ?>'/>
+        <input id="FacebookImg" type="hidden" value='<?php echo (isset($FacebookImg))?$FacebookImg:null; ?>'/>
+        <input id="InstragramImg" type="hidden" value='<?php echo (isset($InstragramImg))?$InstragramImg:null; ?>'/>
+        <input id="DropBoxImg" type="hidden" value='<?php echo (isset($DropBoxImg))?$DropBoxImg:null; ?>'/>
+        <input id="PicasaImg" type="hidden" value='<?php echo (isset($PicasaImg))?$PicasaImg:null; ?>'/>
+        <input id="FlickerImg" type="hidden" value='<?php echo (isset($FlickerImg))?$FlickerImg:null; ?>'/>
+        <input id="DesktopImg" type="hidden" value='<?php echo (isset($DesktopImg))?$DesktopImg:null; ?>'/>
+
         <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
         <script type="text/javascript">
             function changePhotoPluginDivHeight() {
@@ -170,13 +179,9 @@ LAST UPDATE: 2015/01/05
                 $('#photo-plugin').height(iframeHeight);
             }
             jQuery(document).ready(function () {
-<?php if (@$this->userInfo['uId'] > 0) { ?>
-                    var imgJobjArray = JSON.parse($("#allImg").val());
-                    var images = [];
-                    for (var key in imgJobjArray) {
-                        images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
-                    }
-<?php } ?>
+                <?php if (@$this->userInfo['uId'] > 0) { ?>
+
+                <?php } ?>
 
                 var el = document.getElementById('photo-plugin');
                 changePhotoPluginDivHeight();
@@ -234,37 +239,148 @@ LAST UPDATE: 2015/01/05
                             isInitiallyOpen: true,
                             // an icon for the tab, should be 48x48 px
                             iconUrl: BaseUrl + 'img/ezeepix-48.png'
+                        },custom: {
+                            sortOrder: 8,
+                            enabled: true,
+                            isInitiallyOpen: true,
+                            // an icon for the tab, should be 48x48 px
+                            iconUrl: BaseUrl + 'img/ezeepix-48.png'
                         }
                     }
                 });
                 PIO.open({
                     fns: {
-<?php if (@$this->userInfo['uId'] > 0) { ?>
+                        <?php if (@$this->userInfo['uId'] > 0) { ?>
                             onPhotoSourceReq: function (request, replyFn) {
-                                // if the request is for the root
 
+                                // if the request is for the root
                                 var picture = {};
                                 var pictureArray = [];
-                                //pictureArray.push({id: "f1", isFolder: true, name: "fave pics"}); // Create new folder
-                                for (var i = 0; i < images.length; i++) {
-                                    picture = {picture: images[i]};
-                                    pictureArray.push(picture);
+                                if (request.folder === "") {
+
+                                    //pictureArray.push({id: "f1", isFolder: true, name: "fave pics"}); // Create new folder
+                                    var myDeviceFolder = {id: "myDevice", isFolder: true, name: "My device"};
+                                    var facebookFolder = {id: "facebook", isFolder: true, name: "Facebook"};
+                                    var dropboxFolder = {id: "dropbox", isFolder: true, name: "Dropbox"};
+                                    var whatsAppFolder = {id: "whatsApp", isFolder: true, name: "WhatsApp pics"};
+                                    var instagramFolder = {id: "instagram", isFolder: true, name: "Instagram"};
+
+
+                                    pictureArray.push(myDeviceFolder);
+                                    pictureArray.push(facebookFolder);
+                                    pictureArray.push(dropboxFolder);
+                                    pictureArray.push(whatsAppFolder);
+                                    pictureArray.push(instagramFolder);
+
+
+
+                                    replyFn({
+                                        id: "",
+                                        page: 1,
+                                        totalPages: 1,
+                                        items: pictureArray
+
+                                    });
+                                }else{
+                                    if (request.folder === "myDevice") {
+
+                                        var imgObjArray = JSON.parse($("#DesktopImg").val());
+                                        var images = [];
+                                        for (var key in imgObjArray) {
+                                            images.push(BaseUrl + "upload/img/" + imgObjArray[key].media_file_path);
+                                        }
+
+                                        /*=======Pagination Code (Not stable)*/
+//                                        var perPageImg = 5;
+//                                        var page = request.page;
+//                                        var index = (page -1)*perPageImg;
+//                                        var limit = images.length - (images.length - (page*perPageImg));
+//
+//
+//                                        var totalPages =Math.ceil(images.length/perPageImg);
+//                                        console.log("totalPages "+totalPages+" page "+page);
+
+                                        for (var i = 0; i < images.length; i++) {
+                                            picture = {picture: images[i]};
+                                            pictureArray.push(picture);
+                                        }
+                                        replyFn({
+                                            id: "myDevice",
+                                            page: 1,
+                                            totalPages:1,
+                                            items: pictureArray
+
+                                        });
+                                    }else  if (request.folder === "facebook") {
+                                        var imgJobjArray = JSON.parse($("#FacebookImg").val());
+                                        var images = [];
+                                        for (var key in imgJobjArray) {
+                                            images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
+                                        }
+                                        for (var i = 0; i < images.length; i++) {
+                                            picture = {picture: images[i]};
+                                            pictureArray.push(picture);
+                                        }
+                                        replyFn({
+                                            id: "facebook",
+                                            page: 1,
+                                            totalPages: 1,
+                                            items: pictureArray
+
+                                        });
+                                    }else  if (request.folder === "dropbox") {
+                                        var imgJobjArray = JSON.parse($("#DropBoxImg").val());
+                                        var images = [];
+                                        for (var key in imgJobjArray) {
+                                            images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
+                                        }
+                                        for (var i = 0; i < images.length; i++) {
+                                            picture = {picture: images[i]};
+                                            pictureArray.push(picture);
+                                        }
+                                        replyFn({
+                                            id: "dropbox",
+                                            page: 1,
+                                            totalPages: 1,
+                                            items: pictureArray
+
+                                        });
+                                    }else  if (request.folder === "whatsApp") {
+                                        var imgJobjArray = JSON.parse($("#WhatsAppImg").val());
+                                        var images = [];
+                                        for (var key in imgJobjArray) {
+                                            images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
+                                        }
+                                        for (var i = 0; i < images.length; i++) {
+                                            picture = {picture: images[i]};
+                                            pictureArray.push(picture);
+                                        }
+                                        replyFn({
+                                            id: "whatsApp",
+                                            page: 1,
+                                            totalPages: 1,
+                                            items: pictureArray
+
+                                        });
+                                    }else  if (request.folder === "instagram") {
+                                        var imgJobjArray = JSON.parse($("#InstragramImg").val());
+                                        var images = [];
+                                        for (var key in imgJobjArray) {
+                                            images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
+                                        }
+                                        for (var i = 0; i < images.length; i++) {
+                                            picture = {picture: images[i]};
+                                            pictureArray.push(picture);
+                                        }
+                                        replyFn({
+                                            id: "instagram",
+                                            page: 1,
+                                            totalPages: 1,
+                                            items: pictureArray
+
+                                        });
+                                    }
                                 }
-                                replyFn({
-                                    id: "",
-                                    page: 1,
-                                    totalPages: 1,
-                                    items: pictureArray
-                                            /*items: [
-                                             // pass in that there is a folder
-                                             {id: "f1", isFolder: true, name: "fave pics"},
-                                             
-                                             // pass in three images
-                                             {picture: "http://img.ffffound.com/static-data/assets/6/8fc3b482de5086f5f6bb64b75805b3413936c49a_m.png"},
-                                             {picture: "http://img.ffffound.com/static-data/assets/6/c9c55336befdeae882e2d1794fc13888053e7f66_m.png"},
-                                             {picture: "http://img.ffffound.com/static-data/assets/6/6dc8a64f665183d97a37e44cac72410531ec0978_m.png"}
-                                             ]*/
-                                });
                             },
 <?php } else { ?>
                             onPhotoSourceReq: function (request, replyFn) {
