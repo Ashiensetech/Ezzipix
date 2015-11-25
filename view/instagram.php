@@ -33,7 +33,7 @@
                 $i = 0;
                 if (!@$dataSubmitted) { ?>
                     <div class="row shuffle clearfix">
-                        <div class="col-lg-12"><a href="<?= @$link ?>">Login with Instagram</a></div>
+                        <div class="col-lg-12"><a href="<?php echo @$link ?>">Login with Instagram</a></div>
                     </div>
                 <?php } else {
                     foreach ($images as $img) { ?>

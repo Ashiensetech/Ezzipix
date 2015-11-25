@@ -14,7 +14,7 @@
                             <a href="javascript:void(0)" url="<?php echo $img; ?>" onclick="addPictureToSave('facebook',this)" class="btn btn-success"><i class="ico-plus"></i></a>
                         </div>
                     </div>
-                    <img onerror="loadCount()" onload="opacityFreeMe(this);loadCount();" data-toggle="unveil" src="<?php echo $img; ?>" data-src="<?php echo $img; ?>" alt="Photo" width="100%"/>
+                    <img onerror="loadCount()" onload="opacityFreeMe(this);loadCount();" data-toggle="unveil" src="<?php echo $img; ?>" data-src="<?php echo $img; ?>" alt="Photo" width="100%" height="350px"/>
                 </div>
             </div>
 

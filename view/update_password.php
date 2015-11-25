@@ -4,11 +4,21 @@
     <body>
         <?php include_once 'partial/menu.php' ?>
         <section id="main" role="main">
-            <section class="bgcolor-white">
+            <section class="jumbotron jumbotron-bg7 nm" data-stellar-background-ratio="0.4" style="min-height:486px;">
+                <div class="overlay pattern pattern2"></div>
+                <div class="container" style="padding-top:8%;padding-bottom:8%;">
+
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
+                        <div class="content data-profile site-border">
+
                         <?php if (!$sendMail) { ?>
-                            <form method="post" class="panel no-border mb0" name="form-login" action="<?php echo $this->baseUrl ?>dashboard.php?r=updatePassword">
+                            <form method="post"  name="form-login" action="<?php echo $this->baseUrl ?>dashboard.php?r=updatePassword">
+                                <div class="form-group">
+                                    <div class="col-md-12 cstm-head-profile">
+                                        <p>CHANGE PASSWORD</p>
+                                    </div>
+                                </div>
                                 <div class="panel-body">
                                     <?php if (@$message) { ?>
                                         <div class="alert alert-danger">
@@ -55,7 +65,7 @@
                                     <div class="form-group">
                                         <div class="form-stack has-icon pull-left old">
                                             <input name="old-password" type="password" class="form-control input-lg" placeholder="Old Password" data-parsley-errors-container="#error-container" data-parsley-error-message="Please fill in your Old Password" data-parsley-required="">
-                                            <i class="ico-key form-control-icon"></i>
+                                            <!--<i class="ico-key form-control-icon"></i>-->
                                         </div>
                                     </div>
 
@@ -63,13 +73,13 @@
                                         <div class="col-md-6 no-padding">
                                             <div class="form-stack has-icon pull-left new">
                                                 <input name="password" type="password" class="form-control input-lg" placeholder="New Password" data-parsley-errors-container="#error-container" data-parsley-error-message="Please fill in your New Password" data-parsley-required="">
-                                                <i class="ico-key form-control-icon"></i>
+                                                <!--<i class="ico-key form-control-icon"></i>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6 no-padding">
                                             <div class="form-stack has-icon pull-left new">
                                                 <input name="re-password" type="password" class="form-control input-lg" placeholder="Re-enter Password" data-parsley-errors-container="#error-container" data-parsley-error-message="Please fill in your Re-Password" data-parsley-required="">
-                                                <i class="ico-key form-control-icon"></i>
+                                                <!--<i class="ico-key form-control-icon"></i>-->
                                             </div>
                                         </div>
                                     </div>
@@ -80,13 +90,14 @@
 
                                     <div class="form-group nm">
                                         <div class="col-md-4 col-md-offset-4 no-padding cstm-margin-top update-pass">
-                                            <button type="submit" class="btn btn-block btn-primary">
-                                                <span class="semibold">Update Password</span>
+                                            <button type="submit" class="btn btn-block btn-cstm-green">
+                                                Update Password
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
+                            </div>
                         <?php } else { ?>
                             <div class="panel-body">
                                 <div class="alert alert-success">
@@ -95,6 +106,7 @@
                             </div>
                         <?php } ?>
                     </div>
+                </div>
                 </div>
             </section>
             <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>

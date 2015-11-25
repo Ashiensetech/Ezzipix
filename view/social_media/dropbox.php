@@ -38,7 +38,7 @@
                                             <p>Add Photo With Dropbox</p> 
                                         </div>
                                         <div class="col-md-12 login-with-btn cstm-right-i"> 
-                                            <a href="<?= @$link ?>">
+                                            <a href="<?php echo @$link ?>">
                                                 <button class="btn btn-block btn-dropbox-m">| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in With Dropbox</button>
                                                 <i class="fa fa-instagram"></i>
                                             </a>
@@ -70,7 +70,7 @@
                                                         <a href="javascript:void(0)" url="<?php echo $img["auto"]; ?>" onclick="addPictureToSave('dropbox', this)" class="btn btn-success"><i class="ico-plus"></i></a>
                                                     </div>
                                                 </div>
-                                                <img onerror="loadCount()" onload="loadCount()" data-toggle="unveil" src="<?php echo $img["thumb"]; ?>" data-src="<?php echo $img["thumb"]; ?>" alt="Photo" width="100%"/>
+                                                <img onerror="loadCount()" onload="loadCount()" data-toggle="unveil" src="<?php echo $img["thumb"]; ?>" data-src="<?php echo $img["thumb"]; ?>" alt="Photo" width="100%" height="350px"/>
                                             </div>
                                         </div>
 
