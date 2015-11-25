@@ -23,7 +23,7 @@ class ContactUs extends EzzipixController
             return json_encode($this->respData);
         }
 
-        $email_message="Contact form responses \n\n";
+        $email_message=" Contact form responses from Ezeepix user \n\n";
         $email_message .= "Name: ".$name."\n";
         $email_message .= "Message: ".$message."\n";
 
