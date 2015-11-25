@@ -37,41 +37,41 @@ LAST UPDATE: 2015/01/05
         <!--/ END Template Header -->
 
         <!-- START Template Main -->
-        <div class="home-design animatedParent" data-sequence='500'>
-            <div class="container-fluid upper-banner text-center" >
+        <div class="home-design">
+            <div class="container-fluid upper-banner text-center">
                 <div class="welcome-txt-container text-center">
-                    <h2 class="animated bounceInDown" data-id='1'>We love to print</h2>
-                    <p class="animated bounceInRight" data-id='2'>Simply, the best printed products for the best prices anywhere</p>
+                    <h2>We love to print</h2>
+                    <p>Simply, the best printed products for the best prices anywhere</p>
                 </div>
 
-                <button class="btn btn-default see-products-btn animated bounceInUp" data-id='3' onclick="location.href='<?php echo $this->baseUrl.'product.php';?>'">See Our Products</button>
+                <button class="btn btn-default see-products-btn" onclick="location.href='<?php echo $this->baseUrl.'product.php';?>'">See Our Products</button>
 
             </div>
             <div class="container text-center steps-container">
                 <div class="row clearfix">
-                    <h2 class="home-head animated bounceInDown" data-id="4"><span>3 Easy Steps</span></h2>
-                    <div class="col-md-4 step-single animated fadeInLeftShort" data-id="5">
-                        <div class="img-div ">
-                            <img width="100" height="100" src="<?php echo $this->baseUrl.'html_template/dist/image/heart.gif';?>">
+                    <h2 class="home-head"><span>3 Easy Steps</span></h2>
+                    <div class="col-md-4 step-single">
+                        <div class="img-div">
+                            <img src="<?php echo $this->baseUrl.'html_template/dist/image/heart.png';?>">
                         </div>
-                        <h3 class="animated fadeIn">Pick your favourite Photos</h3>
-                        <p class="animated fadeIn">Prints look great from your
+                        <h3>Pick your favourite Photos</h3>
+                        <p>Prints look great from your
                             camera, Facebook, Instagram,
                             or favorite photo App.</p>
                     </div>
-                    <div class="col-md-4 step-single animated fadeInUpShort" data-id="6">
-                        <div class="img-div ">
-                            <img src="<?php echo $this->baseUrl.'html_template/dist/image/phone.gif';?>">
+                    <div class="col-md-4 step-single">
+                        <div class="img-div">
+                            <img src="<?php echo $this->baseUrl.'html_template/dist/image/phone.png';?>">
                         </div>
-                        <h3 class="animated fadeIn">Browse Stylish Products</h3>
-                        <p class="animated fadeIn">Our product team makes sure we carry the hottest items on the market.</p>
+                        <h3>Browse Stylish Products</h3>
+                        <p>Our product team makes sure we carry the hottest items on the market.</p>
                     </div>
-                    <div class="col-md-4 step-single animated fadeInRightShort" data-id="7">
-                        <div class="img-div ">
-                            <img src="<?php echo $this->baseUrl.'html_template/dist/image/tick.gif';?>">
+                    <div class="col-md-4 step-single">
+                        <div class="img-div">
+                            <img src="<?php echo $this->baseUrl.'html_template/dist/image/tick.png';?>">
                         </div>
                         <h3>Customize and Check-Out</h3>
-                        <p >Our web and mobile apps are clean
+                        <p>Our web and mobile apps are clean
                             and simple. We ship risk-free and
                             quality guaranteed.</p>
                     </div>
@@ -79,13 +79,13 @@ LAST UPDATE: 2015/01/05
                 </div>
             </div>
             <div class="container-fluid feature-container text-center">
-                <h2 class="home-head animated animated bounceInDown" data-id="8"><span>Our top features</span></h2>
+                <h2 class="home-head"><span>Our top features</span></h2>
                 <div class="container">
                     <div class="col-md-4">
                         <div class="row clearfix no-margin">
-                            <div class="col-md-12 feature-single animated growIn" data-id="9">
+                            <div class="col-md-12 feature-single">
                                 <div class="row clearfix">
-                                    <img class="img-responsive" src="<?php echo $this->baseUrl.'html_template/dist/image/feature-1.gif';?>">
+                                    <img class="img-responsive" src="<?php echo $this->baseUrl.'html_template/dist/image/feature-1.png';?>">
                                 </div>
                                 <h3><span>Quality</span></h3>
                                 <p>Our products are made from the highest quality materials in the industry.</p>
@@ -94,26 +94,27 @@ LAST UPDATE: 2015/01/05
                     </div>
                     <div class="col-md-4">
                         <div class="row clearfix no-margin">
-                            <div class="col-md-12 feature-single animated growIn" data-id="10" >
+                            <div class="col-md-12 feature-single">
                                 <div class="row clearfix">
-                                    <img class="img-responsive" src="<?php echo $this->baseUrl.'html_template/dist/image/feature-2.gif';?>">
+                                    <img class="img-responsive" src="<?php echo $this->baseUrl.'html_template/dist/image/feature-2.png';?>">
                                 </div>
                                 <h3><span>Love Guarantee</span></h3>
-                                <p>If you don't love it, we'll fix it. Happiness like your first love, every time.</p>
+                                <p>If you don�t love it, we'll fix it. Happiness like your first love, every time.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="row clearfix no-margin">
-                            <div class="col-md-12 feature-single animated growIn" data-id="11">
+                            <div class="col-md-12 feature-single">
                                 <div class="row clearfix">
-                                    <img class="img-responsive" src="<?php echo $this->baseUrl.'html_template/dist/image/feature-3.gif';?>">
+                                    <img class="img-responsive" src="<?php echo $this->baseUrl.'html_template/dist/image/feature-3.png';?>">
                                 </div>
                                 <h3><span>Picture Perfect</span></h3>
                                 <p>Our experts have perfected the artistic process, guaranteeing beautiful prints every time.</p>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -179,7 +180,6 @@ LAST UPDATE: 2015/01/05
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/layerslider/js/layerslider.transitions.js'; ?>"></script>
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/layerslider/js/layerslider.kreaturamedia.jquery.js'; ?>"></script>
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/javascript/frontend/home/home-v1.js'; ?>"></script>
-        <script type="text/javascript" src="<?php echo $this->baseUrl.'html_template/dist/javascript/frontend/css3-animate-it.js';?>"></script>
         <!--/ Plugins and page level script : optional -->
         <!--/ END JAVASCRIPT SECTION -->
         <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>

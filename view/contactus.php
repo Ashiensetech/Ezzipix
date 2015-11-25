@@ -25,6 +25,29 @@
                 <p class="text-justify">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec eleifend arcu. Suspendisse sagittis, lorem non sollicitudin feugiat, lorem risus congue nulla, sed ornare nulla velit eget libero. Maecenas at velit eu justo ullamcorper gravida. Duis quis tellus arcu. Proin non dignissim augue. Pellentesque luctus varius gravida. Curabitur efficitur tortor nec magna bibendum, quis lobortis sapien ornare. Suspendisse sed metus dapibus, bibendum odio eu, rhoncus risus. Vestibulum tortor enim, molestie et porttitor ut, lobortis eget nisl. Aenean vel ligula ac enim elementum finibus sit amet ut mauris.
                 </p>
+                <hr></hr>
+
+            <div class="col-md-6">
+                <form>
+                  <div class="form-group">
+                    <label>Email address</label>
+                    <input type="email" class="form-control" >
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Name</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Subject</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Message</label>
+                    <textarea class="form-control"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-success pull-right">Send</button>
+                </form>
+            </div>
             </div>
         </div>
     </section>
