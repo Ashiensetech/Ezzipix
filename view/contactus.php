@@ -28,22 +28,24 @@
                 <hr></hr>
 
             <div class="col-md-6">
-                <form>
+                <form onsubmit="return sendEmail()">
+                    <div class="alert alert-warning" id="msg" style="display: none;">
+                    </div>
                   <div class="form-group">
                     <label>Email address</label>
-                    <input type="email" class="form-control" >
+                    <input type="email" class="form-control" id="email" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Name</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" id="name">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Subject</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" id="subject">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Message</label>
-                    <textarea class="form-control"></textarea>
+                    <textarea class="form-control" id="message"></textarea>
                   </div>
                   <button type="submit" class="btn btn-success pull-right">Send</button>
                 </form>
@@ -71,4 +73,26 @@
 <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/shuffle/js/jquery.shuffle.js'; ?>"></script>
 
 </body>
+
+<script>
+    function sendEmail() {
+        var email = $('#email').val();
+        var name = $('#name').val();
+        var subject = $('#subject').val();
+        var message = $('#message').val();
+        $('#msg').html("");
+        $.ajax({
+            url: "contactus.php?r=contactus/sendMail",
+            method: "POST",
+            data: {"email": email, "name": name,"subject":subject,"message":message},
+            success: function (data) {
+                var resp = jQuery.parseJSON(data);
+                $('#msg').html(resp.msg);
+                $('#msg').fadeIn(500);
+
+            }
+        });
+        return false;
+    }
+</script>
 </html>

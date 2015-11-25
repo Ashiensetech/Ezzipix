@@ -15,6 +15,7 @@ class UserServiceData extends EzzipixModel {
     }
 
     function getAllMediaFileByUid($u_id) {
+
         $query  = "SELECT $this->tableName.* "
                   . " FROM `$this->tableName`"
                   . " INNER join user_service on user_service.id = $this->tableName.user_service_id "
@@ -25,6 +26,21 @@ class UserServiceData extends EzzipixModel {
 
         return $this->getArrayData($result);
     }
+    function getAllMediaDataByLoginId($login_id)
+    {
+        $query = "SELECT $this->tableName.* "
+                ." FROM `$this->tableName`"
+                ." WHERE `$this->tableName`.user_service_id IN"
+                ." (SELECT `user_service`.id FROM `user_service` WHERE `user_service`.u_id IN"
+                ." (SELECT `login`.u_id FROM `login` WHERE `login`.id = 1 ))";
+        $result = mysql_query($query);
+        
+    return $this->getArrayData($result);
+
+    }
+
+
+
 
     function getMediaFileByUid($u_id, $platformId) {
         $query  = "SELECT $this->tableName.* "
