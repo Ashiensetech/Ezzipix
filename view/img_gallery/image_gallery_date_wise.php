@@ -76,28 +76,26 @@ LAST UPDATE: 2015/01/05
                     </div>
                 </div>-->
                 <ul class="filter-tab">
-                    <?php $class = @$_GET['p']; ?>
+
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all' ?>" class="<?php echo ($class) ? '' : 'active' ?>">All</a>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew' ?>" class="<?php echo ($platform == 'all') ? 'active' : ''  ?>">All</a>
                     </li>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=desktop' ?>" class="<?php echo ($class == 'my device') ? 'active' : '' ?>">My
-                            device</a>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew&p=desktop' ?>" class="<?php echo ($platform == 'desktop') ? 'active' : '' ?>">My device</a>
                     </li>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=facebook' ?>" class="<?php echo ($class == 'facebook') ? 'active' : '' ?>">Facebook</a>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew&p=facebook' ?>" class="<?php echo ($platform == 'facebook') ? 'active' : '' ?>">Facebook</a>
                     </li>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=instagram' ?>" class="<?php echo ($class == 'instagram') ? 'active' : '' ?>">Instagram</a>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew&p=instagram' ?>" class="<?php echo ($platform == 'instagram') ? 'active' : '' ?>">Instagram</a>
                     </li>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=whats app' ?>" class="<?php echo ($class == 'whats app') ? 'active' : '' ?>">Whats
-                            App</a></li>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew&p=whatsapp' ?>" class="<?php echo ($platform == 'whatsapp') ? 'active' : '' ?>">Whats App</a></li>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=dropbox' ?>" class="<?php echo ($class == 'dropbox') ? 'active' : '' ?>">Dropbox</a>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew&p=dropbox' ?>" class="<?php echo ($platform == 'dropbox') ? 'active' : '' ?>">Dropbox</a>
                     </li>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=telegram' ?>" class="<?php echo ($class == 'telegram') ? 'active' : '' ?>">Telegram</a>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew&p=telegram' ?>" class="<?php echo ($platform == 'telegram') ? 'active' : '' ?>">Telegram</a>
                     </li>
                 </ul>
             </div>

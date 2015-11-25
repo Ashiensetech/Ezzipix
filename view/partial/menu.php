@@ -90,7 +90,7 @@
                         </ul>
                     </li>
                     <li class="dropdown dropdown-toggle dropdown-hover formenu">
-                        <a href="<?php echo $this->baseUrl ?>media.php?r=all" class="dropdown-toggle dropdown-hover">
+                        <a href="<?php echo $this->baseUrl ?>media.php?r=allnew" class="dropdown-toggle dropdown-hover">
                             <span class="meta">
                                 <span class="text">My Photos</span>
                             </span>

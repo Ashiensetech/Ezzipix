@@ -151,14 +151,14 @@ LAST UPDATE: 2015/01/05
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/javascript/frontend/home/home-v1.js'; ?>"></script>
         <!--/ Plugins and page level script : optional -->
         <!--/ END JAVASCRIPT SECTION -->
-        <input id="TelegramImg" type="hidden" value='<?php echo (isset($TelegramImg))?$TelegramImg:null; ?>'/>
-        <input id="WhatsAppImg" type="hidden" value='<?php echo (isset($WhatsAppImg))?$WhatsAppImg:null; ?>'/>
-        <input id="FacebookImg" type="hidden" value='<?php echo (isset($FacebookImg))?$FacebookImg:null; ?>'/>
-        <input id="InstragramImg" type="hidden" value='<?php echo (isset($InstragramImg))?$InstragramImg:null; ?>'/>
-        <input id="DropBoxImg" type="hidden" value='<?php echo (isset($DropBoxImg))?$DropBoxImg:null; ?>'/>
-        <input id="PicasaImg" type="hidden" value='<?php echo (isset($PicasaImg))?$PicasaImg:null; ?>'/>
-        <input id="FlickerImg" type="hidden" value='<?php echo (isset($FlickerImg))?$FlickerImg:null; ?>'/>
-        <input id="DesktopImg" type="hidden" value='<?php echo (isset($DesktopImg))?$DesktopImg:null; ?>'/>
+        <input id="TelegramImg" type="hidden" value='<?php echo (isset($TelegramImg))?$TelegramImg:"{}"; ?>'/>
+        <input id="WhatsAppImg" type="hidden" value='<?php echo (isset($WhatsAppImg))?$WhatsAppImg:"{}"; ?>'/>
+        <input id="FacebookImg" type="hidden" value='<?php echo (isset($FacebookImg))?$FacebookImg:"{}"; ?>'/>
+        <input id="InstragramImg" type="hidden" value='<?php echo (isset($InstragramImg))?$InstragramImg:"{}"; ?>'/>
+        <input id="DropBoxImg" type="hidden" value='<?php echo (isset($DropBoxImg))?$DropBoxImg:"{}"; ?>'/>
+        <input id="PicasaImg" type="hidden" value='<?php echo (isset($PicasaImg))?$PicasaImg:"{}"; ?>'/>
+        <input id="FlickerImg" type="hidden" value='<?php echo (isset($FlickerImg))?$FlickerImg:"{}"; ?>'/>
+        <input id="DesktopImg" type="hidden" value='<?php echo (isset($DesktopImg))?$DesktopImg:"{}"; ?>'/>
 
         <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
         <script type="text/javascript">
@@ -256,6 +256,7 @@ LAST UPDATE: 2015/01/05
                                 // if the request is for the root
                                 var picture = {};
                                 var pictureArray = [];
+                                console.log(request);
                                 if (request.folder === "") {
 
                                     //pictureArray.push({id: "f1", isFolder: true, name: "fave pics"}); // Create new folder

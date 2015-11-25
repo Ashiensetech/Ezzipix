@@ -78,7 +78,7 @@ LAST UPDATE: 2015/01/05
                 <ul class="filter-tab">
                     <?php $class = @$_GET['p']; ?>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all' ?>" class="<?php echo ($class) ? '' : 'active' ?>">All</a>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew' ?>" class="<?php echo ($class) ? '' : 'active' ?>">All</a>
                     </li>
                     <li>
                         <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=desktop' ?>" class="<?php echo ($class == 'my device') ? 'active' : '' ?>">My

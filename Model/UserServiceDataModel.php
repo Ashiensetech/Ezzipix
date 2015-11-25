@@ -55,6 +55,8 @@ class UserServiceData extends EzzipixModel {
         return $this->getArrayData($result);
     }
     function getMediaFileByUidAndDate($u_id, $platformId,$date) {
+        $date = mysql_real_escape_string(trim($date));
+
         $query  = "SELECT $this->tableName.* "
             . " FROM `$this->tableName`"
             . " INNER join user_service on user_service.id = $this->tableName.user_service_id "
@@ -69,6 +71,8 @@ class UserServiceData extends EzzipixModel {
         return $this->getArrayData($result);
     }
     function getAllMediaFileByUidAndDate($u_id,$date) {
+
+        $date = mysql_real_escape_string(trim($date));
         $query  = "SELECT $this->tableName.* "
             . " FROM `$this->tableName`"
             . " INNER join user_service on user_service.id = $this->tableName.user_service_id "
@@ -87,6 +91,20 @@ class UserServiceData extends EzzipixModel {
             . " INNER join user_service on user_service.id = $this->tableName.user_service_id "
             . " WHERE "
             . " user_service.u_id = " . $u_id
+            ." Group by date(user_service_data.created_date)"
+            . " ORDER BY id DESC ";
+
+        $result = mysql_query($query);
+
+        return $this->getArrayData($result);
+    }
+    function getDistinctDateWiseMediaFileByUidAndServiceId($u_id,$platformId) {
+        $query  = "SELECT $this->tableName.* "
+            . " FROM `$this->tableName`"
+            . " INNER join user_service on user_service.id = $this->tableName.user_service_id "
+            . " WHERE "
+            . " user_service.u_id = " . $u_id
+            . " AND user_service.service_provider_id = " . $platformId
             ." Group by date(user_service_data.created_date)"
             . " ORDER BY id DESC ";
 

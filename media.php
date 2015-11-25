@@ -7,8 +7,10 @@ require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
 require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
 
 class MediaController extends EzzipixController {
+    private $serverProvider;
     public function __construct() {
         parent::__construct();
+        $this->serverProvider = array(1=>"telegram",2=>"whatsapp",3=>"facebook",4=>"instagram",5=>"dropbox", 6=>"picasa",7=>"flicker",8=> "desktop" );
     }
 
     public function index() {
@@ -300,21 +302,23 @@ class MediaController extends EzzipixController {
         $services        = $serviceProvider->getProviderList();
         $servicesArray   = [];
 
-        foreach ($services as $service) {
-            $servicesArray[$service['id']] = $service['name'];
-        }
 
-        $platform = ucwords(@$_GET['p']);
 
-        if (in_array($platform, $servicesArray)) {
-            $platform                     = array_search($platform, $servicesArray);
-            $this->pageData['imgGallery'] = $userServiceData->getMediaFileByUid($this->userInfo['uId'], $platform);
+        $platform = (isset($_GET['p']))?trim($_GET['p']):"all";
+
+        if (in_array($platform,  $this->serverProvider)) {
+            $platformId                     = array_search($platform, $this->serverProvider);
+            $this->pageData['imgGallery'] = $userServiceData->getMediaFileByUid($this->userInfo['uId'], $platformId);
+            $this->pageData['imgDateWise'] =$userServiceData->getDistinctDateWiseMediaFileByUidAndServiceId($this->userInfo['uId'],$platformId);
         } else {
             $this->pageData['imgGallery'] = $userServiceData->getAllMediaFileByUid($this->userInfo['uId']);
+            $this->pageData['imgDateWise'] =$userServiceData->getDistinctDateWiseMediaFileByUid($this->userInfo['uId']);
         }
-        $this->pageData['uploadDateWise'] =$userServiceData->getDistinctDateWiseMediaFileByUid($this->userInfo['uId']);
+
+        $this->pageData['platform'] = $platform;
         $this->pageData['allImg'] = json_encode($this->pageData['imgGallery']);
-        $this->loadView('new_gallery', $this->pageData);
+
+        $this->loadView('img_gallery/new_gallery', $this->pageData);
     }
     function uploadMedia() {
         $this->auth();

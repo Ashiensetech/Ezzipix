@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <!-- 
 TEMPLATE NAME : Adminre - frontend
 VERSION : 1.3.0
@@ -15,14 +16,14 @@ LAST UPDATE: 2015/01/05
 <html class="frontend">
 <link rel="stylesheet" href="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/css/magnific.css'; ?>">
 <link rel="stylesheet" href="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/css/owl-carousel.css'; ?>">
-<?php include_once 'partial/head.php' ?>
+<?php include_once dirname(__FILE__) .'/../partial/head.php' ?>
 <script src="<?php echo $this->baseUrl . "js/printio/pio.latest.v2.js"; ?>"></script>
 <!--/ END Head -->
 
 <!-- START Body -->
 <body>
 <!-- START Template Header -->
-<?php include_once 'partial/menu.php'; ?>
+<?php include_once dirname(__FILE__) .'/../partial/menu.php'; ?>
 
 <input type="hidden" id="imgSize" value="<?php echo sizeof($imgGallery); ?>" ?>
 <script>
@@ -76,28 +77,28 @@ LAST UPDATE: 2015/01/05
                     </div>
                 </div>-->
                 <ul class="filter-tab">
-                    <?php $class = @$_GET['p']; ?>
+
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all' ?>" class="<?php echo ($class) ? '' : 'active' ?>">All</a>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew' ?>" class="<?php echo ($platform == 'all') ? 'active' : '' ?>">All</a>
                     </li>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=desktop' ?>" class="<?php echo ($class == 'my device') ? 'active' : '' ?>">My
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew&p=desktop' ?>" class="<?php echo ($platform == 'desktop') ? 'active' : '' ?>">My
                             device</a>
                     </li>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=facebook' ?>" class="<?php echo ($class == 'facebook') ? 'active' : '' ?>">Facebook</a>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew&p=facebook' ?>" class="<?php echo ($platform == 'facebook') ? 'active' : '' ?>">Facebook</a>
                     </li>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=instagram' ?>" class="<?php echo ($class == 'instagram') ? 'active' : '' ?>">Instagram</a>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew&p=instagram' ?>" class="<?php echo ($platform == 'instagram') ? 'active' : '' ?>">Instagram</a>
                     </li>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=whats app' ?>" class="<?php echo ($class == 'whats app') ? 'active' : '' ?>">Whats
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew&p=whatsapp' ?>" class="<?php echo ($platform == 'whatsapp') ? 'active' : '' ?>">Whats
                             App</a></li>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=dropbox' ?>" class="<?php echo ($class == 'dropbox') ? 'active' : '' ?>">Dropbox</a>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew&p=dropbox' ?>" class="<?php echo ($platform == 'dropbox') ? 'active' : '' ?>">Dropbox</a>
                     </li>
                     <li>
-                        <a href="<?php echo $this->baseUrl . 'media.php?r=all&p=telegram' ?>" class="<?php echo ($class == 'telegram') ? 'active' : '' ?>">Telegram</a>
+                        <a href="<?php echo $this->baseUrl . 'media.php?r=allnew&p=telegram' ?>" class="<?php echo ($platform == 'telegram') ? 'active' : '' ?>">Telegram</a>
                     </li>
                 </ul>
             </div>
@@ -107,17 +108,18 @@ LAST UPDATE: 2015/01/05
 
         <div class="container new-gallery-container">
             <div class="row clearfix">
-                <?php foreach($uploadDateWise as $row){ ?>
+                <?php foreach($imgDateWise as $row){ ?>
+                    <?php  $date = new DateTime($row['created_date']); ?>
                     <div class="col-md-3">
                         <div class="panel panel-default block ">
                             <div class="panel-body" >
-                                <a href="#">
+                                <a href="<?php echo $this->baseUrl.'photo.php?r=date&p='.$platform.'&d='.$date->format('Y-m-d');?>">
                                 <img class="img-responsive" src="<?php echo $this->baseUrl . 'upload/img/' . $row['media_file_path']; ?>" />
                                 </a>
                             </div>
                             <div class="panel-footer">
-                                <?php  $date = new DateTime($row['created_date']); ?>
-                                <a href="<?php echo $this->baseUrl.'photo.php?r=date&d='.$date->format('Y-m-d');?>" >
+
+                                <a href="<?php echo $this->baseUrl.'photo.php?r=date&p='.$platform.'&d='.$date->format('Y-m-d');?>" >
                                     <?php
                                         echo $date->format('D d, M  Y');
                                     ?>
@@ -127,12 +129,12 @@ LAST UPDATE: 2015/01/05
                     </div>
                 <?php  } ?>
             </div>
-            <div class="row album-all">
-                <div style="text-align: center;padding-top: 5%;">
-                    <img src="<?php echo $this->baseUrl.'img/loader/loading.GIF';?>" />
-                </div>
-
-            </div>
+<!--            <div class="row album-all">-->
+<!--                <div style="text-align: center;padding-top: 5%;">-->
+<!--                    <img src="--><?php //echo $this->baseUrl.'img/loader/loading.GIF';?><!--" />-->
+<!--                </div>-->
+<!---->
+<!--            </div>-->
         </div>
     </section>
 
@@ -153,9 +155,9 @@ LAST UPDATE: 2015/01/05
 
 <!-- START Template Footer -->
 <!-- START Template Footer -->
-<?php include_once 'partial/footer.php' ?>
+<?php include_once dirname(__FILE__) .'/../partial/footer.php' ?>
 <!-- End Template Footer -->
-<?php include_once 'partial/core_script.php' ?>
+<?php include_once dirname(__FILE__) .'/../partial/core_script.php' ?>
 <!--/ END Template Footer -->
 
 
