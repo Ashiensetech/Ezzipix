@@ -16,7 +16,7 @@ class ContactUs extends EzzipixController
 
     public function submitEmail($email,$name,$subject,$message)
     {
-        $email_to = "rajibcse2k10@gmail.com";
+        $email_to = "gershonungar@gmail.com";
 
         if ($email == "" || $name == ""||$subject==""||$message=="") {
             $this->respData['msg'] = "All field is required ";
