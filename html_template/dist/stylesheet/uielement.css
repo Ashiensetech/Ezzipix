@@ -15334,41 +15334,47 @@ input[type=password]:focus {
     border-bottom: 2px solid #44c282 !important;
 }
 .cstm-pre-footer{
-    background: #ffffff !important;
+    background: url(../image/footer-bg.png)no-repeat !important;
+    background-size: cover;
     border-top: 1px solid #ECF0F1;
     border-bottom: 1px solid #ECF0F1;
+    min-height: 280px;
+    position: relative;
+    background-size: cover;
 }
 .pre-foot-left{
     color: #404040;
 }
 .pre-foot-left p{
-    text-align: justify;
     margin-top: 15px;
+    font-size: 18px;
+    font-weight: lighter;
+    color: #fff;
 }
 .cstm-address{
     margin-top: 12px;
 }
 .pre-foot-left h4{
-    border-bottom: 2px solid #44C282;
     display: table-cell;
-    padding-bottom: 7px;
+    font-size: 26px;
+    color: #00b6ad;
 }
 .pre-foot-right h4{
-    border-bottom: 2px solid #44C282;
     display: table-cell;
-    padding-bottom: 7px;
+    font-size: 26px;
+    color: #00b6ad;
 }
-.pre-foot-right{
-    color: #404040;
-}
-.cstm-footer{
-    background: #ECF0F1;
+.cstm-footer {
+    background: #141414 none repeat scroll 0% 0%;
+    position: absolute;
+    width: 100%;
+    bottom: -1px;
 }
 .copyrights p{
-    color: #404040 !important;
+    color: #fff !important;
 }
 .copyrights p a{
-    color: #404040 !important;
+    color: #fff !important;
     font-weight: bold;
 }
 .copyrights p a:hover{
@@ -15380,7 +15386,7 @@ input[type=password]:focus {
     font-size: 13px;
 }
 .policy a{
-    color: #404040 !important;
+    color: #fff !important;
     font-weight: bold;
     font-size: 13px;
 }
@@ -15417,62 +15423,85 @@ input[type=password]:focus {
     color: #414141;
 }
 .pre-foot-right-r h4{
-    border-bottom: 2px solid #44C282;
     display: table-cell;
-    padding-bottom: 7px;
+    font-size: 26px;
+    color: #009d95;
 }
 .icons{
     margin-top: 15px;
 }
 .btn-outline i{
-    color: #414141 !important;
+    color: #e0e0e0  !important;
 }
 .btn-outline:hover i{
-    color: #44C282 !important;
+    color: #fff !important;
     transition: all .5s;
 }
 .btn-social {
     display: inline-block;
     width: 43px;
     height: 43px;
-    border: 2px solid #414141;
-    border-radius: 100%;
+    border: 2px solid rgb(224, 224, 224);
     text-align: center;
     font-size: 20px;
-    line-height: 40px;
-    transition: all .5s;
+    line-height: 37px;
+    transition: all 0.5s ease 0s;
+    margin-right: 10px;
+    margin-top: 15px;
 }
 .btn-social:hover {
-    border: 2px solid #44C282 !important;
+    border-color: #44C282;
 }
 .btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
-    border: solid 2px #44C282;
-    color: #18bc9c;
-    background: #fff;
+    border-color:#44C282;
+    color: #fff;
+    background:#44C282;
 }
 .no-margin-bottom{
     margin-bottom: 0px !important;
 }
 .login-with-btn button{
     margin: 0px auto;
-    text-align: right;
 }
 .login-with-btn i{
     position: absolute;
-    top: 38px;
+    top: 7px;
     font-size: 30px;
-    right: 395px;
+    left: 0px;
     color: #fff;
+    position: absolute;
+    left: 46px;
 }
 .btn-instagram-m{
     background: #906248;
     border-radius: 0px;
-    width: 50%;
+    display: block;
     text-align: center;
     font-size: 15px;
+    width: 50%;
     height: 44px;
     box-shadow: 0px 2px 2px 0px #BDBDBD;
 
+}
+.social-btn{
+    position: relative;
+}
+.btn-block{
+    position: relative;
+}
+.btn-verify{
+    border-radius: 0px;
+    border: 1px solid #4AB07C;
+    background: #44C282 none repeat scroll 0% 0% !important;
+    color: #FFF;
+    padding: 12px;
+    font-size: 14px;
+    box-shadow: 0px 2px 2px 0px #BDBDBD;
+}
+.center-block-btn{
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
 }
 .btn-instagram-m:hover,
 .btn-instagram-m:focus,
@@ -15538,7 +15567,6 @@ input[type=password]:focus {
 }
 .my-photo-header h3{
     text-align: right;
-    border-bottom: 2px solid #44C282;
     display: table-cell;
     padding-bottom: 7px;
 }
@@ -15579,6 +15607,23 @@ input[type=password]:focus {
 }
 .local-img-header{
     margin-left: 66px !important;
+}
+
+.my-photo-bg{
+    background: url(../image/mp-bg.png)no-repeat;
+    height: 280px;
+    width: 100%;
+    background-size: cover;
+}
+.all-bg{
+    background: url(../image/all-bg.png)no-repeat;
+    height: 280px;
+    width: 100%;
+    background-size: cover;
+}
+.all-grid{
+    padding: 15px;background: rgba(255,255,255,0.9);font-size: 16px;
+    line-height: 28px;
 }
 
 /*.filter-tab{*/
@@ -15660,18 +15705,21 @@ input[type=password]:focus {
 
 
 .my-photo-header h3 {
-    padding: 5px 0px;
-    font-size: 20px;
-    text-transform: uppercase;
+    color: #545454;
+    padding: 5px;
+    background: #FFF none repeat scroll 0% 0%;
+    font-size: 2.3em;
+    box-shadow: 0px 0px 0px 9px rgba(255,255,255,0.5);
+    font-family: "Pacifico",cursive;
+    letter-spacing: 1px;
 }
 .filter-tab{
-    border: 1px solid #44C282;
     margin: 15px;
     padding: 0px;
     padding-top: 7px;
     padding-left: 7px;
     margin-bottom: 15px;
-    background: #f2f2f2;
+    background: #fff;
     font-size: 0;
     clear: both;
     /* overflow: hidden; */
@@ -15721,12 +15769,12 @@ input[type=password]:focus {
     height: 200px;
     overflow: hidden;
     /*box-shadow: -1px 0px 2px #111;*/
-    border: 1px solid #44C282;
+    border: 4px solid #e7e7e7;
     -webkit-transition: all .2s ease;
--moz-transition: all .2s ease;
--ms-transition: all .2s ease;
--o-transition: all .2s ease;
-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
 }
 .photo-fix .thumbnail .media:hover{
     box-shadow: 0px 0px 2px 3px #44C282; 
@@ -15908,7 +15956,7 @@ transition: all .2s ease;
     padding: 15px;
 }
 .custom-new-welcome h1{
-        font-weight: bold;
+    font-weight: bold;
     color: rgb(114, 255, 70) !important;
     font-size: 3.5em;
     text-shadow:2px 1px 0px rgb(36, 110, 39);
@@ -15922,10 +15970,11 @@ transition: all .2s ease;
 
 .new-gallery-container{
     position: relative;
-    margin-top: 20px;
+    margin-top:10px;
 }
 .new-gallery-container .block{
     position: relative;
+    border-radius: 0px;
 }
 
 .new-gallery-container .block.active:before{
@@ -15942,6 +15991,7 @@ transition: all .2s ease;
 .block .panel-footer{
     background: #44c282;
     color: #fff;
+    border-radius: 0px !important;
 }
 .block .panel-footer a{
     display: block;

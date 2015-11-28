@@ -31,11 +31,11 @@
                                 <p>Add Photo With Facebook</p>
                             </div>
                             <div class="col-md-12 login-with-btn cstm-right-i">
-                                <a href="javascript:void(0)" onclick="fbLogin()" >
-                                    <button onsubmit="return false;" class="btn btn-block btn-facebook-m">| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in
+                                <a class="social-btn" href="javascript:void(0)" onclick="fbLogin()" >
+                                    <button onsubmit="return false;" class="btn btn-block btn-facebook-m"><i class="fa fa-facebook"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in
                                         With Facebook
                                     </button>
-                                    <i class="fa fa-facebook"></i>
+                                    
                                 </a>
                             </div>
                         </div>

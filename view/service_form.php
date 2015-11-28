@@ -30,7 +30,7 @@ LAST UPDATE: 2015/01/05
         <!--/ pattern + overlay -->
         <div class="container" style="padding-top:8%;padding-bottom:8%;" style="background: #444444;">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3 telegram-back site-border">
+                <div class="col-md-7 col-md-offset-2 telegram-back site-border">
                     <div class="form-group">
                         <div class="col-md-12 cstm-head-profile">
                             <?php
@@ -48,15 +48,15 @@ LAST UPDATE: 2015/01/05
                         </div>
                     </div>
                     <form id="addServiceForm" action="" onsubmit="return false;">
-                        <table align="center" class="table table-responsive tele-table">
+                        <table align="center" class="table table-responsive tele-table" style="padding: 15px;">
                             <tr id="verification_code_msg" style="display: none">
                                 <td colspan="2">
                                     <div id='msg' style="color:red"></div>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="color:#414141; font-weight: 600;"></td>
-                                <td>
+<!--                                <td style="color:#414141; font-weight: 600;"></td>-->
+                                <td >
                                     <?php
                                             $selectDisabled = (isset($_GET['app']))?"disabled='disabled'":"";
                                     ?>
@@ -89,11 +89,11 @@ LAST UPDATE: 2015/01/05
                                 </td>
                             </tr>
                             <tr>
-                                <td style="color:#414141; font-weight: 600;"></td>
+<!--                                <td style="color:#414141; font-weight: 600;"></td>-->
                                 <td><input  placeholder="<?php echo $phonePlaceHolder; ?>" type="service_user_id" id="service_user_id" class="form-control"/></td>
                             </tr>
                             <tr id="verification_code_tr" style="display: none">
-                                <td>Verification Code :</td>
+<!--                                <td>Verification Code :</td>-->
                                 <td>
                                     <input class="text-default" type="verification_code" id="verification_code"/>&nbsp;
                                     <input class="text-default" id="resendTokenBtn" type="button" onclick="sendCode();" value="Resend Code"/>
@@ -101,13 +101,13 @@ LAST UPDATE: 2015/01/05
 
                             </tr>
                             <tr id="verification_code_send">
-                                <td>&nbsp;</td>
+<!--                                <td>&nbsp;</td>-->
                                 <td>
-                                    <input id="getVerifucationBtn" type="button" onclick="sendCode();" value="Verify my number" class="btn btn-info btn-block"/>
+                                    <input id="getVerifucationBtn" type="button" onclick="sendCode();" value="Verify my number" class="btn btn-info btn-block btn-verify"/>
                                 </td>
                             </tr>
                             <tr id="verification_code_submit" style="display: none">
-                                <td>&nbsp;</td>
+<!--                                <td>&nbsp;</td>-->
                                 <td>
                                     <button type="submit" class="btn btn-block btn-primary" onclick="addService();">
                                         <span class="semibold">Submit Code</span>

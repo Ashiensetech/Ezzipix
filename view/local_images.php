@@ -18,7 +18,7 @@
 
         <div class="container" style="padding-top:8%;padding-bottom:8%;">
             <div class="row">
-                <div class="col-md-7 col-md-offset-3" style="overflow: hidden;">
+                <div class="col-md-7 col-md-offset-2" style="overflow: hidden;">
                     <div class="content data-profile site-border" style="overflow: hidden;">
                         <div class="form-group">
                             <div class="col-md-12 cstm-head-profile">

@@ -5,7 +5,7 @@
         <div class="row">
             <!-- About -->
             <div class="col-md-5 pre-foot-left">
-                <h4 class="font-alt mt0"> ABOUT US </h4>
+                <h4 class="font-alt mt0"> About us </h4>
 
                 <p>
                     Photos are more than a file on your phone. They’re memories and tools to share ideas and inspire. A
@@ -27,7 +27,7 @@
 
             </div>
             <div class="col-md-3 pre-foot-right-r">
-                <h4 class="font-alt mt0">CONNECT WITH US</h4>
+                <h4 class="font-alt mt0">Connect with us</h4>
 
                 <div class="icons">
                     <a href="//www.facebook.com/ezeepix" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>

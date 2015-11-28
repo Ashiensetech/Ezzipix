@@ -48,7 +48,10 @@ LAST UPDATE: 2015/01/05
     <!--/ END page header -->
 
     <!-- START Portfolio Content -->
-    <section class="section bgcolor-white cstm-padding-top">
+        <div class="my-photo-bg">
+        
+    </div>
+    <section class="section bgcolor-white cstm-padding-top" style="margin-top:-280px;background: rgba(255,255,255,0.6) !important;">
         <div class="container">
             <!-- START Section Header -->
             <div class="row">

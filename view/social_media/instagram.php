@@ -27,15 +27,15 @@
                         if (!@$dataSubmitted) {
                             ?>
                             <div class="row shuffle clearfix cstm-padding-top-it">
-                                <div class="col-md-12 col-md-offset-3 telegram-back site-border">
+                                <div class="col-md-11 col-md-offset-2 telegram-back site-border">
                                     <div class="form-group">
                                         <div class="col-md-12 cstm-head-profile">
                                             <p>Add Photo With Instagram</p> 
                                         </div>
                                         <div class="col-md-12 login-with-btn"> 
-                                            <a href="<?php echo @$link ?>">
-                                                <button class="btn btn-block btn-instagram-m">| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in With Instagram</button>
-                                                <i class="fa fa-instagram"></i>
+                                            <a class="social-btn" href="<?php echo @$link ?>">
+                                                <button class="btn btn-block btn-instagram-m"><i class="fa fa-instagram"></i>&nbsp;&nbsp;&nbsp;&nbsp;Sign in With Instagram</button>
+                                                
                                             </a>
                                         </div>
                                     </div>
