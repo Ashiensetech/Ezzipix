@@ -15335,12 +15335,11 @@ input[type=password]:focus {
 }
 .cstm-pre-footer{
     background: url(../image/footer-bg.png)no-repeat !important;
-    background-size: cover;
+    background-size: cover !important;
     border-top: 1px solid #ECF0F1;
     border-bottom: 1px solid #ECF0F1;
     min-height: 280px;
     position: relative;
-    background-size: cover;
 }
 .pre-foot-left{
     color: #404040;
