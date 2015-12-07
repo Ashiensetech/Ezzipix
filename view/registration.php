@@ -30,46 +30,50 @@ LAST UPDATE: 2015/01/05
         <!--/ pattern + overlay -->
         <div class="container" style="padding-top:8%;padding-bottom:8%;">
             <div class="row">
-                <div class="col-md-5 cstm-background site-border">
+                <div class="col-md-5  site-border custom-new-welcome">
                     <h1 class="thin text-white font-alt mt0 mb5">Ezeepix</h1>
 
-                    <p class="text-white mb15 fsize14">
+                    <p class="text-white mb15 fsize14 cstm-wlcm-p">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat.
                     </p>
+                    <br>
 
-                    <div class="col-md-4 col-md-offset-4">
-                        <button type="button" class="btn btn-info btn-block">Learn More</button>
-                    </div>
+                    <button type="button" class="btn btn-success btn-lg">Learn More</button>
                 </div>
                 <div class="col-md-2"></div>
-                <div class="col-md-5 cstm-background site-border">
-                    <form role="form" onsubmit="return signup();">
+                <div class="col-md-5 cstm-background site-border" style="padding:25px !important;">
+                <form role="form" onsubmit="return signup();">
                         <div class="form-group">
-                            <input name="First Name" type="text" class="form-control input-lg mendatory" id="first-name" placeholder="Your first name">
+                            <input titleName="First Name" type="text" class="form-control input-lg mendatory" id="first-name" placeholder="Your first name">
                         </div>
                         <div class="form-group">
-                            <input name="Last name" type="text" class="form-control input-lg mendatory" id="last-name" placeholder="Your last name">
+                            <input titleName="Last name" type="text" class="form-control input-lg mendatory" id="last-name" placeholder="Your last name">
                         </div>
                         <div class="form-group">
-                            <select name="Gender" class="form-control mendatory" id="gender">
+                            <select titleName="Gender" name="Gender" class="form-control mendatory" id="gender">
                                 <option value="">Select gender</option>
                                 <option value="female">Female</option>
                                 <option value="male">Male</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <input name="Email address" type="text" class="form-control input-lg mendatory" id="email" placeholder="Your email">
+                            <input titleName="Email" type="text" class="form-control input-lg mendatory" id="email" placeholder="Your email">
                         </div>
                         <div class="form-group">
-                            <input name="Password" type="password" id="password" class="form-control input-lg mendatory" placeholder="Create a password">
+                            <input titleName="Date of birth" type="text" class="form-control input-lg mendatory" id="dob" placeholder="Date of birth" autocomplete="off" readonly="readonly">
+                        </div>
+                        <div class="form-group">
+                            <input titleName="Password" type="password" id="password" class="form-control input-lg mendatory" placeholder="Create a password" autocomplete="off" >
                         </div>
                         <div class="clear clearfix">
                             <input value="1" type="checkbox" id="tnc" class="mendatory" name="Accept terms and condition">
-                            <span style="color: #000">Accept terms and condition</span>
-                            <span id="msg" class="help-block text-muted"></span>
+                            <span style="color: #777">Accept terms and condition</span>
+                            <p class="help-block text-muted text-center">
+                                <span id="msg" style="padding:2px 5px;background:#a4a4a4;color:#fff;"></span>
+                            </p>
                         </div>
                         <button type="submit" class="btn btn-success btn-block btn-lg">Signup Now</button>
                     </form>
@@ -91,6 +95,20 @@ LAST UPDATE: 2015/01/05
 <!-- End Template Footer -->
 <?php include_once 'partial/core_script.php' ?>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+<!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>-->
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+<script>
+    $(function () {
+        $("#dob").datepicker({
+            dateFormat: "dd-mm-yy",
+            autoSize: true,
+        });
+    });
+</script>
+
+
 </body>
 <!--/ END Body -->
 <script>
@@ -102,16 +120,16 @@ LAST UPDATE: 2015/01/05
             if (valid && $(this).val() == "") {
                 console.log("")
                 if ($(this).prop("tagName") == "SELECT") {
-                    errorMsg = "Select " + $(this).attr("name");
+                    errorMsg = "Select " + $(this).attr("titleName");
                 } else {
-                    errorMsg = $(this).attr("name") + " field required";
+                    errorMsg = $(this).attr("titleName") + " field required";
                 }
 
                 $(this).focus();
                 valid = false;
                 return false;
             } else if (!$("#tnc").is(':checked') && $(this).attr('id') == 'tnc') {
-                errorMsg = $(this).attr("name");
+                errorMsg = $(this).attr("titleName");
                 $(this).focus();
                 valid = false;
                 return false;
@@ -138,8 +156,8 @@ LAST UPDATE: 2015/01/05
         var firstName = $('#first-name').val();
         var lastName = $('#last-name').val();
         var gender = $('#gender').val();
-
         var email = $('#email').val();
+        var dob = $('#dob').val();
         var password = $('#password').val();
 
 
@@ -152,7 +170,8 @@ LAST UPDATE: 2015/01/05
                 "last_name": lastName,
                 "gender": gender,
                 "email": email,
-                "password": password
+                "password": password,
+                "dob":dob
             },
             success: function (data) {
                 var resp = jQuery.parseJSON(data);

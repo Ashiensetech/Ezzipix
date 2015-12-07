@@ -18,11 +18,11 @@
 
         <div class="container" style="padding-top:8%;padding-bottom:8%;">
             <div class="row">
-                <div class="col-md-7 col-md-offset-3" style="overflow: hidden;">
+                <div class="col-md-7 col-md-offset-2" style="overflow: hidden;">
                     <div class="content data-profile site-border" style="overflow: hidden;">
                         <div class="form-group">
                             <div class="col-md-12 cstm-head-profile">
-                                <p>PHOTO IN MY DEVICE</p>
+                                <p style="text-transform:uppercase">add photos from my device</p>
                             </div>
                         </div>
                         <div class="print print-local" style="display: none;">
@@ -189,8 +189,10 @@
 <script type="text/javascript" src="filer/js/jquery.filer.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+        var picCount = 0;
+        var picSent = 0;
         $('#input2').filer({
-            limit: null,
+            limit: 4,
             maxSize: null,
             extensions: null,
             changeInput: '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag & Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="jFiler-input-choose-btn blue">Browse Files</a></div></div>',
@@ -257,12 +259,18 @@
                 type: 'POST',
                 enctype: 'multipart/form-data',
                 beforeSend: function () {
+                    picCount++;
                 },
                 success: function (data, el) {
                     var parent = el.find(".jFiler-jProgressBar").parent();
                     el.find(".jFiler-jProgressBar").fadeOut("slow", function () {
                         $("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");
                     });
+                    picSent++;
+
+                    if(picSent == picCount){
+                        window.location = BaseUrl+"media.php?r=all";
+                    }
                 },
                 error: function (el) {
                     var parent = el.find(".jFiler-jProgressBar").parent();
@@ -291,9 +299,11 @@
             onSelect: function () {
             },
             afterShow: function () {
+                //window.location = BaseUrl+"media.php?r=all";
+
             },
             onRemove: function () {
-                console.log("hehe");
+
                 return false;
             },
             onEmpty: function () {

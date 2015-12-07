@@ -75,15 +75,15 @@
                     <div class="panel-body bgcolor-white min-height transparent-b site-border">
                         <div id="error-container" class="mb15"></div>
                         <div class="join" style="padding: 15px;">
-                            <h3>Join Ezeepix</h3>
+                            <h3 style="width:70%;margin-top:-5px;">Join Ezeepix</h3>
 
-                            <p><b>New Customer Offer:</b> 100 Free 4x6 prints<br/>
+                            <p style="font-size:18px;margin-top:32px;">
                                 Transform everyday photos into books, calendars and gifts you’ll cherish forever.</p>
                         </div>
                         <div class="form-group nm" style="padding: 15px;">
                             <a href="<?php echo $this->baseUrl ?>signup.php">
                                 <button type="submit" class="btn btn-block btn-success">
-                                    <span class="semibold">Sign Up</span></button>
+                                    <span class="semibold">Sign Up</span></button> 
                             </a>
                         </div>
                     </div>

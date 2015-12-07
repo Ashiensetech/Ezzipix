@@ -9,8 +9,13 @@ require_once dirname(__FILE__) . '/Model/ActivationTokenModel.php';
 
 class ServiceController extends AuthController {
 
+    private $successMsg;
     function __construct() {
         parent::__construct();
+        $this->successMsg = "Your number has been verified successfully! ";
+        $this->successMsg .="Now all you have to do is send your pictures to this number and they will automatically show up in your account! ";
+        $this->successMsg .="Please note: Pictures can be sent at all times even when you are not logged into your account and they will show up the ";
+        $this->successMsg .="next time you log in";
     }
 
     public function getNew() {
@@ -78,7 +83,55 @@ class ServiceController extends AuthController {
         }
 
     }
+    public function welcomeMsg(){
 
+            require_once dirname(__FILE__) . '/Model/ActivationTokenModel.php';
+            $serviceProviderId = $_POST['service_provider_id'];
+            $serviceUserId     = $_POST['service_user_id'];
+
+            if ($serviceProviderId == NULL || $serviceUserId == NULL) {
+                $data = [
+                    'status'  => FALSE,
+                    'message' => 'Service Name or Service ID is Empty',
+                ];
+                echo json_encode($data);
+                die;
+            }
+
+            require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
+
+            $serviceUser = new UserService();
+            $unique      = $serviceUser->findUserService($serviceProviderId, $serviceUserId);
+
+            if ($unique > 0) {
+                $deactivate  = $serviceUser->findUserService($serviceProviderId, $serviceUserId, 'deactivate');
+                $serviceUser = $serviceUser->getUserIdByProviderAndService($serviceProviderId, $serviceUserId);
+
+                if ($deactivate > 0 && $_SESSION['uId'] == $serviceUser) {
+                    $data = [
+                        'status'  => FALSE,
+                        'message' => 'You already register this Service, you may active this by sending "Active" from your cell',
+                    ];
+                    echo json_encode($data);
+                    die;
+                }
+
+                $data = [
+                    'status'  => FALSE,
+                    'message' => 'This Service ID already register with this Service Name',
+                ];
+                echo json_encode($data);
+                die;
+            }
+
+            if ($serviceProviderId == 1) {
+                $this->telegram($serviceProviderId, $serviceUserId);
+            } elseif ($serviceProviderId == 2) {
+                $this->whatsApp($serviceProviderId, $serviceUserId);
+            }
+
+
+    }
     function telegram($serviceProviderId = NULL, $serviceUserId = NULL) {
         $API = new TelegramAPIController();
 
@@ -175,7 +228,16 @@ class ServiceController extends AuthController {
             echo json_encode($data);
         }
     }
+    function whatsAppWellComeMsg($serviceUserId) {
 
+        $API   = new WhatsAppAPIController();
+
+
+        $API->target  = $serviceUserId;
+        $status       = $API->sendMessage($API->target,$this->successMsg);
+
+        return ($status != NULL);
+    }
     public function submitCode() {
         require_once dirname(__FILE__) . '/Model/ActivationTokenModel.php';
 
@@ -212,7 +274,7 @@ class ServiceController extends AuthController {
         if ($insertId <= 0) {
             $data = [
                 'status'  => FALSE,
-                'message' => 'System failed to register your Service',
+                'message' => 'System failed to register your Service'
             ];
             echo json_encode($data);
             die;
@@ -220,8 +282,11 @@ class ServiceController extends AuthController {
 
         $data = [
             'status'  => TRUE,
-            'message' => 'Your ID Verified SuccessFully !',
+            'message' => 'Your ID Verified SuccessFully !'
         ];
+        if ($serviceProviderId == 2) {
+            $this->whatsAppWellComeMsg($serviceUserId);
+        }
         echo json_encode($data);
     }
 
