@@ -434,9 +434,9 @@ LAST UPDATE: 2015/01/05
                                     console.log('At Home');
                                 }else if(val.tplName.trim()=="tpl-shipping"){
                                     console.log('At Address');
-                                    console.log(key);
+                                    console.log(val);
 
-                                    $("#fName").val("HOHO");
+
                                 }
 
                             } else if (key === "address-change") {
