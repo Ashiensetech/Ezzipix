@@ -189,7 +189,7 @@ LAST UPDATE: 2015/01/05
                 PIO.config({
                      url:"https://widget.print.io/widget/",
                     //recipeId: "d672c387-aa6a-480f-8908-782843978773", // Staging recipeId
-                      recipeId:"11ebd314-7bbc-4c92-bafb-cad6dd6622f9", //live
+                    recipeId:"11ebd314-7bbc-4c92-bafb-cad6dd6622f9", //live
                     countryCode: "US",
                     currencyCode: "USD",
                     languageCode: "en",
@@ -432,6 +432,11 @@ LAST UPDATE: 2015/01/05
                                 if (val.tplName.trim() == "tpl-product-a") {
                                     changePhotoPluginDivHeight();
                                     console.log('At Home');
+                                }else if(val.tplName.trim()=="tpl-shipping"){
+                                    console.log('At Address');
+                                    console.log(key);
+
+                                    $("#fName").val("HOHO");
                                 }
 
                             } else if (key === "address-change") {

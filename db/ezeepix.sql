@@ -317,6 +317,19 @@ CREATE TABLE IF NOT EXISTS `login` (
   KEY `login_user` (`u_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
+
+CREATE TABLE IF NOT EXISTS `admin_users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `admin_users_email_unique` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+
 --
 -- Dumping data for table `login`
 
@@ -367,28 +380,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 -- Dumping data for table `user`
 --
-
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `gender`, `dob`, `created_date`) VALUES
-(1, 'Developer', '', 'female', NULL, '2015-07-30 06:27:15'),
-(2, 'new name', '', 'female', NULL, '2015-09-09 09:56:30'),
-(3, 'new name', '', 'female', NULL, '2015-09-09 09:58:05'),
-(4, 'new name', '', 'female', NULL, '2015-09-09 09:58:36'),
-(5, 'new name', '', 'female', NULL, '2015-09-09 09:58:41'),
-(6, 'new name', '', 'female', NULL, '2015-09-09 09:59:35'),
-(7, 'dfg', '', 'Male', NULL, '2015-09-09 10:05:00'),
-(8, 'dfg', '', 'female', NULL, '2015-09-09 10:16:57'),
-(9, 'ghjgj', '', 'female', NULL, '2015-09-09 10:19:45'),
-(10, 'jkj', '', 'female', NULL, '2015-09-09 10:20:19'),
-(11, 'sdf', '', 'female', NULL, '2015-09-10 09:16:17'),
-(12, 'sdf', '', 'female', NULL, '2015-09-10 09:17:26'),
-(13, 'asd', '', 'female', NULL, '2015-09-10 09:19:43'),
-(14, 'test', '', 'female', NULL, '2015-10-16 08:48:36'),
-(15, 'sdf', 'sdf', 'female', '0000-00-00', '2015-11-17 09:31:32'),
-(16, 'sdf', 'sdf', 'female', '0000-00-00', '2015-11-17 09:32:19'),
-(17, 'sdf', 'sdf', 'female', '0000-00-00', '2015-11-17 09:32:27'),
-(18, 'zxcz', 'czxc', 'female', '0000-00-00', '2015-11-17 09:33:26'),
-(19, 'sdf', 'sdf', 'female', '0000-00-00', '2015-11-17 09:33:56'),
-(20, 'test', 'test', 'female', '0000-00-00', '2015-11-25 09:53:26');
 
 -- --------------------------------------------------------
 
