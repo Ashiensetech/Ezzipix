@@ -1,6 +1,6 @@
 <!--
 /**
- * File     : login.blade.php
+ * File     : login.php
  * Author   : Abu Bakar Siddique
  * Email    : absiddique.live@gmail.com
  */

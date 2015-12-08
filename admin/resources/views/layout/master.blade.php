@@ -1,6 +1,6 @@
 <!--
 /**
- * File     : master.blade.php
+ * File     : master.php
  * Author   : Abu Bakar Siddique
  * Email    : absiddique.live@gmail.com
  */

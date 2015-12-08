@@ -103,7 +103,7 @@ LAST UPDATE: 2015/01/05
     $(function () {
         $("#dob").datepicker({
             dateFormat: "dd-mm-yy",
-            autoSize: true,
+            autoSize: true
         });
     });
 </script>
