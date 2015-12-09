@@ -62,7 +62,7 @@ class LoginController1 extends EzzipizController1 {
     }
 
     private function checkLogin() {
-        if (@$_SESSION['email'] && @$_SESSION['AdminId']) {
+        if (@$_SESSION['AdminEmail'] && @$_SESSION['AdminId']) {
             header('Location: AdminDashboard.php');
         }
     }

@@ -26,7 +26,7 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="{{ url("logout") }}">
+                <a href="AdminDashboard.php?r=logout">
                     <i class="fa fa-power-off"></i> <span> Logout</span>
                 </a>
             </li>

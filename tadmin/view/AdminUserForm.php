@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <p class="help-block text-muted text-center">
-                    <span id="msg" style="background:#a4a4a4;color:#fff;"></span>
+                    <span id="msg" style="background:#C50505;color:#fff;"></span>
                 </p>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-info pull-right">Add Admin</button>

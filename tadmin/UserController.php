@@ -13,6 +13,11 @@ require_once 'EzzipizController1.php';
 class UserController extends EzzipizController1{
     function __construct() {
         parent::__construct();
+
+        if(!(@$_SESSION['AdminEmail'] && @$_SESSION['AdminId'])){
+            header('Location: login.php');
+        }
+
     }
 
 

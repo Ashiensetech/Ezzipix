@@ -13,18 +13,13 @@ class DashboardController extends AuthController {
     }
 
     public function index() {
-       /* $user        = new User();
-        $userService = new UserService();
-
-        $this->pageData['user']     = $user->getUserById($_SESSION['AdminId'])[0];
-       // $this->pageData['services'] = $userService->getAllService($_SESSION['uId']);*/
 
         $this->loadView('dashboard', $this->pageData);
     }
 
     public function logout() {
         session_destroy();
-        header('Location: home.php');
+        header('Location: login.php');
     }
 
     public function updatePassword() {
