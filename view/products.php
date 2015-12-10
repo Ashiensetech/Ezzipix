@@ -490,6 +490,9 @@ LAST UPDATE: 2015/01/05
                             } else if (key === "onOrderSubmit") {
                                 // contains data similar to analytics ecommerce events
                                 // == full order data
+                                console.log("OnOrderSubmit");
+                                console.log(val);
+
                             }
 
                         }
