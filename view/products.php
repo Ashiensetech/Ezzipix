@@ -159,6 +159,8 @@ LAST UPDATE: 2015/01/05
         <input id="PicasaImg" type="hidden" value='<?php echo (isset($PicasaImg))?$PicasaImg:"{}"; ?>'/>
         <input id="FlickerImg" type="hidden" value='<?php echo (isset($FlickerImg))?$FlickerImg:"{}"; ?>'/>
         <input id="DesktopImg" type="hidden" value='<?php echo (isset($DesktopImg))?$DesktopImg:"{}"; ?>'/>
+        <input id="imgDateWise" type="hidden" value='<?php echo (isset($imgDateWise))?$imgDateWise:"{}"; ?>'/>
+
 
         <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
         <script type="text/javascript">
@@ -257,13 +259,14 @@ LAST UPDATE: 2015/01/05
                                 var picture = {};
                                 var pictureArray = [];
                                 console.log(request);
+                                var dateWiseImageList = JSON.parse($("#imgDateWise").val());
                                 if (request.folder === "") {
 
                                     //pictureArray.push({id: "f1", isFolder: true, name: "fave pics"}); // Create new folder
-                                    var myDeviceFolder = {id: "myDevice", isFolder: true, name: "My device"};
+                                    var myDeviceFolder = {id: "desktop", isFolder: true, name: "My device"};
                                     var facebookFolder = {id: "facebook", isFolder: true, name: "Facebook"};
                                     var dropboxFolder = {id: "dropbox", isFolder: true, name: "Dropbox"};
-                                    var whatsAppFolder = {id: "whatsApp", isFolder: true, name: "WhatsApp pics"};
+                                    var whatsAppFolder = {id: "whatsapp", isFolder: true, name: "WhatsApp pics"};
                                     var instagramFolder = {id: "instagram", isFolder: true, name: "Instagram"};
 
 
@@ -283,104 +286,54 @@ LAST UPDATE: 2015/01/05
 
                                     });
                                 }else{
-                                    if (request.folder === "myDevice") {
+                                    if(request.folder.indexOf(".")==-1) {
+                                        var deskTopFolder = dateWiseImageList[request.folder];
 
-                                        var imgObjArray = JSON.parse($("#DesktopImg").val());
-                                        var images = [];
-                                        for (var key in imgObjArray) {
-                                            images.push(BaseUrl + "upload/img/" + imgObjArray[key].media_file_path);
-                                        }
 
-                                        /*=======Pagination Code (Not stable)*/
-//                                        var perPageImg = 5;
-//                                        var page = request.page;
-//                                        var index = (page -1)*perPageImg;
-//                                        var limit = images.length - (images.length - (page*perPageImg));
-//
-//
-//                                        var totalPages =Math.ceil(images.length/perPageImg);
-//                                        console.log("totalPages "+totalPages+" page "+page);
+                                        for (key in deskTopFolder.dateWise) {
+                                            if (deskTopFolder.dateWise.hasOwnProperty(key)) {
+                                                var d = deskTopFolder.dateWise[key].created_date.split(" ");
+                                                console.log(d[0]);
+                                                var folder = {
+                                                    id: request.folder + "." + d[0],
+                                                    isFolder: true,
+                                                    name: d[0]
+                                                };
+                                                pictureArray.push(folder);
+                                            }
+                                        }
+                                    }else{
+                                        if(request.folder.indexOf(".")>-1){
+                                            var folder = request.folder.split(".");
+                                            var dateWiseFolder = dateWiseImageList[folder[0]];
+                                            for(var key in dateWiseFolder.dateWise){
+                                                var d = dateWiseFolder.dateWise[key].created_date.split(" ");
+                                                if(d[0] == folder[1]){
+                                                   console.log( dateWiseFolder.dateWise[key].pictures );
 
-                                        for (var i = 0; i < images.length; i++) {
-                                            picture = {picture: images[i]};
-                                            pictureArray.push(picture);
-                                        }
-                                        replyFn({
-                                            id: "myDevice",
-                                            page: 1,
-                                            totalPages:1,
-                                            items: pictureArray
+                                                    var imgJobjArray  = dateWiseFolder.dateWise[key].pictures;
+                                                    var images = [];
 
-                                        });
-                                    }else  if (request.folder === "facebook") {
-                                        var imgJobjArray = JSON.parse($("#FacebookImg").val());
-                                        var images = [];
-                                        for (var key in imgJobjArray) {
-                                            images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
-                                        }
-                                        for (var i = 0; i < images.length; i++) {
-                                            picture = {picture: images[i]};
-                                            pictureArray.push(picture);
-                                        }
-                                        replyFn({
-                                            id: "facebook",
-                                            page: 1,
-                                            totalPages: 1,
-                                            items: pictureArray
+                                                    for (var key in imgJobjArray) {
+                                                        images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
+                                                    }
+                                                    for (var i = 0; i < images.length; i++){
+                                                        picture = {picture: images[i]};
+                                                        pictureArray.push(picture);
+                                                    }
+                                                }
+                                            }
 
-                                        });
-                                    }else  if (request.folder === "dropbox") {
-                                        var imgJobjArray = JSON.parse($("#DropBoxImg").val());
-                                        var images = [];
-                                        for (var key in imgJobjArray) {
-                                            images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
                                         }
-                                        for (var i = 0; i < images.length; i++) {
-                                            picture = {picture: images[i]};
-                                            pictureArray.push(picture);
-                                        }
-                                        replyFn({
-                                            id: "dropbox",
-                                            page: 1,
-                                            totalPages: 1,
-                                            items: pictureArray
+                                     }
 
-                                        });
-                                    }else  if (request.folder === "whatsApp") {
-                                        var imgJobjArray = JSON.parse($("#WhatsAppImg").val());
-                                        var images = [];
-                                        for (var key in imgJobjArray) {
-                                            images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
-                                        }
-                                        for (var i = 0; i < images.length; i++) {
-                                            picture = {picture: images[i]};
-                                            pictureArray.push(picture);
-                                        }
-                                        replyFn({
-                                            id: "whatsApp",
-                                            page: 1,
-                                            totalPages: 1,
-                                            items: pictureArray
+                                    replyFn({
+                                        id: request.folder,
+                                        page: 1,
+                                        totalPages: 1,
+                                        items: pictureArray
 
-                                        });
-                                    }else  if (request.folder === "instagram") {
-                                        var imgJobjArray = JSON.parse($("#InstragramImg").val());
-                                        var images = [];
-                                        for (var key in imgJobjArray) {
-                                            images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
-                                        }
-                                        for (var i = 0; i < images.length; i++) {
-                                            picture = {picture: images[i]};
-                                            pictureArray.push(picture);
-                                        }
-                                        replyFn({
-                                            id: "instagram",
-                                            page: 1,
-                                            totalPages: 1,
-                                            items: pictureArray
-
-                                        });
-                                    }
+                                    });
                                 }
                             },
 <?php } else { ?>

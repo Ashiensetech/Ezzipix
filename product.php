@@ -6,6 +6,18 @@ require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
 
 class Product extends EzzipixController {
 
+
+    /**
+     * Product constructor.
+     */
+ //   private $serverProvider;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->serverProvider = array(1=>"telegram",2=>"whatsapp",3=>"facebook",4=>"instagram",5=>"dropbox", 6=>"picasa",7=>"flicker",8=> "desktop" );
+
+    }
+
     function index() {
         require_once dirname(__FILE__) . '/Model/ServiceProviderModel.php';
 
@@ -27,8 +39,24 @@ class Product extends EzzipixController {
             };
 
             $this->pageData['allImg'] = json_encode($userServiceData->getAllMediaFileByUid($this->userInfo['uId']));
-        }
+//        $this->pageData['imgDateWise'] =$userServiceData->getDistinctDateWiseMediaFileByUid($this->userInfo['uId']);
+            //   $platformId = 8;
+//
+//            $this->pageData['imgDateWise'] =
+            $dateWise =[];
+            for($i=1;$i<=8;$i++){
+                $dateList =  $userServiceData->getDistinctDateWiseMediaFileByUidAndServiceId($this->userInfo['uId'],$i);
+                foreach( $dateList as $key=>$row){
+                    list($d, $t) = explode(" ", $row['created_date']);
+                    $dateList[$key]["pictures"] =  $userServiceData->getMediaFileByUidAndDate($this->userInfo['uId'],$i,$d);
 
+                }
+                $dateWise[$this->serverProvider[$i]]["dateWise"] = $dateList;
+            }
+
+            $this->pageData['imgDateWise'] = json_encode($dateWise);
+//            var_dump($this->pageData['imgDateWise']);die;
+        }
         $this->loadView('products', $this->pageData);
     }
 
