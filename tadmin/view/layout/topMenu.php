@@ -1,5 +1,5 @@
 <header class="main-header">
-    <a href="{{ url("dashboard") }}" class="logo">
+    <a href="AdminDashboard.php" class="logo">
         <span class="logo-mini"><b>E</b>A</span>
         <span class="logo-lg"><b>Ezeepix</b>Admin</span>
     </a>
