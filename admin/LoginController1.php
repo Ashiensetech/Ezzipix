@@ -1,7 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 
 require_once 'EzzipizController1.php';
 
@@ -30,7 +30,6 @@ class LoginController1 extends EzzipizController1 {
                 $this->storeDataInSession($result);
                 $this->respData['loginStatus'] = TRUE;
                 $this->respData['msg'] = "";
-                header('Location: AdminDashboard.php?r=index.php');
             } else {
                 $this->respData['loginStatus'] = FALSE;
                 $this->respData['msg']         = "Invalid Username or  Password ";

@@ -6,12 +6,12 @@ class AdminModel {
     public $tableName;
 
     public function __construct($tabName) {
-        //$this->con = mysql_connect("localhost", "ezeepixw_wsit", "wsitezeepix97480"); // Server
+       // $this->con = mysql_connect("localhost", "ezeepixw_wsit", "wsitezeepix97480"); // Server
         $this->con = mysql_connect("localhost", "root", ""); // Local
         if (!$this->con) {
             die("Couldn't connect to database!!!");
         }
-        //  mysql_select_db("ezeepixw_beta", $this->con);// Server
+        //mysql_select_db("ezeepixw_beta", $this->con);// Server
         mysql_select_db("ezeepix", $this->con);// Local
         $this->tableName = $tabName;
     }

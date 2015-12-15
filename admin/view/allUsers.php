@@ -13,18 +13,18 @@
     <title>Ezeepix Admin</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    <link rel="stylesheet" href="<?php echo $this->baseUrl.'tadmin/public/bootstrap/css/bootstrap.min.css';?>">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl.'public/bootstrap/css/bootstrap.min.css';?>">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- jvectormap -->
-    <link rel="stylesheet" href="<?php echo $this->baseUrl.'tadmin/public/plugins/jvectormap/jquery-jvectormap-1.2.2.css';?>">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl.'public/plugins/jvectormap/jquery-jvectormap-1.2.2.css';?>">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo $this->baseUrl.'tadmin/public/dist/css/AdminLTE.min.css';?>">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl.'public/dist/css/AdminLTE.min.css';?>">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="<?php echo $this->baseUrl.'tadmin/public/dist/css/skins/_all-skins.min.css';?>">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl.'public/dist/css/skins/_all-skins.min.css';?>">
     <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet" type='text/css'>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -81,29 +81,29 @@
         <?php include_once "layout/footer.php"?>
 </div>
 
-<script src="<?php echo $this->baseUrl.'tadmin/public/plugins/jQuery/jQuery-2.1.4.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/plugins/jQuery/jQuery-2.1.4.min.js';?>"></script>
 <!-- Bootstrap 3.3.5 -->
-<script src="<?php echo $this->baseUrl.'tadmin/public/bootstrap/js/bootstrap.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/bootstrap/js/bootstrap.min.js';?>"></script>
 <!-- FastClick -->
-<script src="<?php echo $this->baseUrl.'tadmin/public/plugins/fastclick/fastclick.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/plugins/fastclick/fastclick.min.js';?>"></script>
 <!-- AdminLTE App -->
-<script src="<?php echo $this->baseUrl.'tadmin/public/dist/js/app.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/dist/js/app.min.js';?>"></script>
 <!-- Sparkline -->
-<script src="<?php echo $this->baseUrl.'tadmin/public/plugins/sparkline/jquery.sparkline.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/plugins/sparkline/jquery.sparkline.min.js';?>"></script>
 <!-- jvectormap -->
-<script src="<?php echo $this->baseUrl.'tadmin/public/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js';?>"></script>
-<script src="<?php echo $this->baseUrl.'tadmin/public/plugins/jvectormap/jquery-jvectormap-world-mill-en.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/plugins/jvectormap/jquery-jvectormap-world-mill-en.js';?>"></script>
 <!-- SlimScroll 1.3.0 -->
-<script src="<?php echo $this->baseUrl.'tadmin/public/plugins/slimScroll/jquery.slimscroll.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/plugins/slimScroll/jquery.slimscroll.min.js';?>"></script>
 <!-- ChartJS 1.0.1 -->
-<script src="<?php echo $this->baseUrl.'tadmin/public/plugins/chartjs/Chart.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/plugins/chartjs/Chart.min.js';?>"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo $this->baseUrl.'tadmin/public/dist/js/pages/dashboard2.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/dist/js/pages/dashboard2.js';?>"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="<?php echo $this->baseUrl.'tadmin/public/dist/js/demo.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/dist/js/demo.js';?>"></script>
 
-<script src="<?php echo $this->baseUrl.'tadmin/public/plugins/datatables/jquery.dataTables.min.js';?>"></script>
-<script src="<?php echo $this->baseUrl.'tadmin/public/plugins/datatables/dataTables.bootstrap.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/plugins/datatables/jquery.dataTables.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl.'public/plugins/datatables/dataTables.bootstrap.min.js';?>"></script>
 
 <script>
     $(function () {

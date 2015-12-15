@@ -70,7 +70,8 @@ class ServiceController extends AuthController {
 
             $data = [
                 'status'  => FALSE,
-                'message' => 'This Service ID already register with this Service Name',
+                'message' => 'We\'re sorry, this number is already registered with a different account! To unregister a number from an account simply send
+                 the word "cancel" to the ezeepix number (1646#####) and then you can add this number to a different account.',
             ];
             echo json_encode($data);
             die;
