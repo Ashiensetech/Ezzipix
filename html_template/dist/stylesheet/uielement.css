@@ -53,6 +53,10 @@
  * Brand
  *
  * --------------------------- */
+#header.navbar .navbar-header > .navbar-brand{
+    width: 280px !important;
+    margin-top: 0px !important;
+}
 .logo-text,
 .logo-figure {
     display: inline-block;
@@ -64,9 +68,10 @@
     width: 110px;
     background-image: url("../image/logo/logo-text-inverse.png");
     background-repeat: no-repeat;
-    -webkit-background-size: 150px 75px;
+    -webkit-background-size: 280px 81px !important;
     /*background-size: 140px 70px;*/
-    background-size: 200px 52px;
+    background-size: 280px 81px !important;
+    margin-top: 5px !important;
 }
 .logo-text + .logo-figure {
     margin-left: -13px;
