@@ -44,41 +44,22 @@
     <?php include_once "layout/sideBar.php"?>
     <div class="content-wrapper">
         <div class="box">
-    <div class="box-header">
-        <h3 class="box-title">App Users List</h3>
-    </div>
-    <div class="box-body">
-        <table id="data-table" class="table table-bordered table-striped">
-            <thead>
-            <tr>
-                <th>SL</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Gender</th>
-                <th>DOB</th>
-                <th>Picture</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-            $i=1;
-            foreach($userList as $user){ ?>
-            <tr>
-                <td><?php echo $i;?></td>
-                <td class="text-capitalize"><?php echo $user['first_name']?></td>
-                <td><?php echo $user['email']?></td>
-                <td class="text-capitalize"><?php echo $user['gender']?></td>
-                <td><?php echo $user['dob']?></td>
-                <td><a href="UserController.php?a=getPicture&u_id=<?php echo $user['u_id']?>">picture-<?php echo $user['u_id']?></td>
-            </tr>
-            <?php
-            $i++;} ?>
-            </tbody>
-        </table>
-    </div>
-</div>
+            <div class="box-header">
+                <h3 class="box-title">App Users List</h3>
+            </div>
+            <div class="box-body">
+                    <?php
+                    if(empty($userImage)){?>
+                        <h1>No Image of this user</h1>
+                    <?php }else{
+                        $i=1;
+                        foreach($userImage as $user){ ?>
+                            <img src="<?php echo $user['media_file_path']?>" alt="Image of the user">
+                        <?php }}?>
+            </div>
         </div>
-        <?php include_once "layout/footer.php"?>
+    </div>
+    <?php include_once "layout/footer.php"?>
 </div>
 
 <script src="<?php echo $this->baseUrl.'public/plugins/jQuery/jQuery-2.1.4.min.js';?>"></script>

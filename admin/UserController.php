@@ -21,6 +21,19 @@ class UserController extends EzzipizController1{
     }
 
 
+    public function loadPicture()
+    {
+        include("../Model/UserServiceDataModel.php");
+
+        if(isset($_GET['u_id']))
+        {
+            $u_id = $_GET['u_id'];
+            $userServiceData = new UserServiceData();
+            $result = $userServiceData->getAllMediaFileByUid($u_id);
+            $this->pageData['userImage'] = $result;
+            $this->loadView("userPicture",$this->pageData);
+        }
+    }
 
     public function index(){
 
@@ -38,6 +51,9 @@ class UserController extends EzzipizController1{
     function process() {
         $method = (isset($_GET['a'])) ? $_GET['a'] : "";
         switch ($method) {
+            case 'getPicture';
+                $this->loadPicture();
+                break;
             default:
                 $this->index();
                 break;
