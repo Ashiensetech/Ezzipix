@@ -21,7 +21,11 @@ class EzzipizController1 {
 
         $this->baseUrl = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
         $this->baseUrl .= "://" . $_SERVER['HTTP_HOST'] . "/ezeepix/admin/"; // Local
+
+        $this->fileUrl = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
+        $this->fileUrl .="://" . $_SERVER['HTTP_HOST'] . "/ezeepix/"; // Local
 //        $this->baseUrl .= "://" . $_SERVER['HTTP_HOST'] . "/admin/"; // Server
+//        $this->fileUrl ="://" . $_SERVER['HTTP_HOST'] . "/"; // Server
         $this->userInfo['AdminId'] = 0;
         $this->userInfo['AdminEmail'] = NULL;
         $this->userInfo['isLogin'] = FALSE;
