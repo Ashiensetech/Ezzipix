@@ -69,7 +69,7 @@
                 <td><?php echo $user['email']?></td>
                 <td class="text-capitalize"><?php echo $user['gender']?></td>
                 <td><?php echo $user['dob']?></td>
-                <td><a href="UserController.php?a=getPicture&u_id=<?php echo $user['u_id']?>">picture-u_id<?php echo $user['u_id']?></td>
+                <td><a href="UserController.php?a=getPicture&u_id=<?php echo $user['u_id']?>">picture</td>
             </tr>
             <?php
             $i++;} ?>
