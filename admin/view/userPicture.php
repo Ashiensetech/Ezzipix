@@ -54,7 +54,9 @@
                     <?php }else{
                         $i=1;
                         foreach($userImage as $user){ ?>
-                            <img src="<?php echo $this->fileUrl.'upload/img/'.$user['media_file_path']?>" alt="Image of the user">
+                            <div style="float: left;width: 160px;height: 160px;margin-right: 5px;" >
+                                <img width="160px" height="160px" src="<?php echo $this->fileUrl.'upload/img/'.$user['media_file_path']?>" alt="Image of the user">
+                            </div>
                         <?php }}?>
             </div>
         </div>
