@@ -4,17 +4,19 @@
     var picLoadCount = 0;
     window.fbAsyncInit = function () {
         FB.init({
-            appId: '463781567135228',
+            appId: '205130503158441',
             xfbml: true,
-            version: 'v2.4'
+            version: 'v2.5'
         });
-      //  fbLogin();
+        //fbLogin();
     };
 
     (function(d){
-        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        var js,id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
         if (d.getElementById(id)) {return;}
-        js = d.createElement('script'); js.id = id; js.async = true;
+        js = d.createElement('script');
+        js.id = id;
+        js.async = true;
         js.src = "//connect.facebook.net/en_US/all.js";
         ref.parentNode.insertBefore(js, ref);
     }(document));
@@ -55,7 +57,7 @@
     }
 
     function getPhoto(user_id, access_token) {
-        //console.log(": Your UID is " + user_id);
+        console.log(": Your UID is " + user_id);
         FB.api(
             "/" + user_id + "/photos/uploaded?access_token=" + access_token,
             function (response) {
