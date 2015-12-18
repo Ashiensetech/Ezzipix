@@ -6,10 +6,10 @@ require 'lib/WhatsApi/src/whatsprot.class.php';
 require 'lib/WhatsApi/src/events/MyEvents.php';
 class WhatsAppAPIController {
 
-    public $username  = "8801977974819";
+    public $username  = "16465982050";
     public $nickname  = "Ezeepix";
-    public $password  = "GGfvxQIBC4x5FHBLQ1U7C4bv+Dc=";
-    public $debug     = TRUE;
+    public $password  = "F7xxjlf90mpxVxXf1FwFJYrlNRA=";
+    public $debug     = FALSE;
     public $w         = NULL;
     public $target    = NULL; // The number of the person you are sending the message
     public $message   = NULL;
