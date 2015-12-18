@@ -2,9 +2,8 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
-require 'lib/whats_app/src/whatsprot.class.php';
-require 'lib/whats_app/src/events/MyEvents.php';
-
+require 'lib/WhatsApi/src/whatsprot.class.php';
+require 'lib/WhatsApi/src/events/MyEvents.php';
 class WhatsAppAPIController {
 
     public $username  = "8801977974819";
