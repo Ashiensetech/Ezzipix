@@ -129,6 +129,16 @@ class UserService extends EzzipixModel {
 
         return FALSE;
     }
+    function getActiveStatus($form, $serviceType) {
+        $form = mysql_real_escape_string(trim($form));
+        $sql  = "SELECT active FROM $this->tableName WHERE service_user_id = '$form' " .
+            "AND service_provider_id = $serviceType LIMIT 1";
+        $data = $this->getArrayData(mysql_query($sql));
+
+        foreach($data as $d){
+            return $d['active'];
+        }
+    }
 
     function getServiceIDByProviderId($u_id, $serviceProviderId) {
         $u_id              = mysql_real_escape_string(trim($u_id));

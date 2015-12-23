@@ -65,42 +65,52 @@ class WhatsAppReceiveDataController  {
                     $text = $message->getData();
                     list($from) = explode('@', $messageFrom['from']);
 
-                    echo "Form : " . $from . '\n';
+                    echo "From : " . $from . "\n";
+                    echo "Message:" . $text. "\n";
+                  //  $this->API->sendMessage($from, $text);//TODO temporary
 
                     if (($message->getTag() == "media") && ($message->getAttribute('type') == "image")) {
-                        $service       = new UserService();
-                        $userId        = $service->getUserIdByProviderAndService(2, $from);
+                        $service = new UserService();
+                        $userId = $service->getUserIdByProviderAndService(2, $from);
                         $userServiceId = $service->getIdByService_user_id(2, $from);
-                        $imageUrl      = $message->getAttribute('url');
-                        $path          = "upload/img/" . $userId;
+                        $imageUrl = $message->getAttribute('url');
+                        $path = "upload/img/" . $userId;
+                        $isActive = $service->getActiveStatus($from,2);
 
                         if ($userId > 0) {
-                            if ($imgName = $this->API->saveImage($imageUrl, $path)) {
-                                $data = [
-                                    'user_service_id' => $userServiceId,
-                                    'media_file_path' => $userId . '/' . $imgName,
-                                ];
-                                $serviceData->insert($data);
-                                //$API->sendMessage($from, "Image successful uploaded to your account !");
-                                $result[$counter] = [
-                                    'from'    => $from,
-                                    'message' => '',//"Image successful uploaded to your account !",
-                                    'type'    => 'media',
-                                ];
-                            } else {
-                                //$API->sendMessage($from, "Image upload failed !");
-                                $result[$counter] = [
-                                    'from'    => $from,
-                                    'message' => "Image upload failed !",
-                                    'type'    => 'mediaError',
-                                ];
+
+                            if($isActive=="0"){
+                                $this->API->sendMessage($from, "Image not uploaded!. Your account is deactivated. Active first to upload image");
+                            }
+                            else {
+                                if ($imgName = $this->API->saveImage($imageUrl, $path)) {
+                                    $data = [
+                                        'user_service_id' => $userServiceId,
+                                        'media_file_path' => $userId . '/' . $imgName,
+                                    ];
+
+                                    $serviceData->insert($data);
+                                    $this->API->sendMessage($from, "Image successful uploaded to your account !");
+                                    $result[$counter] = [
+                                        'from' => $from,
+                                        'message' => '',//"Image successful uploaded to your account !",
+                                        'type' => 'media',
+                                    ];
+                                } else {
+                                    $this->API->sendMessage($from, "Image upload failed !");
+                                    $result[$counter] = [
+                                        'from' => $from,
+                                        'message' => "Image upload failed !",
+                                        'type' => 'mediaError',
+                                    ];
+                                }
                             }
                         } else {
-                            //$API->sendMessage($from, "Your account not found in System !");
+                            $this->API->sendMessage($from, "Your account not found in System !");
                             $result[$counter] = [
-                                'from'    => $from,
+                                'from' => $from,
                                 'message' => "Your account not found in System !",
-                                'type'    => 'userError',
+                                'type' => 'userError',
                             ];
                         }
                     }
@@ -109,45 +119,51 @@ class WhatsAppReceiveDataController  {
                         $status = $userService->deactivateService(2, $from);
 
                         if ($status > 0) {
-                            //$API->sendMessage($from, "Your account has been deactivated.");
+                            echo  "Deactivated successfully\n";
+                            $this->API->sendMessage($from, "Your account has been deactivated!");
                             $result[$counter] = [
-                                'from'    => $from,
+                                'from' => $from,
                                 'message' => "Your account has been deactivated !",
-                                'type'    => 'account',
+                                'type' => 'account',
                             ];
                         } else {
-                            //$API->sendMessage($from, "System unable to deactivated your service try again later.");
+                            echo  "Deactivated error\n";
+                            $this->API->sendMessage($from, "System unable to deactivated your service try again later.");
                             $result[$counter] = [
-                                'from'    => $from,
+                                'from' => $from,
                                 'message' => "System unable to deactivated your service try again later !",
-                                'type'    => 'account',
+                                'type' => 'account',
                             ];
                         }
                     }
 
                     if (strtoupper($text) === "ACTIVE") {
-                        $foundStatus  = $userService->deactivateService(2, $from, 1);
+                        $foundStatus = $userService->deactivateService(2, $from, 1);
                         $activeStatus = $userService->getServiceStatus($from, 2);
 
                         if ($foundStatus > 0) {
-                            //$API->sendMessage($from, "Your account has been deactivated.");
+                            echo  "Activated successfully\n";
+                            $this->API->sendMessage($from, "Your account has been activated.");
                             $result[$counter] = [
-                                'from'    => $from,
+                                'from' => $from,
                                 'message' => "Your account has been activated !",
-                                'type'    => 'account',
+                                'type' => 'account',
                             ];
                         } elseif ($activeStatus) {
+                            echo  "Account Already in system\n";
+                            $this->API->sendMessage($from, "Account Already in system");
                             $result[$counter] = [
-                                'from'    => $from,
+                                'from' => $from,
                                 'message' => "Your account already activated !",
-                                'type'    => 'account',
+                                'type' => 'account',
                             ];
                         } else {
-                            //$API->sendMessage($from, "System unable to deactivated your service try again later.");
+                            $this->API->sendMessage($from, "System unable to deactivated your service try again later.");
+                            echo  "Activated problem\n";
                             $result[$counter] = [
-                                'from'    => $from,
+                                'from' => $from,
                                 'message' => "System unable to activated your service try again later !",
-                                'type'    => 'account',
+                                'type' => 'account',
                             ];
                         }
                     }
@@ -157,27 +173,29 @@ class WhatsAppReceiveDataController  {
 
                 $len = count($result);
 
-                for ($i = 0; $i < $len; $i++) {
-                    $sendTo = $result[$i]['from'];
+                //TODO bangla code. no need this condition
+               /* if ($len > 0) {
+                    for ($i = 0; $i < $len; $i++) {
+                        $sendTo = $result[$i]['from'];
+                        if ($result[$i]['type'] == 'userError') {
+                            $this->API->sendMessage($sendTo, "Your account not found in System !",$force_plain = false);
+                        } elseif ($result[$i]['type'] == 'mediaError') {
+                            $this->API->sendMessage($sendTo, "Image upload failed !",$force_plain = false);
+                        } elseif ($result[$i]['type'] == 'account') {
+                            $this->API->sendMessage($sendTo, $result[$i]['message'],$force_plain = false);
+                        } else{
+                            $totalImage = $this->searchFromArray($result, $sendTo);
+                            $s = '';
 
-                    if ($result[$i]['type'] == 'userError') {
-                        $this->API->sendMessage($sendTo, "Your account not found in System !");
-                    } elseif ($result[$i]['type'] == 'mediaError') {
-                        $this->API->sendMessage($sendTo, "Image upload failed !");
-                    } elseif ($result[$i]['type'] == 'account') {
-                        $this->API->sendMessage($sendTo, $result[$i]['message']);
-                    } else {
-                        $totalImage = $this->searchFromArray($result, $sendTo);
-                        $s          = '';
+                            if ($totalImage > 1) {
+                                $s = "s";
+                            }
 
-                        if ($totalImage > 1) {
-                            $s = "s";
+                            $this->API->sendMessage($sendTo, "$totalImage Image$s successful uploaded to your account !",$force_plain = false);
                         }
-
-                        $this->API->sendMessage($sendTo, "$totalImage Image$s successful uploaded to your account !");
                     }
-                }
 
+                }*/
             }
             sleep(5);
 
