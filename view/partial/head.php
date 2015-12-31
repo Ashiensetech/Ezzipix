@@ -5,7 +5,7 @@
     <title>Ezeepix</title>
     <meta name="author" content="pampersdry.info">
     <meta name="description" content="Adminre is a clean and flat backend and frontend theme build with twitter bootstrap">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $this->baseUrl.'html_template/dist/image/touch/apple-touch-icon-144x144-precomposed.png'; ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $this->baseUrl.'html_template/dist/image/touch/apple-touch-icon-114x114-precomposed.png'; ?>">

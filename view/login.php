@@ -21,7 +21,7 @@
         </div>
     </section>
     <div class="clearfix"></div>
-    <section class="section jumbotron jumbotron-bg7 no-margin-bottom">
+    <section class="section jumbotron jumbotron-bg7 no-margin-bottom upper-margin">
         <div class="overlay pattern pattern2"></div>
         <div class="container">
             <div class="row">

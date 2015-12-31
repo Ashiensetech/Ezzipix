@@ -12,7 +12,7 @@
 <?php include_once 'partial/menu.php'; ?>
 <section id="main" role="main">
     <div class="clearfix"></div>
-    <section class="jumbotron jumbotron-bg7 nm" data-stellar-background-ratio="0.4" style="min-height:486px;">
+    <section class="jumbotron jumbotron-bg7 nm upper-margin" data-stellar-background-ratio="0.4" style="min-height:486px;">
 
         <div class="overlay pattern pattern2"></div>
 

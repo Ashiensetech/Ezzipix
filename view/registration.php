@@ -28,7 +28,7 @@ LAST UPDATE: 2015/01/05
         <!-- pattern + overlay -->
         <div class="overlay pattern pattern2"></div>
         <!--/ pattern + overlay -->
-        <div class="container" style="padding-top:8%;padding-bottom:8%;">
+        <div class="container upper-margin" style="padding-top:8%;padding-bottom:8%;">
             <div class="row">
                 <div class="col-md-5  site-border custom-new-welcome">
                     <h1 class="thin text-white font-alt mt0 mb5">Ezeepix</h1>

@@ -15406,7 +15406,7 @@ input[type=password]:focus {
 }
 
 .album{
-    
+
 }
 
 
@@ -16045,3 +16045,139 @@ input[type=password]:focus {
 }
 
 /*Other Custom design*/
+
+/* Md. Rafiul Alam - 31/12/2015 */
+@media all and (min-width: 320px) and (max-width: 991px) { 
+    .mb25 {
+        margin-bottom: 70px !important;
+    }
+    .copyrights{
+        width: 100% !important;
+        text-align: center !important;
+    }
+    .policy{
+        width: 100% !important;
+        text-align: center !important;
+        margin-top: 15px !important;
+    }
+    .hidden-xs {
+        display: inline !important;
+        margin: 0px auto !important;
+        display: block !important;
+    }
+}
+@media all and (min-width: 320px) and (max-width: 991px) { 
+    .mb25 {
+        margin-bottom: 90px !important;
+    }
+}
+@media all and (min-width: 320px) and (max-width: 767px) { 
+    .mb25 {
+        margin-bottom: 90px !important;
+    }
+    #header.navbar .navbar-header {
+        height: 65px;
+    }
+    .logo-text {
+        width: 180px;
+        background-size: 180px 50px !important;
+    }
+    .upper-banner{
+        margin-top: -25px;
+    }
+    .upper-margin{
+        margin-top: -35px !important;
+    }
+    .custom-new-welcome > .text-white{
+        padding: 0px 5px;
+    }
+    .custom-new-welcome button{
+        margin-left: 5px;
+    }
+}
+@media all and (min-width: 768px) and (max-width: 991px){
+    .logo-text{
+        display: inline-block !important;
+        width: 180px;
+        background-size: 180px 50px !important;
+        margin-top: 20px !important;
+    }
+    .dropdown span{
+        font-size: 0.96em !important;
+    }
+    .frontend #header.navbar .navbar-toolbar > .navbar-collapse > .navbar-nav > li > a {
+        line-height: 0;
+        margin-top: -45px !important;
+    }
+
+}
+@media all and (min-width: 992px) and (max-width: 1199px){
+    .cstm-menu{
+        margin-top: -90px !important;
+    }
+}
+@media all and (min-width: 320px) and (max-width: 767px){
+    .welcome-txt-container h2 {
+        font-size: 2em;
+    }
+    .welcome-txt-container p {
+        font-size: 18px;
+    }
+    .telegram-back{
+        margin: 25px;
+    }
+    .navbar-brand{
+        margin-left: 25px;
+    }
+}
+@media all and (min-width: 768px) and (max-width: 991px){
+    .navbar-brand{
+        margin-left: -8px !important;
+    }
+}
+@media all and (min-width: 320px) and (max-width: 480px){
+    .growIn h3{
+        font-size: 18px;
+    }
+    .feature-single h3{
+        margin-top: -10px;
+    }
+    .home-head > span{
+        font-size: 18px !important;
+    }
+}
+@media all and (min-width: 320px) and (max-width: 991px){
+    .data-profile > .form-group > .col-md-6{
+        float: left;
+        width: 50%;
+    }
+    .cstm-image-profile > .btn{
+        margin-bottom: 10px;
+    }
+}
+@media all and (min-width: 992px) and (max-width: 1199px){
+    .col-md-6 > .data-profile{
+        width: 115%;
+    }
+}
+@media all and (min-width: 320px) and (max-width: 590px){
+    .social-btn button{
+        width: 100%;
+    }
+}
+@media all and (min-width: 320px) and (max-width: 500px){
+    .cstm-width-intagram{
+        width: 103% !important;
+    }
+}
+@media all and (min-width: 591px) and (max-width: 991px){
+    .login-with-btn > .social-btn > .btn-instagram-m{
+        width: 100% !important;
+    }
+}
+@media all and (min-width: 320px) and (max-width: 991px){
+    .policy{
+        margin-top: 10px !important;
+    }
+}
+/* Md. Rafiul Alam - 31/12/2015 */
