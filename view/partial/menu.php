@@ -5,7 +5,7 @@
 </script>
 <div class="beta"></div>
 <header id="header" class="navbar">
-    <div class="container">
+    <div class="container no-padding">
         <div class="navbar-header navbar-header-transparent">
             <a class="navbar-brand" href="<?php echo $this->baseUrl; ?>home.php">
                 <span class="logo-text"></span>

@@ -24,7 +24,7 @@ LAST UPDATE: 2015/01/05
 <!-- START Template Main -->
 <section id="main" role="main">
     <!-- START jumbotron -->
-    <section class="jumbotron jumbotron-bg7 nm" data-stellar-background-ratio="0.4" style="min-height:486px;">
+    <section class="jumbotron jumbotron-bg7 nm upper-margin" data-stellar-background-ratio="0.4" style="min-height:486px;">
         <!-- pattern + overlay -->
         <div class="overlay pattern pattern2"></div>
         <!--/ pattern + overlay -->
