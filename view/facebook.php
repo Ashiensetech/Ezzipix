@@ -190,7 +190,7 @@
     var picLoadCount = 0;
     window.fbAsyncInit = function () {
         FB.init({
-            appId: '463781567135228',
+            appId: '205130503158441',
             xfbml: true,
             version: 'v2.4'
         });
