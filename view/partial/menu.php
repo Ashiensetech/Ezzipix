@@ -85,7 +85,7 @@
                             <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=dropbox">Dropbox</a></li>
                             <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=instagram">Instagram</a></li>
                             <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=w">Whats App</a></li>
-                            <li style="display: none;"><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=t">Telegram</a></li>
+                            <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=t">Telegram</a></li>
                             <!--<li><a href="-->
                             <?php //echo $this->baseUrl;   ?><!--social_media.php">Upload Images</a></li>-->
                         </ul>
