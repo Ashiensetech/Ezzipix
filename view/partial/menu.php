@@ -68,6 +68,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-alt drop-menu">
                                 <li><a href="<?php echo $this->baseUrl; ?>dashboard.php">Account Settings</a></li>
+                                <li><a href="<?php echo $this->baseUrl; ?>shipping.php">Shipping Info</a></li>
                                 <!--<li><a href="<?php /*echo $this->baseUrl; */?>dashboard.php?r=updatePassword">Change
                                         Password</a></li>-->
                             </ul>
@@ -86,7 +87,7 @@
                             <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=dropbox">Dropbox</a></li>
                             <li><a href="<?php echo $this->baseUrl; ?>social_media.php?r=instagram">Instagram</a></li>
                             <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=w">Whats App</a></li>
-                            <li style="display: none;"><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=t">Telegram</a></li>
+                            <li><a href="<?php echo $this->baseUrl; ?>service.php?r=new&app=t">Telegram</a></li>
                             <!--<li><a href="-->
                             <?php //echo $this->baseUrl;   ?><!--social_media.php">Upload Images</a></li>-->
                         </ul>

@@ -16,6 +16,7 @@ class User extends EzzipixModel {
     }
 
     public function updateAccount($data = []) {
+
         if (!$data) {
             return FALSE;
         }

@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 
 require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
 require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
@@ -15,7 +15,9 @@ class TelegramNohup {
         $this->i   = 0;
     }
 
-    public function start() {
+    public function start()
+    {
+        while(1){
         $this->i++;
         echo "Count $this->i \n";
         $contacts = $this->API->getContactList();
@@ -24,7 +26,7 @@ class TelegramNohup {
 
         if ($contacts) {
             foreach ($contacts as $contact) {
-                $data      = [];
+                $data = [];
                 $histories = $this->API->getHistory($contact->print_name);
                 if (sizeof($histories) == 0) {
                     continue;
@@ -38,8 +40,8 @@ class TelegramNohup {
 
                 foreach (@$histories as $history) {
                     if (@$history->media->type == 'photo') {
-                        $tempMessage['id']      = $history->id;
-                        $tempMessage['date']    = $history->date;
+                        $tempMessage['id'] = $history->id;
+                        $tempMessage['date'] = $history->date;
                         $tempMessage['caption'] = $history->media->caption;
 
                         $messages->append($tempMessage);
@@ -65,22 +67,22 @@ class TelegramNohup {
             echo 'Connection Error !';
         }
 
-        $service     = new UserService();
+        $service = new UserService();
         $serviceData = new UserServiceData();
 
         foreach ($dataList as $user) {
-            $from          = $user['print_name'];
-            $userId        = $service->getUserIdByProviderAndService(1, $from);
+            $from = $user['print_name'];
+            $userId = $service->getUserIdByProviderAndService(1, $from);
             $userServiceId = $service->getIdByService_user_id(1, $from);
             echo $from . ' ' . $userId;
             if ($userId > 0) {
                 $errorFlag = FALSE;
-                $errorMsg  = "";
+                $errorMsg = "";
                 foreach ($user['messages'] as $message) {
 
 
                     $messageImage = $this->API->loadImage($message['id'], $userId);
-                    $imageSave    = $this->API->saveImage($messageImage['url'], $message['id'], $messageImage['savePath']);
+                    $imageSave = $this->API->saveImage($messageImage['url'], $message['id'], $messageImage['savePath']);
                     //print_r($messageImage);
                     //print_r($imageSave);
                     //print_r("<br/>");
@@ -97,11 +99,11 @@ class TelegramNohup {
                             $this->API->tel->deleteMsg($message['id']);
                         } else {
                             $errorFlag = TRUE;
-                            $errorMsg  = "Unable to save in database. Try again later !";
+                            $errorMsg = "Unable to save in database. Try again later !";
                         }
                     } else {
                         $errorFlag = TRUE;
-                        $errorMsg  = "Unable to save file in server. Try again later !";
+                        $errorMsg = "Unable to save file in server. Try again later !";
                     }
                 }
                 $msgCount = sizeof($user['messages']);
@@ -114,7 +116,8 @@ class TelegramNohup {
 
         }
         sleep(5);
-        $this->start();
+    }
+        //$this->start();
     }
 
     function saveImage($file) {
