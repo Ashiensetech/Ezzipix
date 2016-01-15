@@ -1,4 +1,6 @@
-<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+<link href="<?php echo $this->baseUrl.'html_template/dist/stylesheet/googleapis.css';?>" rel='stylesheet' type='text/css' >
+
+
 <script>
     var BaseUrl = "<?php echo $this->baseUrl; ?>";
     var phpSuffix = ".php";

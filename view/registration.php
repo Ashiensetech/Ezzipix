@@ -60,11 +60,15 @@ LAST UPDATE: 2015/01/05
                             </select>
                         </div>
                         <div class="form-group">
-                            <input titleName="Email" type="text" class="form-control input-lg mendatory" id="email" placeholder="Your email">
+                            <input titleName="Date of birth" type="text" class="form-control input-lg" id="dob" placeholder="Date of birth" autocomplete="off" readonly="readonly" style="display: none;">
+                            <label style="color: #777">Date of birth</label>
+                            <div id="dateOfBirth">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input titleName="Date of birth" type="text" class="form-control input-lg mendatory" id="dob" placeholder="Date of birth" autocomplete="off" readonly="readonly">
+                            <input titleName="Email" type="text" class="form-control input-lg mendatory" id="email" placeholder="Your email">
                         </div>
+
                         <div class="form-group">
                             <input titleName="Password" type="password" id="password" class="form-control input-lg mendatory" placeholder="Create a password" autocomplete="off" >
                         </div>
@@ -95,29 +99,86 @@ LAST UPDATE: 2015/01/05
 <!-- End Template Footer -->
 <?php include_once 'partial/core_script.php' ?>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/stylesheet/jquery-ui-smoothness.css';?>" />
 <!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>-->
+<link rel="stylesheet" href="<?php echo $this->baseUrl.'html_template/dist/stylesheet/jquery-ui.js';?>" />
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css" />
+
+<script src="<?php echo $this->baseUrl.'html_template/dist/javascript/dob_picker/jquery-birthday-picker.min.js';?>"></script>
+
 <script>
-    $(function () {
+    $(document).ready(function() {
         $("#dob").datepicker({
             dateFormat: "dd-mm-yy",
             autoSize: true
         });
-    });
-</script>
 
+        $("#dateOfBirth").birthdayPicker({
+            "maxAge": 100,
+            "sizeClass": "span4"
+
+        });
+        $("#dateOfBirth").find(".birthMonth").addClass("mendatory").attr("titleName","Month");
+        $("#dateOfBirth").find(".birthDate").addClass("mendatory").attr("titleName","Day");
+        $("#dateOfBirth").find(".birthYear").addClass("mendatory").attr("titleName","Year");
+
+    });
+
+
+</script>
+<style>
+    .birthMonth{
+        width: 30%;
+        margin-right: 5px;
+    }
+    .birthDate{
+        width: 30%;
+        margin-right: 5px;
+    }
+    .birthYear{
+        width: 37%;
+    }
+</style>
 
 </body>
 <!--/ END Body -->
 <script>
+    function dobValidation(){
+        var birthMonth = $("#dateOfBirth").find(".birthMonth").first().val();
+        var birthDate = $("#dateOfBirth").find(".birthDate").first().val();
+        var birthYear = $("#dateOfBirth").find(".birthYear").first().val();
+
+        var errorMsg = "";
+        if(birthMonth=="0"){
+            $("#dateOfBirth").find(".birthMonth").first().focus();
+            errorMsg = "Month is not selected";
+        }else if(birthDate=="0"){
+            $("#dateOfBirth").find(".birthDate").first().focus();
+            errorMsg = "Date is not selected";
+        }else if(birthYear=="0"){
+            $("#dateOfBirth").find(".birthYear").first().focus();
+            errorMsg = "Year is not selected";
+        }
+
+        return errorMsg;
+    }
+    function getDob(){
+        var birthMonth = $("#dateOfBirth").find(".birthMonth").first().val();
+        var birthDate = $("#dateOfBirth").find(".birthDate").first().val();
+        var birthYear = $("#dateOfBirth").find(".birthYear").first().val();
+
+
+
+        return birthYear+"-"+birthMonth+"-"+birthDate+"-";
+    }
     function signup() {
+
         var valid = true;
         var errorMsg = "";
         $('#msg').html("");
         $('.mendatory').each(function () {
-            if (valid && $(this).val() == "") {
+            if ((valid && $(this).val() == "") || ($(this).prop("tagName") == "SELECT" && $(this).val()==0)) {
                 console.log("")
                 if ($(this).prop("tagName") == "SELECT") {
                     errorMsg = "Select " + $(this).attr("titleName");
@@ -135,6 +196,14 @@ LAST UPDATE: 2015/01/05
                 return false;
             }
         });
+
+        if(valid){
+           var tempErrMsg =  dobValidation();
+            if(tempErrMsg!=""){
+                errorMsg =  tempErrMsg;
+                valid = false;
+            }
+        }
 
         var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
@@ -157,7 +226,7 @@ LAST UPDATE: 2015/01/05
         var lastName = $('#last-name').val();
         var gender = $('#gender').val();
         var email = $('#email').val();
-        var dob = $('#dob').val();
+        var dob =getDob();// $('#dob').val();
         var password = $('#password').val();
 
 

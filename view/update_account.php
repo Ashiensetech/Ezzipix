@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="content data-profile site-border">
-                        <form method="post" name="form-login" action="<?php echo $this->baseUrl ?>dashboard.php?r=updateAccount">
+                        <form method="post" name="form-login" action="<?php echo $this->baseUrl ?>dashboard.php?r=updateAccount" onsubmit="return beforeUpdate();">
                             <div>
                                 <div class="col-md-12 cstm-head-profile">
                                     <p class="text-uppercase">Update Account</p>
@@ -46,13 +46,16 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="form-stack has-icon pull-left old">
-                                        <input id="datepicker" name="dob" type="text" value="<?php echo ($user) ? date('d-m-Y', strtotime($user['dob'])) : ''; ?>"
+                              <!--      <div class="form-stack has-icon pull-left old">
+                                        <input type="text" value="<?php /*echo ($user) ? date('d-m-Y', strtotime($user['dob'])) : ''; */?>"
                                                class="form-control input-lg"
                                                placeholder="Date of Birth" data-parsley-errors-container="#error-container"
                                                data-parsley-error-message="Please fill in your Full Name"
                                                data-parsley-required="">
-                                    </div>
+
+                                    </div>-->
+                                    <div id="dateOfBirth"></div>
+                                    <input type="hidden"  id="datepicker" name="dob"  value=" " />
                                 </div>
 
                                 <div class="form-group">
@@ -88,6 +91,9 @@
 <?php include_once 'partial/footer.php' ?>
 <?php include_once 'partial/core_script.php' ?>
 <script src="<?php echo $this->baseUrl . "js/printio/pio.latest.v2.js"; ?>"></script>
+
+
+
 <script type="text/javascript">
 
     var imgJobjArray = JSON.parse($("#allImg").val())
@@ -122,12 +128,62 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
+<style>
+    .birthMonth{
+        width: 30%;
+        margin-right: 5px;
+        color:#000000;
+        padding: 12px 3px
+    }
+    .birthDate{
+        width: 30%;
+        margin-right: 5px;
+        color:#000000;
+        padding: 12px 3px
+    }
+    .birthYear{
+        width: 38%;
+        color:#000000;
+        padding: 12px 3px
+    }
+</style>
+<script src="<?php echo $this->baseUrl.'html_template/dist/javascript/dob_picker/jquery-birthday-picker.min.js';?>"></script>
 <script>
+    function getDob(){
+        var birthMonth = $("#dateOfBirth").find(".birthMonth").first().val();
+        var birthDate = $("#dateOfBirth").find(".birthDate").first().val();
+        var birthYear = $("#dateOfBirth").find(".birthYear").first().val();
+
+
+
+        return birthYear+"-"+birthMonth+"-"+birthDate+"-";
+    }
+    function beforeUpdate(){
+        setDob();
+        return true;
+    }
+    function setDob(){
+        $("#datepicker").val(getDob());
+    }
     $(function () {
         $("#datepicker").datepicker({
             dateFormat: "dd-mm-yy",
             autoSize: true,
         });
+    });
+    $(document).ready(function() {
+
+
+        $("#dateOfBirth").birthdayPicker({
+            "maxAge": 100,
+            "sizeClass": "span"
+
+        });
+        $("#dateOfBirth").find(".birthMonth").addClass("mendatory").attr("titleName","Month").val(<?php echo (int)date('m', strtotime($user['dob']))?>);
+        $("#dateOfBirth").find(".birthDate").addClass("mendatory").attr("titleName","Day").val(<?php echo (int)date('d', strtotime($user['dob']))?>);
+        $("#dateOfBirth").find(".birthYear").addClass("mendatory").attr("titleName","Year").val(<?php echo (int)date('Y', strtotime($user['dob']))?>);
+
+
     });
 </script>
 
