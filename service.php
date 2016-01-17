@@ -336,6 +336,41 @@ class ServiceController extends AuthController {
         echo json_encode($this->respData);
     }
 
+
+    function activateService() {
+        $serviceProviderId = $_POST['service_provider_id'];
+        $service_user_id   = $_POST['service_user_id'];
+
+        require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
+
+        $userService   = new UserService();
+        $selectService = $userService->haveServiceIdByu_id($serviceProviderId, $service_user_id, $this->userInfo['uId']);
+
+        if (empty($selectService)) {
+            $this->respData['status'] = FALSE;
+            $this->respData['msg']    = "You don't have to privilege to do the operation !";
+            echo json_encode($this->respData);
+
+            return;
+        } elseif ($selectService['active']) {
+            $this->respData['status'] = FALSE;
+            $this->respData['msg']    = "Your Service already activated !";
+            echo json_encode($this->respData);
+            die;
+        }
+
+        $status = $userService->activateService($serviceProviderId, $service_user_id, 1);
+
+        if ($status > 0) {
+            $this->respData['status'] = TRUE;
+            $this->respData['msg']    = "Your account has been activated !";
+        } else {
+            $this->respData['status'] = FALSE;
+            $this->respData['msg']    = "System unable to activated your service try again later !";
+        }
+        echo json_encode($this->respData);
+    }
+
     public function process() {
         $method = (isset($_GET['r'])) ? $_GET['r'] : "";
         switch ($method) {
@@ -356,6 +391,9 @@ class ServiceController extends AuthController {
                 break;
             case 'deactiveUserService';
                 $this->deactiveUserService();
+                break;
+            case 'activateUserService';
+                $this->activateService();
                 break;
             default;
                 header('Location: dashboard.php?r=index');

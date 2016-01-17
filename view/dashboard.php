@@ -70,6 +70,27 @@ LAST UPDATE: 2015/01/05
                                 <p><?php echo date('d M, Y', $date); ?></p>
                             </div>
                         </div>
+                        <div class="form-group clearfix clear">
+                            <div class="col-md-12 cstm-label-profile alert alert-warning" id="msg" style="display: none">
+                            </div>
+                        </div>
+
+                        <?php foreach($services as $service){?>
+                        <div class="form-group clearfix clear">
+                            <div class="col-md-6 cstm-label-profile">
+                                <label><?php echo @$service['name']?> </label>
+                            </div>
+                            <?php if($service['active']==1){?>
+                                <div class="col-md-6 cstm-image-profile no-margin-botto">
+                                    <a href="" class="btn btn-default btn-block btn-cstm" onclick="cancelService(<?php echo @$service['spId'];?>,<?php echo @$service['service_user_id'];?>);return false;">DeActivate</a>
+                                </div>
+                              <?php  }else {?>
+                                <div class="col-md-6 cstm-image-profile no-margin-botto">
+                                    <a href="" class="btn btn-default btn-block btn-cstm" onclick="activeService(<?php echo @$service['spId'];?>,<?php echo @$service['service_user_id'];?>);return false;">Active</a>
+                                </div>
+
+                       <?php }}?>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-4 cstm-image-profile no-margin-bottom">
                                 <a href="<?php echo $this->baseUrl . 'media.php?r=all'; ?>" class="btn btn-default btn-cstm">View
@@ -112,10 +133,11 @@ LAST UPDATE: 2015/01/05
 </body>
 <!--/ END Body -->
 <script>
-    function cancelService(serviceProviderId, userServiceId, elem) {
+    function cancelService(serviceProviderId, userServiceId) {
 
-        $("#verification_code_msg").css({'display': 'none'});
-
+     //   $("#verification_code_msg").css({'display': 'none'});
+        $("#msg").show();
+        $("#msg").html("");
         var url = BaseUrl + "service" + phpSuffix;
 
         $.ajax({
@@ -128,12 +150,43 @@ LAST UPDATE: 2015/01/05
             success: function (data) {
                 var data = JSON.parse(data);
                 if (data.status) {
-                    $(elem).parents("tr").first().hide();
+                  //  $(elem).parents("tr").first().hide();
 
                 }
-
                 $("#msg").html(data.msg);
-                $("#verification_code_msg").css({'display': ''});
+                $('#msg').delay(1000).fadeOut(500, function () {
+                    location.reload();
+                });
+            }
+        });
+    }
+    function activeService(serviceProviderId, userServiceId) {
+
+        //   $("#verification_code_msg").css({'display': 'none'});
+        $("#msg").show();
+        $("#msg").html("");
+        var url = BaseUrl + "service" + phpSuffix;
+
+        $.ajax({
+            url: url + "?r=activateUserService",
+            method: "POST",
+            data: {
+                "service_provider_id": serviceProviderId,
+                "service_user_id": userServiceId
+            },
+            success: function (data) {
+                var data = JSON.parse(data);
+                if (data.status) {
+                    //  $(elem).parents("tr").first().hide();
+
+                }
+                // alert(data.msg);
+                // elem.find("#msg").html("service");
+                $("#msg").html(data.msg);
+                $('#msg').delay(1000).fadeOut(500, function () {
+                    location.reload();
+                });
+                //   $("#verification_code_msg").css({'display': ''});
             }
         });
     }
