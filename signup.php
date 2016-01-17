@@ -46,7 +46,14 @@ class SignupController extends EzzipixController {
         $loginInsertData = ['u_id' => $uId, 'email' => $email, 'password' => $password];
 
         if ($login->insert($loginInsertData) > 0) {
-            $this->respData['msg']       = 'Registration Success.';
+            if($this->sendConfirmationEmail($email))
+            {
+                $this->respData['msg']       = 'Registration Success and confirmation email sent.';
+            }
+            else{
+                $this->respData['msg']       = 'Registration Success and confirmation email not sent.';
+            }
+
             $this->respData['regStatus'] = TRUE;
             $lc                          = new LoginController();
             $lc->authintication($email, $password);
@@ -58,15 +65,90 @@ class SignupController extends EzzipixController {
 
         return;
     }
+    public function sendConfirmationEmail($email)
+    {
+
+        require_once "Model/LoginModel.php";
+        $login = new login();
+
+        if ($user = $login->getUserDetails($email)) {
+            include_once "Model/ConfirmEmail.php";
+
+            $confirm = new ConfirmEmail();
+            $data  = $confirm->setToken($email);
+
+            if ($data) {
+                $subject = 'Email Confirmation : Ezeepix';
+                $message = 'Dear,' .
+                    ' ' .
+                    $user['full_name'] . ', You are successfully registered to Ezeepix.' .
+                    'Follow the below link to confirm your email.' .
+                    ' ' .
+                    ' ' .
+                    $this->baseUrl . 'signup.php?r=checkConfirmation&email=' . $email .
+                    '&token=' . $data["token"];
+                $headers = 'From: support@ezeepix.com' . "\r\n" .
+                    'Reply-To: webmaster@example.com' . "\r\n" .
+                    'X-Mailer: PHP/' . phpversion();
+
+                if (mail($email, $subject, $message, $headers)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            return false;
+        }
+        return false;
+
+    }
+
+    public function checkConfirmation()
+    {
+        if (@$_GET['email'] && @$_GET['token']) {
+            include_once "Model/ConfirmEmail.php";
+            include_once "Model/LoginModel.php";
+
+            $confirm = new ConfirmEmail();
+            $login = new Login();
+
+            $email = $_GET['email'];
+            $token = $_GET['token'];
+
+            if ($confirm->verifyToken($email, $token)) {
+                if($login->activateUserAccount($email))
+                {
+                    $confirm->deleteToken($email);
+                    $this->pageData['confirmEmail'] = TRUE;
+                    $this->pageData['message'] = "Congrats Your account Activated";
+                }
+                else {
+                    $this->pageData['confirmEmail'] = FALSE;
+                    $this->pageData['message'] = "Your Account didn't activated";
+                }
+            } else {
+                $this->pageData['confirmEmail']   = FALSE;
+                $this->pageData['message'] = "Confirmation Email token expired ! Try again .";
+            }
+        } else {
+            $this->pageData['confirmEmail']   = FALSE;
+            $this->pageData['message'] = "email and token didn't match";
+        }
+        $this->loadView("account_activated", $this->pageData);
+    }
 
 
     function process() {
         $method = (isset($_GET['r'])) ? $_GET['r'] : "";
         switch ($method) {
-            case 'register';
+            case 'register':
                 $this->registration();
                 break;
-            default;
+            case 'checkConfirmation';
+                $this->checkConfirmation();
+                break;
+            default:
                 $this->index();
                 break;
         }

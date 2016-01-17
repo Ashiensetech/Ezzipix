@@ -31,6 +31,28 @@ class Login extends EzzipixModel {
         return FALSE;
     }
 
+    public function isUserActivated($email)
+    {
+        $email = mysql_real_escape_string(trim($email));
+
+        $query = "SELECT activated FROM `$this->tableName` WHERE EMAIL = '$email' limit 1";
+
+        $result = mysql_query($query);
+        foreach ($this->getArrayData($result) as $row) {
+            return $row['activated'];
+        }
+
+        return FALSE;
+    }
+
+    public function activateUserAccount($email)
+    {
+        $email    = mysql_real_escape_string(trim($email));
+        $sql      = "UPDATE $this->tableName SET activated = '1' WHERE email = '$email'";
+
+        return mysql_query($sql);
+    }
+
     public function getUserDetails($email) {
         $email  = mysql_real_escape_string(trim($email));
         $query  = "SELECT * FROM $this->tableName , user WHERE EMAIL = '$email' AND user.id = $this->tableName.u_id limit 1";

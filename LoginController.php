@@ -22,10 +22,17 @@ class LoginController extends EzzipixController {
         if ($email == "" || $password == "") {
             $this->respData['msg'] = "Invalid Username or  Password ";
 
-            return;
-            json_encode($this->respData);
-        } else {
+            return json_encode($this->respData);
+        }
+        else {
             $login  = new Login();
+            $activated = $login->isUserActivated($email);
+            if($activated==0)
+            {
+                $this->respData['loginStatus'] = FALSE;
+                $this->respData['msg']         = "Your account is not activated ";
+                return json_encode($this->respData);
+            }
             $result = $login->getByEmailAndPassword($email, $password);
 
             if (sizeof($result) == 1) {
@@ -188,4 +195,5 @@ class LoginController extends EzzipixController {
             $this->loadView("request_password", $this->pageData);
         }
     }
+
 }
