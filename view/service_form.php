@@ -213,5 +213,11 @@ LAST UPDATE: 2015/01/05
             }
         });
     }
+    $('#service_user_id').keypress(function (e) {
+        if (e.which == 13) {
+            sendCode();
+            return false;    //<---- Add this line
+        }
+    });
 </script>
 </html>
