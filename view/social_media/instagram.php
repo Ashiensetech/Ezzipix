@@ -34,8 +34,8 @@
                                         </div>
                                         <div class="col-md-12 login-with-btn"> 
                                             <a class="social-btn" href="<?php echo @$link ?>">
-                                                <button class="btn btn-block btn-instagram-m"><i class="fa fa-instagram"></i>&nbsp;&nbsp;&nbsp;&nbsp;Sign in With Instagram</button>
-                                                
+                                                <button class="btn btn-block btn-instagram-m"><i style="left: 20px;" class="fa fa-instagram"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in With Instagram</button>
+
                                             </a>
                                         </div>
                                     </div>
