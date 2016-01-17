@@ -60,7 +60,7 @@ LAST UPDATE: 2015/01/05
                                     <?php
                                             $selectDisabled = (isset($_GET['app']))?"disabled='disabled'":"";
                                     ?>
-                                    <select  name="service_provider_id" id="service_provider_id" onchange="whatsAppPhoneNumberConvention()" class="form-control" <?php echo $selectDisabled;?> >
+                                    <select  name="service_provider_id" style="display: none" id="service_provider_id" onchange="whatsAppPhoneNumberConvention()" class="form-control" <?php echo $selectDisabled;?> >
                                         <?php
 
                                         $app = @$_GET['app'];
