@@ -24,7 +24,7 @@ class WhatsAppAPIController {
 
     function __construct() {
         $this->w = new WhatsProt($this->username, $this->nickname, $this->debug);
-        $this->w->eventManager()->bind('onGetSyncResult', 'onSyncResult');
+        $this->w->eventManager()->bind('onGetSyncResult', '$this->onSyncResult');
         if($this->w->connect()){
             $this->w->loginWithPassword($this->password);
         }else{
@@ -41,10 +41,12 @@ class WhatsAppAPIController {
         foreach ($result->existing as $number) {
             $this->numberIsExistInWa = true;
         }
+        echo "Before ";
+        var_dump($this->numberIsExistInW);
         foreach ($result->nonExisting as $number) {
             $this->numberIsExistInWa =  false;
         }
-        return false;
+        var_dump($this->numberIsExistInW);
     }
     public function pullMessage() {
         return $this->w->pollMessage();

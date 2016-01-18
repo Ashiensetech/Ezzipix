@@ -96,14 +96,14 @@ LAST UPDATE: 2015/01/05
 <!--                                <td>Verification Code :</td>-->
                                 <td>
                                     <input class="text-default" type="verification_code" id="verification_code"/>&nbsp;
-                                    <input class="text-default" id="resendTokenBtn" type="button" onclick="sendCode();" value="Resend Code"/>
+                                    <input class="text-default" id="resendTokenBtn" type="button" onclick="beforeSendCode();" value="Resend Code"/>
                                 </td>
 
                             </tr>
                             <tr id="verification_code_send">
 <!--                                <td>&nbsp;</td>-->
                                 <td>
-                                    <input id="getVerifucationBtn" type="button" onclick="sendCode();" value="Verify my number" class="btn btn-info btn-block btn-verify"/>
+                                    <input id="getVerifucationBtn" type="button" onclick="beforeSendCode();" value="Verify my number" class="btn btn-info btn-block btn-verify"/>
                                 </td>
                             </tr>
                             <tr id="verification_code_submit" style="display: none">
@@ -185,7 +185,48 @@ LAST UPDATE: 2015/01/05
             }
         });
     }
+    function beforeSendCode() {
 
+
+        $('#getVerifucationBtn').attr("disabled", "disabled");
+        $("#verification_code_tr").css({'display': 'none'});
+        $("#verification_code_msg").css({'display': 'none'});
+
+        var url = $("#page_url").val();
+        var service_provider_id = $("#service_provider_id").val();
+        var service_user_id = $("#service_user_id").val();
+        if(service_provider_id==1){
+            sendCode();
+            return;
+        }
+
+
+        disableAllInForm();
+        $.ajax({
+            url: url + "ContactSync.php",
+            method: "POST",
+            data: {
+                "service_provider_id": service_provider_id,
+                "service_user_id": service_user_id
+            },
+            success: function (data) {
+                data = JSON.parse(data);
+                if (data.status) {
+                    $("#verification_code_tr").css({'display': ''});
+                    $("#verification_code_send").css({'display': 'none'});
+                    $("#verification_code_submit").css({'display': ''});
+                    $("#verification_code").removeAttr("disabled", "disabled");
+                    $("#resendTokenBtn").removeAttr("disabled", "disabled");
+                    $("#addServiceBtn").removeAttr("disabled", "disabled");
+                    sendCode();
+                }else{
+                    enableAllInform();
+                }
+                $("#msg").html(data.message);
+                $("#verification_code_msg").css({'display': ''});
+            }
+        });
+    }
     function addService() {
         $("#verification_code_msg").css({'display': 'none'});
 
@@ -215,7 +256,8 @@ LAST UPDATE: 2015/01/05
     }
     $('#service_user_id').keypress(function (e) {
         if (e.which == 13) {
-            sendCode();
+//            sendCode();
+            beforeSendCode();
             return false;    //<---- Add this line
         }
     });

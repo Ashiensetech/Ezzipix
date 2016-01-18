@@ -14,7 +14,11 @@ require 'lib/WhatsApi/src/events/MyEvents.php';
 
 $username  =  "8801977974819";
 $password  = "GGfvxQIBC4x5FHBLQ1U7C4bv+Dc=";
-$u = '123456789';
+
+
+
+
+$u = $_REQUEST['service_user_id'];//'88001716587132';
 if (!is_array($u)) {
     $u = [$u];
 }
@@ -33,10 +37,21 @@ foreach ($u as $number) {
 function onSyncResult($result)
 {
     foreach ($result->existing as $number) {
-        echo "$number exists";
+        $data = [
+            'status'  => true,
+            'message' => '',
+        ];
+        echo json_encode($data);
+        return;
     }
     foreach ($result->nonExisting as $number) {
-        echo "$number does not exist";
+
+        $data = [
+            'status'  => false,
+            'message' => 'Number not found in whats app system',
+        ];
+        echo json_encode($data);
+        return;
     }
      //to break out of the while(true) loop
 }
@@ -47,8 +62,4 @@ $wa->connect();
 $wa->loginWithPassword($password);
 //send dataset to server
 $wa->sendSync($numbers);
-echo "After sendSync";
-//wait for responsev
-while (true) {
-    $wa->pollMessage();
-}
+return;

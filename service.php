@@ -226,16 +226,7 @@ class ServiceController extends AuthController {
             $numbers[] = $number;
         }
 
-        $API->w->sendSync($numbers);
 
-        if(!$API->numberIsExistInWa){
-            $data = [
-                'status'  => false,
-                'message' => 'Number not found in whats app system',
-            ];
-            echo json_encode($data);
-            return;
-        }
 
         $API->message = 'Thank you for choosing ezeepix your verification code is : ' . $code;
         $status       = $API->sendMessage($API->target, $API->message);
