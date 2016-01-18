@@ -12,8 +12,8 @@ set_time_limit(30);
 require 'lib/WhatsApi/src/whatsprot.class.php';
 require 'lib/WhatsApi/src/events/MyEvents.php';
 
-$username  =  "8801977974819";
-$password  = "GGfvxQIBC4x5FHBLQ1U7C4bv+Dc=";
+$username  =  "16465982050";
+$password  = "F7xxjlf90mpxVxXf1FwFJYrlNRA=";
 
 
 
