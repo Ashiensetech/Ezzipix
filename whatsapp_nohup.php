@@ -67,7 +67,7 @@ class WhatsAppReceiveDataController  {
 
                     echo "From : " . $from . "\n";
                     echo "Message:" . $text. "\n";
-                  //  $this->API->sendMessage($from, $text);//TODO temporary
+                  // $this->API->sendMessage($from, $text);//TODO temporary
 
                     if (($message->getTag() == "media") && ($message->getAttribute('type') == "image")) {
                         $service = new UserService();
@@ -76,7 +76,6 @@ class WhatsAppReceiveDataController  {
                         $imageUrl = $message->getAttribute('url');
                         $path = "upload/img/" . $userId;
                         $isActive = $service->getActiveStatus($from,2);
-
                         if ($userId > 0) {
 
                             if($isActive=="0"){

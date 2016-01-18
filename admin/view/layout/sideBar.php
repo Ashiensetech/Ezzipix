@@ -7,7 +7,7 @@
                 </a>
             </li>
 
-            <li class="treeview">
+            <li class="treeview" style="display: none">
                 <a href="{{ url("app/user") }}">
                     <i class="fa fa-picture-o"></i> <span>User Pictures</span>
                 </a>

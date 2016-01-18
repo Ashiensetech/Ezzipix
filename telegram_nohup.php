@@ -83,8 +83,8 @@ class TelegramNohup {
 
                     $messageImage = $this->API->loadImage($message['id'], $userId);
                     $imageSave = $this->API->saveImage($messageImage['url'], $message['id'], $messageImage['savePath']);
-                    //print_r($messageImage);
-                    //print_r($imageSave);
+                    print_r($messageImage);
+                    print_r($imageSave);
                     //print_r("<br/>");
                     $this->API->tel->deleteMsg($message['id']);
                     if ($imageSave) {

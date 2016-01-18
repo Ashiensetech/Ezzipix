@@ -71,10 +71,10 @@ class UserService extends EzzipixModel {
         $service_user_id     = mysql_real_escape_string(trim($service_user_id));
 
         $query = "SELECT u_id FROM $this->tableName WHERE service_user_id = '$service_user_id'"
-                 . " and service_provider_id = $service_provider_id limit 1";
-
-        foreach ($this->getArrayData(mysql_query($query)) as $rowData) {
-            return $rowData['u_id'];
+                 . " and service_provider_id = '$service_provider_id' limit 1";
+	$result = $this->getArrayData(mysql_query($query));
+       foreach ($result as $rowData) { 
+	 return $rowData['u_id'];
         }
 
         return 0;
@@ -86,7 +86,7 @@ class UserService extends EzzipixModel {
 
         $deactivate = ($data == 'deactivate') ? ' AND active = 0' : '';
         $query      = "SELECT COUNT(*) AS total FROM $this->tableName WHERE service_user_id = '$serviceUserId' " .
-                      "AND service_provider_id = $serviceProviderId $deactivate LIMIT 1";
+                      "AND service_provider_id = '$serviceProviderId' $deactivate LIMIT 1";
 
         foreach ($this->getArrayData(mysql_query($query)) as $rowData) {
             return $rowData['total'];
@@ -102,13 +102,23 @@ class UserService extends EzzipixModel {
         if (!$status == 1) {
             $status = 0;
         }
+        $sql = "UPDATE  $this->tableName SET active = $status WHERE service_user_id = '$serviceUserId' AND service_provider_id = '$serviceProviderId'";
+        mysql_query($sql);
+        return mysql_affected_rows();
+    }
+	 function activateService($serviceProviderId, $serviceUserId, $status = NULL){
+        $serviceProviderId = mysql_real_escape_string(trim($serviceProviderId));
+        $serviceUserId     = mysql_real_escape_string(trim($serviceUserId));
+
+        if (!$status == 1) {
+            $status = 0;
+        }
 
         $sql = "UPDATE  $this->tableName SET active = $status WHERE service_user_id = '$serviceUserId' AND service_provider_id = $serviceProviderId";
         mysql_query($sql);
 
         return mysql_affected_rows();
     }
-
     /**
      * Get service current status active or not
      *
@@ -120,7 +130,7 @@ class UserService extends EzzipixModel {
     function getServiceStatus($form, $serviceType) {
         $form = mysql_real_escape_string(trim($form));
         $sql  = "SELECT active FROM $this->tableName WHERE service_user_id = '$form' " .
-                "AND service_provider_id = $serviceType LIMIT 1";
+                "AND service_provider_id = '$serviceType' LIMIT 1";
         $data = $this->getArrayData(mysql_query($sql));
 
         if (!empty($data)) {
@@ -132,7 +142,7 @@ class UserService extends EzzipixModel {
     function getActiveStatus($form, $serviceType) {
         $form = mysql_real_escape_string(trim($form));
         $sql  = "SELECT active FROM $this->tableName WHERE service_user_id = '$form' " .
-            "AND service_provider_id = $serviceType LIMIT 1";
+            "AND service_provider_id = '$serviceType' LIMIT 1";
         $data = $this->getArrayData(mysql_query($sql));
 
         foreach($data as $d){
