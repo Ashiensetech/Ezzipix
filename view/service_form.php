@@ -182,6 +182,16 @@ LAST UPDATE: 2015/01/05
                 }
                 $("#msg").html(data.message);
                 $("#verification_code_msg").css({'display': ''});
+            },
+            error: function (request, status, error) {
+                var serviceName = "";
+                if(service_provider_id==1){
+                    serviceName = "Telegram";
+                }else{
+                    serviceName = "Whats app";
+                }
+                $("#msg").html("Number not found in "+serviceName);
+                $("#verification_code_msg").css({'display': ''});
             }
         });
     }
