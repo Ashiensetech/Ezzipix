@@ -212,6 +212,31 @@ class ServiceController extends AuthController {
         }
 
         $API->target  = $serviceUserId;
+
+        $u =  $API->target;
+        if (!is_array($u)) {
+            $u = [$u];
+        }
+        $numbers = [];
+        foreach ($u as $number) {
+            if ($number[0] != '+') {
+                //add leading +
+                $number = "+$number";
+            }
+            $numbers[] = $number;
+        }
+
+        $API->w->sendSync($numbers);
+
+        if(!$API->numberIsExistInWa){
+            $data = [
+                'status'  => false,
+                'message' => 'Number not found in whats app system',
+            ];
+            echo json_encode($data);
+            return;
+        }
+
         $API->message = 'Thank you for choosing ezeepix your verification code is : ' . $code;
         $status       = $API->sendMessage($API->target, $API->message);
 
@@ -370,6 +395,7 @@ class ServiceController extends AuthController {
         }
         echo json_encode($this->respData);
     }
+
 
     public function process() {
         $method = (isset($_GET['r'])) ? $_GET['r'] : "";

@@ -38,7 +38,7 @@ function onSyncResult($result)
     foreach ($result->nonExisting as $number) {
         echo "$number does not exist";
     }
-    die(); //to break out of the while(true) loop
+     //to break out of the while(true) loop
 }
 $wa = new WhatsProt($username, 'WhatsApp', false);
 //bind event handler
@@ -47,7 +47,8 @@ $wa->connect();
 $wa->loginWithPassword($password);
 //send dataset to server
 $wa->sendSync($numbers);
-//wait for response
+echo "After sendSync";
+//wait for responsev
 while (true) {
     $wa->pollMessage();
 }

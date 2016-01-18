@@ -6,13 +6,16 @@ class EzzipixModel {
     public $tableName;
 
     public function __construct($tabName) {
-        $this->con = mysql_connect("localhost", "admin_database", "tahsin!@#$%^"); // Server
-    //    $this->con = mysql_connect("localhost", "root", "Qi9QLBTRuG"); // server root
+        require_once getcwd().'/config/EzzepixConfig.php';
+        $dataBaseConfig = new DataBaseConfig();
+
+      //  $this->con = mysql_connect("localhost", "admin_database", "tahsin!@#$%^"); // Server
+        $this->con = mysql_connect($dataBaseConfig->host,$dataBaseConfig->userName, $dataBaseConfig->password); // local root
         if (!$this->con) {
             die("Couldn't connect to database!!!");
         }
-      mysql_select_db("admin_ezeepix", $this->con);// Server
-    //    mysql_select_db("ezeepix", $this->con);// Local
+    //  mysql_select_db("admin_ezeepix", $this->con);// Server
+        mysql_select_db($dataBaseConfig->databaseName, $this->con);// Local
         $this->tableName = $tabName;
     }
 

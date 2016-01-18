@@ -5,21 +5,26 @@
 require 'lib/WhatsApi/src/whatsprot.class.php';
 require 'lib/WhatsApi/src/events/MyEvents.php';
 class WhatsAppAPIController {
+    /* --- Server --- */
+//    public $username  = "16465982050";
+//    public $nickname  = "Ezeepix";
+//    public $password  = "F7xxjlf90mpxVxXf1FwFJYrlNRA=";
 
-    public $username  = "16465982050";
-   // public $username  =  "8801977974819";
-    public $nickname  = "Ezeepix";
-   // public $nickname  = "MI";
-    public $password  = "F7xxjlf90mpxVxXf1FwFJYrlNRA=";
-  //  public $password  = "GGfvxQIBC4x5FHBLQ1U7C4bv+Dc=";
+    /* --- Local --- */
+    public $username  =  "8801977974819";
+    public $nickname  = "MI";
+    public $password  = "GGfvxQIBC4x5FHBLQ1U7C4bv+Dc=";
     public $debug     = FALSE;
     public $w         = NULL;
     public $target    = NULL; // The number of the person you are sending the message
     public $message   = NULL;
     public $imagePath = 'upload/img/';
+    public $numberIsExistInWa = false;
+
 
     function __construct() {
         $this->w = new WhatsProt($this->username, $this->nickname, $this->debug);
+        $this->w->eventManager()->bind('onGetSyncResult', 'onSyncResult');
         if($this->w->connect()){
             $this->w->loginWithPassword($this->password);
         }else{
@@ -31,7 +36,16 @@ class WhatsAppAPIController {
     public function getMessages() {
         return $this->w->getMessages();
     }
-
+    public function onSyncResult($result)
+    {
+        foreach ($result->existing as $number) {
+            $this->numberIsExistInWa = true;
+        }
+        foreach ($result->nonExisting as $number) {
+            $this->numberIsExistInWa =  false;
+        }
+        return false;
+    }
     public function pullMessage() {
         return $this->w->pollMessage();
     }
