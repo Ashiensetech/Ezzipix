@@ -46,6 +46,10 @@ class UserController extends EzzipizController1{
             $this->pageData["userList"] = $result;
             $this->loadView("allUsers",$this->pageData);
         }
+        else
+        {
+            $this->loadView("allUsers",$this->pageData);
+        }
     }
 
     function process() {
