@@ -9,7 +9,7 @@ class User1 extends AdminModel {
     }
 
     public function getUserById() {
-        $sql    = "SELECT u.id, u.first_name, u.last_name, l.email,l.id,l.u_id, u.gender, u.dob FROM user u LEFT JOIN login l ON u.id = l.u_id";
+        $sql    = "SELECT u.id, u.first_name, u.last_name, l.email,l.id,l.u_id, u.gender,l.activated u.dob FROM user u LEFT JOIN login l ON u.id = l.u_id";
         $result = mysql_query($sql);
 
         return $this->getArrayData($result);

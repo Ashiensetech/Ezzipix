@@ -57,6 +57,7 @@
                 <th>Gender</th>
                 <th>DOB</th>
                 <th>Picture</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -70,6 +71,18 @@
                 <td class="text-capitalize"><?php echo $user['gender']?></td>
                 <td><?php echo $user['dob']?></td>
                 <td><a href="UserController.php?a=getPicture&u_id=<?php echo $user['u_id']?>">picture</td>
+                <?php
+                    if($user['activated']==1){
+                ?>
+                        <td><a href="UserController.php?a=deactivate&u_id=<?php echo $user['u_id']?>">Deactivate</td>
+                   <?php }
+                    else
+                    {?>
+                        <td><a href="UserController.php?a=activate&u_id=<?php echo $user['u_id']?>">Activate</td>
+                    <?php
+                    }
+
+                ?>
             </tr>
             <?php
             $i++;} ?>
