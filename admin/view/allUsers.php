@@ -26,7 +26,6 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo $this->baseUrl.'public/dist/css/skins/_all-skins.min.css';?>">
     <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet" type='text/css'>
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -34,6 +33,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <input type="hidden" value="<?php echo $this->baseUrl; ?>" id="baseUrl" />
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -74,11 +74,11 @@
                 <?php
                     if($user['activated']==1){
                 ?>
-                        <td><a href="" onclick="deactivate(<?php echo $user['u_id']?>)">Deactivate</td>
+                        <td><a href="" onclick="deactivate(<?php echo $user['login_id']?>);return false;">Deactivate</td>
                    <?php }
                     else
                     {?>
-                        <td><a href="" onclick="activate(<?php echo $user['u_id']?>)">Activate</td>
+                        <td><a href="" onclick="activate(<?php echo $user['login_id']?>);return false;">Activate</td>
                     <?php
                     }
 
@@ -119,34 +119,28 @@
 <script src="<?php echo $this->baseUrl.'public/plugins/datatables/dataTables.bootstrap.min.js';?>"></script>
 
 <script>
+
     $(function () {
         $('#data-table').DataTable( {
             "pagingType": "full_numbers"
         } );
     });
-
     function deactivate(u_id) {
-        $('#msg').html("");
-        $.ajax({
-            url: $("#baseUrl").val()+"UserController.php?a=deactivate",
-            method: "POST",
-            data: {"u_id": u_id},
-            success: function (data) {
-                var resp = jQuery.parseJSON(data);
+            $.ajax({
+                url: $("#baseUrl").val()+'UserController.php?a=deactivate',
+                method: "POST",
+                data: {"u_id": u_id},
+                success: function (data) {
+                    var resp = jQuery.parseJSON(data);
 
-                $('#msg').html(resp.msg);
-                $('#msg').fadeIn(500);
-                alert(resp.msg);
-                if (resp.status) {
-                    window.location.href = $("#baseUrl").val()+"UserController.php";
+                    alert(resp.msg);
+                    location.reload();
                 }
-            }
-        });
+            });
         return false;
     }
 
     function activate(u_id) {
-        $('#msg').html("");
         $.ajax({
             url: $("#baseUrl").val()+"UserController.php?a=activate",
             method: "POST",
@@ -154,12 +148,8 @@
             success: function (data) {
                 var resp = jQuery.parseJSON(data);
 
-                $('#msg').html(resp.msg);
-                $('#msg').fadeIn(500);
                 alert(resp.msg);
-                if (resp.status) {
-                 window.location.href = $("#baseUrl").val()+"UserController.php";
-                 }
+                location.reload();
             }
         });
         return false;

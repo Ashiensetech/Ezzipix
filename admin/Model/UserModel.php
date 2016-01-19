@@ -9,7 +9,7 @@ class User1 extends AdminModel {
     }
 
     public function getUserById() {
-        $sql    = "SELECT u.id, u.first_name, u.last_name, l.email,l.id,l.u_id, u.gender,l.activated, u.dob FROM user u LEFT JOIN login l ON u.id = l.u_id";
+        $sql    = "SELECT u.id, u.first_name, u.last_name, l.email,l.id AS login_id,l.u_id, u.gender,l.activated, u.dob FROM user u LEFT JOIN login l ON u.id = l.u_id";
         $result = mysql_query($sql);
 
         return $this->getArrayData($result);
@@ -35,13 +35,13 @@ class User1 extends AdminModel {
 
     public function deactivateUserByUserId($uId)
     {
-        $sql = "UPDATE 'login' SET activated = '0' WHERE u_id = '$uId'";
+        $sql = "UPDATE `login` SET `activated` = 0 WHERE `id` = '$uId'";
         mysql_query($sql);
         return mysql_affected_rows();
     }
     public function activateUserByUserId($uId)
     {
-        $sql = "UPDATE 'login' SET activated = '1' WHERE u_id = '$uId'";
+        $sql = "UPDATE  `login` SET  `activated` =1 WHERE  `id` =  '$uId'";
         mysql_query($sql);
         return mysql_affected_rows();
     }
