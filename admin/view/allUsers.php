@@ -74,11 +74,11 @@
                 <?php
                     if($user['activated']==1){
                 ?>
-                        <td><a href="UserController.php?a=deactivate&u_id=<?php echo $user['u_id']?>">Deactivate</td>
+                        <td><a href="" onclick="deactivate(<?php echo $user['u_id']?>)">Deactivate</td>
                    <?php }
                     else
                     {?>
-                        <td><a href="UserController.php?a=activate&u_id=<?php echo $user['u_id']?>">Activate</td>
+                        <td><a href="" onclick="activate(<?php echo $user['u_id']?>)">Activate</td>
                     <?php
                     }
 
@@ -124,6 +124,46 @@
             "pagingType": "full_numbers"
         } );
     });
+
+    function deactivate(u_id) {
+        $('#msg').html("");
+        $.ajax({
+            url: $("#baseUrl").val()+"UserController.php?a=deactivate",
+            method: "POST",
+            data: {"u_id": u_id},
+            success: function (data) {
+                var resp = jQuery.parseJSON(data);
+
+                $('#msg').html(resp.msg);
+                $('#msg').fadeIn(500);
+                alert(resp.msg);
+                if (resp.status) {
+                    window.location.href = $("#baseUrl").val()+"UserController.php";
+                }
+            }
+        });
+        return false;
+    }
+
+    function activate(u_id) {
+        $('#msg').html("");
+        $.ajax({
+            url: $("#baseUrl").val()+"UserController.php?a=activate",
+            method: "POST",
+            data: {"u_id": u_id},
+            success: function (data) {
+                var resp = jQuery.parseJSON(data);
+
+                $('#msg').html(resp.msg);
+                $('#msg').fadeIn(500);
+                alert(resp.msg);
+                if (resp.status) {
+                 window.location.href = $("#baseUrl").val()+"UserController.php";
+                 }
+            }
+        });
+        return false;
+    }
 </script>
 
 </body>

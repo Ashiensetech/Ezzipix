@@ -32,4 +32,17 @@ class User1 extends AdminModel {
 
         return mysql_query($sql);
     }
+
+    public function deactivateUserByUserId($uId)
+    {
+        $sql = "UPDATE 'login' SET activated = '0' WHERE u_id = '$uId'";
+        mysql_query($sql);
+        return mysql_affected_rows();
+    }
+    public function activateUserByUserId($uId)
+    {
+        $sql = "UPDATE 'login' SET activated = '1' WHERE u_id = '$uId'";
+        mysql_query($sql);
+        return mysql_affected_rows();
+    }
 }
