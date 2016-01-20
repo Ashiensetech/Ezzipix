@@ -18,6 +18,7 @@
                         <div style="float:left;position: fixed;top: 100px;z-index: 998;left: 100px;">
                             <input class="btn btn-success btn-block" type="button" value="Upload Image" onclick="uploadPictures('dropbox')" />
                         </div>
+                        <input id="isDropboxLogin" type="hidden" value="<?php echo $isDropBoxLogin; ?>" />
                         <div  style="float:left;padding:4px 0px 0px 6px;">
                             <img  id="loadingImg" src="<?php echo $this->baseUrl . 'html_template/dist/image/loading/spinner.gif'; ?>" style="display: none;"/>
                             <span id="processMsg" > </span>
@@ -96,7 +97,10 @@
         <!--<script type="text/javascript" src="--><?php //echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js';    ?><!--"></script>-->
         <input id="picListSize" type="hidden" value="<?php echo sizeof($pictureList); ?>" />
         <script>
-            $('body').pleaseWait();
+            var isLogin = $('#isDropboxLogin').val();
+            if(isLogin)
+                $('body').pleaseWait();
+
 
                                 var picLoadCount = 0;
                                                     function loadCount() {
