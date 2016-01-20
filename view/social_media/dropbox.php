@@ -15,7 +15,7 @@
                 <div class="container" style="padding-top:8%;padding-bottom:8%;" style="background: #444444;">
                     <div class="clearfix"></div>
                     <div class="submitBtnDiv"  onclick="" id="saveBtnDiv" style="visibility:hidden;">
-                        <div style="float:left">
+                        <div style="float:left;position: fixed;top: 100px;z-index: 998;left: 100px;">
                             <input class="btn btn-success btn-block" type="button" value="Upload Image" onclick="uploadPictures('dropbox')" />
                         </div>
                         <div  style="float:left;padding:4px 0px 0px 6px;">
@@ -90,16 +90,22 @@
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/js/jquery.magnific-popup.js'; ?>"></script>
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/js/owl.carousel.js'; ?>"></script>
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/shuffle/js/jquery.shuffle.js'; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->baseUrl . 'js/jquery.pleaseWait.js'; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->baseUrl . 'js/jquery.1.11.0.min.js'; ?>"></script>
+
         <!--<script type="text/javascript" src="--><?php //echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js';    ?><!--"></script>-->
         <input id="picListSize" type="hidden" value="<?php echo sizeof($pictureList); ?>" />
         <script>
-                                                    var picLoadCount = 0;
+            $('body').pleaseWait();
+
+                                var picLoadCount = 0;
                                                     function loadCount() {
                                                         var picturelistSize = parseInt($('#picListSize').val());
                                                         picLoadCount++;
 
                                                         console.log(picLoadCount + " " + picturelistSize);
                                                         if (picLoadCount >= picturelistSize) {
+                                                            $('body').pleaseWait('stop');
                                                             triggerImageEffect();
                                                         }
                                                     }

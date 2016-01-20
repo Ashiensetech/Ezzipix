@@ -110,7 +110,29 @@ LAST UPDATE: 2015/01/05
                         $j = 1;
                         $i = 0;
                         $count = 0;
-                        foreach ($imgGallery as $img) {
+                        $date = $_GET['d'];
+
+                        $page = ! empty( $_GET['page'] ) ? (int) $_GET['page'] : 1;
+                        $total = count( $imgGallery ); //total items in array
+                        $limit = 10; //per page
+                        $totalPages = ceil( $total/ $limit ); //calculate total pages
+                        $page = max($page, 1); //get 1 page when $_GET['page'] <= 0
+                        $page = min($page, $totalPages); //get last page when $_GET['page'] > $totalPages
+                        $offset = ($page - 1) * $limit;
+                        if( $offset < 0 ) $offset = 0;
+                        //  echo "<pre>";
+                        //  var_dump($offset.$page.$limit.$total);
+                        $partialImageGallery = [];
+                        $up = $limit + $offset;
+                        for($k=$offset;$k<$up;$k++)
+                        {
+                            array_push($partialImageGallery,$imgGallery[$k]);
+
+                        }
+
+                        foreach ($partialImageGallery as $img) {
+                            if(empty($img))
+                                continue;
                             ?>
                                 <!--<img style="" src=""/>-->
                             <div class="col-sm-2 cstm-col-div-5 shuffle image-data" data-groups='["creative", "people"]'>
@@ -148,6 +170,32 @@ LAST UPDATE: 2015/01/05
 
                     </div>
                     <!--/ END row -->
+                    <?php
+                    $link = 'photo.php?r=date&p=' . $platform . '&d=' .$date.'&page=%d';
+                    $pagerContainer = '<div style="width: 300px;">';
+                    if( $totalPages != 0 )
+                    {
+                        if( $page == 1 )
+                        {
+                            $pagerContainer .= '';
+                        }
+                        else
+                        {
+                            $pagerContainer .= sprintf( '<a href="' . $link . '" style="color: #c00"> &#171; prev page</a>', $page - 1 );
+                        }
+                        $pagerContainer .= ' <span> page <strong>' . $page . '</strong> from ' . $totalPages . '</span>';
+                        if( $page == $totalPages )
+                        {
+                            $pagerContainer .= '';
+                        }
+                        else
+                        {
+                            $pagerContainer .= sprintf( '<a href="' . $link . '" style="color: #c00"> next page &#187; </a>', $page + 1 );
+                        }
+                    }
+                    $pagerContainer .= '</div>';
+
+                    echo $pagerContainer;?>
                 </div>
             </section>
             <!--/ END Portfolio Content -->

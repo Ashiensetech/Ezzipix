@@ -93,7 +93,7 @@ LAST UPDATE: 2015/01/05
                         </div>
                         <div class="form-group">
                             <div class="col-md-4 cstm-image-profile no-margin-bottom">
-                                <a href="<?php echo $this->baseUrl . 'media.php?r=all'; ?>" class="btn btn-default btn-cstm">View
+                                <a href="<?php echo $this->baseUrl . 'media.php?r=allnew'; ?>" class="btn btn-default btn-cstm">View
                                     Image Gallery</a>
                             </div>
                             <div class="col-md-4 cstm-image-profile no-margin-bottom">
