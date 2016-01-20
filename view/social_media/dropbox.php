@@ -19,7 +19,7 @@
                             <input class="btn btn-success btn-block" type="button" value="Upload Image" onclick="uploadPictures('dropbox')" />
                         </div>
                         <input id="isDropboxLogin" type="hidden" value="<?php echo $isDropBoxLogin; ?>" />
-                        <div  style="float:left;padding:4px 0px 0px 6px;">
+                        <div  style="float:left;padding:4px 0px 0px 6px;position: fixed;top: 100px;left: 206px;z-index: 998;">
                             <img  id="loadingImg" src="<?php echo $this->baseUrl . 'html_template/dist/image/loading/spinner.gif'; ?>" style="display: none;"/>
                             <span id="processMsg" > </span>
                         </div>
