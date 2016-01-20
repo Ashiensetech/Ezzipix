@@ -15350,10 +15350,11 @@ input[type=password]:focus {
     color: #404040;
 }
 .pre-foot-left p{
-    margin-top: 15px;
-    font-size: 18px;
+    margin-top: 20px;
+    font-size: 16px;
     font-weight: lighter;
-    color: #fff;
+    color: #FFF;
+    text-align: justify;
 }
 .cstm-address{
     margin-top: 12px;
@@ -15362,6 +15363,7 @@ input[type=password]:focus {
     display: table-cell;
     font-size: 26px;
     color: #00b6ad;
+    text-shadow: 0px 2px 2px #000;
 }
 .pre-foot-right h4{
     display: table-cell;
@@ -15393,6 +15395,7 @@ input[type=password]:focus {
     color: #fff !important;
     font-weight: bold;
     font-size: 13px;
+    text-shadow: 0px 5px 5px #000;
 }
 .policy a:hover{
     color: #44C282 !important;
@@ -15436,6 +15439,7 @@ input[type=password]:focus {
     display: table-cell;
     font-size: 26px;
     color: #009d95;
+    text-shadow: 0px 2px 2px #000;
 }
 .icons{
     margin-top: 15px;
@@ -15451,13 +15455,15 @@ input[type=password]:focus {
     display: inline-block;
     width: 43px;
     height: 43px;
-    border: 2px solid rgb(224, 224, 224);
+    border: 1px solid rgb(224, 224, 224);
     text-align: center;
     font-size: 20px;
     line-height: 37px;
     transition: all 0.5s ease 0s;
     margin-right: 10px;
     margin-top: 15px;
+    text-shadow: 0px 5px 5px #000;
+    box-shadow: 0px 2px 2px #000;
 }
 .btn-social:hover {
     border-color: #44C282;
@@ -15823,18 +15829,21 @@ input[type=password]:focus {
     font-size: 22px;
 }
 .see-products-btn{
-    background: #46BC50 none repeat scroll 0% 0%;
-    color: #fff;
-    font-size: 20px;
-    border: 2px solid #46BC50;
-    padding: 15px 20px;
+    background: rgba(82, 178, 229, 0.75) none repeat scroll 0% 0%;
+    color: #ffffff;
+    font-size: 33px;
+    border: 1px solid #FFF;
+    padding: 25px 40px;
     margin-top: 30px;
     border-radius: 0px;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+    text-shadow: 0px 2px 2px #000;
+    box-shadow: 0px 4px 4px #000;
+    -webkit-transition: all 0.8s ease 0s;
+    -moz-transition: all 0.8s ease 0s;
+    -ms-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+    transition: all 0.8s ease 0s;
+    font-family: "Pacifico",cursive;
 }
 .see-products-btn:hover{
     background: #777;

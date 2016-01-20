@@ -30,7 +30,7 @@ LAST UPDATE: 2015/01/05
         <!--/ pattern + overlay -->
         <div class="container" style="padding-top:8%;padding-bottom:8%;">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-10 col-md-offset-1">
                     <div class="content data-profile site-border">
                         <div class="form-group">
                             <div class="col-md-12 cstm-head-profile">
