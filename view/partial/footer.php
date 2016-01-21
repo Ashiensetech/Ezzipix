@@ -4,7 +4,7 @@
         <!-- row -->
         <div class="row">
             <!-- About -->
-            <div class="col-md-6 pre-foot-left">
+            <div class="col-md-7 pre-foot-left">
                 <h4 class="font-alt mt0"> About us </h4>
 
                 <p>
@@ -15,7 +15,7 @@
             <div class="visible-sm visible-xs" style="margin-bottom:25px;"></div>
             <!--/ About -->
             <!-- Address + Social -->
-            <div class="col-md-3 pre-foot-right" style="background: url('../image/others/map-vector.png') no-repeat center center;background-size: 100%;">
+            <div class="col-md-2 pre-foot-right" style="background: url('../image/others/map-vector.png') no-repeat center center;background-size: 100%;">
 <!--                <h4 class="font-alt mt0">ADDRESS</h4>
                 <address class="cstm-address">
                     <strong>NY, Inc.</strong><br>
