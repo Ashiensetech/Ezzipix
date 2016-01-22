@@ -37,81 +37,125 @@ LAST UPDATE: 2015/01/05
                                         <p>PROFILE INFORMATION</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="col-md-6 cstm-label-profile">
-                                            <label>Full name :</label>
-                                        </div>
-                                        <div class="col-md-6 cstm-p-profile padding-left-o">
-                                            <p><?php echo @$user['first_name'] ?><?php echo @$user['last_name'] ?></p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-6 cstm-label-profile">
-                                            <label>Email :</label>
-                                        </div>
-                                        <div class="col-md-6 cstm-p-profile padding-left-o">
-                                            <p><?php echo @$user['email'] ?></p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-6 cstm-label-profile">
-                                            <label>Gender :</label>
-                                        </div>
-                                        <div class="text-capitalize col-md-6 cstm-p-profile padding-left-o">
-                                            <p><?php echo @$user['gender'] ?></p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group clearfix clear">
-                                        <div class="col-md-6 cstm-label-profile">
-                                            <label>DOB :</label>
-                                        </div>
-                                        <div class="col-md-6 cstm-p-profile padding-left-o">
-                                            <?php $date = strtotime(@$user['dob']); ?>
-                                            <p><?php echo date('d M, Y', $date); ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--                                <div class="form-group clearfix clear">
-                                                                    <div class="col-md-12 cstm-label-profile alert alert-warning" id="msg" style="display: none">
-                                                                    </div>
-                                                                </div>-->
-
-                                <?php foreach ($services as $service) { ?>
+                                <div class="col-md-12">
                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="col-md-6 cstm-label-profile">
+                                                <label>Full name :</label>
+                                            </div>
+                                            <div class="col-md-6 cstm-p-profile padding-left-o">
+                                                <p><?php echo @$user['first_name'] ?><?php echo @$user['last_name'] ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 cstm-label-profile">
+                                                <label>Email :</label>
+                                            </div>
+                                            <div class="col-md-6 cstm-p-profile padding-left-o">
+                                                <p><?php echo @$user['email'] ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 cstm-label-profile">
+                                                <label>Gender :</label>
+                                            </div>
+                                            <div class="text-capitalize col-md-6 cstm-p-profile padding-left-o">
+                                                <p><?php echo @$user['gender'] ?></p>
+                                            </div>
+                                        </div>
                                         <div class="form-group clearfix clear">
                                             <div class="col-md-6 cstm-label-profile">
-                                                <label><?php echo @$service['name'] ?> </label>
+                                                <label>DOB :</label>
                                             </div>
-                                            <?php if ($service['active'] == 1) { ?>
-                                                <div class="col-md-6 cstm-image-profile no-margin-botto">
-                                                    <a href="" class="btn btn-default btn-block btn-cstm" onclick="cancelService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
-                                                                    return false;">DeActivate</a>
-                                                </div>
-                                            <?php } else { ?>
-                                                <div class="col-md-6 cstm-image-profile no-margin-botto">
-                                                    <a href="" class="btn btn-default btn-block btn-cstm" onclick="activeService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
-                                                                    return false;">Active</a>
-                                                </div>
+                                            <div class="col-md-6 cstm-p-profile padding-left-o">
+                                                <?php $date = strtotime(@$user['dob']); ?>
+                                                <p><?php echo date('d M, Y', $date); ?></p>
                                             </div>
-
-                                            <?php
-                                        }
-                                    }
-                                    ?>
+                                        </div>
+                                    </div>
+                                    <!--                                <div class="form-group clearfix clear">
+                                                                        <div class="col-md-12 cstm-label-profile alert alert-warning" id="msg" style="display: none">
+                                                                        </div>
+                                                                    </div>-->
+                                    <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <div class="col-md-6 cstm-label-profile label-marg-top">
+                                                <label>What's App</label>
+                                            </div>
+                                            <div class="col-md-6 cstm-image-profile cs-mr-bt">
+                                                <a href="" class="btn btn-default btn-block btn-cstm btn-activate">Deactivate</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6 cstm-label-profile label-marg-top">
+                                                <label>Facebook</label>
+                                            </div>
+                                            <div class="col-md-6 cs-mr-bt">
+                                                <a href="" class="btn btn-danger btn-block btn-cstm btn-deactivate">Activate</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6 cstm-label-profile label-marg-top">
+                                                <label>Instagram</label>
+                                            </div>
+                                            <div class="col-md-6 cstm-image-profile cs-mr-bt">
+                                                <a href="" class="btn btn-default btn-block btn-cstm btn-activate">Deactivate</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6 cstm-label-profile label-marg-top">
+                                                <label>Dropbox</label>
+                                            </div>
+                                            <div class="col-md-6 cs-mr-bt">
+                                                <a href="" class="btn btn-danger btn-block btn-cstm btn-deactivate">Activate</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6 cstm-label-profile label-marg-top">
+                                                <label>Desktop</label>
+                                            </div>
+                                            <div class="col-md-6 cstm-image-profile cs-mr-bt">
+                                                <a href="" class="btn btn-default btn-block btn-cstm btn-activate">Deactivate</a>
+                                            </div>
+                                        </div>   
+                                    </div>
                                 </div>
-                                <div class="col-md-12">
+
+                                                              <!--<?php foreach ($services as $service) { ?>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group clearfix clear">
+                                                                                    <div class="col-md-6 cstm-label-profile">
+                                                                                        <label><?php echo @$service['name'] ?> </label>
+                                                                                    </div>
+                                    <?php if ($service['active'] == 1) { ?>
+                                                                                                <div class="col-md-6 cstm-image-profile no-margin-botto">
+                                                                                                    <a href="" class="btn btn-default btn-block btn-cstm" onclick="cancelService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
+                                                                                                            return false;">DeActivate</a>
+                                                                                                </div>
+                                    <?php } else { ?>
+                                                                                                <div class="col-md-6 cstm-image-profile no-margin-botto">
+                                                                                                    <a href="" class="btn btn-default btn-block btn-cstm" onclick="activeService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
+                                                                                                            return false;">Active</a>
+                                                                                                </div>
+                                                                                            </div>
+                                                
+                                        <?php
+                                    }
+                                }
+                                ?>
+                                                                </div>-->
+                                <div class="col-md-12 foot-btn">
                                     <div class="form-group">
-                                        <div class="col-md-4 cstm-image-profile no-margin-bottom">
-                                            <a href="<?php echo $this->baseUrl . 'media.php?r=allnew'; ?>" class="btn btn-default btn-cstm">View
+                                        <div class="col-md-4 no-margin-bottom text-center">
+                                            <a href="<?php echo $this->baseUrl . 'media.php?r=allnew'; ?>" class="btn btn-primary btn-cstm">View
                                                 Image Gallery</a>
                                         </div>
-                                        <div class="col-md-4 cstm-image-profile no-margin-bottom">
-                                            <a href="<?php echo $this->baseUrl . 'dashboard.php?r=updateAccount'; ?>" class="btn btn-default btn-cstm">Update
+                                        <div class="col-md-4 no-margin-bottom text-center">
+                                            <a href="<?php echo $this->baseUrl . 'dashboard.php?r=updateAccount'; ?>" class="btn btn-primary btn-cstm">Update
                                                 Account</a>
                                         </div>
-                                        <div class="col-md-3 cstm-image-profile no-margin-bottom">
-                                            <a href="<?php echo $this->baseUrl . 'dashboard.php?r=updatePassword'; ?>" class="btn btn-default btn-cstm">Change
+                                        <div class="col-md-4 no-margin-bottom text-center">
+                                            <a href="<?php echo $this->baseUrl . 'dashboard.php?r=updatePassword'; ?>" class="btn btn-primary btn-cstm">Change
                                                 Password</a>
                                         </div>
                                     </div>

@@ -15191,6 +15191,17 @@ input[type=password]:focus {
 .no-padding{
     padding: 0px !important;
 }
+.foot-btn{
+    background: #E3E3E3;
+    padding: 15px 0px;
+    margin-bottom: -30px !important;
+}
+.foot-btn a{
+    border-radius: 0px !important;
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 15px;
+}
 .update-pass button{
     border-radius: 0px !important;
     height: 40px;
@@ -15395,7 +15406,7 @@ input[type=password]:focus {
     color: #fff !important;
     font-weight: bold;
     font-size: 13px;
-    text-shadow: 0px 5px 5px #000;
+    text-shadow: 0px 3px 3px #000;
 }
 .policy a:hover{
     color: #44C282 !important;
@@ -15406,6 +15417,26 @@ input[type=password]:focus {
 .cstm-button-center{
     margin: 0px auto;
     float: none;
+}
+.btn-deactivate{
+    height: 35px;
+    padding: 8px !important;
+    border-radius: 0px !important;
+    font-size: 14px;
+    box-shadow: 0px 2px 2px 0px #BDBDBD;
+}
+.btn-activate{
+    height: 35px;
+    padding: 8px !important;
+    border-radius: 0px !important;
+    font-size: 14px;
+    box-shadow: 0px 2px 2px 0px #BDBDBD;
+}
+.label-marg-top{
+    margin-top: 5px;
+}
+.cs-mr-bt{
+    margin-bottom: 15px;
 }
 
 .album{
@@ -15931,7 +15962,7 @@ input[type=password]:focus {
     margin-top: 20px;
 }
 .no-margin{
-    margin: 0px;
+    margin: 0px !important;
 }
 .img-src-container{
     padding-top: 30px;
