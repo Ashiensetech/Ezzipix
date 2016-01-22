@@ -4,19 +4,18 @@
         <!-- row -->
         <div class="row">
             <!-- About -->
-            <div class="col-md-5 pre-foot-left">
+            <div class="col-md-7 pre-foot-left">
                 <h4 class="font-alt mt0"> About us </h4>
 
                 <p>
                     Photos are more than a file on your phone. They’re memories and tools to share ideas and inspire. A
-                    picture is worth a thousand words. At Ezeepix we get that, and we don’t think .. <a href="about.php">more</a>
+                    picture is worth a thousand words. At Ezeepix we get that, and we don’t think you should have to pay a lot to bring those memories to life. With us you get all of the quality services that you expect from our ... <a href="about.php"> read more</a>
                 </p>
             </div>
             <div class="visible-sm visible-xs" style="margin-bottom:25px;"></div>
             <!--/ About -->
-            <div class="col-md-1"></div>
             <!-- Address + Social -->
-            <div class="col-md-3 pre-foot-right" style="background: url('../image/others/map-vector.png') no-repeat center center;background-size: 100%;">
+            <div class="col-md-2 pre-foot-right" style="background: url('../image/others/map-vector.png') no-repeat center center;background-size: 100%;">
 <!--                <h4 class="font-alt mt0">ADDRESS</h4>
                 <address class="cstm-address">
                     <strong>NY, Inc.</strong><br>

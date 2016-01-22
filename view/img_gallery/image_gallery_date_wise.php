@@ -172,7 +172,7 @@ LAST UPDATE: 2015/01/05
                     <!--/ END row -->
                     <?php
                     $link = 'photo.php?r=date&p=' . $platform . '&d=' .$date.'&page=%d';
-                    $pagerContainer = '<div style="width: 300px;">';
+                    $pagerContainer = '<div style="width: 300px;" class="pagination">';
                     if( $totalPages != 0 )
                     {
                         if( $page == 1 )

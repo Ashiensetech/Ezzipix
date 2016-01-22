@@ -134,7 +134,7 @@ LAST UPDATE: 2015/01/05
                             </div>
                             <?php } else
                             {?>
-                                <div class="col-md-3 cstm-image-profile no-margin-bottom">
+                                <div class="col-md-12 cstm-image-profile no-margin-bottom">
                                     <a href="<?php echo $this->baseUrl . 'shipping.php?r=getUpdateShippingView'; ?>" class="btn btn-default btn-cstm">Update Shipping</a>
                                 </div>
                            <?php }?>

@@ -15191,6 +15191,17 @@ input[type=password]:focus {
 .no-padding{
     padding: 0px !important;
 }
+.foot-btn{
+    background: #E3E3E3;
+    padding: 15px 0px;
+    margin-bottom: -30px !important;
+}
+.foot-btn a{
+    border-radius: 0px !important;
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 15px;
+}
 .update-pass button{
     border-radius: 0px !important;
     height: 40px;
@@ -15350,10 +15361,11 @@ input[type=password]:focus {
     color: #404040;
 }
 .pre-foot-left p{
-    margin-top: 15px;
-    font-size: 18px;
+    margin-top: 20px;
+    font-size: 16px;
     font-weight: lighter;
-    color: #fff;
+    color: #FFF;
+    text-align: justify;
 }
 .cstm-address{
     margin-top: 12px;
@@ -15362,6 +15374,7 @@ input[type=password]:focus {
     display: table-cell;
     font-size: 26px;
     color: #00b6ad;
+    text-shadow: 0px 2px 2px #000;
 }
 .pre-foot-right h4{
     display: table-cell;
@@ -15393,6 +15406,7 @@ input[type=password]:focus {
     color: #fff !important;
     font-weight: bold;
     font-size: 13px;
+    text-shadow: 0px 3px 3px #000;
 }
 .policy a:hover{
     color: #44C282 !important;
@@ -15403,6 +15417,26 @@ input[type=password]:focus {
 .cstm-button-center{
     margin: 0px auto;
     float: none;
+}
+.btn-deactivate{
+    height: 35px;
+    padding: 8px !important;
+    border-radius: 0px !important;
+    font-size: 14px;
+    box-shadow: 0px 2px 2px 0px #BDBDBD;
+}
+.btn-activate{
+    height: 35px;
+    padding: 8px !important;
+    border-radius: 0px !important;
+    font-size: 14px;
+    box-shadow: 0px 2px 2px 0px #BDBDBD;
+}
+.label-marg-top{
+    margin-top: 5px;
+}
+.cs-mr-bt{
+    margin-bottom: 15px;
 }
 
 .album{
@@ -15436,6 +15470,7 @@ input[type=password]:focus {
     display: table-cell;
     font-size: 26px;
     color: #009d95;
+    text-shadow: 0px 2px 2px #000;
 }
 .icons{
     margin-top: 15px;
@@ -15451,13 +15486,15 @@ input[type=password]:focus {
     display: inline-block;
     width: 43px;
     height: 43px;
-    border: 2px solid rgb(224, 224, 224);
+    border: 1px solid rgb(224, 224, 224);
     text-align: center;
     font-size: 20px;
     line-height: 37px;
     transition: all 0.5s ease 0s;
     margin-right: 10px;
     margin-top: 15px;
+    text-shadow: 0px 5px 5px #000;
+    box-shadow: 0px 2px 2px #000;
 }
 .btn-social:hover {
     border-color: #44C282;
@@ -15567,7 +15604,7 @@ input[type=password]:focus {
 }
 .beta {
     position: fixed;
-    z-index: 999999;
+    z-index: 999;
     top: 0px;
     right: 0px;
     width: 65px;
@@ -15732,6 +15769,7 @@ input[type=password]:focus {
     background: #fff;
     font-size: 0;
     clear: both;
+    border-top: 3px solid #44C282;
     /* overflow: hidden; */
 }
 .filter-tab li{
@@ -15764,7 +15802,8 @@ input[type=password]:focus {
     padding: 10px 13px;
     line-height: 20px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
+    font-family: Lato,Arial,sans-serif;
 }
 .filter-tab li a:hover{
     background: #353e47;
@@ -15823,18 +15862,21 @@ input[type=password]:focus {
     font-size: 22px;
 }
 .see-products-btn{
-    background: #46BC50 none repeat scroll 0% 0%;
-    color: #fff;
-    font-size: 20px;
-    border: 2px solid #46BC50;
-    padding: 15px 20px;
+    background: rgba(82, 178, 229, 0.75) none repeat scroll 0% 0%;
+    color: #ffffff;
+    font-size: 33px;
+    border: 1px solid #FFF;
+    padding: 25px 40px;
     margin-top: 30px;
     border-radius: 0px;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+    text-shadow: 0px 2px 2px #000;
+    box-shadow: 0px 4px 4px #000;
+    -webkit-transition: all 0.8s ease 0s;
+    -moz-transition: all 0.8s ease 0s;
+    -ms-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+    transition: all 0.8s ease 0s;
+    font-family: "Pacifico",cursive;
 }
 .see-products-btn:hover{
     background: #777;
@@ -15920,7 +15962,7 @@ input[type=password]:focus {
     margin-top: 20px;
 }
 .no-margin{
-    margin: 0px;
+    margin: 0px !important;
 }
 .img-src-container{
     padding-top: 30px;
@@ -16006,29 +16048,48 @@ input[type=password]:focus {
 }
 
 .block .panel-footer{
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
+    color: #FFF;
     border-radius: 0px !important;
-    position: relative;
     position: absolute;
-    bottom: 0px;
     width: 100%;
-    border-top: 0px;
-    font-size: 18px;
+    font-size: 16px;
+    bottom: 0px;
+    border-top: 0px none;
+    font-family: Lato,Arial,sans-serif;
+    padding: 12px;
+    height: 48px;
+    background: -webkit-linear-gradient(top, rgba(255,0,0,0), #0F0F0F); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom, rgba(255,0,0,0), #0F0F0F); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom, rgba(255,0,0,0), #0F0F0F); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom, rgba(255,0,0,0), #0F0F0F); /* Standard syntax (must be last) */
+    text-shadow: 2px 2px 2px #000000;
 }
 .block .panel-footer a {
     color: #FFF;
     font-weight: bold;
     position: absolute;
-    right: 3px;
-    top: 3px;
+    right: 4px;
+    top: 4px;
     height: 40px;
     width: 42px;
-    background: #29A259 none repeat scroll 0% 0%;
+    background: rgba(24, 158, 89, 0.66) none repeat scroll 0% 0%;
     z-index: 99;
     text-align: center;
     line-height: -7px;
     font-size: 19px;
+}
+.update-shipping-infor{
+    padding: 0px 25px !important;
+}
+.cstm-tp-marg{
+    margin-top: -15px;
+}
+.update-shipping-infor input,
+.update-shipping-infor button{
+    border-radius: 0px !important;
+}
+.pagination a{
+    color: #189E59 !important;
 }
 .block .panel-footer a:hover{
     background: #00b6ad;

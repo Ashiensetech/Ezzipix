@@ -76,7 +76,7 @@ LAST UPDATE: 2015/01/05
                             <input value="1" type="checkbox" id="tnc" class="mendatory" name="Accept terms and condition">
                             <span style="color: #777">Accept terms and condition</span>
                             <p class="help-block text-muted text-center">
-                                <span id="msg" style="padding:2px 5px;background:#a4a4a4;color:#fff;"></span>
+                                <span id="msg" style="background:#a4a4a4;color:#fff;"></span>
                             </p>
                         </div>
                         <button type="submit" class="btn btn-success btn-block btn-lg">Signup Now</button>
