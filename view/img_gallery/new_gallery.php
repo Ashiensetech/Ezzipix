@@ -55,7 +55,7 @@ LAST UPDATE: 2015/01/05
                 <div class="container">
                     <!-- START Section Header -->
                     <div class="row">
-                        <div class="col-md-11 col-md-offset-5 my-photo-header photo-header no-padding">
+                        <div class="col-md-12 col-md-offset-4 my-photo-header photo-header no-padding">
                             <h3>My Photo Collection</h3>
 
                             <!--<div class="print">

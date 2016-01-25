@@ -77,7 +77,7 @@ LAST UPDATE: 2015/01/05
                                                                         <div class="col-md-12 cstm-label-profile alert alert-warning" id="msg" style="display: none">
                                                                         </div>
                                                                     </div>-->
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 left-border">
                                         <div class="col-md-12">
                                             <div class="col-md-6 cstm-label-profile label-marg-top">
                                                 <label>What's App</label>

@@ -54,7 +54,7 @@ LAST UPDATE: 2015/01/05
                 <div class="container">
                     <!-- START Section Header -->
                     <div class="row">
-                        <div class="col-md-11 col-md-offset-5 my-photo-header photo-header no-padding">
+                        <div class="col-md-12 col-md-offset-4 my-photo-header photo-header no-padding">
                             <h3>My Photo Collection</h3>
 
                             <!--<div class="print">
@@ -172,7 +172,7 @@ LAST UPDATE: 2015/01/05
                     <!--/ END row -->
                     <?php
                     $link = 'photo.php?r=date&p=' . $platform . '&d=' .$date.'&page=%d';
-                    $pagerContainer = '<div style="width: 300px;" class="pagination">';
+                    $pagerContainer = '<div style="width: 203px;" class="pagination">';
                     if( $totalPages != 0 )
                     {
                         if( $page == 1 )
@@ -181,16 +181,16 @@ LAST UPDATE: 2015/01/05
                         }
                         else
                         {
-                            $pagerContainer .= sprintf( '<a href="' . $link . '" style="color: #c00"> &#171; prev page</a>', $page - 1 );
+                            $pagerContainer .= sprintf( '<a href="' . $link . '" style="color: #c00"> &#171; Prev page</a>', $page - 1 );
                         }
-                        $pagerContainer .= ' <span> page <strong>' . $page . '</strong> from ' . $totalPages . '</span>';
+                        $pagerContainer .= ' <span> Page <strong>' . $page . '</strong> from ' . $totalPages . '</span>';
                         if( $page == $totalPages )
                         {
                             $pagerContainer .= '';
                         }
                         else
                         {
-                            $pagerContainer .= sprintf( '<a href="' . $link . '" style="color: #c00"> next page &#187; </a>', $page + 1 );
+                            $pagerContainer .= sprintf( '<a href="' . $link . '" style="color: #c00"> Next page &#187; </a>', $page + 1 );
                         }
                     }
                     $pagerContainer .= '</div>';

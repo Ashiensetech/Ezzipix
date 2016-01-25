@@ -44,7 +44,7 @@ LAST UPDATE: 2015/01/05
                     <p class="animated bounceInRight" data-id='2'>Simply, the best printed products for the best prices anywhere</p>
                 </div>
 
-                <button class="btn btn-default see-products-btn animated bounceInUp" data-id='3' onclick="location.href='<?php echo $this->baseUrl.'product.php';?>'">See Our Products</button>
+                <button class="btn btn-default see-products-btn animated bounceInUp" data-id='3' onclick="location.href='<?php echo $this->baseUrl.'product.php';?>'">See Our Products   &nbsp;&nbsp;&nbsp;<i class="fa fa-cart-arrow-down"></i></button>
 
             </div>
             <div class="container text-center steps-container">
