@@ -120,25 +120,29 @@ LAST UPDATE: 2015/01/05
                                             <img class="img-responsive" src="<?php echo $this->baseUrl . 'upload/img/' . $row['media_file_path']; ?>" />
                                         </a>
                                     </div>
+
                                     <div class="panel-footer">
+                                        <div class="date-month-year">
+                                            <span class="date-me"><?php echo $date->format('D d'); ?>th</span>
+                                            <br><span class="month-me" style="font-size: 20px;"><?php echo $date->format('M'); ?>,</span>
+                                            <span class="years-me" style="font-size: 18px;"><?php echo $date->format('Y'); ?></span>
+                                        </div>
                                         <?php
-                                        echo $date->format('D d, M  Y');
+//                                        echo $date->format('D d, M  Y');                                     
                                         ?>
                                         <a href="<?php echo $this->baseUrl . 'photo.php?r=date&p=' . $platform . '&d=' . $date->format('Y-m-d'); ?>" >
-                                            <i class="fa fa-angle-right fa-2x"></i>
-                                        </a>
+                                        </a> 
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
+                        </div>
+                        <!--            <div class="row album-all">-->
+                        <!--                <div style="text-align: center;padding-top: 5%;">-->
+                        <!--                    <img src="--><?php //echo $this->baseUrl.'img/loader/loading.GIF';       ?><!--" />-->
+                        <!--                </div>-->
+                        <!---->
+                        <!--            </div>-->
                     </div>
-                    <!--            <div class="row album-all">-->
-                    <!--                <div style="text-align: center;padding-top: 5%;">-->
-                    <!--                    <img src="--><?php //echo $this->baseUrl.'img/loader/loading.GIF'; ?><!--" />-->
-                    <!--                </div>-->
-                    <!---->
-                    <!--            </div>-->
-                </div>
             </section>
 
             <!--/ END Portfolio Content -->
@@ -170,7 +174,7 @@ LAST UPDATE: 2015/01/05
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/js/owl.carousel.js'; ?>"></script>
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/shuffle/js/jquery.shuffle.js'; ?>"></script>
         <!--<script type="text/javascript" src="-->
-        <?php //echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js'; ?><!--"></script>-->
+        <?php //echo $this->baseUrl . 'html_template/dist/javascript/frontend/pages/portfolio.js';  ?><!--"></script>-->
         <!--/ Plugins and page level script : optional -->
         <!--/ END JAVASCRIPT SECTION -->
         <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
