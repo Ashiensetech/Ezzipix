@@ -147,15 +147,15 @@ LAST UPDATE: 2015/01/05
                                 <div class="col-md-12 foot-btn">
                                     <div class="form-group">
                                         <div class="col-md-4 no-margin-bottom text-center">
-                                            <a href="<?php echo $this->baseUrl . 'media.php?r=allnew'; ?>" class="btn btn-primary btn-cstm">View
+                                            <a href="<?php echo $this->baseUrl . 'media.php?r=allnew'; ?>" class="btn btn-success btn-cstm">View
                                                 Image Gallery</a>
                                         </div>
                                         <div class="col-md-4 no-margin-bottom text-center">
-                                            <a href="<?php echo $this->baseUrl . 'dashboard.php?r=updateAccount'; ?>" class="btn btn-primary btn-cstm">Update
+                                            <a href="<?php echo $this->baseUrl . 'dashboard.php?r=updateAccount'; ?>" class="btn btn-success btn-cstm">Update
                                                 Account</a>
                                         </div>
                                         <div class="col-md-4 no-margin-bottom text-center">
-                                            <a href="<?php echo $this->baseUrl . 'dashboard.php?r=updatePassword'; ?>" class="btn btn-primary btn-cstm">Change
+                                            <a href="<?php echo $this->baseUrl . 'dashboard.php?r=updatePassword'; ?>" class="btn btn-success btn-cstm">Change
                                                 Password</a>
                                         </div>
                                     </div>
