@@ -134,8 +134,9 @@ LAST UPDATE: 2015/01/05
                                         </a> 
                                     </div>
                                 </div>
+                            </div>
                             <?php } ?>
-                        </div>
+
                         <!--            <div class="row album-all">-->
                         <!--                <div style="text-align: center;padding-top: 5%;">-->
                         <!--                    <img src="--><?php //echo $this->baseUrl.'img/loader/loading.GIF';       ?><!--" />-->

@@ -214,9 +214,9 @@ LAST UPDATE: 2015/01/05
                 var clickCount = 0;
                 console.log($("#shippingAddress").val());
                 PIO.config({
-                     url:"https://widget.print.io/widget/",
-                    //recipeId: "d672c387-aa6a-480f-8908-782843978773", // Staging recipeId
-                    recipeId:"11ebd314-7bbc-4c92-bafb-cad6dd6622f9", //live
+                    // url:"https://widget.print.io/widget/",
+                    recipeId: "d672c387-aa6a-480f-8908-782843978773", // Staging recipeId
+                   // recipeId:"11ebd314-7bbc-4c92-bafb-cad6dd6622f9", //live
 
                     <?php if (@$this->userInfo['uId'] > 0) { ?>
 
@@ -365,7 +365,7 @@ LAST UPDATE: 2015/01/05
                                     });
                                 }
                             },
-<?php } else { ?>
+                         <?php } else { ?>
                             onPhotoSourceReq: function (request, replyFn) {
                                 if (clickCount > 0) {
                                     window.location = "<?php echo $this->baseUrl . "login.php" ?>";
@@ -388,7 +388,7 @@ LAST UPDATE: 2015/01/05
                                          ]*/
                                 });
                                 },
-<?php } ?>
+                <?php } ?>
                             //callback for when the widget cart/order changes
                             onCartChange: function (cart) {
 
