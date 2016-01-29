@@ -130,7 +130,9 @@ LAST UPDATE: 2015/01/05
         <?php include_once 'partial/core_script.php' ?>
         <!--/ Application and vendor script : mandatory -->
 
-        <script src="<?php echo $this->baseUrl . "js/printio/pio.latest.v2.js"; ?>"></script>
+       <!-- <script src="<?php /*echo $this->baseUrl . "js/printio/pio.latest.v2.js"; */?>"></script>-->
+        <script src="https://az412349.vo.msecnd.net/pio/pio.latest.v2.js"></script>
+
         <script type="text/javascript">
 
             var imgJobjArray = JSON.parse($("#allImg").val())
@@ -163,7 +165,31 @@ LAST UPDATE: 2015/01/05
 
 
         <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
+        <input id="shippingAddress" type="hidden" value='<?php echo $shippingAddress; ?>'/>
+        <input id="userInfo" type="hidden" value='<?php echo $userInfo; ?>'/>
+
+
+
         <script type="text/javascript">
+            function getShippingAddress(){
+                var shippingAddress = JSON.parse($("#shippingAddress").val());
+                var userInfo = JSON.parse($("#userInfo").val());
+                console.log(userInfo);
+                console.log(shippingAddress);
+                var shippingAddressPio= {
+                    firstName: userInfo[0].first_name,
+                    lastName: userInfo[0].last_name,
+                    line1: shippingAddress[0].address1,
+                    line2: shippingAddress[0].address2,
+                    city: shippingAddress[0].city,
+                    postalCode: shippingAddress[0].postcode,
+                   // countryCode: shippingAddress,
+                    state: null,
+                    email: userInfo[0].email,
+                    phone: shippingAddress[0].phone
+                };
+                return shippingAddressPio;
+            }
             function changePhotoPluginDivHeight() {
                 var ifrmParentH = screen.height;
                 if (ifrmParentH <= 800) {
@@ -181,17 +207,23 @@ LAST UPDATE: 2015/01/05
                 $('#photo-plugin').height(iframeHeight);
             }
             jQuery(document).ready(function () {
-                <?php if (@$this->userInfo['uId'] > 0) { ?>
 
-                <?php } ?>
 
                 var el = document.getElementById('photo-plugin');
                 changePhotoPluginDivHeight();
                 var clickCount = 0;
+                console.log($("#shippingAddress").val());
                 PIO.config({
                      url:"https://widget.print.io/widget/",
                     //recipeId: "d672c387-aa6a-480f-8908-782843978773", // Staging recipeId
                     recipeId:"11ebd314-7bbc-4c92-bafb-cad6dd6622f9", //live
+
+                    <?php if (@$this->userInfo['uId'] > 0) { ?>
+
+                        shippingAddress: getShippingAddress(),
+
+                    <?php }  ?>
+
                     countryCode: "US",
                     currencyCode: "USD",
                     languageCode: "en",
@@ -201,11 +233,11 @@ LAST UPDATE: 2015/01/05
                         height: "100%"
                     },
                     photosources: {
-                        //                local: {
-                        //                    enabled: false,
-                        //                    sortOrder: 1,
-                        //                    isInitiallyOpen: false
-                        //                },
+                        local: {
+                            enabled: false,
+                            sortOrder: 1,
+                            isInitiallyOpen: false
+                        },
                         facebook: {
                             enabled: false,
                             sortOrder: 2,
@@ -241,16 +273,13 @@ LAST UPDATE: 2015/01/05
                             isInitiallyOpen: true,
                             // an icon for the tab, should be 48x48 px
                             iconUrl: BaseUrl + 'img/ezeepix-48.png'
-                        },custom: {
-                            sortOrder: 8,
-                            enabled: true,
-                            isInitiallyOpen: true,
-                            // an icon for the tab, should be 48x48 px
-                            iconUrl: BaseUrl + 'img/ezeepix-48.png'
                         }
                     }
+
                 });
                 PIO.open({
+
+
                     fns: {
                         <?php if (@$this->userInfo['uId'] > 0) { ?>
                             onPhotoSourceReq: function (request, replyFn) {
@@ -362,7 +391,7 @@ LAST UPDATE: 2015/01/05
 <?php } ?>
                             //callback for when the widget cart/order changes
                             onCartChange: function (cart) {
-                            console.log("HOGA");
+
                         },
                                 //callback on widget close
                                 onClose: function () {

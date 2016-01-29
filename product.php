@@ -3,6 +3,8 @@
 require_once 'EzzipixController.php';
 require_once dirname(__FILE__) . '/Model/UserServiceModel.php';
 require_once dirname(__FILE__) . '/Model/UserServiceDataModel.php';
+require_once dirname(__FILE__) . '/Model/UserModel.php';
+require_once dirname(__FILE__) . '/Model/ShippingModel.php';
 
 class Product extends EzzipixController {
 
@@ -52,6 +54,14 @@ class Product extends EzzipixController {
 
                 }
                 $dateWise[$this->serverProvider[$i]]["dateWise"] = $dateList;
+            }
+            $user        = new User();
+            $shipping = new Shipping();
+            $this->pageData['shippingAddress'] = null;
+
+            if($this->userInfo['isLogin']){
+                $this->pageData['shippingAddress'] = json_encode($shipping->getShippingInfoByUid($this->userInfo['uId']));
+                $this->pageData['userInfo'] = json_encode($user->getUserById($this->userInfo['uId']));
             }
 
             $this->pageData['imgDateWise'] = json_encode($dateWise);

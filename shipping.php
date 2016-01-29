@@ -22,14 +22,14 @@ class ShippingController extends AuthController{
         $shipping = new Shipping();
         $this->pageData['user']     = $user->getUserById($this->userInfo['uId']);
         $this->pageData['shipping'] = $shipping->getShippingInfoByUid($this->userInfo['uId']);
-        $this->loadView('shipping_info', $this->pageData);
+        $this->loadView('shippingInfo/shipping_info', $this->pageData);
     }
 
     public function getAddShippingView(){
         $user = new User();
 
         $this->pageData['user'] = $user->getUserById($_SESSION['uId'])[0];
-        $this->loadView('addShippingInfo',$this->pageData);
+        $this->loadView('shippingInfo/addShippingInfo',$this->pageData);
     }
 
     public function addShipping(){
@@ -69,7 +69,7 @@ class ShippingController extends AuthController{
         ];
 
         if ($shipping->insert($shippingInsertData) > 0) {
-            $this->respData['msg']       = 'Registration Success.';
+            $this->respData['msg']       = 'Shipping Address successfully added';
             $this->respData['regStatus'] = TRUE;
         } else {
             $this->respData['msg']       = 'Internal Server error';
@@ -86,7 +86,7 @@ class ShippingController extends AuthController{
         $shipping = new Shipping();
         $this->pageData['user']     = $user->getUserById($this->userInfo['uId']);
         $this->pageData['shipping'] = $shipping->getShippingInfoByUid($this->userInfo['uId']);
-        $this->loadView('updateShippingInfo', $this->pageData);
+        $this->loadView('shippingInfo/updateShippingInfo', $this->pageData);
     }
 
     public function updateShipping(){

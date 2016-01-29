@@ -12,13 +12,13 @@ LAST UPDATE: 2015/01/05
 -->
 <html class="frontend">
 <!-- START Head -->
-<?php include_once 'partial/head.php' ?>
+<?php include_once dirname(__FILE__) . '/../partial/head.php' ?>
 <!--/ END Head -->
 
 <!-- START Body -->
 <body>
 <!-- START Template Header -->
-<?php include_once 'partial/menu.php'; ?>
+<?php include_once dirname(__FILE__) . '/../partial/menu.php'; ?>
 <!--/ END Template Header -->
 
 <!-- START Template Main -->
@@ -53,15 +53,15 @@ LAST UPDATE: 2015/01/05
                         <div class="form-group clear clearfix">
                             <input titleName="City" type="text" class="form-control input-lg mendatory" id="city" placeholder="City">
                         </div>
-                        <div class="form-group clear clearfix">
-                            <input titleName="State" type="text" class="form-control input-lg mendatory" id="state" placeholder="State/Province">
-                        </div>
+<!--                        <div class="form-group clear clearfix">-->
+<!--                            <input titleName="State" type="text" class="form-control input-lg mendatory" id="state" placeholder="State/Province">-->
+<!--                        </div>-->
                         <div class="form-group clear clearfix">
                             <input titleName="postcode" type="text" class="form-control input-lg mendatory" id="postcode" placeholder="Post Code">
                         </div>
-                        <div class="form-group clear clearfix">
-                            <input titleName="State" type="text" class="form-control input-lg mendatory" id="country" placeholder="Country">
-                        </div>
+<!--                        <div class="form-group clear clearfix">-->
+<!--                            <input titleName="State" type="text" class="form-control input-lg mendatory" id="country" placeholder="Country">-->
+<!--                        </div>-->
                         <div class="form-group clearfix clear">
                             <input titleName="phone" type="text" class="form-control input-lg mendatory" id="phone" placeholder="Shipping Phone">
                         </div>
@@ -86,9 +86,9 @@ LAST UPDATE: 2015/01/05
 <!--/ END Template Main -->
 
 <!-- START Template Footer -->
-<?php include_once 'partial/footer.php' ?>
+<?php include_once dirname(__FILE__) . '/../partial/footer.php' ?>
 <!-- End Template Footer -->
-<?php include_once 'partial/core_script.php' ?>
+<?php include_once dirname(__FILE__) . '/../partial/core_script.php' ?>
 
 </body>
 <!--/ END Body -->
@@ -125,9 +125,9 @@ LAST UPDATE: 2015/01/05
         var address1 = $('#address1').val();
         var address2 = $('#address2').val();
         var city = $('#city').val();
-        var state = $('#state').val();
+        var state = "";//$('#state').val();
         var postcode = $('#postcode').val();
-        var country = $('#country').val();
+        var country = "";//$('#country').val();
         var phone = $('#phone').val();
 
 
