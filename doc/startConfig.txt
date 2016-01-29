@@ -36,3 +36,8 @@ sudo -i
 cd /home/touch/Projects/php/ezeepix
 nohup php telegram_nohup.php &
 nohup php whatsapp_nohup.php &
+
+If telegram caught exception in tmp/tg.sck, then check user group on this socket. you may change user group and permission.
+chown :telegram /tmp/tg.sck
+chmod g+rwx /tmp/tg.sck
+./bin/telegram-cli --json -dWS /tmp/tg.sck &

@@ -78,72 +78,29 @@ LAST UPDATE: 2015/01/05
                                                                         </div>
                                                                     </div>-->
                                     <div class="col-md-6 left-border">
+                                        <?php foreach ($services as $service) { ?>
                                         <div class="col-md-12">
                                             <div class="col-md-6 cstm-label-profile label-marg-top">
-                                                <label>What's App</label>
+                                                <label><?php echo @$service['name'] ?></label>
                                             </div>
+                                            <?php if ($service['active'] == 1) { ?>
                                             <div class="col-md-6 cstm-image-profile cs-mr-bt">
-                                                <a href="" class="btn btn-default btn-block btn-cstm btn-activate">Deactivate</a>
+                                                <a href="" class="btn btn-default btn-block btn-cstm btn-activate" onclick="cancelService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
+                                                    return false;">Deactivate</a>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-6 cstm-label-profile label-marg-top">
-                                                <label>Facebook</label>
-                                            </div>
+                                            <?php } else {?>
                                             <div class="col-md-6 cs-mr-bt">
-                                                <a href="" class="btn btn-danger btn-block btn-cstm btn-deactivate">Activate</a>
+                                                <a href="" class="btn btn-danger btn-block btn-cstm btn-deactivate" onclick="activeService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
+                                                    return false;">Activate</a>
                                             </div>
+                                            <?php } ?>
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-6 cstm-label-profile label-marg-top">
-                                                <label>Instagram</label>
-                                            </div>
-                                            <div class="col-md-6 cstm-image-profile cs-mr-bt">
-                                                <a href="" class="btn btn-default btn-block btn-cstm btn-activate">Deactivate</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-6 cstm-label-profile label-marg-top">
-                                                <label>Dropbox</label>
-                                            </div>
-                                            <div class="col-md-6 cs-mr-bt">
-                                                <a href="" class="btn btn-danger btn-block btn-cstm btn-deactivate">Activate</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-6 cstm-label-profile label-marg-top">
-                                                <label>Desktop</label>
-                                            </div>
-                                            <div class="col-md-6 cstm-image-profile cs-mr-bt">
-                                                <a href="" class="btn btn-default btn-block btn-cstm btn-activate">Deactivate</a>
-                                            </div>
-                                        </div>   
+                                        <?php }?>
+                                        <span id="msg" class="alert alert-success" style="display: none"></span>
                                     </div>
+
                                 </div>
 
-                                                              <!--<?php foreach ($services as $service) { ?>
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-group clearfix clear">
-                                                                                    <div class="col-md-6 cstm-label-profile">
-                                                                                        <label><?php echo @$service['name'] ?> </label>
-                                                                                    </div>
-                                    <?php if ($service['active'] == 1) { ?>
-                                                                                                <div class="col-md-6 cstm-image-profile no-margin-botto">
-                                                                                                    <a href="" class="btn btn-default btn-block btn-cstm" onclick="cancelService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
-                                                                                                            return false;">DeActivate</a>
-                                                                                                </div>
-                                    <?php } else { ?>
-                                                                                                <div class="col-md-6 cstm-image-profile no-margin-botto">
-                                                                                                    <a href="" class="btn btn-default btn-block btn-cstm" onclick="activeService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
-                                                                                                            return false;">Active</a>
-                                                                                                </div>
-                                                                                            </div>
-                                                
-                                        <?php
-                                    }
-                                }
-                                ?>
-                                                                </div>-->
                                 <div class="col-md-12 foot-btn">
                                     <div class="form-group">
                                         <div class="col-md-4 no-margin-bottom text-center">
@@ -237,6 +194,7 @@ LAST UPDATE: 2015/01/05
                     }
                     // alert(data.msg);
                     // elem.find("#msg").html("service");
+
                     $("#msg").html(data.msg);
                     $('#msg').delay(1000).fadeOut(500, function () {
                         location.reload();
