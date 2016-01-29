@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
-
+@import url(https://fonts.googleapis.com/css?family=Lobster);
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 
 /* ----------------------------
@@ -12363,6 +12363,7 @@ a.thumbnail.active {
 .panel.no-border {
     border-width: 0px;
     background-color: rgba(255,255,255,0.88);
+    box-shadow: 0px 1px 2px #545454 !important;
 }
 .panel hr {
     border-color: #dde4e6;
@@ -13084,14 +13085,14 @@ a.thumbnail.active {
 .panel .panel-figure > .thumbnail > .media > .overlay,
 .panel .panel-figure > .thumbnail > .media > img {
     border-radius: 0px;
-    border: 1px solid #7BC77C;
+    background: #818181 none repeat scroll 0% 0% !important; 
 }
 .panel > .thumbnail > .media > .overlay:hover,
 .panel > .thumbnail > .media > img:hover,
 .panel .panel-figure > .thumbnail > .media > .overlay:hover,
 .panel .panel-figure > .thumbnail > .media > img:hover {
     border-radius: 0px;
-    border: 1px solid #8F8F8F !important;;
+    border: 1px solid #44C282 !important;;
 }
 .panel > .thumbnail > .caption,
 .panel > .thumbnail > .meta,
@@ -13719,8 +13720,9 @@ a.list-group-item:focus {
     background-color: rgba(68, 194, 130, 0.7);
     color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+    text-shadow: 0px 3px 2px #000;
     font-size: 16px;
+    box-shadow: 0px 2px 2px #000 !important;
 }
 .totop.pull-left {
     right: auto;
@@ -15174,7 +15176,7 @@ input[type=password]:focus {
 .cstm-dropdown li a:hover{
     background: #353E47 !important;
     color: #fff !important;
-    transition: all 0.5s ease;
+    transition: all 0.2s ease 0s;
 }
 .old i{
     color: #9D9D9D !Important;
@@ -15195,6 +15197,7 @@ input[type=password]:focus {
     background: #E3E3E3;
     padding: 15px 0px;
     margin-bottom: -30px !important;
+    margin-top: 25px;
 }
 .foot-btn a{
     border-radius: 0px !important;
@@ -15352,10 +15355,20 @@ input[type=password]:focus {
 .cstm-pre-footer{
     background: url(../image/footer-bg.png)no-repeat !important;
     background-size: cover !important;
-    border-top: 1px solid #ECF0F1;
-    border-bottom: 1px solid #ECF0F1;
+    border-top: 3px solid #00B6AD !important;
     min-height: 280px;
     position: relative;
+}
+.photo-fix{
+    border-radius: 0px !important;
+}
+.pagination{
+    background: #F2F2F2 none repeat scroll 0% 0%;
+    border-radius: 0px !important;
+    padding: 10px;
+    border: 3px solid #E7E7E7 !important;
+    box-shadow: 0px 1px 1px rgb(194, 194, 194);
+    font-size: 15px;
 }
 .pre-foot-left{
     color: #404040;
@@ -15375,6 +15388,7 @@ input[type=password]:focus {
     font-size: 26px;
     color: #00b6ad;
     text-shadow: 0px 2px 2px #000;
+    letter-spacing: -1px;
 }
 .pre-foot-right h4{
     display: table-cell;
@@ -15382,10 +15396,11 @@ input[type=password]:focus {
     color: #00b6ad;
 }
 .cstm-footer {
-    background: #141414 none repeat scroll 0% 0%;
+    background: #202020 none repeat scroll 0% 0%;
     position: absolute;
     width: 100%;
     bottom: -1px;
+    border-top: 1px solid #1D1D1D;
 }
 .copyrights p{
     color: #fff !important;
@@ -15404,9 +15419,11 @@ input[type=password]:focus {
 }
 .policy a{
     color: #fff !important;
-    font-weight: bold;
     font-size: 13px;
-    text-shadow: 0px 3px 3px #000;
+    text-shadow: 0px 2px 2px #000;
+}
+.left-border{
+    border-left: 4px solid #E3E3E3;
 }
 .policy a:hover{
     color: #44C282 !important;
@@ -15471,9 +15488,11 @@ input[type=password]:focus {
     font-size: 26px;
     color: #009d95;
     text-shadow: 0px 2px 2px #000;
+    letter-spacing: -1px;
 }
 .icons{
     margin-top: 15px;
+    margin-left: 2px;
 }
 .btn-outline i{
     color: #e0e0e0  !important;
@@ -15753,7 +15772,7 @@ input[type=password]:focus {
 
 .my-photo-header h3 {
     color: #545454;
-    padding: 5px;
+    padding: 5px 25px 5px 25px;
     background: #FFF none repeat scroll 0% 0%;
     font-size: 2.3em;
     box-shadow: 0px 0px 0px 9px rgba(255,255,255,0.5);
@@ -15803,7 +15822,8 @@ input[type=password]:focus {
     line-height: 20px;
     text-decoration: none;
     font-size: 15px;
-    font-family: Lato,Arial,sans-serif;
+    font-family: "Lato",sans-serif;
+    font-weight: bold !important;
 }
 .filter-tab li a:hover{
     background: #353e47;
@@ -15862,7 +15882,7 @@ input[type=password]:focus {
     font-size: 22px;
 }
 .see-products-btn{
-    background: rgba(82, 178, 229, 0.75) none repeat scroll 0% 0%;
+    background: rgba(24, 158, 89, 0.75) none repeat scroll 0% 0%;
     color: #ffffff;
     font-size: 33px;
     border: 1px solid #FFF;
@@ -16040,13 +16060,29 @@ input[type=password]:focus {
     border-right:10px solid transparent;
 }
 .block .panel-body img{
-    transform: scale(1.2);
+    transform: scale(1.8);
+    margin-top: 8%;
 }
 .block{
     border-color: #fff !important;
     border-width: 1px !important;
 }
-
+.date-month-year{
+    margin-top: -7px;
+    transition: all 0.5s ease-in-out 0s;
+}
+.panel-footer:hover .date-month-year{
+    margin-top: 0px;
+    transition: all 0.5s ease-in-out 0s;
+}
+.panel-footer > .date-month-year > .date-me{
+    font-size: 28px;
+}
+.drop-shadow{
+    position: absolute;
+    bottom: 0px;
+    background: transparent url("../image/1.png") no-repeat scroll 0% 0% / cover;
+}
 .block .panel-footer{
     color: #FFF;
     border-radius: 0px !important;
@@ -16055,28 +16091,33 @@ input[type=password]:focus {
     font-size: 16px;
     bottom: 0px;
     border-top: 0px none;
-    font-family: Lato,Arial,sans-serif;
     padding: 12px;
-    height: 48px;
-    background: -webkit-linear-gradient(top, rgba(255,0,0,0), #0F0F0F); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom, rgba(255,0,0,0), #0F0F0F); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom, rgba(255,0,0,0), #0F0F0F); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom, rgba(255,0,0,0), #0F0F0F); /* Standard syntax (must be last) */
-    text-shadow: 2px 2px 2px #000000;
+    height: 200px;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.60) 14%, rgba(0,0,0,0.48) 26%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.60) 14%,rgba(0,0,0,0.48) 26%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.60) 14%,rgba(0,0,0,0.48) 26%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+    transition: all 0.5s ease 0s;
+    box-shadow: 0px 10px 10px #333;
+}
+.panel-footer:hover{
+    cursor: pointer !important;
 }
 .block .panel-footer a {
     color: #FFF;
     font-weight: bold;
     position: absolute;
-    right: 4px;
-    top: 4px;
+    right: 15px;
+    top: 145px;
+    opacity: 0.6;
     height: 40px;
     width: 42px;
-    background: rgba(24, 158, 89, 0.66) none repeat scroll 0% 0%;
+    background: transparent;
     z-index: 99;
     text-align: center;
     line-height: -7px;
     font-size: 19px;
+    transition: all 0.5s ease 0s;
 }
 .update-shipping-infor{
     padding: 0px 25px !important;
@@ -16091,13 +16132,19 @@ input[type=password]:focus {
 .pagination a{
     color: #189E59 !important;
 }
-.block .panel-footer a:hover{
-    background: #00b6ad;
+.block .panel-footer:hover a{
+    transition: all 0.8s ease 0s;
+    cursor: pointer;
+    opacity: 1;
+}
+.block .panel-footer a{
+    background: transparent url("../image/go-in.png") no-repeat scroll 0% 0% / cover;
 }
 .block .panel-body{
     padding: 5px;
     height: 200px;
     overflow: hidden;
+    background: #818181 !important;;
 }
 .album-all{
     min-height: 200px;

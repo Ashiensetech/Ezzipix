@@ -12,13 +12,13 @@ LAST UPDATE: 2015/01/05
 -->
 <html class="frontend">
 <!-- START Head -->
-<?php include_once 'partial/head.php' ?>
+<?php include_once dirname(__FILE__) . '/../partial/head.php' ?>
 <!--/ END Head -->
 
 <!-- START Body -->
 <body>
 <!-- START Template Header -->
-<?php include_once 'partial/menu.php'; ?>
+<?php include_once dirname(__FILE__) . '/../partial/menu.php'; ?>
 <!--/ END Template Header -->
 
 <!-- START Template Main -->
@@ -79,14 +79,14 @@ LAST UPDATE: 2015/01/05
                                 <p><?php echo @$s['city'] ?></p>
                             </div>
                         </div>
-                        <div class="form-group clear clearfix">
-                            <div class="col-md-6 cstm-label-profile">
-                                <label>State/Province :</label>
-                            </div>
-                            <div class="text-capitalize col-md-6 cstm-p-profile padding-left-o">
-                                <p><?php echo @$s['state'] ?></p>
-                            </div>
-                        </div>
+<!--                        <div class="form-group clear clearfix">-->
+<!--                            <div class="col-md-6 cstm-label-profile">-->
+<!--                                <label>State/Province :</label>-->
+<!--                            </div>-->
+<!--                            <div class="text-capitalize col-md-6 cstm-p-profile padding-left-o">-->
+<!--                                <p>--><?php //echo @$s['state'] ?><!--</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
                         <div class="form-group clear clearfix">
                             <div class="col-md-6 cstm-label-profile">
                                 <label>Post Code :</label>
@@ -95,14 +95,14 @@ LAST UPDATE: 2015/01/05
                                 <p><?php echo @$s['postcode'] ?></p>
                             </div>
                         </div>
-                        <div class="form-group clear clearfix">
-                            <div class="col-md-6 cstm-label-profile">
-                                <label>Country :</label>
-                            </div>
-                            <div class="text-capitalize col-md-6 cstm-p-profile padding-left-o">
-                                <p><?php echo @$s['country'] ?></p>
-                            </div>
-                        </div>
+<!--                        <div class="form-group clear clearfix">-->
+<!--                            <div class="col-md-6 cstm-label-profile">-->
+<!--                                <label>Country :</label>-->
+<!--                            </div>-->
+<!--                            <div class="text-capitalize col-md-6 cstm-p-profile padding-left-o">-->
+<!--                                <p>--><?php //echo @$s['country'] ?><!--</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
                         <div class="form-group clearfix clear">
                             <div class="col-md-6 cstm-label-profile">
                                 <label>Shipping Phone :</label>
@@ -154,9 +154,9 @@ LAST UPDATE: 2015/01/05
 <!--/ END Template Main -->
 
 <!-- START Template Footer -->
-<?php include_once 'partial/footer.php' ?>
+<?php include_once dirname(__FILE__) . '/../partial/footer.php' ?>
 <!-- End Template Footer -->
-<?php include_once 'partial/core_script.php' ?>
+<?php include_once dirname(__FILE__) . '/../partial/core_script.php' ?>
 
 </body>
 <!--/ END Body -->

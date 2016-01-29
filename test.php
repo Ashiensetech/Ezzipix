@@ -2,50 +2,25 @@
 <script src="http://az412349.vo.msecnd.net/pio/pio.latest.v2.js"></script>
 <script>
 
-    var el = document.getElementById('photo-plugin');
+    //var el = document.getElementById('photo-plugin');
 
     var clickCount = 0;
     PIO.open({
-        recipeId: "d672c387-aa6a-480f-8908-782843978773",
-        countryCode:"US",
-        currencyCode:"USD",
-        languageCode:"en",
-        embedInElement: el,
-        iframeStyles: {
-            width: "100%",
-            height: "100%"
-        },
+        recipeId:"6cfb4f30-34c7-4cf6-9490-f51925650811",
+        url:"https://widget.print.io/widget/",
 
-        photosources: {
-
-
-            instagram: {
-                enabled: false,
-                sortOrder: 2,
-                isInitiallyOpen: false
-            },
-            photobucket: {
-                enabled: false,
-                sortOrder: 3,
-                isInitiallyOpen: false
-            },
-            flickr: {
-                enabled: false,
-                sortOrder: 4,
-                isInitiallyOpen: false
-            },
-            google: {
-                enabled: false,
-                sortOrder: 5,
-                isInitiallyOpen: false
-            },
-            dropbox: {
-                enabled: false,
-                sortOrder: 6,
-                isInitiallyOpen: false
-            }
+        // predefined shipping address (optional)
+        shippingAddress: {
+            firstName: "Sherlock",
+            lastName: "Holms",
+            line1: "Baker St., 221B, London, UK",
+            line2: "New Scotland Yard",
+            city: "London",
+            postalCode: "NW16XE",
+            countryCode: "UK",
+            state: null,
+            email: "sherlock@holmes.uk",
+            phone: "2233322233322"
         }
-
-
     });
 </script>
