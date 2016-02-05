@@ -261,10 +261,17 @@ class SocialMedia extends AuthController {
             case "submitdata":
                 $this->submitData();
                 break;
+            case "pagination":
+                $this->pagination();
+                break;
             default:
                 $this->index();
                 break;
         }
+    }
+
+    public function pagination(){
+        $this->loadView("social_media/dropbox_pagination", $this->pageData);
     }
 }
 
