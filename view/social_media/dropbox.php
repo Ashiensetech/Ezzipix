@@ -5,7 +5,9 @@
     <?php include_once dirname(__FILE__) . '/../partial/head.php' ?>
     <script src="<?php echo $this->baseUrl . "js/printio/pio.latest.v2.js"; ?>"></script>
     <body>
-        <?php include_once dirname(__FILE__) . '/../partial/menu.php'; ?>
+        <?php include_once dirname(__FILE__) . '/../partial/menu.php';
+            session_start();
+        ?>
         <section id="main" role="main">
             <!-- START jumbotron -->
             <section class="jumbotron jumbotron-bg7 nm upper-margin" data-stellar-background-ratio="0.4" style="min-height:486px;">
@@ -49,6 +51,11 @@
                             </div>
                             <?php
                         } else {
+                            //redirect to another page for pagination purpose.
+                            $_SESSION["pictureList"] = $pictureList;
+                            $_SESSION["isLogin"] = $isDropBoxLogin;
+                            header('Location: social_media.php?r=pagination');
+                            //End of pagination. bottom of this code never reach. :P
                             foreach ($pictureList as $img) {
                                 ?>
                                 <img style="" src=""/>
