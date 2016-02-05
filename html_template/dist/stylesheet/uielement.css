@@ -15085,8 +15085,12 @@ input[type=text], input[type=password], textarea, select {
     border: 1px solid #DDDDDD;
 }
 
-input[type=text]:focus, textarea:focus,
+input[type=text]:focus, input[type=email]:focus, textarea:focus,
 input[type=password]:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+.cstm-t-area:focus{
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
     border: 1px solid rgba(81, 203, 238, 1);
 }
@@ -16151,6 +16155,132 @@ input[type=password]:focus {
     background: #eee;
     margin-bottom: 30px;
 }
+.contact-us-para{
+    margin: 15px;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    padding-bottom: 30px;
+}
+.sml-pad{
+    padding-right: 3px !important;
+}
+.for-con-lab label{
+    font-weight: 500;
+}
+.sml-bot{
+    margin-bottom: 15px !important;
+}
+.cstm-btn-width{
+    width: 80px;
+    font-size: 15px;
+}
+.title-head h3{
+    color: #444448; 
+}
+.address{
+    line-height: 1.5;
+    margin-top: 40px;
+    margin-left: 50px;
+    color: #444448;
+    font-size: 14px;
+}
+.address span{
+    font-size: 16px;
+}
+.loc-tlt{
+    color: #444448;
+    font-weight: 600;
+}
+.contact-title i{
+    font-size: 34px;
+    margin-right: 10px;
+    color: #48C282;
+}
+.cstm-faq-selc{
+    border: 1px solid #44C282 !important;
+    margin-top: 25px !important;
+}
+.search-dv{
+    position: relative;
+    margin-top: 15px;
+}
+.search-dv input{
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 100%;
+    position: relative;
+}
+.search-dv .srch-bttn{
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 22px;
+    color: #FFF;
+    height: 40px;
+    width: 80px;
+    border-radius: 0px;
+    transition: all 0.5s ease-in-out;
+}
+.search-dv > .srch-bttn:hover{
+    color: #353E47;
+    transition: all 0.5s ease-in-out;
+}
+.collapse-button {
+    width: 100%;
+    text-align: left;
+    border-radius: 0px !important;
+    background: #353E47;
+    border: 1px solid #262B30;
+    color: #FFF !important;
+    font-size: 14px;
+    padding: 7px 15px;
+    font-weight: 600;
+    box-shadow: 0px 2px 2px #272B30;
+    transition: all 0.5s ease-in-out;
+}
+.collapse-button:hover{
+    background: #52606E;
+    transition: all 0.5s ease-in-out;
+}
+.collapse-button i{
+    float: right;
+    margin-top: 3px !important;
+    font-size: 24px;
+    font-weight: bold !important;
+}
+.collapse-data-div{
+    padding: 7px 15px;
+    font-size: 14px;
+    background: rgb(227, 227, 227) none repeat scroll 0% 0%;
+    border: 1px solid rgb(173, 173, 173);
+    line-height: 1.44;
+    box-shadow: 0px 1px 1px #C2C2C2;
+    text-align: justify;
+}
+.collapse-full{
+    margin-bottom: 4px;
+}
+.faq-image img{
+    width: 100%;
+}
+.cstm-marg-top{
+    margin-top: 25px;
+}
+.help-text{
+    margin-left: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*Other Custom design*/
 

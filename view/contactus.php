@@ -25,22 +25,28 @@
                         </div>
                     </div>
                     <div class="row all-grid" id="shuffle-grid">
-                        <p class="text-justify">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec eleifend arcu. Suspendisse sagittis, lorem non sollicitudin feugiat, lorem risus congue nulla, sed ornare nulla velit eget libero. Maecenas at velit eu justo ullamcorper gravida. Duis quis tellus arcu. Proin non dignissim augue. Pellentesque luctus varius gravida. Curabitur efficitur tortor nec magna bibendum, quis lobortis sapien ornare. Suspendisse sed metus dapibus, bibendum odio eu, rhoncus risus. Vestibulum tortor enim, molestie et porttitor ut, lobortis eget nisl. Aenean vel ligula ac enim elementum finibus sit amet ut mauris.
+                        <p class="text-center contact-us-para">
+                            Do you have any question? Any problem? Any request? Even if you just want to chat just give us a call!<br>
+                            For general questions we encourage you to check out our handy-dandy <a href="<?php echo $this->baseUrl; ?>faq.php">FAQ</a> section first. Chances are there's an answer waiting for you there.<br>
+                            Need to mail us something? We prefer baked goods.
                         </p>
-                        <hr></hr>
 
-                        <div class="col-md-6">
+                        <div class="col-md-7 title-head for-con-lab">
+                            <h3 class="contact-title"><i class="fa fa-envelope-o"></i> Contact Us</h3>
                             <form onsubmit="return sendEmail()">
                                 <div class="alert alert-warning" id="msg" style="display: none;">
                                 </div>
                                 <div class="form-group">
-                                    <label>Email address</label>
-                                    <input type="email" class="form-control" id="email" >
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Name</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <div class="col-md-12 no-margin no-padding sml-bot">
+                                        <div class="col-md-6 no-padding sml-pad">
+                                            <label>Email address</label>
+                                            <input type="email" class="form-control" id="email" >
+                                        </div>
+                                        <div class="col-md-6 no-padding">
+                                            <label for="exampleInputPassword1">Name</label>
+                                            <input type="text" class="form-control" id="name">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Subject</label>
@@ -48,10 +54,25 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Message</label>
-                                    <textarea class="form-control" id="message"></textarea>
+                                    <textarea class="form-control cstm-t-area" id="message"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-success pull-right">Send</button>
+                                <button type="submit" class="btn btn-success cstm-btn-width">Send</button>
                             </form>
+                        </div>
+                        <div class="col-md-5 title-head">
+                            <h3 class="contact-title"><i class="fa fa-home"></i> Our Location</h3>
+                            <p class="address">
+                                <span class="loc-tlt"><i class="fa fa-map-marker"></i> California</span><br>
+                                23 w 11th St<br>
+                                Suite 1<br>
+                                California, CN 90320<br><br>
+                                
+                                <span class="loc-tlt"><i class="fa fa-map-marker"></i> Bangladesh</span><br>
+                                14r 16h<br>
+                                Khilkhet<br>
+                                Dhaka, PO-1229
+                            </p>
+
                         </div>
                     </div>
                 </div>
@@ -78,24 +99,24 @@
     </body>
 
     <script>
-                        function sendEmail() {
-                            var email = $('#email').val();
-                            var name = $('#name').val();
-                            var subject = $('#subject').val();
-                            var message = $('#message').val();
-                            $('#msg').html("");
-                            $.ajax({
-                                url: "contactus.php?r=contactus/sendMail",
-                                method: "POST",
-                                data: {"email": email, "name": name, "subject": subject, "message": message},
-                                success: function (data) {
-                                    var resp = jQuery.parseJSON(data);
-                                    $('#msg').html(resp.msg);
-                                    $('#msg').fadeIn(500);
+                                function sendEmail() {
+                                    var email = $('#email').val();
+                                    var name = $('#name').val();
+                                    var subject = $('#subject').val();
+                                    var message = $('#message').val();
+                                    $('#msg').html("");
+                                    $.ajax({
+                                        url: "contactus.php?r=contactus/sendMail",
+                                        method: "POST",
+                                        data: {"email": email, "name": name, "subject": subject, "message": message},
+                                        success: function (data) {
+                                            var resp = jQuery.parseJSON(data);
+                                            $('#msg').html(resp.msg);
+                                            $('#msg').fadeIn(500);
 
+                                        }
+                                    });
+                                    return false;
                                 }
-                            });
-                            return false;
-                        }
     </script>
 </html>

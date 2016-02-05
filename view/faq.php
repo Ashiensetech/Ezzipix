@@ -25,9 +25,103 @@
                         </div>
                     </div>
                     <div class="row all-grid" id="shuffle-grid">
-                        <p class="text-justify">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec eleifend arcu. Suspendisse sagittis, lorem non sollicitudin feugiat, lorem risus congue nulla, sed ornare nulla velit eget libero. Maecenas at velit eu justo ullamcorper gravida. Duis quis tellus arcu. Proin non dignissim augue. Pellentesque luctus varius gravida. Curabitur efficitur tortor nec magna bibendum, quis lobortis sapien ornare. Suspendisse sed metus dapibus, bibendum odio eu, rhoncus risus. Vestibulum tortor enim, molestie et porttitor ut, lobortis eget nisl. Aenean vel ligula ac enim elementum finibus sit amet ut mauris.
-                        </p>
+                        <div class="col-md-8 search-dv text-center">
+                            <input type="text">
+                            <button class="btn btn-success srch-bttn"><i class="fa fa-search"></i></button>
+                        </div>
+                        <div class="col-md-12 no-padding">
+                            <h2 class="help-text">What can we help you with?</h2>
+                            <ul class="filter-tab cstm-faq-selc">
+                                <li>
+                                    <a href="" class="active">All</a>
+                                </li>
+                                <li>
+                                    <a href="" class="">Billing </a>
+                                </li>
+                                <li>
+                                    <a href="" class="">Care and Use</a>
+                                </li>
+                                <li>
+                                    <a href="" class="">Image and file support</a>
+                                </li>
+                                <li>
+                                    <a href="" class="">Instagram Prints</a>
+                                </li>
+                                <li>
+                                    <a href="" class="">Ordering</a>
+                                </li>
+                                <li>
+                                    <a href="" class="">Product</a>
+                                </li>
+                                <li>
+                                    <a href="" class="">Request a Reprint or Refund</a>
+                                </li>
+                                <li>
+                                    <a href="" class="">Shipping</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-12 no-padding cstm-marg-top">
+                            <div class="col-md-8 no-padding">
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo1" class="collapse-button">How do I change the shipping or billing address on my order?<i class="fa fa-angle-down"></i></button>
+
+                                    <div id="demo1" class="collapse collapse-data-div">
+
+                                        Please email us and if you caught it in time we will do our best to fix it for you! Usually this time period is within 24 hours of when you placed your order.
+                                    </div>
+                                </div>
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo2" class="collapse-button">I'm not happy with the product I received, how do I go about returning it?<i class="fa fa-angle-down"></i></button>
+
+                                    <div id="demo2" class="collapse collapse-data-div">
+
+
+                                        This makes us sad! We always want our customer to be happy. Please email us with the reason you are not happy and any pictures you feel are necessary to show us what might be wrong with your product and we will do our absolute best to make you happy again! 
+                                    </div>
+                                </div>
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo3" class="collapse-button">I need my order by a certain date, what do I do?<i class="fa fa-angle-down"></i></button>
+
+                                    <div id="demo3" class="collapse collapse-data-div">
+
+
+                                        Please email us with your address, and requested item for us to confirm if the request is possible. <a href="https://www.ezeepix.com/home.php">www.ezeepix.com</a>
+                                    </div>
+                                </div>   
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo4" class="collapse-button">Do you offer products in sizes or options different than the options on your website?<i class="fa fa-angle-down"></i></button>
+
+                                    <div id="demo4" class="collapse collapse-data-div">
+
+
+                                        We are doing new things every day and always trying to satisfy our customers.  Therefore if you do not see the size you want, please email us and we will see what we can do for you! 
+                                    </div>
+                                </div>
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo5" class="collapse-button">If I would like my order shipped to a different address than my home is that possible?<i class="fa fa-angle-down"></i></button>
+
+                                    <div id="demo5" class="collapse collapse-data-div">
+
+
+                                        We can ship to any address you want as long as it is not a P.O Box. If you have questions about the address you want to ship it to, please don't hesitate to email us at 
+                                    </div>
+                                </div>
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo6" class="collapse-button">What image file types does HelloPics accept through its site?<i class="fa fa-angle-down"></i></button>
+
+                                    <div id="demo6" class="collapse collapse-data-div">
+
+
+                                        We accept gif, jpg, and png images.
+
+                                    </div>
+                                </div>   
+                            </div>
+                            <div class="col-md-4 faq-image">
+                                <img src="<?php echo $this->baseUrl . 'html_template/dist/image/faq.png'; ?>">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
