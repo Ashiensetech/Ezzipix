@@ -44,6 +44,11 @@
                             </div>
                             <?php
                         } else {
+//                            //redirect to another page for pagination purpose.
+                            $_SESSION["images"] = $images;
+                            $_SESSION["dataSubmitted"] = $dataSubmitted;
+                            header('Location: social_media.php?r=instagram_pagination');
+                            //End of pagination. bottom of this code never reach. :P
                             foreach ($images as $img) {
                                 ?>
                                 <img style="" src=""/>

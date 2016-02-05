@@ -264,6 +264,9 @@ class SocialMedia extends AuthController {
             case "pagination":
                 $this->pagination();
                 break;
+            case "instagram_pagination":
+                $this->instagramPagination();
+                break;
             default:
                 $this->index();
                 break;
@@ -272,6 +275,10 @@ class SocialMedia extends AuthController {
 
     public function pagination(){
         $this->loadView("social_media/dropbox_pagination", $this->pageData);
+    }
+
+    public function instagramPagination(){
+        $this->loadView("social_media/instagram_pagination", $this->pageData);
     }
 }
 

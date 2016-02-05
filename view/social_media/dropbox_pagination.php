@@ -101,9 +101,7 @@ session_start();
 
                             </div>
                         </div>
-                    <?php } ?>
-                <?php
-
+                    <?php }
                     $link = 'social_media.php?r=pagination&page=%d';
                     $pagerContainer = '<div style="width: 300px;">';
                     if( $totalPages != 0 )
