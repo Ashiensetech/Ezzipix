@@ -13,7 +13,7 @@ LAST UPDATE: 2015/01/05
 -->
 
 
-<html class="frontend">
+<html class="frontend" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <link rel="stylesheet" href="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/css/magnific.css'; ?>">
     <link rel="stylesheet" href="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/css/owl-carousel.css'; ?>">
     <?php include_once dirname(__FILE__) . '/../partial/head.php' ?>
@@ -111,6 +111,11 @@ LAST UPDATE: 2015/01/05
 
                 <div class="container new-gallery-container">
                     <div class="row clearfix">
+                        <?php if(count($imgDateWise)==0){ ?>
+                            <div class="col-md-3">
+                               </label>No image available </label>
+                            </div>
+                        <?php } ?>
                         <?php foreach ($imgDateWise as $row) { ?>
                             <?php $date = new DateTime($row['created_date']); ?>
                             <div class="col-md-3">
