@@ -167,10 +167,55 @@ LAST UPDATE: 2015/01/05
         <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
         <input id="shippingAddress" type="hidden" value='<?php echo $shippingAddress; ?>'/>
         <input id="userInfo" type="hidden" value='<?php echo $userInfo; ?>'/>
+        <input id="userId" type="hidden" value='<?php echo $this->userInfo['uId']; ?>'/>
 
 
 
         <script type="text/javascript">
+            function isLoggedIn(){
+
+                var userId = ($("#userId").val()!=null && $("#userId").val()!="" && !isNaN($("#userId").val()))?parseInt($("#userId").val()):0;
+
+                return (userId>0)?true:false;
+            }
+            function updateShippingAddress(val){
+
+                $.ajax({
+                    url: "shipping.php?r=updateShipping",
+                    method: "POST",
+                    data: {
+                        city:val.city,
+                        country:(val.countryCode!=null && val.countryCode!="")?val.countryCode!=null:getCountryCode,
+                        email:val.email,
+                        firstName:val.firstName,
+                        lastName:val.lastName,
+                        address1:val.line1,
+                        address2:val.line2,
+                        phone:val.phone,
+                        postcode:val.postalCode,
+                        state:val.state
+                    },
+                    success: function (data) {
+                        data = JSON.parse(data);
+                        if (data.status) {
+
+                        } else {
+                            alert("Image Delete Failed")
+                        }
+                    }
+                });
+
+            }
+            function getCountryCode(){
+                var shippingAddress = ($("#shippingAddress").val()!=null && $("#shippingAddress").val()!="")?JSON.parse($("#shippingAddress").val()):[];
+                console.log(shippingAddress);
+                if(typeof shippingAddress[0]!="undefined"){
+                    if(shippingAddress[0].country!=null && shippingAddress[0].country!=""){
+                        return shippingAddress[0].country;
+                    }
+                }
+                return "US";
+            }
             function getShippingAddress(){
                 var shippingAddress = JSON.parse($("#shippingAddress").val());
                 var userInfo = JSON.parse($("#userInfo").val());
@@ -183,8 +228,8 @@ LAST UPDATE: 2015/01/05
                     line2: shippingAddress[0].address2,
                     city: shippingAddress[0].city,
                     postalCode: shippingAddress[0].postcode,
-                   // countryCode: shippingAddress,
-                    state: null,
+                    countryCode: shippingAddress.country,
+                    state: shippingAddress[0].state,
                     email: userInfo[0].email,
                     phone: shippingAddress[0].phone
                 };
@@ -224,7 +269,7 @@ LAST UPDATE: 2015/01/05
 
                     <?php }  ?>
 
-                    countryCode: "US",
+                    countryCode: getCountryCode(),
                     currencyCode: "USD",
                     languageCode: "en",
                     embedInElement: el,
@@ -417,14 +462,21 @@ LAST UPDATE: 2015/01/05
                                 }else if(val.tplName.trim()=="tpl-shipping"){
                                     console.log('At Address');
                                     console.log(val);
-
-
+                                }else if(val.tplName.trim()=="tpl-cart"){
+                                    if(!isLoggedIn()){
+                                        window.location =  BaseUrl+"login.php";
+                                    }
                                 }
+                                console.log(val);
 
                             } else if (key === "address-change") {
                                 // val contains firstName, lastName, line1, line2, city,
                                 //  state, postalCode, email, countryCode
                                 console.log("the user's shipto address:", val);
+                                <?php if (@$this->userInfo['uId'] > 0) { ?>
+                                    updateShippingAddress(val);
+                                <?php } ?>
+
                             } else if (key === "image-added") {
                                 // when a user adds an image to their gallery
                                 // to potential buy it on a product
