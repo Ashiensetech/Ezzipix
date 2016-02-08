@@ -27,7 +27,7 @@
                     <div class="row all-grid" id="shuffle-grid">                      
                         <div class="col-md-12 no-padding cstm-marg-top">
                             <div class="col-md-8 no-padding">
-                                <div class="col-md-12 search-dv text-center">
+                                <div class="col-md-12 search-dv text-center" style="display: none">
                                     <input type="text">
                                     <button class="btn btn-success srch-bttn"><i class="fa fa-search"></i></button>
                                 </div>
