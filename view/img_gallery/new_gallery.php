@@ -118,7 +118,7 @@ LAST UPDATE: 2015/01/05
                         <?php } ?>
                         <?php foreach ($imgDateWise as $row) { ?>
                             <?php $date = new DateTime($row['created_date']); ?>
-                            <div class="col-md-3">
+                            <div class="col-md-3" onclick="location.href='<?php echo $this->baseUrl . 'photo.php?r=date&p=' . $platform . '&d=' . $date->format('Y-m-d'); ?>'">
                                 <div class="panel panel-default block album">
                                     <div class="panel-body" >
                                         <a href="<?php echo $this->baseUrl . 'photo.php?r=date&p=' . $platform . '&d=' . $date->format('Y-m-d'); ?>">

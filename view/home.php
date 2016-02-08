@@ -41,7 +41,7 @@ LAST UPDATE: 2015/01/05
             <div class="container-fluid upper-banner text-center" >
                 <div class="welcome-txt-container text-center">
                     <h2 class="animated bounceInDown" data-id='1'>We love to print</h2>
-                    <p class="animated bounceInRight" data-id='2'>Simply, the best printed products for the best prices anywhere</p>
+                    <p class="animated bounceInRight" style="font-family: Pacifico, cursive;font-size: 27px" data-id='2'>Simply, the best printed products for the best prices anywhere</p>
                 </div>
 
                 <button class="btn btn-default see-products-btn animated bounceInUp" data-id='3' onclick="location.href='<?php echo $this->baseUrl.'product.php';?>'">See Our Products   &nbsp;&nbsp;&nbsp;<i class="fa fa-cart-arrow-down"></i></button>
@@ -54,32 +54,29 @@ LAST UPDATE: 2015/01/05
                         <div class="img-div ">
                             <img width="100" height="100" src="<?php echo $this->baseUrl.'html_template/dist/image/heart.gif';?>">
                         </div>
-                        <h3 class="animated fadeIn">Pick your favourite Photos</h3>
-                        <p class="animated fadeIn">Prints look great from your
-                            camera, Facebook, Instagram,
-                            or favorite photo App.</p>
+                        <h3 class="animated fadeIn">Sign Up</h3>
+                        <p class="animated fadeIn">In just a few easy steps.</p>
                     </div>
                     <div class="col-md-4 step-single animated fadeInUpShort" data-id="6">
                         <div class="img-div ">
                             <img src="<?php echo $this->baseUrl.'html_template/dist/image/phone.gif';?>">
                         </div>
-                        <h3 class="animated fadeIn">Browse Stylish Products</h3>
-                        <p class="animated fadeIn">Our product team makes sure we carry the hottest items on the market.</p>
+                        <h3 class="animated fadeIn">Upload</h3>
+                        <p class="animated fadeIn">From the biggest variety of sources anywhere!</p>
                     </div>
                     <div class="col-md-4 step-single animated fadeInRightShort" data-id="7">
                         <div class="img-div ">
                             <img src="<?php echo $this->baseUrl.'html_template/dist/image/tick.gif';?>">
                         </div>
-                        <h3>Customize and Check-Out</h3>
-                        <p >Our web and mobile apps are clean
-                            and simple. We ship risk-free and
-                            quality guaranteed.</p>
+                        <h3>Order</h3>
+                        <p >From
+                            a huge variety of the hottest cheapest products to be found!</p>
                     </div>
 
                 </div>
             </div>
             <div class="container-fluid feature-container text-center">
-                <h2 class="home-head animated animated bounceInDown" data-id="8"><span>Our top features</span></h2>
+                <h2 class="home-head animated animated bounceInDown" data-id="8"><span>Why you'll love us</span></h2>
                 <div class="container">
                     <div class="col-md-4">
                         <div class="row clearfix no-margin">
