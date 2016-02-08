@@ -40,7 +40,7 @@ LAST UPDATE: 2015/01/05
                                         if ($appParam == 't') {
                                             $titleOfDiv = "Telegram";
                                         } else if ($appParam == 'w') {
-                                            $titleOfDiv = "Whatsapp";
+                                            $titleOfDiv = "WhatsApp";
                                         }
                                     }
                                 ?>
@@ -70,7 +70,7 @@ LAST UPDATE: 2015/01/05
                                         <?php } else if ($app == 'w') {
                                                 $phonePlaceHolder = "Phone number without '+'";
                                         ?>
-                                            <option value="2" selected>Whats App</option>
+                                            <option value="2" selected>WhatsApp</option>
                                         <?php } else { ?>
                                             <option value="">Select a Service</option>
                                             <?php

@@ -114,7 +114,7 @@ LAST UPDATE: 2015/01/05
 
                         $page = ! empty( $_GET['page'] ) ? (int) $_GET['page'] : 1;
                         $total = count( $imgGallery ); //total items in array
-                        $limit = 10; //per page
+                        $limit = 50; //per page
                         $totalPages = ceil( $total/ $limit ); //calculate total pages
                         $page = max($page, 1); //get 1 page when $_GET['page'] <= 0
                         $page = min($page, $totalPages); //get last page when $_GET['page'] > $totalPages
