@@ -16201,7 +16201,11 @@ input[type=password]:focus {
 }
 .search-dv{
     position: relative;
-    margin-top: 15px;
+    background: #E9E9E9 none repeat scroll 0% 0%;
+    padding: 10px;
+    margin: 0px 15px !important;
+    width: 96.1%;
+    box-shadow: 0px 2px 2px #BABABA;
 }
 .search-dv input{
     font-size: 14px;
@@ -16211,8 +16215,8 @@ input[type=password]:focus {
 }
 .search-dv .srch-bttn{
     position: absolute;
-    top: 0px;
-    right: 15px;
+    top: 10px;
+    right: 10px;
     font-size: 22px;
     color: #FFF;
     height: 40px;
@@ -16227,19 +16231,14 @@ input[type=password]:focus {
 .collapse-button {
     width: 100%;
     text-align: left;
-    border-radius: 0px !important;
-    background: #353E47;
-    border: 1px solid #262B30;
-    color: #FFF !important;
-    font-size: 14px;
-    padding: 7px 15px;
+    border-radius: 5px;
+    background: #F5F5F5;
+    border: none;
+    color: #474747 !important;
+    font-size: 16px;
+    padding: 10px 15px;
     font-weight: 600;
-    box-shadow: 0px 2px 2px #272B30;
-    transition: all 0.5s ease-in-out;
-}
-.collapse-button:hover{
-    background: #52606E;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out 0s;
 }
 .collapse-button i{
     float: right;
@@ -16248,13 +16247,12 @@ input[type=password]:focus {
     font-weight: bold !important;
 }
 .collapse-data-div{
-    padding: 7px 15px;
+    padding: 5px 15px;
     font-size: 14px;
-    background: rgb(227, 227, 227) none repeat scroll 0% 0%;
-    border: 1px solid rgb(173, 173, 173);
+    background: #F5F5F5 none repeat scroll 0% 0%;
     line-height: 1.44;
-    box-shadow: 0px 1px 1px #C2C2C2;
     text-align: justify;
+    border-radius: 5px;
 }
 .collapse-full{
     margin-bottom: 4px;
@@ -16267,6 +16265,27 @@ input[type=password]:focus {
 }
 .help-text{
     margin-left: 15px;
+    margin-top: 90px;
+    margin-bottom: 20px;
+}
+.category-faq{
+    list-style-type: none;
+    margin-bottom: 30px;
+}
+.category-faq li{
+    border-bottom: 1px solid #dddddd;
+    margin-top: 7px;
+    padding-bottom: 5px;
+    font-size: 17px;
+}
+.block-normal{
+    background-color: #F5F5F5;
+}
+
+.skydiv{
+    background: #52B2E5 !important;
+    color: #fff !important;
+
 }
 
 

@@ -24,47 +24,54 @@
                             <h3>FAQ</h3>
                         </div>
                     </div>
-                    <div class="row all-grid" id="shuffle-grid">
-                        <div class="col-md-8 search-dv text-center">
-                            <input type="text">
-                            <button class="btn btn-success srch-bttn"><i class="fa fa-search"></i></button>
-                        </div>
-                        <div class="col-md-12 no-padding">
-                            <h2 class="help-text">What can we help you with?</h2>
-                            <ul class="filter-tab cstm-faq-selc">
-                                <li>
-                                    <a href="" class="active">All</a>
-                                </li>
-                                <li>
-                                    <a href="" class="">Billing </a>
-                                </li>
-                                <li>
-                                    <a href="" class="">Care and Use</a>
-                                </li>
-                                <li>
-                                    <a href="" class="">Image and file support</a>
-                                </li>
-                                <li>
-                                    <a href="" class="">Instagram Prints</a>
-                                </li>
-                                <li>
-                                    <a href="" class="">Ordering</a>
-                                </li>
-                                <li>
-                                    <a href="" class="">Product</a>
-                                </li>
-                                <li>
-                                    <a href="" class="">Request a Reprint or Refund</a>
-                                </li>
-                                <li>
-                                    <a href="" class="">Shipping</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="row all-grid" id="shuffle-grid">                      
                         <div class="col-md-12 no-padding cstm-marg-top">
                             <div class="col-md-8 no-padding">
+                                <div class="col-md-12 search-dv text-center">
+                                    <input type="text">
+                                    <button class="btn btn-success srch-bttn"><i class="fa fa-search"></i></button>
+                                </div>
+                                <h1 class="help-text">What can we help you with?</h1>
+                                <div class="col-md-12">
+                                    <div class="col-md-3 no-padding category-faq">
+                                        <li>
+                                            <a href="" class="active">All</a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="">Billing </a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="">Care and Use</a>
+                                        </li>
+
+                                    </div>
+                                    <div class="col-md-4 no-padding category-faq">
+                                        <li>
+                                            <a href="" class="">Image and file support</a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="">Instagram Prints</a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="">Ordering</a>
+                                        </li>
+
+                                    </div>
+                                    <div class="col-md-5 no-padding category-faq">
+                                        <li>
+                                            <a href="" class="">Product</a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="">Request a Reprint or Refund</a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="">Shipping</a>
+                                        </li>
+
+                                    </div>
+                                </div>
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo1" class="collapse-button">How do I change the shipping or billing address on my order?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo1" class="collapse-button block-normal">How do I change the shipping or billing address on my order?<i class="fa fa-angle-down"></i></button>
 
                                     <div id="demo1" class="collapse collapse-data-div">
 
@@ -72,7 +79,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo2" class="collapse-button">I'm not happy with the product I received, how do I go about returning it?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo2" class="collapse-button block-normal">I'm not happy with the product I received, how do I go about returning it?<i class="fa fa-angle-down"></i></button>
 
                                     <div id="demo2" class="collapse collapse-data-div">
 
@@ -81,7 +88,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo3" class="collapse-button">I need my order by a certain date, what do I do?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo3" class="collapse-button block-normal">I need my order by a certain date, what do I do?<i class="fa fa-angle-down"></i></button>
 
                                     <div id="demo3" class="collapse collapse-data-div">
 
@@ -90,7 +97,7 @@
                                     </div>
                                 </div>   
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo4" class="collapse-button">Do you offer products in sizes or options different than the options on your website?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo4" class="collapse-button block-normal">Do you offer products in sizes or options different than the options on your website?<i class="fa fa-angle-down"></i></button>
 
                                     <div id="demo4" class="collapse collapse-data-div">
 
@@ -99,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo5" class="collapse-button">If I would like my order shipped to a different address than my home is that possible?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo5" class="collapse-button block-normal">If I would like my order shipped to a different address than my home is that possible?<i class="fa fa-angle-down"></i></button>
 
                                     <div id="demo5" class="collapse collapse-data-div">
 
@@ -108,7 +115,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo6" class="collapse-button">What image file types does HelloPics accept through its site?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo6" class="collapse-button block-normal">What image file types does HelloPics accept through its site?<i class="fa fa-angle-down"></i></button>
 
                                     <div id="demo6" class="collapse collapse-data-div">
 
@@ -118,7 +125,7 @@
                                     </div>
                                 </div>   
                             </div>
-                            <div class="col-md-4 faq-image">
+                            <div class="col-md-4 no-padding faq-image">
                                 <img src="<?php echo $this->baseUrl . 'html_template/dist/image/faq.png'; ?>">
                             </div>
                         </div>
@@ -143,6 +150,18 @@
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/magnific/js/jquery.magnific-popup.js'; ?>"></script>
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/owl/js/owl.carousel.js'; ?>"></script>
         <script type="text/javascript" src="<?php echo $this->baseUrl . 'html_template/dist/plugins/shuffle/js/jquery.shuffle.js'; ?>"></script>
+        <script type="text/javascript">
+            $(function () {
+                $(".block-normal").click(function () {
+
+                    if (!$(this).hasClass("skydiv")) {
+                        $(this).addClass("skydiv");
+                    } else {
+                        $(this).removeClass("skydiv");
+                    }
+                });
+            });
+        </script>
 
     </body>
 </html>
