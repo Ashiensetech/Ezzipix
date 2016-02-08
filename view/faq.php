@@ -115,7 +115,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo6" class="collapse-button block-normal">What image file types does HelloPics accept through its site?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo6" class="collapse-button block-normal">What image file types does EzeePix accept through it's site?<i class="fa fa-angle-down"></i></button>
 
                                     <div id="demo6" class="collapse collapse-data-div">
 
