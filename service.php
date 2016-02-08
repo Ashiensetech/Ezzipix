@@ -178,13 +178,13 @@ class ServiceController extends AuthController {
         if ($status) {
             $data = [
                 'status'  => TRUE,
-                'message' => 'Verification Code Send Successfully',
+                'message' => 'Verification Code Sent Successfully!',
             ];
             echo json_encode($data);
         } else {
             $data = [
                 'status'  => FALSE,
-                'message' => 'Verification Code Send Failed Try again',
+                'message' => 'Verification Code Sent Failed! Try again',
             ];
             echo json_encode($data);
         }

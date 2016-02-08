@@ -51,7 +51,7 @@
 
                     $page = ! empty( $_GET['page'] ) ? (int) $_GET['page'] : 1;
                     $total = count( $images ); //total items in array
-                    $limit = 8; //per page
+                    $limit = 48; //per page
                     $totalPages = ceil( $total/ $limit ); //calculate total pages
                     $page = max($page, 1); //get 1 page when $_GET['page'] <= 0
                     $page = min($page, $totalPages); //get last page when $_GET['page'] > $totalPages
