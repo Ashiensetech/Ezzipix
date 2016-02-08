@@ -15976,8 +15976,8 @@ input[type=password]:focus {
     transition: all 0.2s ease;
 }
 .feature-single:hover span{
-    background: #46BC50;
-    color: #fff;
+    background: transparent;
+    color: #1B1B1B;
 }
 
 .feature-single p{
