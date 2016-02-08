@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo1" class="collapse-button block-normal">How do I change the shipping or billing address on my order?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo1" class="collapse-button block-normal">How do I change the shipping or billing address on my order?<i class="fa fa-chevron-circle-down"></i></button>
 
                                     <div id="demo1" class="collapse collapse-data-div">
 
@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo2" class="collapse-button block-normal">I'm not happy with the product I received, how do I go about returning it?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo2" class="collapse-button block-normal">I'm not happy with the product I received, how do I go about returning it?<i class="fa fa-chevron-circle-down"></i></button>
 
                                     <div id="demo2" class="collapse collapse-data-div">
 
@@ -88,7 +88,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo3" class="collapse-button block-normal">I need my order by a certain date, what do I do?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo3" class="collapse-button block-normal">I need my order by a certain date, what do I do?<i class="fa fa-chevron-circle-down"></i></button>
 
                                     <div id="demo3" class="collapse collapse-data-div">
 
@@ -97,7 +97,7 @@
                                     </div>
                                 </div>   
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo4" class="collapse-button block-normal">Do you offer products in sizes or options different than the options on your website?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo4" class="collapse-button block-normal">Do you offer products in sizes or options different than the options on your website?<i class="fa fa-chevron-circle-down"></i></button>
 
                                     <div id="demo4" class="collapse collapse-data-div">
 
@@ -106,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo5" class="collapse-button block-normal">If I would like my order shipped to a different address than my home is that possible?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo5" class="collapse-button block-normal">If I would like my order shipped to a different address than my home is that possible?<i class="fa fa-chevron-circle-down"></i></button>
 
                                     <div id="demo5" class="collapse collapse-data-div">
 
@@ -115,7 +115,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 collapse-full">
-                                    <button data-toggle="collapse" data-target="#demo6" class="collapse-button block-normal">What image file types does EzeePix accept through it's site?<i class="fa fa-angle-down"></i></button>
+                                    <button data-toggle="collapse" data-target="#demo6" class="collapse-button block-normal">What image file types does EzeePix accept through it's site?<i class="fa fa-chevron-circle-down"></i></button>
 
                                     <div id="demo6" class="collapse collapse-data-div">
 

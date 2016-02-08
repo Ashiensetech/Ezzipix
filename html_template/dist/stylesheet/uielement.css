@@ -16236,9 +16236,11 @@ input[type=password]:focus {
     border: none;
     color: #474747 !important;
     font-size: 16px;
-    padding: 10px 15px;
+    padding: 14px 15px;
     font-weight: 600;
-    transition: all 0.5s ease-in-out 0s;
+}
+.collapsing {
+    transition: height 0.6s;
 }
 .collapse-button i{
     float: right;
@@ -16247,12 +16249,14 @@ input[type=password]:focus {
     font-weight: bold !important;
 }
 .collapse-data-div{
-    padding: 5px 15px;
+    padding: 15px 15px;
     font-size: 14px;
-    background: #F5F5F5 none repeat scroll 0% 0%;
+    background: #52B2E5 none repeat scroll 0% 0%;
     line-height: 1.44;
     text-align: justify;
     border-radius: 5px;
+    color: #fff !important;
+    margin-top: -8px;
 }
 .collapse-full{
     margin-bottom: 4px;
@@ -16280,12 +16284,13 @@ input[type=password]:focus {
 }
 .block-normal{
     background-color: #F5F5F5;
+    transition: all 0.5s ease-in-out;
 }
 
 .skydiv{
     background: #52B2E5 !important;
     color: #fff !important;
-
+    transition: all 0.4s ease-in-out;
 }
 
 
