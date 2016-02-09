@@ -23,9 +23,9 @@ class Shipping extends EzzipixModel{
         return $this->getArrayData($result);
     }
 
-    public function isShippingExist($id)
+    public function isShippingExist($userId)
     {
-        $userId = mysql_real_escape_string(trim($id));
+        $userId = mysql_real_escape_string(trim($userId));
 
         $query = "SELECT * FROM `$this->tableName` WHERE u_id = '$userId' limit 1";
 
@@ -41,6 +41,7 @@ class Shipping extends EzzipixModel{
         if (!$data) {
             return FALSE;
         }
+
         $userId = $data["u_id"];
         $address1 = mysql_real_escape_string(trim($data["address1"]));
         $address2  = mysql_real_escape_string(trim($_POST["address2"]));
@@ -50,10 +51,23 @@ class Shipping extends EzzipixModel{
         $country      = mysql_real_escape_string(trim($_POST["country"]));
         $phone      = mysql_real_escape_string(trim($_POST["phone"]));
 
-        $sql = "UPDATE $this->tableName SET address1 = '$address1', address2 = '$address2', city = '$city'," .
-            " state = '$state',postcode = '$postcode',country = '$country',phone='$phone' WHERE u_id = '$userId'";
-
-        return mysql_query($sql);
+        if($this->isShippingExist($userId)){
+            $sql = "UPDATE $this->tableName SET address1 = '$address1', address2 = '$address2', city = '$city'," .
+                " state = '$state',postcode = '$postcode',country = '$country',phone='$phone' WHERE u_id = '$userId'";
+            return mysql_query($sql);
+        }else{
+            $shippingInsertData  = [
+                'u_id' => $userId,
+                'address1'  => $address1,
+                'address2'     => $address2,
+                'city'        => $city,
+                'state'     => $state,
+                'postcode'  => $postcode,
+                'country'       => $country,
+                'phone'         => $phone
+            ];
+            return $this->insert($shippingInsertData);
+        }
     }
     public function addShippingInfo(){
 

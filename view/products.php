@@ -185,7 +185,7 @@ LAST UPDATE: 2015/01/05
                     method: "POST",
                     data: {
                         city:val.city,
-                        country:(val.countryCode!=null && val.countryCode!="")?val.countryCode!=null:getCountryCode,
+                        country:(val.countryCode!=null && val.countryCode!="")?val.countryCode:getCountryCode(),
                         email:val.email,
                         firstName:val.firstName,
                         lastName:val.lastName,
@@ -200,7 +200,7 @@ LAST UPDATE: 2015/01/05
                         if (data.status) {
 
                         } else {
-                            alert("Image Delete Failed")
+
                         }
                     }
                 });
@@ -228,10 +228,27 @@ LAST UPDATE: 2015/01/05
                     line2: shippingAddress[0].address2,
                     city: shippingAddress[0].city,
                     postalCode: shippingAddress[0].postcode,
-                    countryCode: shippingAddress.country,
+                    countryCode: shippingAddress[0].country,
                     state: shippingAddress[0].state,
                     email: userInfo[0].email,
                     phone: shippingAddress[0].phone
+                };
+                return shippingAddressPio;
+            }
+            function getPersonalInfo(){
+
+                var userInfo = JSON.parse($("#userInfo").val());
+                var shippingAddressPio= {
+                    firstName: userInfo[0].first_name,
+                    lastName: userInfo[0].last_name,
+                    line1: null,
+                    line2: null,
+                    city: null,
+                    postalCode: "",
+                    countryCode: null,
+                    state: null,
+                    email: userInfo[0].email,
+                    phone: null
                 };
                 return shippingAddressPio;
             }
@@ -263,11 +280,11 @@ LAST UPDATE: 2015/01/05
                     recipeId: "d672c387-aa6a-480f-8908-782843978773", // Staging recipeId
                    // recipeId:"11ebd314-7bbc-4c92-bafb-cad6dd6622f9", //live
 
-                    <?php if (@$this->userInfo['uId'] > 0) { ?>
-
+                    <?php if (@$this->userInfo['uId'] > 0 && strlen($shippingAddress) > 2) { ?>
                         shippingAddress: getShippingAddress(),
-
-                    <?php }  ?>
+                    <?php }elseif (@$this->userInfo['uId'] > 0) {  ?>
+                        shippingAddress:getPersonalInfo(),
+                    <?php } ?>
 
                     countryCode: getCountryCode(),
                     currencyCode: "USD",
@@ -337,6 +354,9 @@ LAST UPDATE: 2015/01/05
                                 if (request.folder === "") {
 
                                     //pictureArray.push({id: "f1", isFolder: true, name: "fave pics"}); // Create new folder
+
+
+                                    var allFolder = {id: "allImg", isFolder: true, name: "All"};
                                     var myDeviceFolder = {id: "desktop", isFolder: true, name: "My device"};
                                     var facebookFolder = {id: "facebook", isFolder: true, name: "Facebook"};
                                     var dropboxFolder = {id: "dropbox", isFolder: true, name: "Dropbox"};
@@ -344,13 +364,12 @@ LAST UPDATE: 2015/01/05
                                     var instagramFolder = {id: "instagram", isFolder: true, name: "Instagram"};
 
 
+                                    pictureArray.push(allFolder);
                                     pictureArray.push(myDeviceFolder);
                                     pictureArray.push(facebookFolder);
                                     pictureArray.push(dropboxFolder);
                                     pictureArray.push(whatsAppFolder);
                                     pictureArray.push(instagramFolder);
-
-
 
                                     replyFn({
                                         id: "",
@@ -360,7 +379,15 @@ LAST UPDATE: 2015/01/05
 
                                     });
                                 }else{
-                                    if(request.folder.indexOf(".")==-1) {
+
+                                    if(request.folder=="allImg"){
+                                        var allImg = JSON.parse($("#allImg").val());
+                                        console.log(allImg.length);
+                                        for(var key in allImg){
+                                            console.log(allImg[key]);
+                                            pictureArray.push({picture:BaseUrl + "upload/img/" + allImg[key].media_file_path});
+                                        }
+                                    }else if(request.folder.indexOf(".")==-1) {
                                         var deskTopFolder = dateWiseImageList[request.folder];
 
 
