@@ -5,9 +5,7 @@
     <?php include_once dirname(__FILE__) . '/../partial/head.php' ?>
     <script src="<?php echo $this->baseUrl . "js/printio/pio.latest.v2.js"; ?>"></script>
     <body>
-        <?php include_once dirname(__FILE__) . '/../partial/menu.php';
-            session_start();
-        ?>
+        <?php include_once dirname(__FILE__) . '/../partial/menu.php'; ?>
         <section id="main" role="main">
             <!-- START jumbotron -->
             <section class="jumbotron jumbotron-bg7 nm upper-margin" data-stellar-background-ratio="0.4" style="min-height:486px;">
