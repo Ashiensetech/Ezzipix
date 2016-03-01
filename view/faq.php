@@ -32,7 +32,7 @@
                                     <button class="btn btn-success srch-bttn"><i class="fa fa-search"></i></button>
                                 </div>
                                 <h1 class="help-text">What can we help you with?</h1>
-                                <div class="col-md-12">
+<!--                                <div class="col-md-12">
                                     <div class="col-md-3 no-padding category-faq">
                                         <li>
                                             <a href="" class="active">All</a>
@@ -69,7 +69,7 @@
                                         </li>
 
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="col-md-12 collapse-full">
                                     <button data-toggle="collapse" data-target="#demo1" class="collapse-button block-normal">How do I change the shipping or billing address on my order?<i class="fa fa-chevron-circle-down"></i></button>
 

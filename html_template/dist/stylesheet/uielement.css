@@ -1,6 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
+
+
+
 @import url(https://fonts.googleapis.com/css?family=Lobster);
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 
@@ -15870,20 +15873,21 @@ input[type=password]:focus {
 .welcome-txt-container{
     background: rgba(255, 255, 255, 0.75) none repeat scroll 0% 0%;
     margin: 185px auto 10px;
-    color: #FFF;
-    padding: 20px;
+    padding: 30px;
     width: 60%;
 }
 .welcome-txt-container h2{
-    font-size:3.8em;
+    font-size:3.3em;
     font-weight: lighter;
     margin-top: 0px;
-    color: #000;
-    font-family: 'Pacifico', cursive;
+    color: #2D2D2D;
+    font-weight: bold !important;
+    font-family: 'Josefin Slab', serif !important;
 }
 .welcome-txt-container p{
-    color:#111;
-    font-size: 22px;
+    color: #2D2D2D;
+    font-size: 1.799em;
+    font-family: 'Josefin Slab', serif;
 }
 .see-products-btn{
     background: rgba(24, 158, 89, 0.75) none repeat scroll 0% 0%;
@@ -16236,7 +16240,7 @@ input[type=password]:focus {
     border: none;
     color: #474747 !important;
     font-size: 16px;
-    padding: 14px 15px;
+    padding: 10px 15px;
     font-weight: 600;
 }
 .collapsing {
@@ -16251,12 +16255,12 @@ input[type=password]:focus {
 .collapse-data-div{
     padding: 15px 15px;
     font-size: 14px;
-    background: #52B2E5 none repeat scroll 0% 0%;
+    background: #FFF none repeat scroll 0% 0%;
     line-height: 1.44;
     text-align: justify;
     border-radius: 5px;
-    color: #fff !important;
-    margin-top: -8px;
+    color: #474747 !important;
+    margin-top: 0px;
 }
 .collapse-full{
     margin-bottom: 4px;
@@ -16269,8 +16273,8 @@ input[type=password]:focus {
 }
 .help-text{
     margin-left: 15px;
-    margin-top: 90px;
-    margin-bottom: 25px;
+    margin-top: 0px;
+    margin-bottom: 35px;
 }
 .category-faq{
     list-style-type: none;
@@ -16283,7 +16287,7 @@ input[type=password]:focus {
     font-size: 17px;
 }
 .block-normal{
-    background-color: #F5F5F5;
+    background-color: #DEDEDE;
     transition: all 0.5s ease-in-out;
 }
 
@@ -16292,7 +16296,9 @@ input[type=password]:focus {
     color: #fff !important;
     transition: all 0.4s ease-in-out;
 }
-
+.ezee{
+    color: #3b5a9a !important;
+}
 
 
 

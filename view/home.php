@@ -40,8 +40,8 @@ LAST UPDATE: 2015/01/05
         <div class="home-design animatedParent" data-sequence='500'>
             <div class="container-fluid upper-banner text-center" >
                 <div class="welcome-txt-container text-center">
-                    <h2 class="animated bounceInDown" data-id='1'>We love to print</h2>
-                    <p class="animated bounceInRight" style="font-family: Pacifico, cursive;font-size: 27px" data-id='2'>Simply, the best printed products for the best prices anywhere</p>
+                    <h2 class="animated bounceInDown" data-id='1'>putting the "<span class="ezee">eZee</span>" back in "<span class="ezee">pix</span>"</h2>
+                    <p class="animated bounceInRight" data-id='2'>The "<span class="ezee">ezee</span>"iest and cheapest picture printing platform anywhere!</p>
                 </div>
 
                 <button class="btn btn-default see-products-btn animated bounceInUp" data-id='3' onclick="location.href='<?php echo $this->baseUrl.'product.php';?>'">See Our Products   &nbsp;&nbsp;&nbsp;<i class="fa fa-cart-arrow-down"></i></button>
