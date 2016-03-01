@@ -8,9 +8,9 @@
  * Time: 4:28 PM
  */
 
-require_once 'EzzipizController1.php';
+require_once 'AdminBaseController.php';
 
-class AdminUserController extends EzzipizController1{
+class AdminUserController extends AdminBaseController{
     function __construct() {
         parent::__construct();
         if(!(@$_SESSION['AdminEmail'] && @$_SESSION['AdminId'])){

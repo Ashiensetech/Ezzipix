@@ -3,9 +3,9 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
-require_once 'EzzipizController1.php';
+require_once 'AdminBaseController.php';
 
-class LoginController1 extends EzzipizController1 {
+class LoginController extends AdminBaseController {
     function __construct() {
         parent::__construct();
         $this->checkLogin();

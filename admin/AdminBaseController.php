@@ -3,7 +3,7 @@
 session_start();
 
 //require_once 'helper/DateHelper.php';
-class EzzipizController1 {
+class AdminBaseController{
 
     public $pageData;
     public $baseUrl;

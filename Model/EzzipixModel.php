@@ -8,24 +8,24 @@ class EzzipixModel {
     public function __construct($tabName) {
 
 
-        if($_SERVER['HTTP_HOST']=="localhost")
-        {
-              require_once getcwd().'/config/EzzepixConfig.php';
-               $dataBaseConfig = new DataBaseConfig();
-              $this->con = mysql_connect($dataBaseConfig->host,$dataBaseConfig->userName, $dataBaseConfig->password); // local root
-            if (!$this->con) {
-                die("Couldn't connect to database!!!");
-            }
-               mysql_select_db($dataBaseConfig->databaseName, $this->con);// Local
+//        if($_SERVER['HTTP_HOST']=="localhost")
+//        {
+//
+//        }
+//        else{
+//            $this->con = mysql_connect("localhost", "admin_database", "tahsin!@#$%^"); // Server
+//            if (!$this->con) {
+//                die("Couldn't connect to database!!!");
+//            }
+//            mysql_select_db("admin_ezeepix", $this->con);// Server
+//        }
+        require_once getcwd().'/config/EzzepixConfig.php';
+        $dataBaseConfig = new DataBaseConfig();
+        $this->con = mysql_connect($dataBaseConfig->host,$dataBaseConfig->userName, $dataBaseConfig->password); // local root
+        if (!$this->con) {
+            die("Couldn't connect to database!!!");
         }
-        else{
-            $this->con = mysql_connect("localhost", "admin_database", "tahsin!@#$%^"); // Server
-            if (!$this->con) {
-                die("Couldn't connect to database!!!");
-            }
-            mysql_select_db("admin_ezeepix", $this->con);// Server
-        }
-
+        mysql_select_db($dataBaseConfig->databaseName, $this->con);
 
         $this->tableName = $tabName;
     }

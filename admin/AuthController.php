@@ -1,8 +1,8 @@
 <?php
 
-require_once 'EzzipizController1.php';
+require_once 'AdminBaseController.php';
 
-class AuthController extends EzzipizController1 {
+class AuthController extends AdminBaseController {
     function __construct() {
         parent::__construct();
         $this->auth();

@@ -6,13 +6,24 @@ class AdminModel {
     public $tableName;
 
     public function __construct($tabName) {
-        $this->con = mysql_connect("localhost", "admin_database", "tahsin!@#$%^"); // Server
-       // $this->con = mysql_connect("localhost", "root", ""); // Local
-        if (!$this->con) {
-            die("Couldn't connect to database!!!");
+        if($_SERVER['HTTP_HOST']=="localhost")
+        {
+            require_once getcwd().'/../config/EzzepixConfig.php';
+            $dataBaseConfig = new DataBaseConfig();
+            $this->con = mysql_connect($dataBaseConfig->host,$dataBaseConfig->userName, $dataBaseConfig->password); // local root
+            if (!$this->con) {
+                die("Couldn't connect to database!!!");
+            }
+            mysql_select_db($dataBaseConfig->databaseName, $this->con);// Local
         }
-        mysql_select_db("admin_ezeepix", $this->con);// Server
-        //mysql_select_db("ezeepix", $this->con);// Local
+        else{
+            $this->con = mysql_connect("localhost", "admin_database", "tahsin!@#$%^"); // Server
+            if (!$this->con) {
+                die("Couldn't connect to database!!!");
+            }
+            mysql_select_db("admin_ezeepix", $this->con);// Server
+        }
+
         $this->tableName = $tabName;
     }
 

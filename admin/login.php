@@ -9,5 +9,5 @@
  */
 require_once 'LoginController1.php';
 
-$loginController = new LoginController1();
+$loginController = new LoginController();
 $loginController->process();

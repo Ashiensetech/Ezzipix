@@ -8,9 +8,9 @@
  * Time: 4:28 PM
  */
 
-require_once 'EzzipizController1.php';
+require_once 'AdminBaseController.php';
 
-class UserController extends EzzipizController1{
+class UserController extends AdminBaseController{
     function __construct() {
         parent::__construct();
 
