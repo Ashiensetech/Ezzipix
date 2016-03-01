@@ -1,5 +1,7 @@
 <script>
-var socialPhoto = {"instagram":[],"facebook":[],"dropbox":[]};
+var data = getStoredData();
+var socialPhoto = (data!=null)?data:{"instagram":[],"facebook":[],"dropbox":[]};
+
 function addPictureToSave(SocialMediaId,elem){
     $('#processMsg').html("");
     var url = $(elem).attr("url");
@@ -30,12 +32,23 @@ function addPictureToSave(SocialMediaId,elem){
     }else{
         $('#saveBtnDiv').css("visibility","hidden");
     }
+    storeData(socialPhoto);
 }
 //var imgJobjArray = JSON.parse($("#allImg").val())
 //var images = [];
 //for (var key in imgJobjArray) {
 //    images.push(BaseUrl + "upload/img/" + imgJobjArray[key].media_file_path);
 //}
+function storeData(data){
+    localStorage.setItem("imageUrl", JSON.stringify(data));
+}
+function getStoredData(){
+    var data = localStorage.getItem("imageUrl");
+    return (data!=null)?JSON.parse(data):null;
+}
+function removeStoredData(){
+    localStorage.removeItem("imageUrl");
+}
 $(document).ready(function () {
 
     PIO.config({
@@ -151,6 +164,7 @@ function openPIO() {
 
             }
         });
+        removeStoredData();
     }
 </script>
 <style>
