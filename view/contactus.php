@@ -31,8 +31,8 @@
                             Need to mail us something? We prefer baked goods.
                         </p>
 
-                        <div class="col-md-7 title-head for-con-lab">
-                            <h3 class="contact-title"><i class="fa fa-envelope-o"></i> Contact Us</h3>
+                        <div class="col-md-8 col-md-offset-2 title-head for-con-lab">
+                            <h2 class="contact-title"><i class="fa fa-envelope"></i> <br>Contact Us</h2>
                             <form onsubmit="return sendEmail()">
                                 <div class="alert alert-warning" id="msg" style="display: none;">
                                 </div>
@@ -54,12 +54,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Message</label>
-                                    <textarea class="form-control cstm-t-area" id="message"></textarea>
+                                    <textarea class="form-control cstm-t-area" id="message" rows="3"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-success cstm-btn-width">Send</button>
                             </form>
                         </div>
-                        <div class="col-md-5 title-head">
+<!--                        <div class="col-md-4 title-head">
                             <h3 class="contact-title"><i class="fa fa-home"></i> Our Location</h3>
                             <p class="address">
                                 <span class="loc-tlt"><i class="fa fa-map-marker"></i> California</span><br>
@@ -73,7 +73,7 @@
                                 Dhaka, PO-1229
                             </p>
 
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </section>

@@ -16177,8 +16177,10 @@ input[type=password]:focus {
     width: 80px;
     font-size: 15px;
 }
-.title-head h3{
-    color: #444448; 
+.title-head h2{
+    color: #48C282;
+    text-align: center;
+    margin-bottom: 25px;
 }
 .address{
     line-height: 1.5;
@@ -16195,7 +16197,7 @@ input[type=password]:focus {
     font-weight: 600;
 }
 .contact-title i{
-    font-size: 34px;
+    font-size: 40px;
     margin-right: 10px;
     color: #48C282;
 }
@@ -16235,12 +16237,12 @@ input[type=password]:focus {
 .collapse-button {
     width: 100%;
     text-align: left;
-    border-radius: 5px;
+    border-radius: 3px;
     background: #F5F5F5;
     border: none;
     color: #474747 !important;
-    font-size: 16px;
-    padding: 10px 15px;
+    font-size: 15px;
+    padding: 8px 15px;
     font-weight: 600;
 }
 .collapsing {
@@ -16253,17 +16255,17 @@ input[type=password]:focus {
     font-weight: bold !important;
 }
 .collapse-data-div{
-    padding: 15px 15px;
+    padding: 10px 15px 25px 15px;
     font-size: 14px;
     background: #FFF none repeat scroll 0% 0%;
     line-height: 1.44;
     text-align: justify;
-    border-radius: 5px;
+    border-radius: 3px;
     color: #474747 !important;
-    margin-top: 0px;
+    margin-top: 1px;
 }
 .collapse-full{
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 .faq-image img{
     width: 100%;
@@ -16287,8 +16289,12 @@ input[type=password]:focus {
     font-size: 17px;
 }
 .block-normal{
-    background-color: #DEDEDE;
+    background-color: #E6E3EC;
     transition: all 0.5s ease-in-out;
+    box-shadow: 0px 1px 2px #656565;
+}
+.block-normal:hover{
+    background-color: #d1d1d1;
 }
 
 .skydiv{
@@ -16297,11 +16303,59 @@ input[type=password]:focus {
     transition: all 0.4s ease-in-out;
 }
 .ezee{
-    color: #3b5a9a !important;
+    color: #009e4c !important;
 }
-
-
-
+.cstm-con-i{
+    font-size: 40px;
+    float: left;
+    color: #F27D0C;
+    text-shadow: 0px 1px 1px #A4A4A4;
+}
+.cstm-head-mod{
+    padding: 10px 15px !important;
+}
+.cstm-mod-tl{
+    margin-left: 45px;
+    line-height: 1.77;
+    font-weight: 600 !important;
+    color: rgb(242, 125, 12);
+    font-size: 24px;
+    margin-bottom: 0px !important;
+}
+.csm-mod-close{
+    color: rgb(255, 0, 0);
+    opacity: 0.5;
+    font-size: 40px;
+}
+.csm-mod-close:hover{
+    opacity: 0.8;
+    color: #f00;
+}
+.cstm-mod-body{
+    text-align: center;
+    box-shadow: inset 0px 1px 3px #CECECE;
+}
+.cstm-mod-body p{
+    font-size: 1.39em;
+    color: #353535;
+}
+.cstm-mod-body button{
+    border-radius: 0px !important;
+    padding: 8px 20px;
+    font-size: 20px;
+}
+.cstm-mod-con{
+    border-radius: 7px;
+}
+.cstm-diag-mod{
+    margin: 197px auto;
+}
+.cstm-right-mrg{
+    margin-right: 5px !important;
+}
+.cstm-left-mrg{
+    margin-left: 5px !important;
+}
 
 
 
