@@ -12,10 +12,11 @@ LAST UPDATE: 2015/01/05
 -->
 <html class="frontend">
     <!-- START Head -->
-    <?php include_once 'partial/head.php';
+    <?php
+    include_once 'partial/head.php';
 
-            error_reporting(E_ALL);
-          ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     ?>
     <!--/ END Head -->
 
@@ -81,41 +82,42 @@ LAST UPDATE: 2015/01/05
                                                                         <div class="col-md-12 cstm-label-profile alert alert-warning" id="msg" style="display: none">
                                                                         </div>
                                                                     </div>-->
-                                    <?php   $hasWhatsApp = 0;
-                                            $hasTelegram = 0;
+                                    <?php
+                                    $hasWhatsApp = 0;
+                                    $hasTelegram = 0;
                                     ?>
                                     <div class="col-md-6 left-border">
-                                        <?php foreach ($services as $service) {
-                                            if($service['spId']>2)
+                                        <?php
+                                        foreach ($services as $service) {
+                                            if ($service['spId'] > 2)
                                                 continue;
-                                            if($service['spId']==1)
-                                            {
+                                            if ($service['spId'] == 1) {
                                                 $hasTelegram = 1;
                                             }
-                                            if($service['spId']==2)
-                                            {
+                                            if ($service['spId'] == 2) {
                                                 $hasWhatsApp = 1;
                                             }
                                             ?>
-                                        <div class="col-md-12">
-                                            <div class="col-md-6 cstm-label-profile label-marg-top">
-                                                <label><?php echo @$service['name'] ?></label>
+                                            <div class="col-md-12">
+                                                <div class="col-md-6 cstm-label-profile label-marg-top">
+                                                    <label><?php echo @$service['name'] ?></label>
+                                                </div>
+                                                <?php if ($service['active'] == 1) { ?>
+                                                    <div class="col-md-6 cstm-image-profile cs-mr-bt">
+                                                        <a href="" class="btn btn-default btn-block btn-cstm btn-activate" onclick="cancelService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
+                                                                        return false;"><?php echo @$service['service_user_id']; ?></a>
+                                                    </div>
+                                                <?php } else { ?>
+                                                    <div class="col-md-6 cs-mr-bt">
+                                                        <a href="" class="btn btn-danger btn-block btn-cstm btn-deactivate" onclick="activeService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
+                                                                        return false;"><?php echo @$service['service_user_id']; ?></a>
+                                                    </div>
+                                                <?php } ?>
                                             </div>
-                                            <?php if ($service['active'] == 1) { ?>
-                                            <div class="col-md-6 cstm-image-profile cs-mr-bt">
-                                                <a href="" class="btn btn-default btn-block btn-cstm btn-activate" onclick="cancelService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
-                                                    return false;"><?php echo @$service['service_user_id'];?></a>
-                                            </div>
-                                            <?php } else {?>
-                                            <div class="col-md-6 cs-mr-bt">
-                                                <a href="" class="btn btn-danger btn-block btn-cstm btn-deactivate" onclick="activeService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
-                                                    return false;"><?php echo @$service['service_user_id'];?></a>
-                                            </div>
-                                            <?php } ?>
-                                        </div>
-                                        <?php }
-                                        if($hasWhatsApp==0)
-                                        {   ?>
+                                            <?php
+                                        }
+                                        if ($hasWhatsApp == 0) {
+                                            ?>
 
                                             <div class="col-md-12">
                                                 <div class="col-md-6 cstm-label-profile label-marg-top">
@@ -126,9 +128,10 @@ LAST UPDATE: 2015/01/05
                                                 </div>
                                             </div>
 
-                                      <?php  }
-                                        if($hasTelegram==0)
-                                        { ?>
+                                            <?php
+                                        }
+                                        if ($hasTelegram == 0) {
+                                            ?>
 
                                             <div class="col-md-12">
                                                 <div class="col-md-6 cstm-label-profile label-marg-top">
@@ -139,7 +142,6 @@ LAST UPDATE: 2015/01/05
                                                 </div>
                                             </div>
                                         <?php }
-
                                         ?>
                                         <span id="msg" class="alert alert-success" style="display: none"></span>
                                     </div>
@@ -169,6 +171,12 @@ LAST UPDATE: 2015/01/05
                                   </tr> */ ?>
                                                                     </table>-->
                             </div>
+                            <!-- Confirmation Button Pop Up , Do not use the button class, only work with data toggle & data target -->
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                                Launch demo modal
+                            </button>
+
+
                         </div>
                     </div>
                 </div>
@@ -186,12 +194,27 @@ LAST UPDATE: 2015/01/05
         <?php include_once 'partial/footer.php' ?>
         <!-- End Template Footer -->
         <?php include_once 'partial/core_script.php' ?>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog cstm-diag-mod" role="document">
+                <div class="modal-content cstm-mod-con">
+                    <div class="modal-header cstm-head-mod">
+                        <button type="button" class="close csm-mod-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-exclamation-circle cstm-con-i"></i><p class="cstm-mod-tl">Confirmation</p></h4>
+                    </div>
+                    <div class="modal-body cstm-mod-body">
+                        <p>Are you sure you want to deactivate your What's App account</p>
+                        <button type="button" class="btn btn-success cstm-right-mrg" data-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-danger cstm-left-mrg">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </body>
     <!--/ END Body -->
     <script>
         function cancelService(serviceProviderId, userServiceId) {
-            if(!confirm('Are you sure?')){
+            if (!confirm('Are you sure?')) {
                 return false;
             }
 
@@ -221,7 +244,7 @@ LAST UPDATE: 2015/01/05
             });
         }
         function activeService(serviceProviderId, userServiceId) {
-            if(!confirm('Are you sure?')){
+            if (!confirm('Are you sure?')) {
                 return false;
             }
             //   $("#verification_code_msg").css({'display': 'none'});
