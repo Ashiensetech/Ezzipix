@@ -6,7 +6,9 @@
         }else if(flag==2){
             id="telegram";
         }else if(flag==3){
-            id="status";
+            id="wstatus";
+        }else if(flag==4){
+            id="tstatus"
         }
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -61,7 +63,8 @@
                 <ul class="treeview-menu">
                     <li><a onclick="check(1);" href="#"><i class="fa fa-users"></i>Reset WhatsApp</a></li>
                     <li><a onclick="check(2);" href="#"><i class="fa fa-users"></i>Reset Telegram </a></li>
-                    <li><a onclick="check(3);" href="#"><i class="fa fa-users"></i>Status </a></li>
+                    <li><a onclick="check(3);" href="#"><i class="fa fa-users"></i>Whats-app Status </a></li>
+                    <li><a onclick="check(4);" href="#"><i class="fa fa-users"></i>Telegram Status </a></li>
                 </ul>
             </li>
             <li class="treeview">

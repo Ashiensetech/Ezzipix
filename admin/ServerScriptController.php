@@ -25,7 +25,7 @@ class ServerScriptController extends AuthController
         $cl=new AdminServerData();
         $result=$cl->getData("whatsapp");
         $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-        chdir($root);
+        chdir($root."/ezeepix");
 
 
 
@@ -59,11 +59,35 @@ class ServerScriptController extends AuthController
 
     }
 
-    function status(){
+    function wstatus(){
+        require_once dirname(__FILE__) . '/Model/AdminServerData.php';
+        $cl=new AdminServerData();
+        $data=$cl->getPid("whatsapp");
+        $pid=$data[0]['process_id'];
+        $result = shell_exec(sprintf('ps %d', $pid));
+        if(count(preg_split("/\n/", $result)) > 2) {
+            echo 'Whats-app is running';
+        }else{
+            echo 'Whats-app has stopped';
+        }
 
-        $output=shell_exec("ps -ef | grep whatsapp_nohup.php");
 
-        print_r($output);
+
+    }
+
+    function tstatus(){
+
+        require_once dirname(__FILE__) . '/Model/AdminServerData.php';
+        $cl=new AdminServerData();
+        $data=$cl->getPid("telegram");
+        $pid=$data[0]['process_id'];
+        $result = shell_exec(sprintf('ps %d', $pid));
+        if(count(preg_split("/\n/", $result)) > 2) {
+            echo 'Telegram is running';
+        }else{
+            echo 'Telegram has stopped';
+        }
+
 
     }
 
@@ -116,8 +140,11 @@ class ServerScriptController extends AuthController
             case 'telegram':
                 $this->ResetTelegram();
                 break;
-            case 'status':
-                $this->status();
+            case 'tstatus':
+                $this->tstatus();
+                break;
+            case 'wstatus':
+                $this->wstatus();
                 break;
             default:
                 $this->index();

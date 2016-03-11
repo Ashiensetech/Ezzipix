@@ -27,10 +27,7 @@ class AdminServerData extends AdminModel
 
 
 
-        while($row = mysql_fetch_array($data)){
-        //print_r($row);
-        }
-print_r(mysql_num_rows($result));
+
 
     }
 
@@ -38,6 +35,15 @@ print_r(mysql_num_rows($result));
         $sql="update $this->tableName set process_id= '".$pid."'  where process_name='".$process."' ";
         $result=mysql_query($sql);
         return $result;
+
+
+    }
+
+    public function getPid($process){
+        $sql="select process_id from $this->tableName where process_name='".$process."' ";
+        $result=mysql_query($sql);
+        $data=$this->getArrayData($result);
+        return $data;
 
 
     }
