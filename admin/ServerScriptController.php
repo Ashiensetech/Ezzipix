@@ -25,7 +25,7 @@ class ServerScriptController extends AuthController
         $cl=new AdminServerData();
         $result=$cl->getData("whatsapp");
         $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-        chdir("$root/ezeepix");
+        chdir($root);
 
 
 
@@ -71,7 +71,7 @@ class ServerScriptController extends AuthController
         $cl=new AdminServerData();
         $result=$cl->getData("telegram");
         $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-        chdir("$root/ezeepix");
+        chdir($root);
 
 
         if(count($result)>0){
