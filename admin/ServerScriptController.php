@@ -29,6 +29,7 @@ class ServerScriptController extends AuthController
 
 
 
+
         if(count($result)>0){
             foreach($result as $row){
                 $pid = $row['process_id'];
@@ -72,6 +73,7 @@ class ServerScriptController extends AuthController
         $result=$cl->getData("telegram");
         $root = realpath($_SERVER["DOCUMENT_ROOT"]);
         chdir($root);
+
 
 
         if(count($result)>0){

@@ -114,7 +114,7 @@ class WhatsAppReceiveDataController  {
                         }
                     }
 
-                    if (strtoupper($text) === "CANCEL") {
+                    if (strtoupper($text) === "DEACTIVATE") {
                         $status = $userService->deactivateService(2, $from);
 
                         if ($status > 0) {
