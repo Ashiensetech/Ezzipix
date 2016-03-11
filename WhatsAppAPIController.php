@@ -6,14 +6,14 @@ require 'lib/WhatsApi/src/whatsprot.class.php';
 require 'lib/WhatsApi/src/events/MyEvents.php';
 class WhatsAppAPIController {
     /* --- Server --- */
- /*   public $username  = "16465982050";
+    public $username  = "16465982050";
     public $nickname  = "Ezeepix";
-    public $password  = "F7xxjlf90mpxVxXf1FwFJYrlNRA=";*/
+    public $password  = "F7xxjlf90mpxVxXf1FwFJYrlNRA=";
 
     /* --- Local --- */
-    public $username  =  "8801977974819";
+/*    public $username  =  "8801977974819";
     public $nickname  = "MI";
-    public $password  = "GGfvxQIBC4x5FHBLQ1U7C4bv+Dc=";
+    public $password  = "GGfvxQIBC4x5FHBLQ1U7C4bv+Dc=";*/
 
     public $debug     = FALSE;
     public $w         = NULL;
