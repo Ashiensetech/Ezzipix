@@ -71,7 +71,8 @@ class ServerScriptController extends AuthController
             echo 'Whats-app has stopped';
         }
 
-
+        $re=shell_exec("ps -ef | grep whatsapp_nohup.php");
+        echo $re;
 
     }
 
