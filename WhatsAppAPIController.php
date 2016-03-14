@@ -11,7 +11,7 @@ class WhatsAppAPIController {
     public $password  = "F7xxjlf90mpxVxXf1FwFJYrlNRA=";
 
     /* --- Local --- */
-    /*public $username  =  "8801977974819";
+   /* public $username  =  "8801977974819";
     public $nickname  = "MI";
     public $password  = "GGfvxQIBC4x5FHBLQ1U7C4bv+Dc=";*/
 
