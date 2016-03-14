@@ -112,7 +112,7 @@ class ServerScriptController extends AuthController
         }
 
         $command="nohup php telegram_nohup.php";
-        $pid = shell_exec(sprintf('%s > /dev/null 2>&1 & echo $!', $command));
+        $pid = shell_exec(sprintf('%s > /dev/null 2>&1 echo $!', $command));
         $flag=$cl->setPid("telegram",$pid);
 
         chdir($root);
