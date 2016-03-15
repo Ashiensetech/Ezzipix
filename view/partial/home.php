@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 TEMPLATE NAME : Adminre - frontend
 VERSION : 1.3.0
 AUTHOR : JohnPozy
@@ -58,7 +58,7 @@ LAST UPDATE: 2015/01/05
                         <p>Prints look great from your
                             camera, Facebook, Instagram,
                             or favorite photo App.</p>
-                    </div>
+                    </div>WhatsApp
                     <div class="col-md-4 step-single">
                         <div class="img-div">
                             <img src="<?php echo $this->baseUrl.'html_template/dist/image/phone.png';?>">
@@ -289,7 +289,7 @@ LAST UPDATE: 2015/01/05
                                             /*items: [
                                              // pass in that there is a folder
                                              {id: "f1", isFolder: true, name: "fave pics"},
-                                             
+
                                              // pass in three images
                                              {picture: "http://img.ffffound.com/static-data/assets/6/8fc3b482de5086f5f6bb64b75805b3413936c49a_m.png"},
                                              {picture: "http://img.ffffound.com/static-data/assets/6/c9c55336befdeae882e2d1794fc13888053e7f66_m.png"},
@@ -312,7 +312,7 @@ LAST UPDATE: 2015/01/05
                                         /*items: [
                                          // pass in that there is a folder
                                          {id: "f1", isFolder: true, name: "fave pics"},
-                                         
+
                                          // pass in three images
                                          {picture: "http://img.ffffound.com/static-data/assets/6/8fc3b482de5086f5f6bb64b75805b3413936c49a_m.png"},
                                          {picture: "http://img.ffffound.com/static-data/assets/6/c9c55336befdeae882e2d1794fc13888053e7f66_m.png"},

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 TEMPLATE NAME : Adminre - frontend
 VERSION : 1.3.0
 AUTHOR : JohnPozy
@@ -103,14 +103,21 @@ LAST UPDATE: 2015/01/05
                                                     <label><?php echo @$service['name'] ?></label>
                                                 </div>
                                                 <?php if ($service['active'] == 1) { ?>
-                                                    <div class="col-md-6 cstm-image-profile cs-mr-bt">
+                                                    <div class="col-md-6" style="color: #000;font-weight: bold;margin-top: 5px;">
+                                                        <label><?php echo @$service['service_user_id'];?></label>
+                                                    </div>
+                                                    <div class="col-md-6 cstm-image-profile cs-mr-bt pull-right">
                                                         <a href="" class="btn btn-default btn-block btn-cstm btn-activate" onclick="cancelService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
-                                                                        return false;"><?php echo @$service['service_user_id']; ?></a>
+                                                                        return false;">Deactivate</a>
                                                     </div>
                                                 <?php } else { ?>
-                                                    <div class="col-md-6 cs-mr-bt">
-                                                        <a href="" class="btn btn-danger btn-block btn-cstm btn-deactivate" onclick="activeService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
-                                                                        return false;"><?php echo @$service['service_user_id']; ?></a>
+                                                    <div class="col-md-6" style="color: #000;font-weight: bold;margin-top: 5px;">
+                                                        <label><?php echo @$service['service_user_id']?></label>
+                                                    </div>
+                                                    <div class="col-md-6 cs-mr-bt pull-right">
+
+                                                        <a href="" class="btn btn-default btn-block btn-cstm btn-deactivate" disabled="disabled" onclick="activeService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
+                                                                        return false;">Activate</a>
                                                     </div>
                                                 <?php } ?>
                                             </div>
