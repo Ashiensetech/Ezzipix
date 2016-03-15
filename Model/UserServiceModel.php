@@ -14,6 +14,31 @@ class UserService extends EzzipixModel {
         return $this->getArrayData(mysql_query($sql));
     }
 
+    function checkAndUpdate($value){
+        $service_user_id= $value['service_user_id'];
+        $sql="select * from $this->tableName WHERE service_user_id = '".$service_user_id."'";
+
+        $data=$this->getArrayData(mysql_query($sql));
+
+        foreach($data as $d){
+            $id=$d['id'];
+        }
+        if(empty($id)){
+
+            return 2;
+        }
+
+        $sql2="update $this->tableName set active=1 where id=".$id;
+
+
+        $flag=mysql_query($sql2);
+
+        return 1;
+
+
+
+    }
+
     function isUserIdExist($service_provider_id, $service_user_id) {
 
         $service_provider_id = mysql_real_escape_string(trim($service_provider_id));

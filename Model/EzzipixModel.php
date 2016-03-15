@@ -44,6 +44,10 @@ class EzzipixModel {
     }
 
     public function insert($values) {
+
+
+
+
         $str1 = "INSERT INTO " . $this->tableName . " ( ID";
         $str2 = "VALUES ( NULL";
         foreach ($values as $key => $value) {

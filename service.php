@@ -60,11 +60,18 @@ class ServiceController extends AuthController {
             $serviceUser = $serviceUser->getUserIdByProviderAndService($serviceProviderId, $serviceUserId);
 
             if ($deactivate > 0 && $_SESSION['uId'] == $serviceUser) {
-                $data = [
-                    'status'  => FALSE,
-                    'message' => 'You already register this Service, you may active this by sending "Active" from your cell',
-                ];
-                echo json_encode($data);
+                if ($serviceProviderId == 1) {
+                    $this->telegram($serviceProviderId, $serviceUserId);
+                } elseif ($serviceProviderId == 2) {
+                    $this->whatsApp($serviceProviderId, $serviceUserId);
+                }
+
+
+                /*  $data = [
+                      'status'  => FALSE,
+                      'message' => 'You already register this Service, you may active this by sending "Active" from your cell',
+                  ];
+                  echo json_encode($data);*/
                 die;
             }
 
@@ -285,6 +292,24 @@ class ServiceController extends AuthController {
             'u_id'                => $uId,
             'active'              => 1,
         ];
+
+        $flag=$userService->checkAndUpdate($data);
+
+
+
+        if($flag==1){
+            $data = [
+                'status'  => TRUE,
+                'message' => 'Your ID Verified SuccessFully !'
+            ];
+            if ($serviceProviderId == 2) {
+                $this->whatsAppWellComeMsg($serviceUserId);
+            }
+            echo json_encode($data);
+            die;
+        }
+
+
 
         $insertId = $userService->insert($data);
 

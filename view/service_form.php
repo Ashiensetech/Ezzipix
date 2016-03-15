@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 TEMPLATE NAME : Adminre - frontend
 VERSION : 1.3.0
 AUTHOR : JohnPozy
