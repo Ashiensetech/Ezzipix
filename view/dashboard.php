@@ -108,8 +108,7 @@ LAST UPDATE: 2015/01/05
                                                         <label><?php echo @$service['service_user_id']; ?></label>
                                                     </div>
                                                     <div class="col-md-12 service-main-name middle-class cstm-image-profile cs-mr-bt pull-right">
-                                                        <a href="" class="btn btn-default btn-block btn-cstm btn-activate" onclick="cancelService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
-                                                                        return false;">Deactivate</a>
+                                                        <a href="" class="btn btn-default btn-block btn-cstm btn-activate" data-toggle="modal" data-target="#myModal" >Deactivate</a>
                                                     </div>
                                                 <?php } else { ?>
                                                     <div class="col-md-12 service-main-name middle-class service-text">
@@ -180,9 +179,7 @@ LAST UPDATE: 2015/01/05
                                                                     </table>-->
                             </div>
                             <!-- Confirmation Button Pop Up , Do not use the button class, only work with data toggle & data target -->
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                                Launch demo modal
-                            </button>
+
 
 
                         </div>
@@ -211,8 +208,9 @@ LAST UPDATE: 2015/01/05
                     </div>
                     <div class="modal-body cstm-mod-body">
                         <p>Are you sure you want to deactivate your What's App account</p>
-                        <button type="button" class="btn btn-success cstm-right-mrg" data-dismiss="modal">Yes</button>
-                        <button type="button" class="btn btn-danger cstm-left-mrg">No</button>
+                        <button type="button" class="btn btn-success cstm-right-mrg" data-dismiss="modal" onclick="cancelService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
+                            return false;">Yes</button>
+                        <button type="button" class="btn btn-danger cstm-left-mrg" data-dismiss="modal">No</button>
                     </div>
                 </div>
             </div>
@@ -222,9 +220,7 @@ LAST UPDATE: 2015/01/05
     <!--/ END Body -->
     <script>
         function cancelService(serviceProviderId, userServiceId) {
-            if (!confirm('Are you sure?')) {
-                return false;
-            }
+
 
             //   $("#verification_code_msg").css({'display': 'none'});
             $("#msg").show();
