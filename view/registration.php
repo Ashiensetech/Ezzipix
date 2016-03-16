@@ -34,14 +34,11 @@ LAST UPDATE: 2015/01/05
                     <h1 class="thin text-white font-alt mt0 mb5">Ezeepix</h1>
 
                     <p class="text-white mb15 fsize14 cstm-wlcm-p">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
+                        Photos are more than a file on your phone. They’re memories and tools to share ideas and inspire. A picture is worth a thousand words. At Ezeepix we get that, and we don’t think you should have to pay a lot to bring those memories to life. With us you get all of the quality services that you expect from our ...
                     </p>
                     <br>
 
-                    <button type="button" class="btn btn-success btn-lg">Learn More</button>
+                    <a href="about.php"><button type="button" class="btn btn-success btn-lg">Learn More</button></a>
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-5 cstm-background site-border" style="padding:25px !important;">
@@ -74,7 +71,7 @@ LAST UPDATE: 2015/01/05
                         </div>
                         <div class="clear clearfix">
                             <input value="1" type="checkbox" id="tnc" class="mendatory" name="Accept terms and condition">
-                            <span style="color: #777">Accept terms and condition</span>
+                            <span style="color: #777"><a href="<?php echo $this->baseUrl ?>terms.php" >Accept terms and condition</a></span>
                             <p class="help-block text-muted text-center">
                                 <span id="msg" style="background:#a4a4a4;color:#fff;"></span>
                             </p>

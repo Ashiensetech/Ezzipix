@@ -91,9 +91,13 @@ class SignupController extends EzzipixController {
                     'Reply-To: webmaster@example.com' . "\r\n" .
                     'X-Mailer: PHP/' . phpversion();
 
-                if (mail($email, $subject, $message, $headers)) {
+                if (@mail($email, $subject, $message, $headers)) {
+
+
                     return true;
                 } else {
+
+
                     return false;
                 }
             }
