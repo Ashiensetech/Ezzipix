@@ -2,9 +2,9 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic);
 
-
-@import url(https://fonts.googleapis.com/css?family=Lobster);
+@import url(https://fonts.googleapis.com/css?family=Lobster+Two:400,400italic,700,700italic);
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 
 /* ----------------------------
@@ -15695,8 +15695,11 @@ input[type=password]:focus {
     background-size: cover;
 }
 .all-grid{
-    padding: 15px;background: rgba(255,255,255,0.9);font-size: 16px;
+    padding: 30px;
+    background: rgba(255,255,255,0.9);
+    font-size: 16px;
     line-height: 28px;
+    border: 1px solid #d5d5d5;
 }
 
 /*.filter-tab{*/
@@ -15877,17 +15880,17 @@ input[type=password]:focus {
     width: 60%;
 }
 .welcome-txt-container h2{
-    font-size:3.3em;
+    font-size: 4em;
     font-weight: lighter;
     margin-top: 0px;
     color: #2D2D2D;
     font-weight: bold !important;
-    font-family: 'Josefin Slab', serif !important;
+    font-family: 'Lobster Two', cursive !important;
 }
 .welcome-txt-container p{
     color: #2D2D2D;
-    font-size: 1.799em;
-    font-family: 'Josefin Slab', serif;
+    font-size: 1.85em;
+    font-family: 'Lobster Two', cursive !important;
 }
 .see-products-btn{
     background: rgba(24, 158, 89, 0.75) none repeat scroll 0% 0%;
@@ -16355,6 +16358,14 @@ input[type=password]:focus {
 }
 .cstm-left-mrg{
     margin-left: 5px !important;
+}
+#shuffle-grid{
+    text-align: justify !important;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: lighter !important;
+    letter-spacing: 1px !important;
+    box-shadow: 0px 2px 4px #BABABA !important;
+    line-height: 25px !important;
 }
 
 

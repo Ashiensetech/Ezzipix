@@ -84,7 +84,7 @@
                                     <div id="demo2" class="collapse collapse-data-div">
 
 
-                                        This makes us sad! We always want our customer to be happy. Please email us with the reason you are not happy and any pictures you feel are necessary to show us what might be wrong with your product and we will do our absolute best to make you happy again! 
+                                        This makes us sad! We always want our customer to be happy. Please email at support@ezeepix.com with the reason you are not happy and any pictures you feel are necessary to show us what might be wrong with your product and we will do our absolute best to make you happy again! 
                                     </div>
                                 </div>
                                 <div class="col-md-12 collapse-full">
@@ -93,7 +93,7 @@
                                     <div id="demo3" class="collapse collapse-data-div">
 
 
-                                        Please email us with your address, and requested item for us to confirm if the request is possible. <a href="https://www.ezeepix.com/home.php">www.ezeepix.com</a>
+                                        Please email at support@ezeepix.com with your address, and requested item for us to confirm if the request is possible. <a href="https://www.ezeepix.com/home.php">www.ezeepix.com</a>
                                     </div>
                                 </div>   
                                 <div class="col-md-12 collapse-full">

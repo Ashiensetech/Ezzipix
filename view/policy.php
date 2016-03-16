@@ -30,7 +30,7 @@
                             Our Online Privacy and Security is organized as follows:
 
                         </p>
-                        <h4>1.Information Collected</h4>
+                        <h4>1. Information Collected</h4>
                         We collect personal information when you register with Ezeepix, and when you use any of our products or services. Personal information is any information about you that is personally identifiable like your name, address, email address, phone number, or social media usernames (if applicable), and any other information that is not otherwise publicly available but provided in order to use our services. If you order products or pay for services, we will need your shipping address, billing name and address. No credit card numbers or expiration dates are stored via any of our services/products.
                         You may access and use the Site solely for your personal, noncommercial use. Except as expressly authorized hereunder, the Site may not be reproduced, duplicated, copied, sold, resold, visited, reverse-engineered or otherwise exploited for any commercial purpose without Ezeepix’s prior written authorization. We reserve the right to alter or discontinue the Site, in whole or in part, at any time in Ezeepix’s sole discretion.
 

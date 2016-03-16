@@ -40,7 +40,7 @@ LAST UPDATE: 2015/01/05
         <div class="home-design animatedParent" data-sequence='500'>
             <div class="container-fluid upper-banner text-center" >
                 <div class="welcome-txt-container text-center">
-                    <h2 class="animated bounceInDown" data-id='1'>putting the "<span class="ezee">eZee</span>" back in "<span class="ezee">Pix</span>"</h2>
+                    <h2 class="animated bounceInDown" data-id='1'>Putting the "<span class="ezee">eZee</span>" back in "<span class="ezee">Pix</span>"</h2>
                     <p class="animated bounceInRight" data-id='2'>The "<span class="ezee">ezee</span>"iest and cheapest picture printing platform anywhere!</p>
                 </div>
 
