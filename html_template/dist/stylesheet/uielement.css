@@ -1345,8 +1345,8 @@ fieldset[disabled] .btn-primary.active {
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
     color: #ffffff;
-    background-color: #85c241;
-    border-color: #7db83b;
+    background-color: #009d95;
+    border-color: transparent;
 }
 .btn-success:active,
 .btn-success.active,
@@ -15208,9 +15208,13 @@ input[type=password]:focus {
 }
 .foot-btn a{
     border-radius: 0px !important;
-    height: 40px;
+    height: auto;
     padding: 10px 20px;
     font-size: 15px;
+    background: #00B6AD;
+    border-bottom: 5px solid #08D2C8 !important;
+    border: none;
+    transition: all 0.3s linear;
 }
 .update-pass button{
     border-radius: 0px !important;
@@ -15237,12 +15241,15 @@ input[type=password]:focus {
 .site-border{
     /*border-top: 4px solid #44c282 !important;*/
     box-shadow: 0px -1px 3px 0px #211A1A;
-    border-top-right-radius: 7px;
-    border-top-left-radius: 7px;
     padding: 0px !important;
     padding-bottom: 30px !important;
     background: #fff;
     overflow: hidden;
+}
+.service-text label{
+    color: #474747 !important;
+    font-size: 16px !important;
+    margin-top: 5px;
 }
 .dropdown span{
     font-family: 'Lato', sans-serif;
@@ -15268,12 +15275,19 @@ input[type=password]:focus {
 }
 .cstm-head-profile{
     margin-bottom: 33px;
-    border-bottom: 1px solid #44C282;
+    border-bottom: 1px solid #ccc;
     background: #44C282;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f6f6f6+47,ededed+100;White+3D+%231 */
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f6f6f6 47%, #ededed 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+
 }
 .cstm-head-profile p{
-    color: #fff;
-    font-weight: bold;
+    color: #4b4b4b;
+    font-weight: lighter;
     text-align: center;
     font-size: 24px;
     padding-top: 15px;
@@ -15430,7 +15444,29 @@ input[type=password]:focus {
     text-shadow: 0px 2px 2px #000;
 }
 .left-border{
-    border-left: 4px solid #E3E3E3;
+    background: #efefef;
+    padding: 22px;
+    border: 1px solid #e6e6e6;
+}
+.middle-class{
+    float: none;
+    margin: 0px auto !important;
+    text-align: center;
+}
+.service-name{
+    text-align: center;
+    font-size: 24px;
+    color: #474747 !important;
+}
+.cstm-hd-mrg{
+    margin-top: -70px;
+}
+.profile-background{
+    background: transparent url("../image/Untitled-1.jpg") no-repeat !important;
+    background-position: 0% 0% !important;
+}
+.service-main-name label{
+    float: none !important;
 }
 .policy a:hover{
     color: #44C282 !important;
@@ -15447,14 +15483,12 @@ input[type=password]:focus {
     padding: 8px !important;
     border-radius: 0px !important;
     font-size: 14px;
-    box-shadow: 0px 2px 2px 0px #BDBDBD;
 }
 .btn-activate{
     height: 35px;
     padding: 8px !important;
     border-radius: 0px !important;
     font-size: 14px;
-    box-shadow: 0px 2px 2px 0px #BDBDBD;
 }
 .label-marg-top{
     margin-top: 5px;
@@ -15466,7 +15500,6 @@ input[type=password]:focus {
 .album{
 
 }
-
 
 .log-with-div{
     margin: 0px auto;

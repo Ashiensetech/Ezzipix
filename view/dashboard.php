@@ -35,7 +35,7 @@ LAST UPDATE: 2015/01/05
                 <!--/ pattern + overlay -->
                 <div class="container" style="padding-top:8%;padding-bottom:8%;">
                     <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
+                        <div class="col-md-8 col-md-offset-2">
                             <div class="content data-profile site-border">
                                 <div class="form-group">
                                     <div class="col-md-12 cstm-head-profile">
@@ -43,7 +43,7 @@ LAST UPDATE: 2015/01/05
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 profile-background">
                                         <div class="form-group">
                                             <div class="col-md-6 cstm-label-profile">
                                                 <label>Full name :</label>
@@ -99,22 +99,23 @@ LAST UPDATE: 2015/01/05
                                             }
                                             ?>
                                             <div class="col-md-12">
-                                                <div class="col-md-6 cstm-label-profile label-marg-top">
-                                                    <label><?php echo @$service['name'] ?></label>
+                                                <div class="col-md-12 text-center service-main-name cstm-label-profile label-marg-top">
+                                                    <label class="service-name"><?php echo @$service['name'] ?></label>
                                                 </div>
+                                                
                                                 <?php if ($service['active'] == 1) { ?>
-                                                    <div class="col-md-6" style="color: #000;font-weight: bold;margin-top: 5px;">
-                                                        <label><?php echo @$service['service_user_id'];?></label>
+                                                    <div class="col-md-12 service-main-name middle-class service-text">
+                                                        <label><?php echo @$service['service_user_id']; ?></label>
                                                     </div>
-                                                    <div class="col-md-6 cstm-image-profile cs-mr-bt pull-right">
+                                                    <div class="col-md-12 service-main-name middle-class cstm-image-profile cs-mr-bt pull-right">
                                                         <a href="" class="btn btn-default btn-block btn-cstm btn-activate" onclick="cancelService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
                                                                         return false;">Deactivate</a>
                                                     </div>
                                                 <?php } else { ?>
-                                                    <div class="col-md-6" style="color: #000;font-weight: bold;margin-top: 5px;">
-                                                        <label><?php echo @$service['service_user_id']?></label>
+                                                    <div class="col-md-12 service-main-name middle-class service-text">
+                                                        <label><?php echo @$service['service_user_id'] ?></label>
                                                     </div>
-                                                    <div class="col-md-6 cs-mr-bt pull-right">
+                                                    <div class="col-md-12 service-main-name middle-class cs-mr-bt pull-right">
 
                                                         <a href="" class="btn btn-default btn-block btn-cstm btn-deactivate" disabled="disabled" onclick="activeService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
                                                                         return false;">Activate</a>
@@ -127,9 +128,9 @@ LAST UPDATE: 2015/01/05
                                             ?>
 
                                             <div class="col-md-12">
-                                                <div class="col-md-6 cstm-label-profile label-marg-top">
+                                                <div class="col-md-12 cstm-label-profile label-marg-top">
                                                 </div>
-                                                <div class="col-md-6 cs-mr-bt">
+                                                <div class="col-md-12 cs-mr-bt">
                                                     <a href="<?php echo $this->baseUrl . 'service.php?r=new&app=w'; ?>"
                                                        class="btn btn-danger btn-block btn-cstm btn-deactivate">WhatsApp</a>
                                                 </div>
@@ -141,9 +142,9 @@ LAST UPDATE: 2015/01/05
                                             ?>
 
                                             <div class="col-md-12">
-                                                <div class="col-md-6 cstm-label-profile label-marg-top">
+                                                <div class="col-md-12 cstm-label-profile label-marg-top">
                                                 </div>
-                                                <div class="col-md-6 cs-mr-bt">
+                                                <div class="col-md-12 cs-mr-bt">
                                                     <a href="<?php echo $this->baseUrl . 'service.php?r=new&app=t'; ?>"
                                                        class="btn btn-danger btn-block btn-cstm btn-deactivate">Telegram</a>
                                                 </div>

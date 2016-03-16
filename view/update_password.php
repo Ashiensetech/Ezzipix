@@ -15,7 +15,7 @@
                         <?php if (!$sendMail) { ?>
                             <form method="post"  name="form-login" action="<?php echo $this->baseUrl ?>dashboard.php?r=updatePassword">
                                 <div class="form-group">
-                                    <div class="col-md-12 cstm-head-profile">
+                                    <div class="col-md-12 cstm-head-profile cstm-hd-mrg">
                                         <p>CHANGE PASSWORD</p>
                                     </div>
                                 </div>
