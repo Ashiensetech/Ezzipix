@@ -78,7 +78,13 @@ class SignupController extends EzzipixController {
             $data  = $confirm->setToken($email);
             /*$headers =  'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";*/
-            $headers = "From: support support@ezeepix.com \r\n";
+            $from="support@ezeepix.com";
+            $headers = 'From: '.$from. "\r\n" .
+                'Reply-To: webmaster@example.com' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+
+          /*  $headers = "From: support support@ezeepix.com \r\n";
             $headers .= "Reply-To: support support@ezeepix.com \r\n";
             $headers .= "Return-Path: support support@ezeepix.com \r\n";
 
@@ -87,8 +93,8 @@ class SignupController extends EzzipixController {
 
             $headers.="MIME-Version: 1.0\n";
             $headers.="Content-type: text/html; charset=iso 8859-1";
-            $headers .= "X-Mailer: PHP". phpversion() ."\r\n";
-            $from="support@ezeepix.com";
+            $headers .= "X-Mailer: PHP". phpversion() ."\r\n";*/
+
 
             //'X-Mailer: PHP/' . phpversion();
 
