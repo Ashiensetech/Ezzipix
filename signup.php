@@ -83,6 +83,7 @@ class SignupController extends EzzipixController {
             $headers .= "From: support@ezeepix.com \r\n";
             $headers .= "Organization: Ezeepix\r\n";
             $headers .= "Content-Type: text/plain\r\n";
+            $from="support@ezeepix.com";
 
             //'X-Mailer: PHP/' . phpversion();
 
@@ -91,7 +92,6 @@ class SignupController extends EzzipixController {
             if ($data) {
                 $subject = 'Email Confirmation : Ezeepix';
                 $message = 'Dear,' .
-                    ' ' .
                     $user['full_name'] . ', You are successfully registered to Ezeepix.' .
                     'Follow the below link to confirm your email.' .
                     ' ' .
@@ -100,7 +100,7 @@ class SignupController extends EzzipixController {
                     '&token=' . $data["token"];
 
 
-                if (mail($email, $subject, $message, $headers)) {
+                if (mail($email, $subject, $message, $headers,"-f$from")) {
 
 
                     return true;
