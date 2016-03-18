@@ -85,8 +85,8 @@ class SignupController extends EzzipixController {
 
 
             $headers .= "MIME-Version: 1.0\r\n";
-            $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-            $headers .= "X-Priority: 3\r\n";
+            $headers .= "Content-Type: text/plain\r\n";
+            $headers .= "X-Priority: 2\nX-MSmail-Priority: high";
             $headers .= "X-Mailer: PHP". phpversion() ."\r\n";
             $from="support@ezeepix.com";
 
