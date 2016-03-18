@@ -31,10 +31,10 @@ LAST UPDATE: 2015/01/05
             var isTrigger = false;
             function loadCount(l) {
                 picLoadCount++;
-                console.log(l);
-                console.log(picLoadCount + " " + imgSize);
+
+
                 if (picLoadCount >= imgSize && !isTrigger) {
-                    console.log("triggerImageEffect Fired");
+
                     triggerImageEffect();
                 }
 
