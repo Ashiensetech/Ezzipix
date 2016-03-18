@@ -86,13 +86,13 @@ class SignupController extends EzzipixController {
             $from="support@ezeepix.com";
 
             //'X-Mailer: PHP/' . phpversion();
-
+            //$user['full_name']
 
 
             if ($data) {
                 $subject = 'Email Confirmation : Ezeepix';
-                $message = 'Dear,' .
-                    $user['full_name'] . ', You are successfully registered to Ezeepix.' .
+                $message = 'Dear Tomal,'
+                     . ', You are successfully registered to Ezeepix.' .
                     'Follow the below link to confirm your email.' .
                     ' ' .
                     ' ' .
