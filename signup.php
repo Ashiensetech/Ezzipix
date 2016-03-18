@@ -78,15 +78,15 @@ class SignupController extends EzzipixController {
             $data  = $confirm->setToken($email);
             /*$headers =  'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";*/
-            $headers = "From: support@ezeepix.com \r\n";
+            $headers = "From: support support@ezeepix.com \r\n";
             $headers .= "Reply-To: support support@ezeepix.com \r\n";
             $headers .= "Return-Path: support support@ezeepix.com \r\n";
 
 
 
-            $headers .= "MIME-Version: 1.0\r\n";
-            $headers .= "Content-Type: text/plain\r\n";
-            $headers .= "X-Priority: 2\nX-MSmail-Priority: high";
+
+            $headers.="MIME-Version: 1.0\n";
+            $headers.="Content-type: text/html; charset=iso 8859-1";
             $headers .= "X-Mailer: PHP". phpversion() ."\r\n";
             $from="support@ezeepix.com";
 
@@ -100,9 +100,9 @@ class SignupController extends EzzipixController {
                     $user['full_name'] . ', You are successfully registered to Ezeepix.' .
                     'Follow the below link to confirm your email.' .
                     ' ' .
-                    ' ' .
+                    '</a> ' .
                     $this->baseUrl . 'signup.php?r=checkConfirmation&email=' . $email .
-                    '&token=' . $data["token"];
+                    '&token=' . $data["token"].'</a>';
 
 
                 if (mail($email, $subject, $message, $headers,"-f$from")) {
