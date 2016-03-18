@@ -78,9 +78,9 @@ class SignupController extends EzzipixController {
             $data  = $confirm->setToken($email);
             /*$headers =  'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";*/
-            $headers = "Reply-To: admin support@ezeepix.com \r\n";
-            $headers .= "Return-Path: admin support@ezeepix.com \r\n";
-            $headers .= "From: admin support@ezeepix.com \r\n";
+            $headers = "Reply-To: support@ezeepix.com \r\n";
+            $headers .= "Return-Path: support@ezeepix.com \r\n";
+            $headers .= "From: support@ezeepix.com \r\n";
             $headers .= "Organization: Ezeepix\r\n";
             $headers .= "Content-Type: text/plain\r\n";
 
