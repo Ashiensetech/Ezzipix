@@ -109,7 +109,7 @@ class SignupController extends EzzipixController {
                     '&token=' . $data["token"];
 
 
-                if (mail($email, $subject, $message, $headers, "-F$from")) {
+                if (mail($email, $subject, $message, $headers, "-f$from")) {
 
 
                     return true;
