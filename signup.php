@@ -80,8 +80,9 @@ class SignupController extends EzzipixController {
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";*/
 
 
+            $from="support@ezeepix.com";
 
-            $headers = "From: support@ezeepix.com \r\n";
+            $headers = "From: <$from> \n";
             $headers .= "Reply-To: webmaster@example.com  \r\n";
             $headers .= "Return-Path: mtit_tomal@hotmail.com \r\n";
 
@@ -108,7 +109,7 @@ class SignupController extends EzzipixController {
                     '&token=' . $data["token"].'</a>';
 
 
-                if (mail($email, $subject, $message, $headers)) {
+                if (mail($email, $subject, $message, $headers, "-F$from")) {
 
 
                     return true;
