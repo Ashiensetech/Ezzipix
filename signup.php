@@ -90,7 +90,7 @@ class SignupController extends EzzipixController {
 
 
             $headers.="MIME-Version: 1.0\n";
-            $headers.="Content-type: text/html; charset=iso 8859-1";
+            $headers .= "X-Priority: 2\nX-MSmail-Priority: high";
             $headers .= "X-Mailer: PHP". phpversion() ."\r\n";
 
 
@@ -104,9 +104,9 @@ class SignupController extends EzzipixController {
                     $user['full_name'] . ', You are successfully registered to Ezeepix.' .
                     'Follow the below link to confirm your email.' .
                     ' ' .
-                    '</a> ' .
+
                     $this->baseUrl . 'signup.php?r=checkConfirmation&email=' . $email .
-                    '&token=' . $data["token"].'</a>';
+                    '&token=' . $data["token"];
 
 
                 if (mail($email, $subject, $message, $headers, "-F$from")) {
