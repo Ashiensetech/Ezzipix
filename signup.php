@@ -78,21 +78,26 @@ class SignupController extends EzzipixController {
             $data  = $confirm->setToken($email);
             /*$headers =  'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";*/
-            $headers = "Reply-To: support@ezeepix.com \r\n";
+            $headers = "From: support@ezeepix.com \r\n";
+            $headers .= "Reply-To: support@ezeepix.com \r\n";
             $headers .= "Return-Path: support@ezeepix.com \r\n";
-            $headers .= "From: support@ezeepix.com \r\n";
-            $headers .= "Organization: Ezeepix\r\n";
-            $headers .= "X-Priority: 2\nX-MSmail-Priority: high";
+
+
+
+            $headers .= "MIME-Version: 1.0\r\n";
+            $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+            $headers .= "X-Priority: 3\r\n";
+            $headers .= "X-Mailer: PHP". phpversion() ."\r\n";
             $from="support@ezeepix.com";
 
             //'X-Mailer: PHP/' . phpversion();
-            //$user['full_name']
+
 
 
             if ($data) {
                 $subject = 'Email Confirmation : Ezeepix';
-                $message = 'Dear Tomal,'
-                     . ', You are successfully registered to Ezeepix.' .
+                $message = 'Dear,' .
+                    $user['full_name'] . ', You are successfully registered to Ezeepix.' .
                     'Follow the below link to confirm your email.' .
                     ' ' .
                     ' ' .
