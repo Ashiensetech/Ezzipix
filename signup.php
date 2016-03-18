@@ -80,9 +80,9 @@ class SignupController extends EzzipixController {
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";*/
             $headers = 'From: support@ezeepix.com' . "\r\n";
             $headers .= 'Reply-To: support@ezeepix.com'."\r\n";
-            $headers .= 'Return-Path: support@ezeepix.com'."\r\n".
-                $headers .= "CC: sombodyelse@example.com\r\n";
-            $headers .= "BCC: hidden@example.com\r\n";
+            $headers .= 'Return-Path: support@ezeepix.com'."\r\n";
+            $headers .= 'CC: tomal2514@gmail.com'."\r\n";
+            $headers .= "BCC: mtit_tomal@hotmail.com\r\n";
                // 'X-Mailer: PHP/' . phpversion();
 
 
