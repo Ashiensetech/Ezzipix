@@ -76,7 +76,7 @@
                     <span class="ml5 mr5">|</span>
                     <a href="<?php echo $this->baseUrl ?>contactus.php">Contact Us</a>
                     <span class="ml5 mr5">|</span>
-                    <a href="<?php echo $this->baseUrl ?>support.php">Support</a>
+                    <!--<a href="<?php echo $this->baseUrl ?>support.php">Support</a>-->
                     <span class="ml5 mr5">|</span>
                     <a href="<?php echo $this->baseUrl ?>faq.php">FAQ</a>
                 </div>
