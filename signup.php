@@ -81,9 +81,9 @@ class SignupController extends EzzipixController {
 
 
 
-            $headers = "From: support support@ezeepix.com \r\n";
-            $headers .= "Reply-To: admin webmaster@example.com \r\n";
-            $headers .= "Return-Path: tomal2514@gmail.com \r\n";
+            $headers = "From:support@ezeepix.com \r\n";
+            $headers .= "Reply-To:webmaster@example.com \r\n";
+            $headers .= "Return-Path:mtit_tomal@hotmail.com \r\n";
 
 
 
