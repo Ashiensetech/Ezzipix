@@ -82,7 +82,7 @@ class SignupController extends EzzipixController {
             $headers .= "Return-Path: support@ezeepix.com \r\n";
             $headers .= "From: support@ezeepix.com \r\n";
             $headers .= "Organization: Ezeepix\r\n";
-            $headers .= "Content-Type: text/plain\r\n";
+            $headers .= "X-Priority: 2\nX-MSmail-Priority: high";
             $from="support@ezeepix.com";
 
             //'X-Mailer: PHP/' . phpversion();
@@ -100,7 +100,7 @@ class SignupController extends EzzipixController {
                     '&token=' . $data["token"];
 
 
-                if (mail($email, $subject, $message, $headers,"-f$from")) {
+                if (mail($email, $subject, $message, $headers)) {
 
 
                     return true;
