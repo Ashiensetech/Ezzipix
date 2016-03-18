@@ -89,7 +89,7 @@ class SignupController extends EzzipixController {
 
 
 
-            $headers.="MIME-Version: 1.0\n";
+
             $headers .= "X-Priority: 2\nX-MSmail-Priority: high";
             $headers .= "X-Mailer: PHP". phpversion() ."\r\n";
 
