@@ -78,6 +78,7 @@ class SignupController extends EzzipixController {
             $data  = $confirm->setToken($email);
             $headers =  'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $headers .= 'From: support@ezeepix.com' . "\r\n" ;
 
             if ($data) {
                 $subject = 'Email Confirmation : Ezeepix';
@@ -89,9 +90,7 @@ class SignupController extends EzzipixController {
                     ' ' .
                     $this->baseUrl . 'signup.php?r=checkConfirmation&email=' . $email .
                     '&token=' . $data["token"];
-                $headers .= 'From: support@ezeepix.com' . "\r\n" .
-                    'Reply-To: webmaster@example.com' . "\r\n" .
-                    'X-Mailer: PHP/' . phpversion();
+
 
                 if (mail($email, $subject, $message, $headers)) {
 
