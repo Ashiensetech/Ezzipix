@@ -42,8 +42,12 @@ objs/tgl.o: tgl/tgl.c /usr/include/stdc-predef.h config.h tgl/tgl.h \
  /usr/include/linux/errno.h /usr/include/i386-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/assert.h tgl/mtproto-client.h /usr/include/openssl/bn.h \
- tgl/tgl-structures.h tgl/tgl-fetch.h auto/auto-types.h tgl/auto.h \
- tgl/tools.h
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/i386-linux-gnu/bits/posix1_lim.h \
+ /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/i386-linux-gnu/bits/posix2_lim.h tgl/tgl-structures.h \
+ tgl/tgl-fetch.h auto/auto-types.h tgl/auto.h tgl/tools.h
 
 /usr/include/stdc-predef.h:
 
@@ -178,6 +182,20 @@ tgl/tools.h:
 tgl/mtproto-client.h:
 
 /usr/include/openssl/bn.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/i386-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix2_lim.h:
 
 tgl/tgl-structures.h:
 

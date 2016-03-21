@@ -44,10 +44,15 @@ objs/structures.o: tgl/structures.c /usr/include/stdc-predef.h config.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  tgl/tgl.h tgl/mtproto-common.h /usr/include/openssl/rsa.h \
  /usr/include/openssl/asn1.h /usr/include/openssl/bn.h \
- /usr/include/openssl/aes.h tgl/tools.h auto/constants.h tgl/tgl-inner.h \
- tgl/tree.h /usr/include/memory.h /usr/include/openssl/sha.h \
- tgl/queries.h tgl/auto.h tgl/tgl-binlog.h tgl/tgl-methods-in.h \
- tgl/updates.h tgl/mtproto-client.h auto/auto-skip.h auto/auto-fetch-ds.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/i386-linux-gnu/bits/posix1_lim.h \
+ /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/i386-linux-gnu/bits/posix2_lim.h /usr/include/openssl/aes.h \
+ tgl/tools.h auto/constants.h tgl/tgl-inner.h tgl/tree.h \
+ /usr/include/memory.h /usr/include/openssl/sha.h tgl/queries.h \
+ tgl/auto.h tgl/tgl-binlog.h tgl/tgl-methods-in.h tgl/updates.h \
+ tgl/mtproto-client.h auto/auto-skip.h auto/auto-fetch-ds.h \
  auto/auto-free-ds.h
 
 /usr/include/stdc-predef.h:
@@ -199,6 +204,20 @@ tgl/mtproto-common.h:
 /usr/include/openssl/asn1.h:
 
 /usr/include/openssl/bn.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/i386-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/openssl/aes.h:
 

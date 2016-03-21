@@ -1,10 +1,17 @@
 objs/mtproto-utils.o: tgl/mtproto-utils.c /usr/include/stdc-predef.h \
- config.h /usr/include/openssl/bn.h /usr/include/openssl/e_os2.h \
- /usr/include/i386-linux-gnu/openssl/opensslconf.h /usr/include/stdio.h \
- /usr/include/features.h /usr/include/i386-linux-gnu/sys/cdefs.h \
+ config.h /usr/include/openssl/bn.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/features.h \
+ /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \
  /usr/include/i386-linux-gnu/gnu/stubs.h \
  /usr/include/i386-linux-gnu/gnu/stubs-32.h \
+ /usr/include/i386-linux-gnu/bits/posix1_lim.h \
+ /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/i386-linux-gnu/bits/posix2_lim.h \
+ /usr/include/openssl/e_os2.h \
+ /usr/include/i386-linux-gnu/openssl/opensslconf.h /usr/include/stdio.h \
  /usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h \
  /usr/include/i386-linux-gnu/bits/types.h \
  /usr/include/i386-linux-gnu/bits/typesizes.h /usr/include/libio.h \
@@ -49,11 +56,11 @@ config.h:
 
 /usr/include/openssl/bn.h:
 
-/usr/include/openssl/e_os2.h:
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h:
 
-/usr/include/i386-linux-gnu/openssl/opensslconf.h:
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h:
 
-/usr/include/stdio.h:
+/usr/include/limits.h:
 
 /usr/include/features.h:
 
@@ -64,6 +71,20 @@ config.h:
 /usr/include/i386-linux-gnu/gnu/stubs.h:
 
 /usr/include/i386-linux-gnu/gnu/stubs-32.h:
+
+/usr/include/i386-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/i386-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/openssl/e_os2.h:
+
+/usr/include/i386-linux-gnu/openssl/opensslconf.h:
+
+/usr/include/stdio.h:
 
 /usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h:
 

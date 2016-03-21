@@ -75,7 +75,7 @@
                     <a href="<?php echo $this->baseUrl ?>terms.php" class="text-white">Terms of Service</a>
                     <span class="ml5 mr5">|</span>
                     <a href="<?php echo $this->baseUrl ?>contactus.php">Contact Us</a>
-                    <span class="ml5 mr5">|</span>
+                    <!-- <span class="ml5 mr5">|</span>-->
                     <!--<a href="<?php echo $this->baseUrl ?>support.php">Support</a>-->
                     <span class="ml5 mr5">|</span>
                     <a href="<?php echo $this->baseUrl ?>faq.php">FAQ</a>

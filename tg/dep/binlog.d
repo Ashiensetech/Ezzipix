@@ -45,7 +45,13 @@ objs/binlog.o: tgl/binlog.c /usr/include/stdc-predef.h config.h \
  /usr/include/xlocale.h /usr/include/i386-linux-gnu/bits/string.h \
  /usr/include/i386-linux-gnu/bits/string2.h \
  /usr/include/i386-linux-gnu/bits/string3.h /usr/include/assert.h \
- /usr/include/openssl/bn.h /usr/include/openssl/e_os2.h \
+ /usr/include/openssl/bn.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/i386-linux-gnu/bits/posix1_lim.h \
+ /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/i386-linux-gnu/bits/posix2_lim.h \
+ /usr/include/openssl/e_os2.h \
  /usr/include/i386-linux-gnu/openssl/opensslconf.h \
  /usr/include/openssl/ossl_typ.h /usr/include/openssl/crypto.h \
  /usr/include/openssl/stack.h /usr/include/openssl/safestack.h \
@@ -189,6 +195,20 @@ config.h:
 /usr/include/assert.h:
 
 /usr/include/openssl/bn.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/i386-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/openssl/e_os2.h:
 

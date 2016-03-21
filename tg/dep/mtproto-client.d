@@ -69,7 +69,12 @@ objs/mtproto-client.o: tgl/mtproto-client.c /usr/include/stdc-predef.h \
  /usr/include/openssl/bio.h /usr/include/openssl/crypto.h \
  /usr/include/openssl/stack.h /usr/include/openssl/safestack.h \
  /usr/include/openssl/opensslv.h /usr/include/openssl/symhacks.h \
- /usr/include/openssl/bn.h /usr/include/openssl/pem.h \
+ /usr/include/openssl/bn.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/i386-linux-gnu/bits/posix1_lim.h \
+ /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/i386-linux-gnu/bits/posix2_lim.h /usr/include/openssl/pem.h \
  /usr/include/openssl/evp.h /usr/include/openssl/objects.h \
  /usr/include/openssl/obj_mac.h /usr/include/openssl/x509.h \
  /usr/include/openssl/buffer.h /usr/include/openssl/ec.h \
@@ -283,6 +288,20 @@ config.h:
 /usr/include/openssl/symhacks.h:
 
 /usr/include/openssl/bn.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/i386-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/openssl/pem.h:
 

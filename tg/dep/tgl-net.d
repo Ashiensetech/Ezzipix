@@ -76,7 +76,13 @@ objs/tgl-net.o: tgl/tgl-net.c /usr/include/stdc-predef.h config.h \
  /usr/include/openssl/stack.h /usr/include/openssl/safestack.h \
  /usr/include/openssl/opensslv.h /usr/include/openssl/symhacks.h \
  /usr/include/openssl/lhash.h tgl/mtproto-client.h \
- /usr/include/openssl/bn.h
+ /usr/include/openssl/bn.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/i386-linux-gnu/bits/posix1_lim.h \
+ /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/i386-linux-gnu/bits/posix2_lim.h \
+ /usr/include/i386-linux-gnu/bits/xopen_lim.h
 
 /usr/include/stdc-predef.h:
 
@@ -309,3 +315,19 @@ tgl/tools.h:
 tgl/mtproto-client.h:
 
 /usr/include/openssl/bn.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/i386-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/i386-linux-gnu/bits/xopen_lim.h:

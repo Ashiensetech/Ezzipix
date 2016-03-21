@@ -39,15 +39,20 @@ objs/updates.o: tgl/updates.c /usr/include/stdc-predef.h tgl/tgl.h \
  /usr/include/openssl/stack.h /usr/include/openssl/safestack.h \
  /usr/include/openssl/opensslv.h /usr/include/openssl/ossl_typ.h \
  /usr/include/openssl/symhacks.h /usr/include/openssl/bn.h \
- /usr/include/openssl/aes.h /usr/include/assert.h tgl/tools.h \
- /usr/include/openssl/err.h /usr/include/openssl/lhash.h \
- /usr/include/errno.h /usr/include/i386-linux-gnu/bits/errno.h \
- /usr/include/linux/errno.h /usr/include/i386-linux-gnu/asm/errno.h \
- /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- auto/constants.h tgl/tgl-inner.h tgl/tgl-binlog.h auto/auto-types.h \
- tgl/auto.h tgl/tools.h tgl/auto.h auto/auto-skip.h auto/auto-fetch-ds.h \
- auto/auto-free-ds.h tgl/tgl-structures.h tgl/tgl-fetch.h \
- tgl/tgl-methods-in.h tgl/tree.h /usr/include/memory.h
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/i386-linux-gnu/bits/posix1_lim.h \
+ /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/i386-linux-gnu/bits/posix2_lim.h /usr/include/openssl/aes.h \
+ /usr/include/assert.h tgl/tools.h /usr/include/openssl/err.h \
+ /usr/include/openssl/lhash.h /usr/include/errno.h \
+ /usr/include/i386-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/i386-linux-gnu/asm/errno.h /usr/include/asm-generic/errno.h \
+ /usr/include/asm-generic/errno-base.h auto/constants.h tgl/tgl-inner.h \
+ tgl/tgl-binlog.h auto/auto-types.h tgl/auto.h tgl/tools.h tgl/auto.h \
+ auto/auto-skip.h auto/auto-fetch-ds.h auto/auto-free-ds.h \
+ tgl/tgl-structures.h tgl/tgl-fetch.h tgl/tgl-methods-in.h tgl/tree.h \
+ /usr/include/memory.h
 
 /usr/include/stdc-predef.h:
 
@@ -166,6 +171,20 @@ tgl/mtproto-common.h:
 /usr/include/openssl/symhacks.h:
 
 /usr/include/openssl/bn.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/i386-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/openssl/aes.h:
 

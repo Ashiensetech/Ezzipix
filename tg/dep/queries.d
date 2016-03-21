@@ -37,7 +37,13 @@ objs/queries.o: tgl/queries.c /usr/include/stdc-predef.h config.h \
  /usr/include/i386-linux-gnu/bits/fcntl2.h \
  /usr/include/i386-linux-gnu/sys/utsname.h \
  /usr/include/i386-linux-gnu/bits/utsname.h tgl/mtproto-client.h \
- /usr/include/openssl/bn.h /usr/include/openssl/e_os2.h \
+ /usr/include/openssl/bn.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/i386-linux-gnu/bits/posix1_lim.h \
+ /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/i386-linux-gnu/bits/posix2_lim.h \
+ /usr/include/openssl/e_os2.h \
  /usr/include/i386-linux-gnu/openssl/opensslconf.h /usr/include/stdio.h \
  /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
  /usr/lib/gcc/i686-linux-gnu/4.8/include/stdarg.h \
@@ -166,6 +172,20 @@ config.h:
 tgl/mtproto-client.h:
 
 /usr/include/openssl/bn.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/i386-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/openssl/e_os2.h:
 

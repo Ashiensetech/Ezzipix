@@ -26,9 +26,9 @@
                     </div>
                     <div class="row all-grid" id="shuffle-grid">
                         <p class="text-center contact-us-para">
-                            Do you have any question? Any problem? Any request? Even if you just want to chat just give us a call!<br>
+                            Do you have any question? Any problem? Any request?<br>
                             For general questions we encourage you to check out our handy-dandy <a href="<?php echo $this->baseUrl; ?>faq.php">FAQ</a> section first. Chances are there's an answer waiting for you there.<br>
-                            Need to mail us something? We prefer baked goods.
+                          But still you need our help just fill out the "cotact us" from and we will get back tp you ASAP.
                         </p>
 
                         <div class="col-md-8 col-md-offset-2 title-head for-con-lab">

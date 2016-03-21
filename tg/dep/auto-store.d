@@ -43,8 +43,14 @@ objs/auto-store.o: auto/auto-store.c /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/bits/string2.h \
  /usr/include/i386-linux-gnu/bits/string3.h tgl/mtproto-common.h \
  /usr/include/openssl/rsa.h /usr/include/openssl/asn1.h \
- /usr/include/openssl/bn.h /usr/include/openssl/aes.h auto/constants.h \
- tgl/tgl-inner.h auto/auto-store.h tgl/auto-static-store.c
+ /usr/include/openssl/bn.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/i386-linux-gnu/bits/posix1_lim.h \
+ /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/i386-linux-gnu/bits/posix2_lim.h /usr/include/openssl/aes.h \
+ auto/constants.h tgl/tgl-inner.h auto/auto-store.h \
+ tgl/auto-static-store.c
 
 /usr/include/stdc-predef.h:
 
@@ -183,6 +189,20 @@ tgl/mtproto-common.h:
 /usr/include/openssl/asn1.h:
 
 /usr/include/openssl/bn.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/i386-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/openssl/aes.h:
 
