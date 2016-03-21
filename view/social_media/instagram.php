@@ -9,6 +9,7 @@
         <section id="main" role="main">
             <section class="jumbotron jumbotron-bg7 nm upper-margin" data-stellar-background-ratio="0.4" style="min-height:486px;">
                 <div class="overlay pattern pattern2"></div>
+
                 <div class="container" style="padding-top:8%;padding-bottom:8%;" style="background: #444444;">
                     <div class="submitBtnDiv"  onclick="" id="saveBtnDiv" style="visibility:hidden;">
                         <div style="float:left">
@@ -19,6 +20,7 @@
                             <span id="processMsg" > </span>
                         </div>
                     </div>
+
                     <div class="row cstm-width-intagram" id="shuffle-grid">
 
                         <?php
@@ -94,6 +96,7 @@
         <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
 
         <?php include_once dirname(__FILE__) . '/../partial/script/add_picture_script.php' ?>
+
 
 
     </body>

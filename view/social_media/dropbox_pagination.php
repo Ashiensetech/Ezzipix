@@ -16,6 +16,9 @@ session_start();
         <!--/ pattern + overlay -->
         <div class="container" style="padding-top:8%;padding-bottom:8%;" style="background: #444444;">
             <div class="clearfix"></div>
+            <div style="...">
+                <input class="btn btn-success" type="button" value="Select All Image" id="selectBtn">
+            </div>
             <div class="submitBtnDiv"  onclick="" id="saveBtnDiv" style="visibility:hidden;">
                 <div style="float:left;position: fixed;top: 100px;z-index: 998;left: 100px;">
                     <input class="btn btn-success btn-block" type="button" value="Upload Image" onclick="uploadPictures('dropbox')" />
@@ -92,7 +95,7 @@ session_start();
                                         <div class="overlay">
                                             <div class="toolbar">
                                                 <a href="<?php echo $img["auto"]; ?>" class="btn btn-default magnific" title=""><i class="ico-search"></i></a>
-                                                <a href="javascript:void(0)" url="<?php echo $img["auto"]; ?>" onclick="addPictureToSave('dropbox', this)" class="btn btn-success"><i class="ico-plus"></i></a>
+                                                <a href="javascript:void(0)" url="<?php echo $img["auto"]; ?>" onclick="addPictureToSave('dropbox', this)" class="btn btn-success devSelectAll"><i class="ico-plus"></i></a>
                                             </div>
                                         </div>
                                         <img onerror="loadCount()" onload="loadCount()" data-toggle="unveil" src="<?php echo $img["thumb"]; ?>" data-src="<?php echo $img["thumb"]; ?>" alt="Photo" width="100%" height="350px"/>
@@ -246,6 +249,12 @@ session_start();
         });
 
     }
+
+    $("#selectBtn").click(function(){
+
+
+        $(".devSelectAll").trigger("click");
+    });
 
 </script>
 

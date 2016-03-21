@@ -7,6 +7,7 @@
 <body>
 <?php include_once dirname(__FILE__) . '/../partial/menu.php'; ?>
 <section id="main" role="main">
+
     <section class="jumbotron jumbotron-bg7 nm upper-margin" data-stellar-background-ratio="0.4" style="min-height:486px;">
         <div class="overlay pattern pattern2"></div>
         <div class="container" style="padding-top:8%;padding-bottom:8%;" style="background: #444444;">
@@ -14,6 +15,10 @@
                 <div style="float:left">
                     <input class="btn btn-success btn-block" type="button" value="Upload Image" onclick="uploadPictures('instagram')" />
                 </div>
+                <div style="...">
+                    <input class="btn btn-success" type="button" value="Select All Image" id="selectBtn">
+                </div>
+
                 <div  style="float:left;padding:4px 0px 0px 6px;">
                     <img  id="loadingImg" src="<?php echo $this->baseUrl . 'html_template/dist/image/loading/spinner.gif'; ?>" style="display: none;"/>
                     <span id="processMsg" > </span>
@@ -67,7 +72,9 @@
 
                     }
 
+
                     foreach ($partialImageGallery as $img) {
+
                         if(empty($img))
                             continue;
                         ?>
@@ -86,7 +93,7 @@
                                         <div class="overlay">
                                             <div class="toolbar">
                                                 <a href="<?php echo $img->images->standard_resolution->url; ?>" class="btn btn-default magnific" title=""><i class="ico-search"></i></a>
-                                                <a href="javascript:void(0)" url="<?php echo $img->images->standard_resolution->url; ?>" onclick="addPictureToSave('instagram', this)" class="btn btn-success"><i class="ico-plus"></i></a>
+                                                <a href="javascript:void(0)" url="<?php echo $img->images->standard_resolution->url; ?>" onclick="addPictureToSave('instagram', this)" class="btn btn-success devSelectAll"><i class="ico-plus"></i></a>
                                             </div>
                                         </div>
                                         <img data-toggle="unveil" src="<?php echo $img->images->standard_resolution->url; ?>" data-src="<?php echo $img->images->standard_resolution->url; ?>" alt="Photo" width="100%" height="350px"/>
@@ -140,6 +147,13 @@
 <input id="allImg" type="hidden" value='<?php echo $allImg; ?>'/>
 
 <?php include_once dirname(__FILE__) . '/../partial/script/add_picture_script.php' ?>
+<script>
+    $("#selectBtn").click(function(){
+
+
+        $(".devSelectAll").trigger("click");
+    });
+</script>
 
 
 </body>
