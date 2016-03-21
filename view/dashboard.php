@@ -111,10 +111,10 @@ LAST UPDATE: 2015/01/05
                                                         <a href="" class="btn btn-default btn-block btn-cstm btn-activate" data-toggle="modal" data-target="#myModal" >Deactivate</a>
                                                     </div>
                                                 <?php } else { ?>
-                                                   <!-- <div class="col-md-12 service-main-name middle-class service-text">
+                                                   <div class="col-md-12 service-main-name middle-class service-text">
                                                         <label><?php echo @$service['service_user_id'] ?></label>
                                                     </div>
-                                                    <div class="col-md-12 service-main-name middle-class cs-mr-bt pull-right">
+                                                  <!--  <div class="col-md-12 service-main-name middle-class cs-mr-bt pull-right">
 
                                                         <a href="" class="btn btn-default btn-block btn-cstm btn-deactivate" disabled="disabled" onclick="activeService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
                                                                         return false;">Activate</a>
@@ -220,6 +220,7 @@ LAST UPDATE: 2015/01/05
     <!--/ END Body -->
     <script>
         function cancelService(serviceProviderId, userServiceId) {
+
 
 
             //   $("#verification_code_msg").css({'display': 'none'});

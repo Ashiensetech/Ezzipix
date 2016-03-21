@@ -87,6 +87,130 @@
                                         This makes us sad! We always want our customer to be happy. Please email at support@ezeepix.com with the reason you are not happy and any pictures you feel are necessary to show us what might be wrong with your product and we will do our absolute best to make you happy again! 
                                     </div>
                                 </div>
+
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo7" class="collapse-button block-normal">My piece has been damaged upon arrival. What do I do?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo7" class="collapse collapse-data-div">
+
+
+
+                                        While we make every effort to ensure your product arrives in perfect condition, sometimes bad things happen.
+                                        Hold on to all packaging, take pictures of damage and the packaging and use this form to submit a reprint request.
+                                        We will ship out a reprint ASAP.
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo8" class="collapse-button block-normal">Do you offer products in sizes or options different than the options on your website?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo8" class="collapse collapse-data-div">
+
+
+
+                                        We are doing new things every day and always trying to satisfy our customers.  Therefore if you do not see the size you want, please email us and we will see what we can do for you!
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo9" class="collapse-button block-normal">I have an image file type not supported by your uploader (i.e PDF, RAW). What do I do?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo9" class="collapse collapse-data-div">
+
+
+
+                                       Please send us mail at support@ezeepix.com to see if we can help!
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo10" class="collapse-button block-normal">What is the maximum file size you can accept through your website?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo10" class="collapse collapse-data-div">
+
+
+
+
+                                        The maximum file size is 30MB.
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo11" class="collapse-button block-normal">What is your privacy policy with regards to the use of my images?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo11" class="collapse collapse-data-div">
+
+
+
+
+
+                                        Please see privacy policy at <a href="https://www.ezeepix.com/policy.php">https://www.ezeepix.com/policy.php</a>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo12" class="collapse-button block-normal">I would like to change the image that I originally submitted with my order. How do I do this?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo12" class="collapse collapse-data-div">
+
+                                        This is not possible, we will give you a discount on your next order.
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo13" class="collapse-button block-normal">I'm not sure if my image is copyrighted or not, what happens if it is? Will you inform me?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo13" class="collapse collapse-data-div">
+
+
+                                        Yes, your order will be suspended and you will be contacted.
+
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo14" class="collapse-button block-normal">Will you send me tracking information once my products have shipped?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo14" class="collapse collapse-data-div">
+
+
+
+                                        You will receive two emails from us. The first email will be a confirmation that we received your order. The second email will be confirmation that your order has shipped and include a tracking link!
+
+
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo15" class="collapse-button block-normal">What are your shipping options?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo15" class="collapse collapse-data-div">
+
+                                        Depending on the product and your country, we use a variety of shipping methods to optimize delivery time, delivery success, and delivery cost. We use in total over 15 carriers internationally.
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo16" class="collapse-button block-normal">Who do you ship with?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo16" class="collapse collapse-data-div">
+
+
+                                        We use multiple companies-- UPS, USPS, Fedex, DHL, and more. For more specifics, feel free to reach out to our
+
+                                    </div>
+                                </div>
+
+
                                 <div class="col-md-12 collapse-full">
                                     <button data-toggle="collapse" data-target="#demo3" class="collapse-button block-normal">I need my order by a certain date, what do I do?<i class="fa fa-chevron-circle-down"></i></button>
 
