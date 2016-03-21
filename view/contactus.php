@@ -28,7 +28,7 @@
                         <p class="text-center contact-us-para">
                             Do you have any question? Any problem? Any request?<br>
                             For general questions we encourage you to check out our handy-dandy <a href="<?php echo $this->baseUrl; ?>faq.php">FAQ</a> section first. Chances are there's an answer waiting for you there.<br>
-                          But still you need our help just fill out the "cotact us" from and we will get back tp you ASAP.
+                          But still you need our help just fill out the "cotact us" from and we will get back to you ASAP.
                         </p>
 
                         <div class="col-md-8 col-md-offset-2 title-head for-con-lab">

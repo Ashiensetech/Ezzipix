@@ -147,7 +147,7 @@
 
 
 
-                                        Please see privacy policy at <a href="https://www.ezeepix.com/policy.php">https://www.ezeepix.com/policy.php</a>
+                                        Please see privacy policy at <a href="https://www.ezeepix.com/policy.php">https://www.ezeepix.com/privacy</a>
 
 
                                     </div>
@@ -205,7 +205,7 @@
                                     <div id="demo16" class="collapse collapse-data-div">
 
 
-                                        We use multiple companies-- UPS, USPS, Fedex, DHL, and more. For more specifics, feel free to reach out to our
+                                        We use multiple companies-- UPS, USPS, Fedex, DHL, and more. For more specifics, feel free to mail us at support@ezeepix.com
 
                                     </div>
                                 </div>
@@ -217,7 +217,7 @@
                                     <div id="demo3" class="collapse collapse-data-div">
 
 
-                                        Please email at support@ezeepix.com with your address, and requested item for us to confirm if the request is possible. <a href="https://www.ezeepix.com/home.php">www.ezeepix.com</a>
+                                        Please email at support@ezeepix.com with your address, and requested item for us to confirm if the request is possible. <a href="https://www.ezeepix.com/policy.php">www.ezeepix.com/privacy</a>
                                     </div>
                                 </div>   
                                 <div class="col-md-12 collapse-full">
@@ -235,7 +235,7 @@
                                     <div id="demo5" class="collapse collapse-data-div">
 
 
-                                        We can ship to any address you want as long as it is not a P.O Box. If you have questions about the address you want to ship it to, please don't hesitate to email us at 
+                                        We can ship to any address you want as long as it is not a P.O Box. If you have questions about the address you want to ship it to, please don't hesitate to email us at support@ezeepix.com
                                     </div>
                                 </div>
                                 <div class="col-md-12 collapse-full">
@@ -247,7 +247,50 @@
                                         We accept gif, jpg, and png images.
 
                                     </div>
-                                </div>   
+                                </div>
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo17" class="collapse-button block-normal">Why do you charge my credit card before my product has been produced?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo17" class="collapse collapse-data-div">
+
+
+
+                                        To ensure you are totally satisfied with your purchase, Ezeepix will not charge your credit card until your purchase has been shipped. At the time you place your order, we'll pre-authorize your card for the total amount plus all applicable taxes and shipping charges (if any).
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo18" class="collapse-button block-normal">I cancelled my order, why haven't I seen a refund on my credit card?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo18" class="collapse collapse-data-div">
+
+
+
+
+                                        Please email us if you have not seen a refund within 5 business days, chances are that the funds are already on the way back to you, the bank might just take a bit longer.
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 collapse-full">
+                                    <button data-toggle="collapse" data-target="#demo19" class="collapse-button block-normal">Can I pay with cash or check?<i class="fa fa-chevron-circle-down"></i></button>
+
+                                    <div id="demo19" class="collapse collapse-data-div">
+
+
+
+
+
+                                        Unfortunately we only accept Credit Card or Paypal, but its safer and more secure for everyone. We hope you will still shop with us!
+
+
+
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="col-md-4 no-padding faq-image">
                                 <img src="<?php echo $this->baseUrl . 'html_template/dist/image/faq.png'; ?>">
