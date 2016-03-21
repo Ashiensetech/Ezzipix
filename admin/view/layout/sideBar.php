@@ -62,9 +62,9 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a onclick="check(1);" href="#"><i class="fa fa-users"></i>Reset WhatsApp</a></li>
-                    <li><a onclick="check(2);" href="#"><i class="fa fa-users"></i>Reset Telegram </a></li>
+
                     <li><a onclick="check(3);" href="#"><i class="fa fa-users"></i>Whats-app Status </a></li>
-                    <li><a onclick="check(4);" href="#"><i class="fa fa-users"></i>Telegram Status </a></li>
+
                 </ul>
             </li>
             <li class="treeview">

@@ -254,6 +254,7 @@ session_start();
 
 
         $(".devSelectAll").trigger("click");
+        $( "#selectBtn" ).prop( "disabled", true );
     });
 
 </script>
