@@ -9,7 +9,7 @@ class UserService extends EzzipixModel {
     }
 
     public function getAllService($uId) {
-        $sql = "SELECT p.id as spId,p.name, u.service_user_id, u.active AS active FROM user_service u, service_provider p WHERE u_id = $uId AND p.id = u.service_provider_id ORDER BY p.id";
+        $sql = "SELECT p.id as spId,p.name, u.service_user_id, u.active AS active FROM user_service u, service_provider p WHERE u_id = $uId AND p.id = u.service_provider_id AND u.active=1 ORDER BY p.id";
 
         return $this->getArrayData(mysql_query($sql));
     }

@@ -50,6 +50,7 @@ LAST UPDATE: 2015/01/05
                                             </div>
                                             <div class="col-md-6 cstm-p-profile padding-left-o">
                                                 <p><?php echo @$user['first_name'] ?><?php echo @$user['last_name'] ?></p>
+
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -88,7 +89,12 @@ LAST UPDATE: 2015/01/05
                                     ?>
                                     <div class="col-md-6 left-border">
                                         <?php
+                                        $serviceNumber=null;
+                                        print_r(count($services));
                                         foreach ($services as $service) {
+
+
+
                                             if ($service['spId'] > 2)
                                                 continue;
                                             if ($service['spId'] == 1) {
@@ -96,6 +102,7 @@ LAST UPDATE: 2015/01/05
                                             }
                                             if ($service['spId'] == 2) {
                                                 $hasWhatsApp = 1;
+
                                             }
                                             ?>
                                             <div class="col-md-12">
@@ -108,18 +115,16 @@ LAST UPDATE: 2015/01/05
                                                         <label><?php echo @$service['service_user_id']; ?></label>
                                                     </div>
                                                     <div class="col-md-12 service-main-name middle-class cstm-image-profile cs-mr-bt pull-right">
-                                                        <a href="" class="btn btn-default btn-block btn-cstm btn-activate" data-toggle="modal" data-target="#myModal" >Deactivate</a>
+                                                        <a href="" class="btn btn-default btn-block btn-cstm btn-activate" onclick="setServiceId(<?=$service['service_user_id']?>,<?=$service['spId']?>);" data-toggle="modal" data-target="#myModal" >Deactivate</a>
                                                     </div>
-                                                <?php } else { ?>
-                                                   <div class="col-md-12 service-main-name middle-class service-text">
-                                                        <label><?php echo @$service['service_user_id'] ?></label>
-                                                    </div>
-                                                  <!--  <div class="col-md-12 service-main-name middle-class cs-mr-bt pull-right">
 
-                                                        <a href="" class="btn btn-default btn-block btn-cstm btn-deactivate" disabled="disabled" onclick="activeService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
-                                                                        return false;">Activate</a>
-                                                    </div>-->
-                                                <?php } ?>
+
+
+
+
+                                                <?php }  ?>
+
+
                                             </div>
                                             <?php
                                         }
@@ -208,18 +213,20 @@ LAST UPDATE: 2015/01/05
                     </div>
                     <div class="modal-body cstm-mod-body">
                         <p>Are you sure you want to deactivate your What's App account</p>
-                        <button type="button" class="btn btn-success cstm-right-mrg" data-dismiss="modal" onclick="cancelService(<?php echo @$service['spId']; ?>,<?php echo @$service['service_user_id']; ?>);
-                            return false;">Yes</button>
-                        <button type="button" class="btn btn-danger cstm-left-mrg" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-success cstm-right-mrg" data-dismiss="modal" onclick="cancelService();
+                                                                        return false;">Yes</button>
+                        <button type="button" class="btn btn-danger cstm-left-mrg" data-dismiss="modal" onclick="resetId()">No</button>
                     </div>
                 </div>
             </div>
         </div>
 
+
     </body>
     <!--/ END Body -->
     <script>
-        function cancelService(serviceProviderId, userServiceId) {
+        var userServiceId,serviceProviderId;
+        function cancelService() {
 
 
 
@@ -248,7 +255,8 @@ LAST UPDATE: 2015/01/05
                 }
             });
         }
-        function activeService(serviceProviderId, userServiceId) {
+
+        function activeService(serviceProviderId) {
             if (!confirm('Are you sure?')) {
                 return false;
             }
@@ -280,6 +288,18 @@ LAST UPDATE: 2015/01/05
                     //   $("#verification_code_msg").css({'display': ''});
                 }
             });
+        }
+
+        function setServiceId(usd,sid){
+            userServiceId=usd;
+            serviceProviderId=sid;
+
+        }
+
+        function resetId(){
+
+            userServiceId=null;
+            serviceProviderId=null;
         }
     </script>
 </html>

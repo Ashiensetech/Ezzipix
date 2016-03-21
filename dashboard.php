@@ -16,6 +16,8 @@ class DashboardController extends AuthController {
         $this->pageData['user']     = $user->getUserById($_SESSION['uId'])[0];
         $this->pageData['services'] = $userService->getAllService($_SESSION['uId']);
 
+
+
         $this->loadView('dashboard', $this->pageData);
     }
 
