@@ -38,7 +38,7 @@ class WhatsAppReceiveDataController  {
                 return;
                 //$this->start();
             }
-            $data;
+            
             if($this->API->pullMessage()){
 
                 $data = $this->API->getMessages();
