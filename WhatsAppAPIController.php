@@ -6,9 +6,11 @@ require 'lib/WhatsApi/src/whatsprot.class.php';
 require 'lib/WhatsApi/src/events/MyEvents.php';
 class WhatsAppAPIController {
     /* --- Server --- */
+    //new :pZdkyDZKdKSUWj3Q3YLdTUShUBc=
+    //old: F7xxjlf90mpxVxXf1FwFJYrlNRA=
     public $username  = "16465982050";
     public $nickname  = "Ezeepix";
-    public $password  = "F7xxjlf90mpxVxXf1FwFJYrlNRA=";
+    public $password  = "pZdkyDZKdKSUWj3Q3YLdTUShUBc=";
     public $imei ="";
 
     /* --- Local --- */
