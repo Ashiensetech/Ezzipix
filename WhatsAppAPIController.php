@@ -9,6 +9,7 @@ class WhatsAppAPIController {
     public $username  = "16465982050";
     public $nickname  = "Ezeepix";
     public $password  = "F7xxjlf90mpxVxXf1FwFJYrlNRA=";
+    public $imei ="";
 
     /* --- Local --- */
 
@@ -22,7 +23,7 @@ class WhatsAppAPIController {
 
 
     function __construct() {
-        $this->w = new WhatsProt($this->username, $this->nickname, $this->debug);
+        $this->w = new WhatsProt($this->username,$this->imei, $this->nickname, $this->debug);
         $this->w->eventManager()->bind('onGetSyncResult', '$this->onSyncResult');
         if($this->w->connect()){
             $this->w->loginWithPassword($this->password);
