@@ -14,7 +14,7 @@ class WhatsAppAPIController {
     /* --- Local --- */
 
 
-    public $debug     = TRUE;
+    public $debug     = FALSE;
     public $w         = NULL;
     public $target    = NULL; // The number of the person you are sending the message
     public $message   = NULL;
